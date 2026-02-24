@@ -1,0 +1,3083 @@
+{
+  "event": {
+    "name": "XYZcon",
+    "year": 2026,
+    "timezone": "Australia/Sydney",
+    "startDate": "2026-09-03",
+    "endDate": "2026-09-04"
+  },
+  "schemaVersion": "1.0",
+  "notes": "All session times are naive local times in the event timezone (see event.timezone).",
+  "sessions": [
+    {
+      "id": "A260903132002",
+      "title": "Constant Contact",
+      "track": "App Spotlight",
+      "stageNumber": "Stage 1",
+      "stage": "App Spotlight",
+      "startDateTime": "2026-09-03T13:20:00",
+      "endDateTime": "2026-09-03T13:35:00",
+      "tags": [
+        "CRM and marketing",
+        "Other"
+      ],
+      "regions": [
+        "United States"
+      ],
+      "metadata": {
+        "appPartner": "Constant Contact"
+      }
+    },
+    {
+      "id": "A260903134505",
+      "title": "WorkflowMax",
+      "track": "App Spotlight",
+      "stageNumber": "Stage 1",
+      "stage": "App Spotlight",
+      "startDateTime": "2026-09-03T13:45:00",
+      "endDateTime": "2026-09-03T14:00:00",
+      "tags": [
+        "Invoicing and jobs",
+        "Time tracking"
+      ],
+      "regions": [
+        "Australia",
+        "Canada",
+        "Global",
+        "Hong Kong",
+        "Indonesia",
+        "Ireland",
+        "Malaysia",
+        "New Zealand",
+        "Philippines",
+        "Singapore",
+        "South Africa",
+        "United Kingdom",
+        "United States"
+      ],
+      "metadata": {
+        "appPartner": "WorkflowMax"
+      }
+    },
+    {
+      "id": "A260903141005",
+      "title": "Translucent",
+      "track": "App Spotlight",
+      "stageNumber": "Stage 1",
+      "stage": "App Spotlight",
+      "startDateTime": "2026-09-03T14:10:00",
+      "endDateTime": "2026-09-03T14:25:00",
+      "tags": [
+        "Accountant tools",
+        "Reporting and forecasting"
+      ],
+      "regions": [
+        "Australia",
+        "Canada",
+        "Global",
+        "Hong Kong",
+        "Indonesia",
+        "Ireland",
+        "Malaysia",
+        "New Zealand",
+        "Philippines",
+        "Singapore",
+        "South Africa",
+        "United Kingdom",
+        "United States"
+      ],
+      "metadata": {
+        "appPartner": "Translucent"
+      }
+    },
+    {
+      "id": "A260903143001",
+      "title": "ApprovalMax",
+      "track": "App Spotlight",
+      "stageNumber": "Stage 1",
+      "stage": "App Spotlight",
+      "startDateTime": "2026-09-03T14:30:00",
+      "endDateTime": "2026-09-03T14:45:00",
+      "tags": [
+        "Bills and expenses",
+        "Invoicing and jobs"
+      ],
+      "regions": [
+        "Australia",
+        "Canada",
+        "Global",
+        "Hong Kong",
+        "Indonesia",
+        "Ireland",
+        "Malaysia",
+        "New Zealand",
+        "Philippines",
+        "Singapore",
+        "South Africa",
+        "United Kingdom",
+        "United States"
+      ],
+      "metadata": {
+        "appPartner": "ApprovalMax"
+      }
+    },
+    {
+      "id": "A260903145505",
+      "title": "WorkGuru",
+      "track": "App Spotlight",
+      "stageNumber": "Stage 1",
+      "stage": "App Spotlight",
+      "startDateTime": "2026-09-03T14:55:00",
+      "endDateTime": "2026-09-03T15:10:00",
+      "tags": [
+        "Inventory",
+        "Invoicing and jobs"
+      ],
+      "regions": [
+        "Australia",
+        "Global",
+        "Ireland",
+        "New Zealand",
+        "United Kingdom"
+      ],
+      "metadata": {
+        "appPartner": "WorkGuru"
+      }
+    },
+    {
+      "id": "A260903152002",
+      "title": "Constant Contact",
+      "track": "App Spotlight",
+      "stageNumber": "Stage 1",
+      "stage": "App Spotlight",
+      "startDateTime": "2026-09-03T15:20:00",
+      "endDateTime": "2026-09-03T15:35:00",
+      "tags": [
+        "CRM and marketing",
+        "Other"
+      ],
+      "regions": [
+        "United States"
+      ],
+      "metadata": {
+        "appPartner": "Constant Contact"
+      }
+    },
+    {
+      "id": "A260903132003",
+      "title": "Dashboard Insights",
+      "track": "App Spotlight",
+      "stageNumber": "Stage 2",
+      "stage": "App Spotlight",
+      "startDateTime": "2026-09-03T13:20:00",
+      "endDateTime": "2026-09-03T13:35:00",
+      "tags": [
+        "Accountant tools",
+        "Practice manager"
+      ],
+      "regions": [
+        "Australia",
+        "New Zealand"
+      ],
+      "metadata": {
+        "appPartner": "Dashboard Insights"
+      }
+    },
+    {
+      "id": "A260903134501",
+      "title": "ATO SmartDocs",
+      "track": "App Spotlight",
+      "stageNumber": "Stage 2",
+      "stage": "App Spotlight",
+      "startDateTime": "2026-09-03T13:45:00",
+      "endDateTime": "2026-09-03T14:00:00",
+      "tags": [
+        "Accountant tools",
+        "Documents"
+      ],
+      "regions": [
+        "Australia"
+      ],
+      "metadata": {
+        "appPartner": "ATO SmartDocs"
+      }
+    },
+    {
+      "id": "A260903141001",
+      "title": "ChangeGPS",
+      "track": "App Spotlight",
+      "stageNumber": "Stage 2",
+      "stage": "App Spotlight",
+      "startDateTime": "2026-09-03T14:10:00",
+      "endDateTime": "2026-09-03T14:25:00",
+      "tags": [
+        "Accountant tools"
+      ],
+      "regions": [
+        "Australia"
+      ],
+      "metadata": {
+        "appPartner": "ChangeGPS"
+      }
+    },
+    {
+      "id": "A260903143004",
+      "title": "Ignition",
+      "track": "App Spotlight",
+      "stageNumber": "Stage 2",
+      "stage": "App Spotlight",
+      "startDateTime": "2026-09-03T14:30:00",
+      "endDateTime": "2026-09-03T14:45:00",
+      "tags": [
+        "Accountant tools",
+        "Practice manager"
+      ],
+      "regions": [
+        "Australia",
+        "Canada",
+        "Global",
+        "Hong Kong",
+        "Indonesia",
+        "Ireland",
+        "Malaysia",
+        "New Zealand",
+        "Philippines",
+        "Singapore",
+        "South Africa",
+        "United Kingdom",
+        "United States"
+      ],
+      "metadata": {
+        "appPartner": "Ignition"
+      }
+    },
+    {
+      "id": "A260903145501",
+      "title": "ATOmate",
+      "track": "App Spotlight",
+      "stageNumber": "Stage 2",
+      "stage": "App Spotlight",
+      "startDateTime": "2026-09-03T14:55:00",
+      "endDateTime": "2026-09-03T15:10:00",
+      "tags": [
+        "Accountant tools",
+        "Documents"
+      ],
+      "regions": [
+        "Australia"
+      ],
+      "metadata": {
+        "appPartner": "ATOmate"
+      }
+    },
+    {
+      "id": "A260903152005",
+      "title": "Xbert",
+      "track": "App Spotlight",
+      "stageNumber": "Stage 2",
+      "stage": "App Spotlight",
+      "startDateTime": "2026-09-03T15:20:00",
+      "endDateTime": "2026-09-03T15:35:00",
+      "tags": [
+        "Accountant tools",
+        "Practice manager"
+      ],
+      "regions": [
+        "Australia",
+        "Canada",
+        "New Zealand",
+        "South Africa",
+        "United Kingdom",
+        "United States"
+      ],
+      "metadata": {
+        "appPartner": "Xbert"
+      }
+    },
+    {
+      "id": "A260903154501",
+      "title": "FYI",
+      "track": "App Spotlight",
+      "stageNumber": "Stage 2",
+      "stage": "App Spotlight",
+      "startDateTime": "2026-09-03T15:45:00",
+      "endDateTime": "2026-09-03T16:00:00",
+      "tags": [
+        "Documents",
+        "Practice manager"
+      ],
+      "regions": [
+        "Australia",
+        "New Zealand",
+        "United Kingdom"
+      ],
+      "metadata": {
+        "appPartner": "FYI"
+      }
+    },
+    {
+      "id": "A260903132004",
+      "title": "Dext",
+      "track": "App Spotlight",
+      "stageNumber": "Stage 3",
+      "stage": "App Spotlight",
+      "startDateTime": "2026-09-03T13:20:00",
+      "endDateTime": "2026-09-03T13:35:00",
+      "tags": [
+        "Accountant tools",
+        "Bills and expenses"
+      ],
+      "regions": [
+        "Australia",
+        "Canada",
+        "Global",
+        "Hong Kong",
+        "Indonesia",
+        "Ireland",
+        "Malaysia",
+        "New Zealand",
+        "Philippines",
+        "Singapore",
+        "South Africa",
+        "United Kingdom",
+        "United States"
+      ],
+      "metadata": {
+        "appPartner": "Dext"
+      }
+    },
+    {
+      "id": "A260903134502",
+      "title": "AccountKit",
+      "track": "App Spotlight",
+      "stageNumber": "Stage 3",
+      "stage": "App Spotlight",
+      "startDateTime": "2026-09-03T13:45:00",
+      "endDateTime": "2026-09-03T14:00:00",
+      "tags": [
+        "Accountant tools",
+        "Practice manager"
+      ],
+      "regions": [
+        "Australia",
+        "Canada",
+        "New Zealand",
+        "United Kingdom",
+        "United States"
+      ],
+      "metadata": {
+        "appPartner": "AccountKit"
+      }
+    },
+    {
+      "id": "A260903141002",
+      "title": "FuseSign",
+      "track": "App Spotlight",
+      "stageNumber": "Stage 3",
+      "stage": "App Spotlight",
+      "startDateTime": "2026-09-03T14:10:00",
+      "endDateTime": "2026-09-03T14:25:00",
+      "tags": [
+        "Accountant tools",
+        "Practice manager"
+      ],
+      "regions": [
+        "Australia",
+        "Canada",
+        "Global",
+        "Hong Kong",
+        "Indonesia",
+        "Ireland",
+        "Malaysia",
+        "New Zealand",
+        "Philippines",
+        "Singapore",
+        "South Africa",
+        "United Kingdom",
+        "United States"
+      ],
+      "metadata": {
+        "appPartner": "FuseSign"
+      }
+    },
+    {
+      "id": "A260903143002",
+      "title": "BGL Corporate Solutions",
+      "track": "App Spotlight",
+      "stageNumber": "Stage 3",
+      "stage": "App Spotlight",
+      "startDateTime": "2026-09-03T14:30:00",
+      "endDateTime": "2026-09-03T14:45:00",
+      "tags": [
+        "Practice manager"
+      ],
+      "regions": [
+        "Australia"
+      ],
+      "metadata": {
+        "appPartner": "BGL Corporate Solutions"
+      }
+    },
+    {
+      "id": "A260903145502",
+      "title": "Dext",
+      "track": "App Spotlight",
+      "stageNumber": "Stage 3",
+      "stage": "App Spotlight",
+      "startDateTime": "2026-09-03T14:55:00",
+      "endDateTime": "2026-09-03T15:10:00",
+      "tags": [
+        "Accountant tools",
+        "Bills and expenses"
+      ],
+      "regions": [
+        "Australia",
+        "Canada",
+        "Global",
+        "Hong Kong",
+        "Indonesia",
+        "Ireland",
+        "Malaysia",
+        "New Zealand",
+        "Philippines",
+        "Singapore",
+        "South Africa",
+        "United Kingdom",
+        "United States"
+      ],
+      "metadata": {
+        "appPartner": "Dext"
+      }
+    },
+    {
+      "id": "A260903152004",
+      "title": "SuiteFIles",
+      "track": "App Spotlight",
+      "stageNumber": "Stage 3",
+      "stage": "App Spotlight",
+      "startDateTime": "2026-09-03T15:20:00",
+      "endDateTime": "2026-09-03T15:35:00",
+      "tags": [
+        "Documents",
+        "Practice manager"
+      ],
+      "regions": [
+        "Australia",
+        "Canada",
+        "Global",
+        "Hong Kong",
+        "Indonesia",
+        "Ireland",
+        "Malaysia",
+        "New Zealand",
+        "Philippines",
+        "Singapore",
+        "South Africa",
+        "United Kingdom",
+        "United States"
+      ],
+      "metadata": {
+        "appPartner": "SuiteFIles"
+      }
+    },
+    {
+      "id": "A260903154502",
+      "title": "Plus91",
+      "track": "App Spotlight",
+      "stageNumber": "Stage 3",
+      "stage": "App Spotlight",
+      "startDateTime": "2026-09-03T15:45:00",
+      "endDateTime": "2026-09-03T16:00:00",
+      "tags": [
+        "Accountant tools"
+      ],
+      "regions": [
+        "Australia",
+        "New Zealand"
+      ],
+      "metadata": {
+        "appPartner": "Plus91"
+      }
+    },
+    {
+      "id": "A260903132001",
+      "title": "ANZ",
+      "track": "App Spotlight",
+      "stageNumber": "Stage 4",
+      "stage": "App Spotlight",
+      "startDateTime": "2026-09-03T13:20:00",
+      "endDateTime": "2026-09-03T13:35:00",
+      "tags": [
+        "Loans",
+        "financing and credit"
+      ],
+      "regions": [
+        "Australia",
+        "New Zealand"
+      ],
+      "metadata": {
+        "appPartner": "ANZ"
+      }
+    },
+    {
+      "id": "A260903134503",
+      "title": "Pinch Payments",
+      "track": "App Spotlight",
+      "stageNumber": "Stage 4",
+      "stage": "App Spotlight",
+      "startDateTime": "2026-09-03T13:45:00",
+      "endDateTime": "2026-09-03T14:00:00",
+      "tags": [
+        "Payments",
+        "Invoicing and jobs"
+      ],
+      "regions": [
+        "Australia",
+        "New Zealand"
+      ],
+      "metadata": {
+        "appPartner": "Pinch Payments"
+      }
+    },
+    {
+      "id": "A260903141003",
+      "title": "GoCardless",
+      "track": "App Spotlight",
+      "stageNumber": "Stage 4",
+      "stage": "App Spotlight",
+      "startDateTime": "2026-09-03T14:10:00",
+      "endDateTime": "2026-09-03T14:25:00",
+      "tags": [
+        "Payments"
+      ],
+      "regions": [
+        "Australia",
+        "Canada",
+        "Ireland",
+        "New Zealand",
+        "United Kingdom",
+        "United States"
+      ],
+      "metadata": {
+        "appPartner": "GoCardless"
+      }
+    },
+    {
+      "id": "A260903143005",
+      "title": "OFX",
+      "track": "App Spotlight",
+      "stageNumber": "Stage 4",
+      "stage": "App Spotlight",
+      "startDateTime": "2026-09-03T14:30:00",
+      "endDateTime": "2026-09-03T14:45:00",
+      "tags": [
+        "Bills and expenses",
+        "Payments"
+      ],
+      "regions": [
+        "Australia"
+      ],
+      "metadata": {
+        "appPartner": "OFX"
+      }
+    },
+    {
+      "id": "A260903145504",
+      "title": "Pinch Payments",
+      "track": "App Spotlight",
+      "stageNumber": "Stage 4",
+      "stage": "App Spotlight",
+      "startDateTime": "2026-09-03T14:55:00",
+      "endDateTime": "2026-09-03T15:10:00",
+      "tags": [
+        "Payments",
+        "Invoicing and jobs"
+      ],
+      "regions": [
+        "Australia",
+        "New Zealand"
+      ],
+      "metadata": {
+        "appPartner": "Pinch Payments"
+      }
+    },
+    {
+      "id": "A260903152001",
+      "title": "Cin7",
+      "track": "App Spotlight",
+      "stageNumber": "Stage 4",
+      "stage": "App Spotlight",
+      "startDateTime": "2026-09-03T15:20:00",
+      "endDateTime": "2026-09-03T15:35:00",
+      "tags": [
+        "Inventory",
+        "Ecommerce"
+      ],
+      "regions": [
+        "Australia",
+        "Canada",
+        "Global",
+        "Hong Kong",
+        "Indonesia",
+        "Ireland",
+        "Malaysia",
+        "New Zealand",
+        "Philippines",
+        "Singapore",
+        "South Africa",
+        "United Kingdom",
+        "United States"
+      ],
+      "metadata": {
+        "appPartner": "Cin7"
+      }
+    },
+    {
+      "id": "A260903132005",
+      "title": "Fathom",
+      "track": "App Spotlight",
+      "stageNumber": "Stage 5",
+      "stage": "App Spotlight",
+      "startDateTime": "2026-09-03T13:20:00",
+      "endDateTime": "2026-09-03T13:35:00",
+      "tags": [
+        "Accountant tools",
+        "Reporting and forecasting"
+      ],
+      "regions": [
+        "Australia",
+        "Canada",
+        "Global",
+        "Hong Kong",
+        "Indonesia",
+        "Ireland",
+        "Malaysia",
+        "New Zealand",
+        "Philippines",
+        "Singapore",
+        "South Africa",
+        "United Kingdom",
+        "United States"
+      ],
+      "metadata": {
+        "appPartner": "Fathom"
+      }
+    },
+    {
+      "id": "A260903134504",
+      "title": "Tanda",
+      "track": "App Spotlight",
+      "stageNumber": "Stage 5",
+      "stage": "App Spotlight",
+      "startDateTime": "2026-09-03T13:45:00",
+      "endDateTime": "2026-09-03T14:00:00",
+      "tags": [
+        "Payroll HR",
+        "Time tracking"
+      ],
+      "regions": [
+        "Australia",
+        "New Zealand",
+        "United Kingdom",
+        "United States"
+      ],
+      "metadata": {
+        "appPartner": "Tanda"
+      }
+    },
+    {
+      "id": "A260903141004",
+      "title": "Lightyear AP",
+      "track": "App Spotlight",
+      "stageNumber": "Stage 5",
+      "stage": "App Spotlight",
+      "startDateTime": "2026-09-03T14:10:00",
+      "endDateTime": "2026-09-03T14:25:00",
+      "tags": [
+        "Invoicing and jobs",
+        "Bills and expenses"
+      ],
+      "regions": [
+        "Australia",
+        "Canada",
+        "Global",
+        "Hong Kong",
+        "Ireland",
+        "Malaysia",
+        "New Zealand",
+        "Philippines",
+        "Singapore",
+        "South Africa",
+        "United Kingdom",
+        "United States"
+      ],
+      "metadata": {
+        "appPartner": "Lightyear AP"
+      }
+    },
+    {
+      "id": "A260903143003",
+      "title": "CloudPayroll | iPayroll",
+      "track": "App Spotlight",
+      "stageNumber": "Stage 5",
+      "stage": "App Spotlight",
+      "startDateTime": "2026-09-03T14:30:00",
+      "endDateTime": "2026-09-03T14:45:00",
+      "tags": [
+        "Payroll HR"
+      ],
+      "regions": [
+        "Cloud Payroll: Australia",
+        "iPayroll: New Zealand"
+      ],
+      "metadata": {
+        "appPartner": "CloudPayroll | iPayroll"
+      }
+    },
+    {
+      "id": "A260903145503",
+      "title": "Fishbowl",
+      "track": "App Spotlight",
+      "stageNumber": "Stage 5",
+      "stage": "App Spotlight",
+      "startDateTime": "2026-09-03T14:55:00",
+      "endDateTime": "2026-09-03T15:10:00",
+      "tags": [
+        "Inventory",
+        "Ecommerce"
+      ],
+      "regions": [
+        "Australia",
+        "Canada",
+        "Global",
+        "Hong Kong",
+        "Indonesia",
+        "Malaysia",
+        "New Zealand",
+        "Philippines",
+        "Singapore",
+        "South Africa",
+        "United Kingdom",
+        "United States"
+      ],
+      "metadata": {
+        "appPartner": "Fishbowl"
+      }
+    },
+    {
+      "id": "A260903152003",
+      "title": "GoCardless",
+      "track": "App Spotlight",
+      "stageNumber": "Stage 5",
+      "stage": "App Spotlight",
+      "startDateTime": "2026-09-03T15:20:00",
+      "endDateTime": "2026-09-03T15:35:00",
+      "tags": [
+        "Payments"
+      ],
+      "regions": [
+        "Australia",
+        "Canada",
+        "Ireland",
+        "New Zealand",
+        "United Kingdom",
+        "United States"
+      ],
+      "metadata": {
+        "appPartner": "GoCardless"
+      }
+    },
+    {
+      "id": "A260904110003",
+      "title": "GoCardless",
+      "track": "App Spotlight",
+      "stageNumber": "Stage 1",
+      "stage": "App Spotlight",
+      "startDateTime": "2026-09-04T11:00:00",
+      "endDateTime": "2026-09-04T11:15:00",
+      "tags": [
+        "Payments"
+      ],
+      "regions": [
+        "Australia",
+        "Canada",
+        "Ireland",
+        "New Zealand",
+        "United Kingdom",
+        "United States"
+      ],
+      "metadata": {
+        "appPartner": "GoCardless"
+      }
+    },
+    {
+      "id": "A260904112503",
+      "title": "WorkflowMax",
+      "track": "App Spotlight",
+      "stageNumber": "Stage 1",
+      "stage": "App Spotlight",
+      "startDateTime": "2026-09-04T11:25:00",
+      "endDateTime": "2026-09-04T11:40:00",
+      "tags": [
+        "Invoicing and jobs",
+        "Time tracking"
+      ],
+      "regions": [
+        "Australia",
+        "Canada",
+        "Global",
+        "Hong Kong",
+        "Indonesia",
+        "Ireland",
+        "Malaysia",
+        "New Zealand",
+        "Philippines",
+        "Singapore",
+        "South Africa",
+        "United Kingdom",
+        "United States"
+      ],
+      "metadata": {
+        "appPartner": "WorkflowMax"
+      }
+    },
+    {
+      "id": "A260904115005",
+      "title": "Weel",
+      "track": "App Spotlight",
+      "stageNumber": "Stage 1",
+      "stage": "App Spotlight",
+      "startDateTime": "2026-09-04T11:50:00",
+      "endDateTime": "2026-09-04T12:05:00",
+      "tags": [
+        "Bills and expenses",
+        "Payments"
+      ],
+      "regions": [
+        "Australia"
+      ],
+      "metadata": {
+        "appPartner": "Weel"
+      }
+    },
+    {
+      "id": "A260904121505",
+      "title": "Tanda",
+      "track": "App Spotlight",
+      "stageNumber": "Stage 1",
+      "stage": "App Spotlight",
+      "startDateTime": "2026-09-04T12:15:00",
+      "endDateTime": "2026-09-04T12:30:00",
+      "tags": [
+        "Payroll HR",
+        "Time tracking"
+      ],
+      "regions": [
+        "Australia",
+        "New Zealand",
+        "United Kingdom",
+        "United States"
+      ],
+      "metadata": {
+        "appPartner": "Tanda"
+      }
+    },
+    {
+      "id": "A260904125002",
+      "title": "ApprovalMax",
+      "track": "App Spotlight",
+      "stageNumber": "Stage 1",
+      "stage": "App Spotlight",
+      "startDateTime": "2026-09-04T12:50:00",
+      "endDateTime": "2026-09-04T13:05:00",
+      "tags": [
+        "Bills and expenses",
+        "Invoicing and jobs"
+      ],
+      "regions": [
+        "Australia",
+        "Canada",
+        "Global",
+        "Hong Kong",
+        "Indonesia",
+        "Ireland",
+        "Malaysia",
+        "New Zealand",
+        "Philippines",
+        "Singapore",
+        "South Africa",
+        "United Kingdom",
+        "United States"
+      ],
+      "metadata": {
+        "appPartner": "ApprovalMax"
+      }
+    },
+    {
+      "id": "A260904131502",
+      "title": "Cin7",
+      "track": "App Spotlight",
+      "stageNumber": "Stage 1",
+      "stage": "App Spotlight",
+      "startDateTime": "2026-09-04T13:15:00",
+      "endDateTime": "2026-09-04T13:30:00",
+      "tags": [
+        "Inventory",
+        "Ecommerce"
+      ],
+      "regions": [
+        "Australia",
+        "Canada",
+        "Global",
+        "Hong Kong",
+        "Indonesia",
+        "Ireland",
+        "Malaysia",
+        "New Zealand",
+        "Philippines",
+        "Singapore",
+        "South Africa",
+        "United Kingdom",
+        "United States"
+      ],
+      "metadata": {
+        "appPartner": "Cin7"
+      }
+    },
+    {
+      "id": "A260904134005",
+      "title": "WorkGuru",
+      "track": "App Spotlight",
+      "stageNumber": "Stage 1",
+      "stage": "App Spotlight",
+      "startDateTime": "2026-09-04T13:40:00",
+      "endDateTime": "2026-09-04T13:55:00",
+      "tags": [
+        "Inventory",
+        "Invoicing and jobs"
+      ],
+      "regions": [
+        "Australia",
+        "Global",
+        "Ireland",
+        "New Zealand",
+        "United Kingdom"
+      ],
+      "metadata": {
+        "appPartner": "WorkGuru"
+      }
+    },
+    {
+      "id": "A260904140003",
+      "title": "Translucent",
+      "track": "App Spotlight",
+      "stageNumber": "Stage 1",
+      "stage": "App Spotlight",
+      "startDateTime": "2026-09-04T14:00:00",
+      "endDateTime": "2026-09-04T14:15:00",
+      "tags": [
+        "Accountant tools",
+        "Reporting and forecasting"
+      ],
+      "regions": [
+        "Australia",
+        "Canada",
+        "Global",
+        "Hong Kong",
+        "Indonesia",
+        "Ireland",
+        "Malaysia",
+        "New Zealand",
+        "Philippines",
+        "Singapore",
+        "South Africa",
+        "United Kingdom",
+        "United States"
+      ],
+      "metadata": {
+        "appPartner": "Translucent"
+      }
+    },
+    {
+      "id": "A260904142502",
+      "title": "WorkflowMax",
+      "track": "App Spotlight",
+      "stageNumber": "Stage 1",
+      "stage": "App Spotlight",
+      "startDateTime": "2026-09-04T14:25:00",
+      "endDateTime": "2026-09-04T14:40:00",
+      "tags": [
+        "Invoicing and jobs",
+        "Time tracking"
+      ],
+      "regions": [
+        "Australia",
+        "Canada",
+        "Global",
+        "Hong Kong",
+        "Indonesia",
+        "Ireland",
+        "Malaysia",
+        "New Zealand",
+        "Philippines",
+        "Singapore",
+        "South Africa",
+        "United Kingdom",
+        "United States"
+      ],
+      "metadata": {
+        "appPartner": "WorkflowMax"
+      }
+    },
+    {
+      "id": "A260904110002",
+      "title": "Dashboard Insights",
+      "track": "App Spotlight",
+      "stageNumber": "Stage 2",
+      "stage": "App Spotlight",
+      "startDateTime": "2026-09-04T11:00:00",
+      "endDateTime": "2026-09-04T11:15:00",
+      "tags": [
+        "Accountant tools",
+        "Practice manager"
+      ],
+      "regions": [
+        "Australia",
+        "New Zealand"
+      ],
+      "metadata": {
+        "appPartner": "Dashboard Insights"
+      }
+    },
+    {
+      "id": "A260904112502",
+      "title": "ChangeGPS",
+      "track": "App Spotlight",
+      "stageNumber": "Stage 2",
+      "stage": "App Spotlight",
+      "startDateTime": "2026-09-04T11:25:00",
+      "endDateTime": "2026-09-04T11:40:00",
+      "tags": [
+        "Accountant tools"
+      ],
+      "regions": [
+        "Australia"
+      ],
+      "metadata": {
+        "appPartner": "ChangeGPS"
+      }
+    },
+    {
+      "id": "A260904115003",
+      "title": "Link",
+      "track": "App Spotlight",
+      "stageNumber": "Stage 2",
+      "stage": "App Spotlight",
+      "startDateTime": "2026-09-04T11:50:00",
+      "endDateTime": "2026-09-04T12:05:00",
+      "tags": [
+        "Accountant tools",
+        "Practice manager"
+      ],
+      "regions": [
+        "Australia",
+        "Canada",
+        "Global",
+        "Hong Kong",
+        "Indonesia",
+        "Ireland",
+        "Malaysia",
+        "New Zealand",
+        "Philippines",
+        "Singapore",
+        "South Africa",
+        "United Kingdom",
+        "United States"
+      ],
+      "metadata": {
+        "appPartner": "Link"
+      }
+    },
+    {
+      "id": "A260904121502",
+      "title": "FYI",
+      "track": "App Spotlight",
+      "stageNumber": "Stage 2",
+      "stage": "App Spotlight",
+      "startDateTime": "2026-09-04T12:15:00",
+      "endDateTime": "2026-09-04T12:30:00",
+      "tags": [
+        "Documents",
+        "Practice manager"
+      ],
+      "regions": [
+        "Australia",
+        "New Zealand",
+        "United Kingdom"
+      ],
+      "metadata": {
+        "appPartner": "FYI"
+      }
+    },
+    {
+      "id": "A260904125001",
+      "title": "ATOmate",
+      "track": "App Spotlight",
+      "stageNumber": "Stage 2",
+      "stage": "App Spotlight",
+      "startDateTime": "2026-09-04T12:50:00",
+      "endDateTime": "2026-09-04T13:05:00",
+      "tags": [
+        "Accountant tools",
+        "Documents"
+      ],
+      "regions": [
+        "Australia"
+      ],
+      "metadata": {
+        "appPartner": "ATOmate"
+      }
+    },
+    {
+      "id": "A260904131505",
+      "title": "Xbert",
+      "track": "App Spotlight",
+      "stageNumber": "Stage 2",
+      "stage": "App Spotlight",
+      "startDateTime": "2026-09-04T13:15:00",
+      "endDateTime": "2026-09-04T13:30:00",
+      "tags": [
+        "Accountant tools",
+        "Practice manager"
+      ],
+      "regions": [
+        "Australia",
+        "Canada",
+        "New Zealand",
+        "South Africa",
+        "United Kingdom",
+        "United States"
+      ],
+      "metadata": {
+        "appPartner": "Xbert"
+      }
+    },
+    {
+      "id": "A260904134002",
+      "title": "Ignition",
+      "track": "App Spotlight",
+      "stageNumber": "Stage 2",
+      "stage": "App Spotlight",
+      "startDateTime": "2026-09-04T13:40:00",
+      "endDateTime": "2026-09-04T13:55:00",
+      "tags": [
+        "Accountant tools",
+        "Practice manager"
+      ],
+      "regions": [
+        "Australia",
+        "Canada",
+        "Global",
+        "Hong Kong",
+        "Indonesia",
+        "Ireland",
+        "Malaysia",
+        "New Zealand",
+        "Philippines",
+        "Singapore",
+        "South Africa",
+        "United Kingdom",
+        "United States"
+      ],
+      "metadata": {
+        "appPartner": "Ignition"
+      }
+    },
+    {
+      "id": "A260904140001",
+      "title": "ATO SmartDocs",
+      "track": "App Spotlight",
+      "stageNumber": "Stage 2",
+      "stage": "App Spotlight",
+      "startDateTime": "2026-09-04T14:00:00",
+      "endDateTime": "2026-09-04T14:15:00",
+      "tags": [
+        "Accountant tools",
+        "Documents"
+      ],
+      "regions": [
+        "Australia"
+      ],
+      "metadata": {
+        "appPartner": "ATO SmartDocs"
+      }
+    },
+    {
+      "id": "A260904110001",
+      "title": "AccountKit",
+      "track": "App Spotlight",
+      "stageNumber": "Stage 3",
+      "stage": "App Spotlight",
+      "startDateTime": "2026-09-04T11:00:00",
+      "endDateTime": "2026-09-04T11:15:00",
+      "tags": [
+        "Accountant tools",
+        "Practice manager"
+      ],
+      "regions": [
+        "Australia",
+        "Canada",
+        "New Zealand",
+        "United Kingdom",
+        "United States"
+      ],
+      "metadata": {
+        "appPartner": "AccountKit"
+      }
+    },
+    {
+      "id": "A260904112501",
+      "title": "BGL Corporate Solutions",
+      "track": "App Spotlight",
+      "stageNumber": "Stage 3",
+      "stage": "App Spotlight",
+      "startDateTime": "2026-09-04T11:25:00",
+      "endDateTime": "2026-09-04T11:40:00",
+      "tags": [
+        "Practice manager"
+      ],
+      "regions": [
+        "Australia"
+      ],
+      "metadata": {
+        "appPartner": "BGL Corporate Solutions"
+      }
+    },
+    {
+      "id": "A260904115002",
+      "title": "FuseSign",
+      "track": "App Spotlight",
+      "stageNumber": "Stage 3",
+      "stage": "App Spotlight",
+      "startDateTime": "2026-09-04T11:50:00",
+      "endDateTime": "2026-09-04T12:05:00",
+      "tags": [
+        "Accountant tools",
+        "Practice manager"
+      ],
+      "regions": [
+        "Australia",
+        "Canada",
+        "Global",
+        "Hong Kong",
+        "Indonesia",
+        "Ireland",
+        "Malaysia",
+        "New Zealand",
+        "Philippines",
+        "Singapore",
+        "South Africa",
+        "United Kingdom",
+        "United States"
+      ],
+      "metadata": {
+        "appPartner": "FuseSign"
+      }
+    },
+    {
+      "id": "A260904121503",
+      "title": "Fathom",
+      "track": "App Spotlight",
+      "stageNumber": "Stage 3",
+      "stage": "App Spotlight",
+      "startDateTime": "2026-09-04T12:15:00",
+      "endDateTime": "2026-09-04T12:30:00",
+      "tags": [
+        "Accountant tools",
+        "Reporting and forecasting"
+      ],
+      "regions": [
+        "Australia",
+        "Canada",
+        "Global",
+        "Hong Kong",
+        "Indonesia",
+        "Ireland",
+        "Malaysia",
+        "New Zealand",
+        "Philippines",
+        "Singapore",
+        "South Africa",
+        "United Kingdom",
+        "United States"
+      ],
+      "metadata": {
+        "appPartner": "Fathom"
+      }
+    },
+    {
+      "id": "A260904125005",
+      "title": "SuiteFiles",
+      "track": "App Spotlight",
+      "stageNumber": "Stage 3",
+      "stage": "App Spotlight",
+      "startDateTime": "2026-09-04T12:50:00",
+      "endDateTime": "2026-09-04T13:05:00",
+      "tags": [
+        "Documents",
+        "Practice manager"
+      ],
+      "regions": [
+        "Australia",
+        "Canada",
+        "Global",
+        "Hong Kong",
+        "Indonesia",
+        "Ireland",
+        "Malaysia",
+        "New Zealand",
+        "Philippines",
+        "Singapore",
+        "South Africa",
+        "United Kingdom",
+        "United States"
+      ],
+      "metadata": {
+        "appPartner": "SuiteFiles"
+      }
+    },
+    {
+      "id": "A260904131501",
+      "title": "BGL Corporate Solutions",
+      "track": "App Spotlight",
+      "stageNumber": "Stage 3",
+      "stage": "App Spotlight",
+      "startDateTime": "2026-09-04T13:15:00",
+      "endDateTime": "2026-09-04T13:30:00",
+      "tags": [
+        "Practice manager"
+      ],
+      "regions": [
+        "Australia"
+      ],
+      "metadata": {
+        "appPartner": "BGL Corporate Solutions"
+      }
+    },
+    {
+      "id": "A260904134003",
+      "title": "Link",
+      "track": "App Spotlight",
+      "stageNumber": "Stage 3",
+      "stage": "App Spotlight",
+      "startDateTime": "2026-09-04T13:40:00",
+      "endDateTime": "2026-09-04T13:55:00",
+      "tags": [
+        "Accountant tools",
+        "Practice manager"
+      ],
+      "regions": [
+        "Australia",
+        "Canada",
+        "Global",
+        "Hong Kong",
+        "Indonesia",
+        "Ireland",
+        "Malaysia",
+        "New Zealand",
+        "Philippines",
+        "Singapore",
+        "South Africa",
+        "United Kingdom",
+        "United States"
+      ],
+      "metadata": {
+        "appPartner": "Link"
+      }
+    },
+    {
+      "id": "A260904140002",
+      "title": "Plus91",
+      "track": "App Spotlight",
+      "stageNumber": "Stage 3",
+      "stage": "App Spotlight",
+      "startDateTime": "2026-09-04T14:00:00",
+      "endDateTime": "2026-09-04T14:15:00",
+      "tags": [
+        "Accountant tools"
+      ],
+      "regions": [
+        "Australia",
+        "New Zealand"
+      ],
+      "metadata": {
+        "appPartner": "Plus91"
+      }
+    },
+    {
+      "id": "A260904115004",
+      "title": "Translucent",
+      "track": "App Spotlight",
+      "stageNumber": "Stage 4",
+      "stage": "App Spotlight",
+      "startDateTime": "2026-09-04T11:50:00",
+      "endDateTime": "2026-09-04T12:05:00",
+      "tags": [
+        "Accountant tools",
+        "Reporting and forecasting"
+      ],
+      "regions": [
+        "Australia",
+        "Canada",
+        "Global",
+        "Hong Kong",
+        "Indonesia",
+        "Ireland",
+        "Malaysia",
+        "New Zealand",
+        "Philippines",
+        "Singapore",
+        "South Africa",
+        "United Kingdom",
+        "United States"
+      ],
+      "metadata": {
+        "appPartner": "Translucent"
+      }
+    },
+    {
+      "id": "A260904121501",
+      "title": "ANZ",
+      "track": "App Spotlight",
+      "stageNumber": "Stage 4",
+      "stage": "App Spotlight",
+      "startDateTime": "2026-09-04T12:15:00",
+      "endDateTime": "2026-09-04T12:30:00",
+      "tags": [
+        "Loans",
+        "financing and credit"
+      ],
+      "regions": [
+        "Australia",
+        "New Zealand"
+      ],
+      "metadata": {
+        "appPartner": "ANZ"
+      }
+    },
+    {
+      "id": "A260904125004",
+      "title": "GoCardless",
+      "track": "App Spotlight",
+      "stageNumber": "Stage 4",
+      "stage": "App Spotlight",
+      "startDateTime": "2026-09-04T12:50:00",
+      "endDateTime": "2026-09-04T13:05:00",
+      "tags": [
+        "Payments"
+      ],
+      "regions": [
+        "Australia",
+        "Canada",
+        "Ireland",
+        "New Zealand",
+        "United Kingdom",
+        "United States"
+      ],
+      "metadata": {
+        "appPartner": "GoCardless"
+      }
+    },
+    {
+      "id": "A260904131504",
+      "title": "Weel",
+      "track": "App Spotlight",
+      "stageNumber": "Stage 4",
+      "stage": "App Spotlight",
+      "startDateTime": "2026-09-04T13:15:00",
+      "endDateTime": "2026-09-04T13:30:00",
+      "tags": [
+        "Bills and expenses",
+        "Payments"
+      ],
+      "regions": [
+        "Australia"
+      ],
+      "metadata": {
+        "appPartner": "Weel"
+      }
+    },
+    {
+      "id": "A260904134004",
+      "title": "OFX",
+      "track": "App Spotlight",
+      "stageNumber": "Stage 4",
+      "stage": "App Spotlight",
+      "startDateTime": "2026-09-04T13:40:00",
+      "endDateTime": "2026-09-04T13:55:00",
+      "tags": [
+        "Bills and expenses",
+        "Payments"
+      ],
+      "regions": [
+        "Australia"
+      ],
+      "metadata": {
+        "appPartner": "OFX"
+      }
+    },
+    {
+      "id": "A260904142501",
+      "title": "ANZ",
+      "track": "App Spotlight",
+      "stageNumber": "Stage 4",
+      "stage": "App Spotlight",
+      "startDateTime": "2026-09-04T14:25:00",
+      "endDateTime": "2026-09-04T14:40:00",
+      "tags": [
+        "Loans",
+        "financing and credit"
+      ],
+      "regions": [
+        "Australia",
+        "New Zealand"
+      ],
+      "metadata": {
+        "appPartner": "ANZ"
+      }
+    },
+    {
+      "id": "A260904115001",
+      "title": "Cin7",
+      "track": "App Spotlight",
+      "stageNumber": "Stage 5",
+      "stage": "App Spotlight",
+      "startDateTime": "2026-09-04T11:50:00",
+      "endDateTime": "2026-09-04T12:05:00",
+      "tags": [
+        "Inventory",
+        "Ecommerce"
+      ],
+      "regions": [
+        "Australia",
+        "Canada",
+        "Global",
+        "Hong Kong",
+        "Indonesia",
+        "Ireland",
+        "Malaysia",
+        "New Zealand",
+        "Philippines",
+        "Singapore",
+        "South Africa",
+        "United Kingdom",
+        "United States"
+      ],
+      "metadata": {
+        "appPartner": "Cin7"
+      }
+    },
+    {
+      "id": "A260904121504",
+      "title": "Lightyear AP",
+      "track": "App Spotlight",
+      "stageNumber": "Stage 5",
+      "stage": "App Spotlight",
+      "startDateTime": "2026-09-04T12:15:00",
+      "endDateTime": "2026-09-04T12:30:00",
+      "tags": [
+        "Invoicing and jobs",
+        "Bills and expenses"
+      ],
+      "regions": [
+        "Australia",
+        "Canada",
+        "Global",
+        "Hong Kong",
+        "Ireland",
+        "Malaysia",
+        "New Zealand",
+        "Philippines",
+        "Singapore",
+        "South Africa",
+        "United Kingdom",
+        "United States"
+      ],
+      "metadata": {
+        "appPartner": "Lightyear AP"
+      }
+    },
+    {
+      "id": "A260904125003",
+      "title": "CloudPayroll | iPayroll",
+      "track": "App Spotlight",
+      "stageNumber": "Stage 5",
+      "stage": "App Spotlight",
+      "startDateTime": "2026-09-04T12:50:00",
+      "endDateTime": "2026-09-04T13:05:00",
+      "tags": [
+        "Payroll HR"
+      ],
+      "regions": [
+        "Cloud Payroll: Australia",
+        "iPayroll: New Zealand"
+      ],
+      "metadata": {
+        "appPartner": "CloudPayroll | iPayroll"
+      }
+    },
+    {
+      "id": "A260904131503",
+      "title": "Fishbowl",
+      "track": "App Spotlight",
+      "stageNumber": "Stage 5",
+      "stage": "App Spotlight",
+      "startDateTime": "2026-09-04T13:15:00",
+      "endDateTime": "2026-09-04T13:30:00",
+      "tags": [
+        "Inventory",
+        "Ecommerce"
+      ],
+      "regions": [
+        "Australia",
+        "Canada",
+        "Global",
+        "Hong Kong",
+        "Indonesia",
+        "Malaysia",
+        "New Zealand",
+        "Philippines",
+        "Singapore",
+        "South Africa",
+        "United Kingdom",
+        "United States"
+      ],
+      "metadata": {
+        "appPartner": "Fishbowl"
+      }
+    },
+    {
+      "id": "A260904134001",
+      "title": "Dext",
+      "track": "App Spotlight",
+      "stageNumber": "Stage 5",
+      "stage": "App Spotlight",
+      "startDateTime": "2026-09-04T13:40:00",
+      "endDateTime": "2026-09-04T13:55:00",
+      "tags": [
+        "Accountant tools",
+        "Bills and expenses"
+      ],
+      "regions": [
+        "Australia",
+        "Canada",
+        "Global",
+        "Hong Kong",
+        "Indonesia",
+        "Ireland",
+        "Malaysia",
+        "New Zealand",
+        "Philippines",
+        "Singapore",
+        "South Africa",
+        "United Kingdom",
+        "United States"
+      ],
+      "metadata": {
+        "appPartner": "Dext"
+      }
+    },
+    {
+      "id": "D260903143001",
+      "title": "15 minute power picks: 3 tools, 3 wins",
+      "track": "Discovery",
+      "stageNumber": "Stage 4",
+      "stage": "Discovery",
+      "startDateTime": "2026-09-03T14:30:00",
+      "endDateTime": "2026-09-03T15:15:00",
+      "presenters": [
+        "Anjanica Amin",
+        "Jenna Chamberlain (Syft)",
+        "Andy Taras/ anyone from Education",
+        "Gracie Miles"
+      ],
+      "tags": [
+        "AI",
+        "JAX",
+        "Syft",
+        "Workflows",
+        "Analytics",
+        "How to session",
+        "Streamline workflows",
+        "Advising clients",
+        "Managing bills/chasing paper work",
+        "Reconciling rules",
+        "Saving time in your daily tasks",
+        "Find an recode",
+        "Bulk actions",
+        "Fixes in XYZ",
+        "Client clean up",
+        "JAX AI companion",
+        "How to make the most of Jax",
+        "Getting answers to general business questions",
+        "Demo",
+        "Using JAX on Watsapp",
+        "Creating quotes creating invoices",
+        "Freeing up advisor time",
+        "Empowering clients",
+        "Analytics powered by syft",
+        "Transform data into visual stories",
+        "Client insights",
+        "Dashboards",
+        "Sales tracking",
+        "Reporting",
+        "AI Predictions",
+        "Client projections",
+        "Scenario planning",
+        "Future of advisory",
+        "High value strategic advise"
+      ],
+      "description": "Get ready for three bite sized sessions packed with practical takeaways you and your clients can apply immediately. In each 15 minute segment, we’ll focus across key areas to help you work smarter, not harder. Whether it's streamlining workflows in XYZ, saving time with Just Ask XYZ, or unlocking insights with Analytics powered by Syft, each segment delivers at least one quick win you can start using today. Fast. Focused. Actionable.",
+      "shortDescription": "Work smarter with 3 fast-paced sessions. Get quick wins for you and your clients using XYZ, Just Ask XYZ, and Analytics."
+    },
+    {
+      "id": "D260904140001",
+      "title": "15 minute power picks: 3 tools, 3 wins",
+      "track": "Discovery",
+      "stageNumber": "Stage 1",
+      "stage": "Discovery",
+      "startDateTime": "2026-09-04T14:00:00",
+      "endDateTime": "2026-09-04T14:45:00",
+      "presenters": [
+        "Anjanica Amin",
+        "Jenna Chamberlain (Syft)",
+        "Andy Taras/ anyone from Education",
+        "Gracie Miles"
+      ],
+      "tags": [
+        "AI",
+        "JAX",
+        "Syft",
+        "Workflows",
+        "Analytics",
+        "How to session",
+        "Streamline workflows",
+        "Advising clients",
+        "Managing bills/chasing paper work",
+        "Reconciling rules",
+        "Saving time in your daily tasks",
+        "Find an recode",
+        "Bulk actions",
+        "Fixes in XYZ",
+        "Client clean up",
+        "JAX AI companion",
+        "How to make the most of Jax",
+        "Getting answers to general business questions",
+        "Demo",
+        "Using JAX on Watsapp",
+        "Creating quotes creating invoices",
+        "Freeing up advisor time",
+        "Empowering clients",
+        "Analytics powered by syft",
+        "Transform data into visual stories",
+        "Client insights",
+        "Dashboards",
+        "Sales tracking",
+        "Reporting",
+        "AI Predictions",
+        "Client projections",
+        "Scenario planning",
+        "Future of advisory",
+        "High value strategic advise"
+      ],
+      "description": "Get ready for three bite sized sessions packed with practical takeaways you and your clients can apply immediately. In each 15 minute segment, we’ll focus across key areas to help you work smarter, not harder. Whether it's streamlining workflows in XYZ, saving time with Just Ask XYZ, or unlocking insights with Analytics powered by Syft, each segment delivers at least one quick win you can start using today. Fast. Focused. Actionable.",
+      "shortDescription": "Work smarter with 3 fast-paced sessions. Get quick wins for you and your clients using XYZ, Just Ask XYZ, and Analytics."
+    },
+    {
+      "id": "D260903163002",
+      "title": "Optimising XYZ for Kiwi businesses",
+      "track": "Discovery",
+      "stageNumber": "Stage 4",
+      "stage": "Discovery",
+      "startDateTime": "2026-09-03T16:30:00",
+      "endDateTime": "2026-09-03T17:15:00",
+      "presenters": [
+        "2 Presenters:",
+        "Gracie Miles",
+        "Anjanica Amin",
+        "Josh Wilson"
+      ],
+      "tags": [
+        "NZ",
+        "Future of business",
+        "Government",
+        "Compliance",
+        "External Speaker",
+        "Turn kiwi challenges into opportunities",
+        "Holidays act rewrite",
+        "Holidays act migration",
+        "Kiwisaver changes",
+        "20% investing boost",
+        "Key regulatory update",
+        "Landscape",
+        "Financial literally and digitisation",
+        "Certainly in Kiwis to manage financial services",
+        "Understanding time value of money",
+        "Optimise XYZ to raise financial literacy",
+        "XYZ for Good - Know your numbers designed to improve financial literacy",
+        "Slow digitisation falling kiwis to fall behind",
+        "Businesses and contractors needing to use E-invoicing from Jan 2026",
+        "E-invoicing in XYZ",
+        "Digitisation of Payables (hubdoc)",
+        "JAX and AI",
+        "Productivity",
+        "Enhanced SMB workflows",
+        "Optimising XYZ for SMB as an AB",
+        "Fireside chat with Josh Wilson",
+        "software coach",
+        "Best practices for helping SMBs digitisation",
+        "Migration tools",
+        "Related sessions: Louise Southall session",
+        "Numbers to know how",
+        "Agentic AI platform",
+        "Making tax happen",
+        "Architecting your future"
+      ],
+      "description": "A dedicated session tailored to the specific needs and challenges of New Zealand businesses. This session will explore relevant tax regulations, industry trends, and best practices within the New Zealand context.",
+      "shortDescription": "Explore relevant tax regulations, industry trends and best practices in a session dedicated to the specific needs of New Zealand businesses."
+    },
+    {
+      "id": "D260903163003",
+      "title": "Unlock your practice’s potential: streamline your workflows for success",
+      "track": "Discovery",
+      "stageNumber": "Stage 1",
+      "stage": "Discovery",
+      "startDateTime": "2026-09-03T16:30:00",
+      "endDateTime": "2026-09-03T17:15:00",
+      "presenters": [
+        "Jennifer Glisson (presenter)",
+        "Louis Morello (demo driver)"
+      ],
+      "tags": [
+        "XPM",
+        "Practice Manager",
+        "XYZ product",
+        "Workflows",
+        "XYZ practice Manager",
+        "Best practice for XPM",
+        "Strealined productivity",
+        "Data driven desicions",
+        "Efficiency",
+        "Streamlining invoicing",
+        "Workflow recommendations",
+        "Client data bases",
+        "Client profiles",
+        "Job management",
+        "Client accruacy",
+        "Features in XYZ Practice Manager",
+        "Real time financial clarity",
+        "Priofitability insights",
+        "Enable smarter decisions",
+        "Demo",
+        "Payment for invoicing",
+        "AB accounting payments",
+        "Easy to pay get paid sooner",
+        "Less time chasing invoices",
+        "Reporting"
+      ],
+      "description": "Ready to truly master your practice's management? This session will delve into XYZ's practice management tools. We’ll empower you with valuable approaches to unlock new levels of efficiency and effectiveness in your practice. Even as the platform evolves with exciting enhancements, your core XPM workflows will remain.",
+      "shortDescription": "Unlock XPM's potential, this session shares expert tips for optimising your XYZ Practice Manager workflows."
+    },
+    {
+      "id": "D260904094504",
+      "title": "The evolving role of advisory: moving beyond compliance",
+      "track": "Discovery",
+      "stageNumber": "Stage 2",
+      "stage": "Discovery",
+      "startDateTime": "2026-09-04T09:45:00",
+      "endDateTime": "2026-09-04T10:30:00",
+      "presenters": [
+        "Jason Robinson",
+        "Jodilee Manuel"
+      ],
+      "tags": [
+        "Advisory",
+        "XYZ product",
+        "Syft",
+        "Innovative tools",
+        "Future of business",
+        "Practice tools"
+      ],
+      "description": "Learn how to design and price value-add advisory services that resonate with your clients. We’ll explore approaches for recurring accounting work, controllership, FP&A, and demonstrate how XYZ and Syft can help you deliver more with less effort.",
+      "shortDescription": "Explore practical strategies and XYZ tools to help you price, package, and deliver advisory services for your clients."
+    },
+    {
+      "id": "D260904150001",
+      "title": "Be the expert: Strategies for unlocking client potential",
+      "track": "Discovery",
+      "stageNumber": "Stage 4",
+      "stage": "Discovery",
+      "startDateTime": "2026-09-04T15:00:00",
+      "endDateTime": "2026-09-04T15:45:00",
+      "presenters": [
+        "Clinton Hazel Jr (presenter)",
+        "Fiona O'Farrell (demo driver)"
+      ],
+      "tags": [
+        "XYZ product",
+        "Accountant tools",
+        "Advisory",
+        "Understand your clients",
+        "Onboarding",
+        "XYZ Central - Help resources",
+        "Payments",
+        "Tap to pay",
+        "Stripe",
+        "getting paid faster",
+        "Syft - client insights",
+        "HQ",
+        "Client insights dashboard - client data",
+        "Planning workloads for ABs",
+        "Cashflow - debtor and creditor insights",
+        "Industry insights with clients",
+        "Profitability data",
+        "Client conversations",
+        "Monitoring key financial indicators",
+        "Demo",
+        "Related session: Supercharge your cashflow",
+        "CTA: Register for advisor certification"
+      ],
+      "description": "This session is dedicated to equipping you with the skills and confidence to effectively train and guide clients in the value and set up of XYZ. Through practical strategies, communication techniques and essential system tips, you’ll transform how you introduce and implement XYZ for your clients. Learn how to champion XYZ within your practice, drive client adoption and strengthen long-term relationships. Establish yourself as a trusted advisor, capable of translating the power of XYZ into meaningful client outcomes.",
+      "shortDescription": "Become the expert in unlocking client potential. Learn practical strategies and communication techniques to confidently train clients on XYZ."
+    },
+    {
+      "id": "D260904104502",
+      "title": "How XYZ's agentic AI platform is changing the game for small businesses",
+      "track": "Discovery",
+      "stageNumber": "Stage 2",
+      "stage": "Discovery",
+      "startDateTime": "2026-09-04T10:45:00",
+      "endDateTime": "2026-09-04T11:30:00",
+      "presenters": [
+        "Akankshu Dhawan",
+        "Eitan Sharon"
+      ],
+      "tags": [
+        "AI",
+        "Analytics",
+        "Future of business",
+        "Innovation",
+        "XYZ product",
+        "Concept of agentic AI",
+        "XYZ harnessing the power of AI",
+        "Feel confident in how XYZs platform is transforming sb operations",
+        "Practice efficiency and AB adoption",
+        "JAX - one stop shop for small business",
+        "What is Agentic ai",
+        "Autonomous technology",
+        "From gen ai to agentic AI",
+        "Open AI",
+        "Automatic your routine tasks",
+        "Speed up manual tasks",
+        "Opportunities of AI",
+        "Become a strategic advisor",
+        "Stronger client relationships",
+        "Access to realtime insights",
+        "Cyber Security",
+        "SB and AB relationship in the world of AI",
+        "Leveraging the power of Agentic AI",
+        "Panel discussion",
+        "Related session: Elevating your expertise with AI",
+        "architecting/renovating for AI - James B session"
+      ],
+      "description": "Empowering businesses and their advisors in an AI-first world. This panel will unpack how the latest AI innovations, by XYZ and the broader industry, are driving automation and delivering deeper insights, so small businesses can focus on what matters most. Learn how their experience is evolving, from them doing the work, to AI doing the work, all within a secure, trusted platform.",
+      "shortDescription": "Hear how the latest AI innovations are driving automation and delivering deeper insights, so small businesses can focus on what matters most."
+    },
+    {
+      "id": "D260904114502",
+      "title": "Drive reporting excellence: XYZ Reporting and Syft Analytics",
+      "track": "Discovery",
+      "stageNumber": "Stage 1",
+      "stage": "Discovery",
+      "startDateTime": "2026-09-04T11:45:00",
+      "endDateTime": "2026-09-04T12:30:00",
+      "presenters": [
+        "XYZ Presenter: Ananya Chopra",
+        "Thomas Bramley",
+        "Syft presenter: Mitch Piper"
+      ],
+      "tags": [
+        "Workflows",
+        "Reporting",
+        "Syft",
+        "Advisory",
+        "XYZ product",
+        "Compliance"
+      ],
+      "description": "In this session we'll showcase workflow best practices across XYZ reporting and Syft, helping you achieve reporting excellence. Discover how to leverage powerful report templates for efficient compliance, and elevate your advisory services with Syft's advanced management and consolidation reporting. We'll include deep dives and live demos so that you can takeaway practical tips that help to transform reporting across your practice.",
+      "shortDescription": "Discover how to leverage powerful XYZ report templates for compliance and elevate services with Syft Analytics management and consolidation reporting."
+    },
+    {
+      "id": "D260904094502",
+      "title": "External: Matt Church Thoughts about tomorrow you can talk about today",
+      "track": "Discovery",
+      "stageNumber": "Stage 3",
+      "stage": "Discovery",
+      "startDateTime": "2026-09-04T09:45:00",
+      "endDateTime": "2026-09-04T10:30:00",
+      "presenters": [
+        "Matt Church"
+      ],
+      "tags": [
+        "External Speaker",
+        "Thought leadership"
+      ],
+      "description": "In this rapidly changing world, the only certainty is that what works today will not work tomorrow. Old business models won’t work, old leadership styles won’t be tolerated and slow moving industries and businesses will become extinct. The successful players will be the ones with the greatest agility, creativity and foresight. A session with Matt focused on disruption will help put in place a culture of willingness and a practical framework for being agile, creative and building foresight.",
+      "shortDescription": "Matt's session tackles disruption: build agility, creativity & foresight to thrive as old models fail. Learn practical frameworks for future success."
+    },
+    {
+      "id": "D260903153002",
+      "title": "External: Ashley Fell Understanding and engaging with Generation Alpha",
+      "track": "Discovery",
+      "stageNumber": "Stage 3",
+      "stage": "Discovery",
+      "startDateTime": "2026-09-03T15:30:00",
+      "endDateTime": "2026-09-03T16:15:00",
+      "presenters": [
+        "Ashley Fell"
+      ],
+      "tags": [
+        "External Speaker"
+      ],
+      "description": "The next generation of young people are known as Generation Alpha. Born between the years of 2010 and 2024, they will be the largest generation in the history of the world. Although they are the children and students of today, they are the university graduates, employees and consumers of tomorrow. They are truly the 21st Century generation, with the whole of their formative years lived in this century. They are mobile, digital, global, visual and social. Their lives are post-lifestage, their learning is post-linear and their careers post-structural. In this session, hear from the social researchers who coined the term Generation Alpha and wrote the book on them, as we outline how to best engage with the most formally educated, technologically literate and materially endowed generation in history.",
+      "shortDescription": "Meet Gen Alpha: world's largest, tech-native, global generation. Learn to engage these future leaders and consumers."
+    },
+    {
+      "id": "D260904104501",
+      "title": "External: Dr Lucy Hone Three secrets of resilient people",
+      "track": "Discovery",
+      "stageNumber": "Stage 3",
+      "stage": "Discovery",
+      "startDateTime": "2026-09-04T10:45:00",
+      "endDateTime": "2026-09-04T11:30:00",
+      "presenters": [
+        "Dr Lucy Hone"
+      ],
+      "tags": [
+        "External Speaker"
+      ],
+      "description": "Based on Lucy’s TED Talk with over 9 million views, this keynote unpacks the three evidence-based strategies used by the world’s most resilient people—those who manage to face the worst and somehow keep going. It’s warm, moving, and deeply practical.",
+      "shortDescription": "Based on Lucy's 9M+ TED Talk, this keynote reveals 3 evidence-based strategies of the world's most resilient people. Warm, moving & practical."
+    },
+    {
+      "id": "D260904150002",
+      "title": "Jessie French - external",
+      "track": "Discovery",
+      "stageNumber": "Stage 3",
+      "stage": "Discovery",
+      "startDateTime": "2026-09-04T15:00:00",
+      "endDateTime": "2026-09-04T15:45:00",
+      "presenters": [
+        "Jessie French"
+      ],
+      "tags": [
+        "External Speaker"
+      ],
+      "description": "Jessie French, founder of Other Matter, and XYZ's Tamara Somers have a fireside chat on sustainability economy and future of sustainable tech.",
+      "shortDescription": "Jessie French, founder of Other Matter, and XYZ's Tamara Somers have a fireside chat on sustainability economy and future of sustainable tech."
+    },
+    {
+      "id": "D260904094503",
+      "title": "Payroll power: From chaos to confidence with XYZ",
+      "track": "Discovery",
+      "stageNumber": "Stage 1",
+      "stage": "Discovery",
+      "startDateTime": "2026-09-04T09:45:00",
+      "endDateTime": "2026-09-04T10:30:00",
+      "presenters": [
+        "Nicole Acott , Tom Sautelle",
+        "Michelle Grisdale"
+      ],
+      "tags": [
+        "Payroll HR",
+        "AU",
+        "Workflows",
+        "XYZ product",
+        "Compliance",
+        "External Speaker"
+      ],
+      "description": "Employees must be paid! And paid right. Every. Single.Time. Discover how to help eliminate manual payroll pain - rostering, double-handling and compliance worries - by unifying payroll, super and rostering together in one place. Hear real-world stories of accounting professionals using XYZ to help make every pay run smoother and more reliable - all while staying ahead of compliance changes like Payday Super. Walk away with practical actions and workflow shortcuts to deliver even more value to your clients. If you’re looking to slash admin, boost client trust and make payroll your superpower, this session is your must-see.",
+      "shortDescription": "Get payroll right, every time - real stories that show how accounting professionals use XYZ to simplify pay runs, boost reliability and stay ahead."
+    },
+    {
+      "id": "D260903153004",
+      "title": "Seamless compliance: Streamline your year-end with a powerful, connected compliance suite",
+      "track": "Discovery",
+      "stageNumber": "Stage 1",
+      "stage": "Discovery",
+      "startDateTime": "2026-09-03T15:30:00",
+      "endDateTime": "2026-09-03T16:15:00",
+      "presenters": [
+        "Michael Magrath",
+        "Priyanka Bucktowonsing",
+        "Miguel Nasr"
+      ],
+      "tags": [
+        "Compliance",
+        "Workflows",
+        "XYZ product",
+        "Finance"
+      ],
+      "description": "Get ready to elevate your practice's efficiency and deliver compliance with ease and accuracy. Compliance is at the heart of your practice—and your clients rely on you to deliver it. In this session, see how XYZ’s new Workpapers streamlines everything from finalising accounts to preparing financial statements and tax returns.",
+      "shortDescription": "Meet XYZ’s new Workpapers and learn how it can optimise your compliance workflow for a faster, easier, more confident client service."
+    },
+    {
+      "id": "D260903143003",
+      "title": "One seamless platform: What's next for XYZ's partners",
+      "track": "Discovery",
+      "stageNumber": "Stage 1",
+      "stage": "Discovery",
+      "startDateTime": "2026-09-03T14:30:00",
+      "endDateTime": "2026-09-03T15:15:00",
+      "presenters": [
+        "Toby Delamore",
+        "Sarah Toohey",
+        "Laney Graham"
+      ],
+      "tags": [
+        "Announcement",
+        "Accountant tools",
+        "AI",
+        "JAX",
+        "Future of business",
+        "Innovative tools",
+        "Practice tools",
+        "ABX",
+        "Reimagined platform",
+        "How ABX was developed",
+        "Work with XYZ for clients",
+        "Streamline Compliance on XYZ",
+        "Run your practice",
+        "Practice management tools",
+        "HQ",
+        "Report templates",
+        "jobs management",
+        "tax workslows",
+        "Jax/AI for practice tools",
+        "Getting meaning behind the numbers",
+        "Access to client insights",
+        "Meaningful conversations",
+        "Customiable XYZ homepage for practice tools",
+        "XPM",
+        "Insights",
+        "taxs",
+        "client needs accesible",
+        "Client Management",
+        "Centralised staff management",
+        "Managing staff records",
+        "Demos",
+        "Workpapers - fixing manual processes",
+        "Reducing duplicate entries",
+        "Tax management - streamless tax process",
+        "Saving time",
+        "Productivity in practice",
+        "Job manager"
+      ],
+      "description": "Get ready for an evolution designed entirely with you in mind. XYZ is transforming how we support our partners by upgrading our experiences, tools, and benefits to unlock greater efficiency and growth for your practice. An enhanced platform will bring you AI-powered efficiency and deliver the information and insights you need to act faster. Beyond that, we're introducing a personalised hub - a central space where you can access valuable resources, and unlock benefits tailored to your journey with XYZ.",
+      "shortDescription": "Learn how XYZ is upgrading its tools and experiences to make running your practice simpler and more efficient"
+    },
+    {
+      "id": "D260903163004",
+      "title": "XYZ reimagined: Your exclusive preview",
+      "track": "Discovery",
+      "stageNumber": "Stage 2",
+      "stage": "Discovery",
+      "startDateTime": "2026-09-03T16:30:00",
+      "endDateTime": "2026-09-03T17:15:00",
+      "presenters": [
+        "Che Douglas (interview format)",
+        "Olivia Christiansen - Host",
+        "Slyvia Ding Panel",
+        "Akankshu Dhawan - Panel",
+        "Demo Driver - Andy Taras"
+      ],
+      "tags": [
+        "Announcement",
+        "Accountant tools",
+        "AI",
+        "JAX",
+        "Future of business",
+        "Innovative tools",
+        "Practice tools"
+      ],
+      "description": "We're not just updating XYZ; we're reimagining the entire experience to equip you with the tools and insights needed to thrive in a changing world. Join XYZ's design and product leaders are they walk you through our biggest design evolution yet. Discover how we're changing the way you and your clients work across XYZ, seamlessly delivering you insights and actions to achieve your business goals.",
+      "shortDescription": "XYZ's biggest design evolution yet is here! Join XYZ's product and design leaders to see how we're reimagining your experience for a changing world."
+    },
+    {
+      "id": "D260904104503",
+      "title": "Supercharge your cash flow: More ways to pay & get paid with XYZ",
+      "track": "Discovery",
+      "stageNumber": "Stage 4",
+      "stage": "Discovery",
+      "startDateTime": "2026-09-04T10:45:00",
+      "endDateTime": "2026-09-04T11:30:00",
+      "presenters": [
+        "Areti Connell",
+        "Peter O'Malley",
+        "Bharathi Ramavarjula",
+        "Robert Preswick",
+        "Fiona O'Farrell",
+        "Becca Smith"
+      ],
+      "tags": [
+        "Cash flow",
+        "Bills and expenses",
+        "Expenses",
+        "Payments",
+        "Invoicing and jobs",
+        "Workflows",
+        "Future of business"
+      ],
+      "description": "Discover how the newest payments, invoicing and billing innovations can help you and your clients to get paid faster, save time and help improve financial health. Be among the first to see how we’re simplifying the accounts payable workflow, designed to save you and your clients valuable time. Hear from payments technology experts as they discuss the latest advancements in payment trends and what the future looks like. Learn how you can harness these innovations to better manage your clients' cash flow and stay ahead in the ever-evolving landscape of payments.",
+      "shortDescription": "Explore how innovations in payments and billing empower you and your clients to get paid faster, save time and improve your financial health."
+    },
+    {
+      "id": "D260903153001",
+      "title": "Elevating your expertise, together with AI",
+      "track": "Discovery",
+      "stageNumber": "Stage 2",
+      "stage": "Discovery",
+      "startDateTime": "2026-09-03T15:30:00",
+      "endDateTime": "2026-09-03T16:15:00",
+      "presenters": [
+        "Lisa Huang",
+        "Soon-ee Cheah",
+        "Nicole Acott- demo driver"
+      ],
+      "tags": [
+        "AI",
+        "JAX",
+        "Innovation",
+        "Innovative tools"
+      ],
+      "description": "Join us to explore how XYZ's AI revolution, with Just Ask XYZ (JAX) at its core, can create new opportunities for you to work in partnership with intelligent technology. Discover how these powerful JAX features frees you from mundane tasks, provides deeper, actionable insights, and enables you to amplify your human expertise to focus on what truly matters.",
+      "shortDescription": "See XYZ's AI in action. Discover how AI can help you get more time back by automating tasks and uncovering deeper insights so you can focus on what matters most."
+    },
+    {
+      "id": "D260904094501",
+      "title": "Elevate client services: XYZ and Syft Analytics",
+      "track": "Discovery",
+      "stageNumber": "Stage 4",
+      "stage": "Discovery",
+      "startDateTime": "2026-09-04T09:45:00",
+      "endDateTime": "2026-09-04T10:30:00",
+      "presenters": [
+        "Amy Cannon (co-presenter)",
+        "Duran Hamer (co-presenter)",
+        "Teegan Magnussen (demo driver)"
+      ],
+      "tags": [
+        "Analytics",
+        "Syft",
+        "Reporting",
+        "Accountant tools",
+        "XYZ product",
+        "XYZ analytics",
+        "Advisory services for clients",
+        "Scaled system",
+        "Helping with compliance",
+        "The power of insights",
+        "Help clients make informed decisions",
+        "Empowering advisors with the right tools",
+        "Who/what is syft",
+        "Features of syft",
+        "Benchmarking",
+        "AI insights",
+        "Transaction level insights",
+        "Demo syft",
+        "Foundations assets for advisory"
+      ],
+      "description": "Discover how XYZ and Syft Analytics can elevate your client services—from streamlined reporting to generating actionable insights, faster. In this session we'll explore the tools to help you scale beyond compliance and have more strategic conversations with clients.",
+      "shortDescription": "Discover how XYZ and Syft Analytics can elevate your client services- from streamlined reporting to generating actionable insights, faster."
+    },
+    {
+      "id": "D260904104504",
+      "title": "Supercharge your practice with apps & AI-powered workflows",
+      "track": "Discovery",
+      "stageNumber": "Stage 1",
+      "stage": "Discovery",
+      "startDateTime": "2026-09-04T10:45:00",
+      "endDateTime": "2026-09-04T11:30:00",
+      "presenters": [
+        "Caroline Waters - host",
+        "Madhu Gupta - TBC",
+        "Sarah Lawrance",
+        "Regan Ashworth"
+      ],
+      "tags": [
+        "AI",
+        "Ecosystem",
+        "Workflows",
+        "Future of business",
+        "Advisory",
+        "External Speaker",
+        "Thrive through apps and automation",
+        "Workflow automation for ABs and SBs",
+        "Unlocking revenue and client growth",
+        "Evolution of AI powered technology",
+        "What is possible through AI with practice needs",
+        "Efficiency gains",
+        "Impact of ai powered advisory skills",
+        "Influence on pricing strategies and services",
+        "Setting up AI powered workflow",
+        "Panel discussion"
+      ],
+      "description": "Apps and AI are transforming the way practices run - from streamlining workflows to enhancing client experiences. In this session, the XYZ Ecosystem team will explore how apps can help you work smarter, not harder. We'll show you how smarter automation tools enable seamless workflow execution across systems and enhance your advisory services with AI. Learn how to discover, recommend, and implement the right tools for your clients, and hear from a panel of experts on how firms are already using automation and AI to save time, improve data accuracy, and stay competitive.",
+      "shortDescription": "Discover how apps and AI can streamline workflows, boost advisory services, and help your practice stay efficient, accurate, and competitive."
+    },
+    {
+      "id": "D260904140002",
+      "title": "Climate reporting: What you need to know today, and what's coming tomorrow",
+      "track": "Discovery",
+      "stageNumber": "Stage 2",
+      "stage": "Discovery",
+      "startDateTime": "2026-09-04T14:00:00",
+      "endDateTime": "2026-09-04T14:45:00",
+      "presenters": [
+        "Tam Somers",
+        "Lindsay Ellis",
+        "Hamish Purcell",
+        "Michaela Pogson"
+      ],
+      "tags": [
+        "Sustainability",
+        "Compliance",
+        "Reporting",
+        "Ecosystem",
+        "External Speaker",
+        "New areas of Advisory",
+        "SMBs more than 100 employees",
+        "Cabron emmissions in annual reporting",
+        "2026 Phase in",
+        "Climate related reporting in B2B",
+        "Sumday partnership",
+        "Carbon accounting tools",
+        "Climate estimation tool",
+        "Accessing client climate information",
+        "Real world examples",
+        "Supply chain and climate reporting",
+        "Overcoming hurdles in offering climate reporting services",
+        "Advice to take the first step into climate reporting"
+      ],
+      "description": "A look at what accountants and bookkeepers need to know about ESG and sustainability right now, and how to prepare for what’s coming. A chance to hear what’s changing, what’s staying, and how our partnership with Sumday can help you get ahead.",
+      "shortDescription": "Get ahead on climate reporting. Learn what’s required now, what’s coming next, and how to best prepare your practice and your clients."
+    },
+    {
+      "id": "D260903153003",
+      "title": "From numbers to 'know how': Strategies for success in the current economy",
+      "track": "Discovery",
+      "stageNumber": "Stage 4",
+      "stage": "Discovery",
+      "startDateTime": "2026-09-03T15:30:00",
+      "endDateTime": "2026-09-03T16:15:00",
+      "presenters": [
+        "Louise Southall - host",
+        "Jason Robinson",
+        "Susan Toft"
+      ],
+      "tags": [
+        "Analytics",
+        "Finance",
+        "Future of business",
+        "Government",
+        "NZ",
+        "AU",
+        "External Speaker"
+      ],
+      "description": "Louise Southall, XYZ's economist breaks down the numbers, offering insights into the current business environment - but it's not all percentages, trend lines and charts - Louise will be joined by an accountant and a small business owner to discuss the current headwinds and tailwinds being faced by small businesses and their advisors. They'll offer examples and present some ideas for how all small businesses can set themselves up for success.",
+      "shortDescription": "Go beyond the figures with XYZ's economist, Louise Southall, leading a panel discussion on strategies to navigate economic shifts and achieve success."
+    },
+    {
+      "id": "D260903143004",
+      "title": "Where's the value? Finding accounting's human edge in an AI-driven world",
+      "track": "Discovery",
+      "stageNumber": "Stage 2",
+      "stage": "Discovery",
+      "startDateTime": "2026-09-03T14:30:00",
+      "endDateTime": "2026-09-03T15:15:00",
+      "presenters": [
+        "James Bergin - host",
+        "Soon-Ee Cheah - panelist",
+        "Will Flynt - panelist",
+        "Kayur Patel"
+      ],
+      "tags": [
+        "AI",
+        "Advisory",
+        "Future of business",
+        "Innovation",
+        "Technology",
+        "Thought leadership",
+        "External Speaker"
+      ],
+      "description": "As AI automates increasingly complex tasks, your role as an accountant is evolving – as is the very nature of human judgment and accountability in this new landscape! Who better to explore this than some experts in the field who have each evolved significantly in their own careers to this point? Join James Bergin, XYZ's EGM of Tech Research and Advocacy as he talks with three AI experts from different backgrounds: an ex-pharmacist turned AI tech visionary, a former pilot turned senior principal AI engineer, and a Fellow Chartered Accountant who helps clients onboard GenAI every day, while also teaching digital systems at university. They’ll dissect the implications of AI for your workflows and the profession more broadly. Discover how to not just adapt, but thrive, by elevating your focus on the irreplaceable human elements of trust and client relationships.",
+      "shortDescription": "Human judgment in an AI world. Diverse experts share insights to help accountants navigate evolving roles and elevate accountability."
+    },
+    {
+      "id": "D260904150004",
+      "title": "Where's the value? Finding accounting's human edge in an AI-driven world",
+      "track": "Discovery",
+      "stageNumber": "Stage 1",
+      "stage": "Discovery",
+      "startDateTime": "2026-09-04T15:00:00",
+      "endDateTime": "2026-09-04T15:45:00",
+      "presenters": [
+        "James Bergin - host",
+        "Soon-Ee Cheah - panelist",
+        "Will Flynt - panelist",
+        "Kayur Patel"
+      ],
+      "tags": [
+        "AI",
+        "Advisory",
+        "Future of business",
+        "Innovation",
+        "Technology",
+        "Thought leadership",
+        "External Speaker"
+      ],
+      "description": "As AI automates increasingly complex tasks, your role as an accountant is evolving – as is the very nature of human judgment and accountability in this new landscape! Who better to explore this than some experts in the field who have each evolved significantly in their own careers to this point? Join James Bergin, XYZ's EGM of Tech Research and Advocacy as he talks with three AI experts from different backgrounds: an ex-pharmacist turned AI tech visionary, a former pilot turned senior principal AI engineer, and a Fellow Chartered Accountant who helps clients onboard GenAI every day, while also teaching digital systems at university. They’ll dissect the implications of AI for your workflows and the profession more broadly. Discover how to not just adapt, but thrive, by elevating your focus on the irreplaceable human elements of trust and client relationships.",
+      "shortDescription": "Human judgment in an AI world. Diverse experts share insights to help accountants navigate evolving roles and elevate accountability."
+    },
+    {
+      "id": "D260904114504",
+      "title": "‘Renovating’ your practice for an AI-powered future",
+      "track": "Discovery",
+      "stageNumber": "Stage 2",
+      "stage": "Discovery",
+      "startDateTime": "2026-09-04T11:45:00",
+      "endDateTime": "2026-09-04T12:30:00",
+      "presenters": [
+        "James Bergin - host",
+        "Sarah Lawrance",
+        "Beau Gaudron",
+        "Mere Teinaki"
+      ],
+      "tags": [
+        "AI",
+        "Advisory",
+        "Future of business",
+        "Thought leadership",
+        "Technology",
+        "Innovation"
+      ],
+      "description": "What will AB practices need to look like in a future increasingly driven by AI? Join us for a different take on how to plan for leveraging technology in creating a blueprint for success in the future. We'll explore research and the implications of AI, technology and industry trends. We will then provide a structured way to think about change in your practice, and how to approach harnessing AI, automation and disruption. You’ll leave this session better equipped for leading your practice in the age of augmented intelligence.",
+      "shortDescription": "Lean in on planning for AI, automation, and disruption. This session explores research, trends, and provides a framework for future success."
+    },
+    {
+      "id": "D260904150003",
+      "title": "Making tax happen: XYZ’s vision for the future of tax digitalisation",
+      "track": "Discovery",
+      "stageNumber": "Stage 2",
+      "stage": "Discovery",
+      "startDateTime": "2026-09-04T15:00:00",
+      "endDateTime": "2026-09-04T15:45:00",
+      "presenters": [
+        "Stuart Miller",
+        "Elissa Walker",
+        "Natalie Lennon",
+        "Matthew Addison"
+      ],
+      "tags": [
+        "XYZ Tax",
+        "Government",
+        "Compliance",
+        "eInvoicing",
+        "Building systems where tax compliance is simpler",
+        "accurate and efficient",
+        "AU (ato?)",
+        "Digital record keeping",
+        "Digital ID solutions",
+        "System integrations via APIs (two-way",
+        "scalable)",
+        "Open banking (connected digital economy)",
+        "Real-time views of business health",
+        "File and pay capabilities (managing tax obligations)",
+        "Right time reporting principles",
+        "Data governance & cybersecurity",
+        "BAS preparation",
+        "Free up time",
+        "AI",
+        "JAX",
+        "finding insights",
+        "Tax agents services act AU",
+        "Building trust with clients",
+        "Future view on tax compliance and workflows",
+        "tools",
+        "Digital tax",
+        "Human role in digital tax",
+        "Thriving business",
+        "Trusted advisor",
+        "Panel discussion",
+        "Digital empowerment"
+      ],
+      "description": "How can we make tax “just happen”? At XYZ, we believe the right reforms have the potential to reduce admin, improve accuracy, embed trusted advisors more deeply in the tax system, boost small business productivity, and support the growth of Australia’s digital economy. In this session, we’ll bring XYZ’s public policy and product advocacy work out from behind the scenes and share how we’re contributing to shaping the future of small business tax through global digitalisation reform. We’ll outline some of the key areas we’re advocating for — including file and pay capabilities, API integration, digital ID, and a phased eInvoicing mandate — and explain why we believe these changes are vital for simplifying compliance, building confidence, and enabling broader digital adoption.",
+      "shortDescription": "Discover how XYZ is leading digital tax reform to reduce admin, improve accuracy, and free up advisors for more strategic, high-value work."
+    },
+    {
+      "id": "D260903143002",
+      "title": "External: Rebecca Buchanan The bookkeeping practice of the future",
+      "track": "Discovery",
+      "stageNumber": "Stage 3",
+      "stage": "Discovery",
+      "startDateTime": "2026-09-03T14:30:00",
+      "endDateTime": "2026-09-03T15:15:00",
+      "presenters": [
+        "Rebecca Buchanan"
+      ],
+      "tags": [
+        "AI",
+        "Future of business",
+        "Growth",
+        "Thought Leadership"
+      ],
+      "description": "This session explores five key challenges reshaping bookkeeping: AI and how we use the time it saves; talent shortages and the need for tech-savvy, purpose-driven workplaces; the importance of systemisation in a QMS world; rising client expectations for true partnership; and staying relevant by actively filtering the noise and evolving your practice. What worked for bookkeeping business owners one or two years ago won’t work now — we must create our own bookkeeping practice of the future.",
+      "shortDescription": "Build a future-fit bookkeeping practice with AI, streamlined systems, an engaged team, exceptional service, and clear focus in an info-heavy world."
+    },
+    {
+      "id": "D260904114501",
+      "title": "Dext - sponsored session AI automation: What’s hype, what’s real, and what comes next?",
+      "track": "Discovery",
+      "stageNumber": "Stage 4",
+      "stage": "Discovery",
+      "startDateTime": "2026-09-04T11:45:00",
+      "endDateTime": "2026-09-04T12:30:00",
+      "presenters": [
+        "Sabby Gill",
+        "Inbal Rodnay",
+        "Jason Croston",
+        "Kyelie Baxter"
+      ],
+      "tags": [
+        "Sponsored",
+        "External Speaker"
+      ],
+      "description": "The future is already here, but what does this mean for leaders in accounting and bookkeeping firms? As AI agents begin to automate more of our strategic tasks, including tax and audit functions, how should firms evolve to stay ahead? In this session, our panel of industry experts and thought leaders will explore the implications of AI on firm structures, discussing whether firms need to bring AI specialists on board and how they can leverage technology to transform audits, tax processes, and overall firm operations. What’s next for the industry, and how can leaders prepare for the rapid changes ahead?",
+      "shortDescription": "AI is here, changing accounting and bookkeeping. Our panel will explore how firms can adapt, leverage new technology, and stay ahead of the curve."
+    },
+    {
+      "id": "D260904140004",
+      "title": "GoCardless - sponsored session FY26 cash flow insights: Protect your clients from the strain of late payments",
+      "track": "Discovery",
+      "stageNumber": "Stage 4",
+      "stage": "Discovery",
+      "startDateTime": "2026-09-04T14:00:00",
+      "endDateTime": "2026-09-04T14:45:00",
+      "presenters": [
+        "Ian Boyd",
+        "Bridget Snelling",
+        "Shaun Puckrin"
+      ],
+      "tags": [
+        "Sponsored",
+        "External Speaker"
+      ],
+      "description": "Time is money. Late payments are costing Australian businesses both, according to new research from bank payments company GoCardless. In this session, accounting and payments experts will reveal the latest cash flow insights, share ways to protect your clients, and discuss the future roadmap of payments. It’s time to stop chasing payments, and put your clients’ time and money to better use.",
+      "shortDescription": "Stop chasing payments. Join GoCardless experts as they discuss new research on how late payments are costing Australian businesses time and money."
+    },
+    {
+      "id": "D260904140003",
+      "title": "External: Chelsea Pottenger Focus in a world of distractions",
+      "track": "Discovery",
+      "stageNumber": "Stage 3",
+      "stage": "Discovery",
+      "startDateTime": "2026-09-04T14:00:00",
+      "endDateTime": "2026-09-04T14:45:00",
+      "presenters": [
+        "Chelsea Pottenger"
+      ],
+      "tags": [
+        "External Speaker"
+      ],
+      "description": "Back by popular demand, Chelsea from EQ Minds will bring your team on an incredible journey of how to build adaptability and maximise your potential. You will leave with a series of actionable insights about how to invest in your mental and physical wellbeing.",
+      "shortDescription": "Chelsea (EQ Minds) returns! Build adaptability & maximise potential. Get actionable insights for mental and physical wellbeing"
+    },
+    {
+      "id": "D260903163001",
+      "title": "External: Kate Christie Mastering time investment",
+      "track": "Discovery",
+      "stageNumber": "Stage 3",
+      "stage": "Discovery",
+      "startDateTime": "2026-09-03T16:30:00",
+      "endDateTime": "2026-09-03T17:15:00",
+      "presenters": [
+        "Kate Christie"
+      ],
+      "tags": [
+        "External Speaker"
+      ],
+      "description": "Are you tired of being busy but not necessarily productive? It’s time to take control of your time and start investing it in ways that help you design your best life. In this session, Kate will guide you through practical steps to prioritise revenue-generating activities, minimise disruptions, and understand where to delegate or eliminate tasks. What would an extra 30 hours a month mean for your work and life? Discover how small shifts in your time management can lead to significant changes in your output, corporate culture, and personal success.",
+      "shortDescription": "Tired of busy, not productive? Kate shows how to reclaim 30 hrs/month by prioritising, delegating & eliminating to design your best life."
+    },
+    {
+      "id": "D260904114503",
+      "title": "External: Lani Rafiti Being human in a technology obsessed world",
+      "track": "Discovery",
+      "stageNumber": "Stage 3",
+      "stage": "Discovery",
+      "startDateTime": "2026-09-04T11:45:00",
+      "endDateTime": "2026-09-04T12:30:00",
+      "presenters": [
+        "Lani Rafiti"
+      ],
+      "tags": [
+        "External Speaker"
+      ],
+      "description": "Technology is ubiquitous and it’s adoption will only accelerate as emerging technology such as Artificial Intelligence (AI), Internet of Things (IoT) begin to mature. Set against this rapid shift, humans have evolved over millions of years and changing what it means to be human in a technology obsessed world.",
+      "shortDescription": "Tech is omnipresent, AI & IoT accelerating. Explore how humans evolve in a tech-obsessed world."
+    },
+    {
+      "id": "P260903153002",
+      "title": "The Courage to Say No: Pricing, Positioning, and Picking the Clients You Actually Want",
+      "track": "Partner & Community",
+      "stageNumber": "Stage 2",
+      "stage": "Partner & Community",
+      "startDateTime": "2026-09-03T15:30:00",
+      "endDateTime": "2026-09-03T16:00:00",
+      "presenters": [
+        "Clayton Wood"
+      ],
+      "tags": [
+        "Culture / Soft Skills",
+        "Future of business",
+        "Growth",
+        "Invoicing and jobs",
+        "Thought leadership",
+        "External speaker",
+        "Learning from peers",
+        "streamlining practice"
+      ],
+      "description": "Here's the truth: every time you say 'yes' to the wrong client, you're saying 'no' to the right one—or to yourself. This session will teach you the Clarity Matrix framework to confidently price based on complexity, communicate your value clearly, and build the courage to say no to clients who don't fit. Because leadership starts when you stop people-pleasing and start backing your value.",
+      "shortDescription": "Stop undercharging and start leading. Learn the Clarity Matrix to price with confidence and say yes to the right clients.",
+      "flags": {
+        "externalSpeaker": true
+      }
+    },
+    {
+      "id": "P260903153001",
+      "title": "How Strategic Bookkeepers Scale Profit and Time with Advisory & Automation",
+      "track": "Partner & Community",
+      "stageNumber": "Stage 1",
+      "stage": "Partner & Community",
+      "startDateTime": "2026-09-03T15:30:00",
+      "endDateTime": "2026-09-03T16:00:00",
+      "presenters": [
+        "Jeannie Savage"
+      ],
+      "tags": [
+        "Advisory",
+        "Growth",
+        "External speaker",
+        "automation",
+        "workflow",
+        "bookkeeping"
+      ],
+      "description": "Most bookkeepers start out to create freedom and income—but without the right systems, many end up overwhelmed, underpaid, or unsure how to grow. In this hands-on workshop, Jeannie Savage—bookkeeper, author, and global strategist—guides attendees through a proven framework to build a scalable, high-value service model using productisation, automation, and advisory.",
+      "shortDescription": "Scale profit & time with Jeannie Savage’s proven framework—productisation, automation & advisory for strategic bookkeepers.",
+      "flags": {
+        "externalSpeaker": true
+      }
+    },
+    {
+      "id": "P260903143002",
+      "title": "You are the boss of your future: Natalie Lennon’s personal journey from Loss and Darkness to Success and Self-Empowerment",
+      "track": "Partner & Community",
+      "stageNumber": "Stage 1",
+      "stage": "Partner & Community",
+      "startDateTime": "2026-09-03T14:30:00",
+      "endDateTime": "2026-09-03T15:00:00",
+      "presenters": [
+        "Natalie Lennon"
+      ],
+      "tags": [
+        "Bold Ideas",
+        "Culture / Soft Skills",
+        "Future of business",
+        "Thought leadership",
+        "External speaker",
+        "succeed",
+        "reslience"
+      ],
+      "description": "In accounting and bookkeeping, we thrive on ticking boxes and maintaining control. But what happens when life throws a challenge you can’t “work harder” to overcome? In this inspiring session, Natalie Lennon shares her journey of resilience, from navigating heavy personal issues to leaving a secure partnership and building a thriving firm. This session challenges you to rethink success, embrace detours, and discover how life’s toughest moments can lead to the greatest growth.",
+      "shortDescription": "When life didn’t go to plan, I walked away from “safe” and built a business I love. This talk is about rewriting success on your own terms.",
+      "flags": {
+        "externalSpeaker": true
+      }
+    },
+    {
+      "id": "P260903143001",
+      "title": "Selling technology services to your clients without knowing it all",
+      "track": "Partner & Community",
+      "stageNumber": "Stage 2",
+      "stage": "Partner & Community",
+      "startDateTime": "2026-09-03T14:30:00",
+      "endDateTime": "2026-09-03T15:00:00",
+      "presenters": [
+        "Laurel Millar"
+      ],
+      "tags": [
+        "Advisory",
+        "Accountant tools",
+        "Future of business",
+        "External speaker",
+        "client success",
+        "practice",
+        "workflow"
+      ],
+      "description": "The two words \"Digital Transformation\" are enough to scare away your average accountant and client. This session will break down what they mean into a simple and easy to convey framework and help you as an adviser think about how you can package and on-sell services while retaining your role as the trusted adviser. You will leave understanding how to confidently talk about the what and why around technology without knowing all the details, giving your clients comfort and keeping them sticky.",
+      "shortDescription": "Demystify Digital Transformation! Learn a simple framework to confidently package & sell tech services, keeping clients sticky and you the trusted advisor.",
+      "flags": {
+        "externalSpeaker": true
+      }
+    },
+    {
+      "id": "P260903130002",
+      "title": "Shining the Light on Accounting’s Unsung Heroines: Confronting Imposter Syndrome, Countering the Talent Drain, and Reshaping Our Industry",
+      "track": "Partner & Community",
+      "stageNumber": "Stage 2",
+      "stage": "Partner & Community",
+      "startDateTime": "2026-09-03T13:00:00",
+      "endDateTime": "2026-09-03T13:30:00",
+      "presenters": [
+        "Sarah Lawrance + Panel"
+      ],
+      "tags": [
+        "Culture / Soft Skills",
+        "Future of business",
+        "Bold Ideas",
+        "Inspired Action",
+        "Recruitment",
+        "External speaker",
+        "reslience",
+        "succeed",
+        "practice"
+      ],
+      "description": "Many talented women in accounting suffer imposter syndrome, silencing their voices. We propose a panel of Jolene Elliott, Susan Milicevic, and Lauren Thiel, with Sarah Lawrance as moderator, to share how they reframed self-doubt, built resilience, and transformed uncertainty into leadership. Join us to spark change: rethink career paths, embed flexibility, and create inclusive cultures that retain and inspire the next generation.",
+      "shortDescription": "Join Sarah Lawrance and her panel who will discusses imposter syndrome, the talent drain in accounting, and offer ways to reframe self-doubt and build resilience.",
+      "flags": {
+        "externalSpeaker": true
+      }
+    },
+    {
+      "id": "P260903130001",
+      "title": "Givers Gain Mentality: The Importance of Networking in Small to Medium Business",
+      "track": "Partner & Community",
+      "stageNumber": "Stage 1",
+      "stage": "Partner & Community",
+      "startDateTime": "2026-09-03T13:00:00",
+      "endDateTime": "2026-09-03T13:30:00",
+      "presenters": [
+        "Sangeeta Bajaj"
+      ],
+      "tags": [
+        "External speaker",
+        "Future of business",
+        "Growth",
+        "Marketing",
+        "practice",
+        "succeed"
+      ],
+      "description": "Are you still wondering how to bring in valuable clients and their business? Sangeeta has the solution, and it doesn’t involve thousands spent on Google and Facebook ads, it’s as easy as networking. Have you got your elevator pitch ready?",
+      "shortDescription": "Are you still wondering how to bring in valuable clients and their business? Sangeeta has the solution, and it doesn’t involve thousands spent on ads, it’s as easy as networking.\"",
+      "flags": {
+        "externalSpeaker": true
+      }
+    },
+    {
+      "id": "P260904094502",
+      "title": "Timothy Munro says: I want AI to take my Job! All the Tasks I’m handing over and Why",
+      "track": "Partner & Community",
+      "stageNumber": "Stage 2",
+      "stage": "Partner & Community",
+      "startDateTime": "2026-09-04T09:45:00",
+      "endDateTime": "2026-09-04T10:15:00",
+      "presenters": [
+        "Timothy Munro"
+      ],
+      "tags": [
+        "AI",
+        "XYZ product",
+        "Accountant tools",
+        "External speaker",
+        "automation"
+      ],
+      "description": "See how a XYZ award winning accounting firm owner has successfully given key tasks to AI by viewing AI as a TOOL and NOT a THREAT. 1. Impress + Win a New Client Like a Partner Can (XYZ Tax Ret's + AI = WIN) 2. Run an AMAZING Client Meeting Like a Partner Can (XYZ Fin Stat's + AI = Partners finally \"let go\") 3. Successfully Reprice a Client like a Partner Can (XYZ Fin Stat's + AI = Higher price + Happy Client) 4. Automate Team Salary Reviews + Performance Goals (XYZ Payroll data + AI = WIN)",
+      "shortDescription": "AI automates accounting: win clients, run meetings, reprice, and salary reviews. Learn how to free Partner time and transform your practice!",
+      "flags": {
+        "externalSpeaker": true
+      }
+    },
+    {
+      "id": "P260904094501",
+      "title": "How you can save at least 1 hour a day right now, using Gen AI",
+      "track": "Partner & Community",
+      "stageNumber": "Stage 1",
+      "stage": "Partner & Community",
+      "startDateTime": "2026-09-04T09:45:00",
+      "endDateTime": "2026-09-04T10:15:00",
+      "presenters": [
+        "Kayur Patel"
+      ],
+      "tags": [
+        "AI",
+        "Workflows",
+        "Future of business",
+        "External speaker",
+        "automation"
+      ],
+      "description": "With all the AI hype, it’s hard to know where to start. This hands-on session cuts through the noise, showing accountants and bookkeepers how to reclaim an hour a day using tools like ChatGPT and Co-Pilot. No fluff or complex set ups, just real-world applications that streamline workflows, reduce admin time, and boost productivity. and improve client communication. Follow along in real time and leave with practical techniques you can implement immediately to work smarter, not harder.",
+      "shortDescription": "Join Kayur Patel for a hands-on session on using Gen AI to boost accounting efficiency: practical tools, no tech skills needed, ready to use tomorrow.",
+      "flags": {
+        "externalSpeaker": true
+      }
+    },
+    {
+      "id": "P260904114502",
+      "title": "We Fired Our RPA Provider & Built Our Own BAS Bots - You Can Too!",
+      "track": "Partner & Community",
+      "stageNumber": "Stage 1",
+      "stage": "Partner & Community",
+      "startDateTime": "2026-09-04T11:45:00",
+      "endDateTime": "2026-09-04T12:15:00",
+      "presenters": [
+        "Shannon Smit"
+      ],
+      "tags": [
+        "AI",
+        "Compliance",
+        "Workflows",
+        "Future of business",
+        "Tax",
+        "External speaker"
+      ],
+      "description": "We jumped into AI and RPA by outsourcing - only to realise our provider was slowing us down. So, we took charge, learned RPA ourselves, and now our team is leading the automation revolution! We’re building bots that handle BAS, IAS, client workflows, and those tedious low-value tasks - freeing up time for real impact. This session reveals how we fired our provider, mastered RPA in-house, and proved you don’t need to be a coder to transform and scale your firm.",
+      "shortDescription": "We fired our RPA provider, built our own bots - now we’re automating BAS, IAS & workflows in-house. No code needed, just bold moves.",
+      "flags": {
+        "externalSpeaker": true
+      }
+    },
+    {
+      "id": "P260904114501",
+      "title": "Communicating VALUE: A Framework for Accountants to Stop Over-Giving, Charge What You’re Worth, and Deepen Client Connections",
+      "track": "Partner & Community",
+      "stageNumber": "Stage 2",
+      "stage": "Partner & Community",
+      "startDateTime": "2026-09-04T11:45:00",
+      "endDateTime": "2026-09-04T12:15:00",
+      "presenters": [
+        "Michelle Kolze"
+      ],
+      "tags": [
+        "Advisory",
+        "Culture / Soft Skills",
+        "Inspired Action",
+        "External speaker",
+        "client",
+        "success"
+      ],
+      "description": "Accountants often feel overworked and undervalued - not because their work lacks merit, but because the value isn’t being clearly communicated. In this session, you’ll learn the 5-step VALUE framework to connect deeply with clients, communicate services with clarity and confidence, and shift from over-giving to sustainable, fulfilling client relationships. Leave with tools, language, and mindset shifts to transform how you work.",
+      "shortDescription": "Learn to communicate your value clearly, confidently and powerfully - so clients truly understand your impact and are happy to pay for it.",
+      "flags": {
+        "externalSpeaker": true
+      }
+    },
+    {
+      "id": "P260904104502",
+      "title": "The ROI of Being Real: How to Supercharge Culture into Brand Power",
+      "track": "Partner & Community",
+      "stageNumber": "Stage 1",
+      "stage": "Partner & Community",
+      "startDateTime": "2026-09-04T10:45:00",
+      "endDateTime": "2026-09-04T11:15:00",
+      "presenters": [
+        "Ric Thorpe"
+      ],
+      "tags": [
+        "Culture / Soft Skills",
+        "External speaker",
+        "practice",
+        "success",
+        "team"
+      ],
+      "description": "What if culture isn’t just a vibe, but your most powerful brand asset? Ric Thorpe, CEO of Sidekick,XYZ’s first Platinum Partner, shares how defining and funding culture with intent creates an authentic employer brand — one that attracts talent, inspires loyalty, and drives long-term business success.",
+      "shortDescription": "What if culture isn’t just a vibe, but your most powerful brand asset? Ric Thorpe, CEO of Sidekick,XYZ’s first Platinum Partner, shares how defining and funding culture with intent creates an authentic employer brand — one that attracts talent, inspires loyalty, and drives long-term business success.",
+      "flags": {
+        "externalSpeaker": true
+      }
+    },
+    {
+      "id": "P260904104501",
+      "title": "Accounting Firm Automation and Optimisation",
+      "track": "Partner & Community",
+      "stageNumber": "Stage 2",
+      "stage": "Partner & Community",
+      "startDateTime": "2026-09-04T10:45:00",
+      "endDateTime": "2026-09-04T11:15:00",
+      "presenters": [
+        "Tyler Caskey"
+      ],
+      "tags": [
+        "Custom integration",
+        "Future of business",
+        "Innovative tools",
+        "Ecosystem",
+        "External speaker",
+        "client success"
+      ],
+      "description": "How the top performing accounting firms are using technology, integration, and optimal systems to increase the accuracy and improve the speed of their client delivery processes. Covering efficient staff onboarding, client onboarding and data collection, financial statement simplification, signing, billing, and collections. How connecting and monitoring best of breed tech makes for more engaged staff and a better client experience.",
+      "shortDescription": "How the top accounting firms use optimal technology and integration to improve the accuracy and speed of their client delivery",
+      "flags": {
+        "externalSpeaker": true
+      }
+    },
+    {
+      "id": "P260904123001",
+      "title": "Protect your business, your customers and yourself from a Cyber attack - can AI Help?",
+      "track": "Partner & Community",
+      "stageNumber": "Stage 1",
+      "stage": "Partner & Community",
+      "startDateTime": "2026-09-04T12:30:00",
+      "endDateTime": "2026-09-04T13:00:00",
+      "presenters": [
+        "Mark Knowles, General Manager Security Assurance"
+      ],
+      "tags": [
+        "AI",
+        "Cybersecurity",
+        "Future of business",
+        "security",
+        "technology",
+        "safety",
+        "passwords"
+      ],
+      "description": "Cyber threats are evolving faster than ever. In this essential session, you’ll gain practical, real-world skills to fortify your firm and safeguard your clients from attacks. We'll demystify common threats and show you how to spot them, providing clear takeaways on using AI as a powerful ally in your defense—and what to watch out for. Walk away with the confidence and know-how to build a resilient and secure practice.",
+      "shortDescription": "Fortify your firm and clients against cyberattacks. Learn practical skills, demystify threats, and use AI as an ally in this essential session."
+    },
+    {
+      "id": "P260904140001",
+      "title": "Live Demo: Build a Low-Code XYZ-Integrated App Using Natural Language",
+      "track": "Partner & Community",
+      "stageNumber": "Stage 1",
+      "stage": "Partner & Community",
+      "startDateTime": "2026-09-04T14:00:00",
+      "endDateTime": "2026-09-04T14:30:00",
+      "presenters": [
+        "Regan Ashworth"
+      ],
+      "tags": [
+        "Cloud integrator",
+        "Future of business",
+        "Innovation",
+        "Innovative tools",
+        "Product Demo",
+        "Reporting",
+        "Workflows"
+      ],
+      "description": "Watch us build and connect an app to XYZ - live, in just 15 minutes. You’ll see how to create your own XYZ-integrated app using low-code tools and natural language prompts - no deep coding knowledge required. Build what you need and spend more time solving real client problems. Whether you’re looking to automate workflows, customise reports, or streamline repetitive tasks, this demo shows just how accessible app creation can be.",
+      "shortDescription": "Watch us build and connect an app to XYZ - live, in just 15 minutes. You’ll see how to create your own XYZ-integrated app using low-code tools and natural language prompts - no deep coding knowledge required."
+    },
+    {
+      "id": "P260904140002",
+      "title": "Scaling success: How XYZ empowers growing businesses",
+      "track": "Partner & Community",
+      "stageNumber": "Stage 2",
+      "stage": "Partner & Community",
+      "startDateTime": "2026-09-04T14:00:00",
+      "endDateTime": "2026-09-04T14:30:00",
+      "presenters": [
+        "Sam Baldwin",
+        "Aly Garrett",
+        "Jason Croston"
+      ],
+      "tags": [
+        "XYZ product",
+        "Syft",
+        "Ecosystem",
+        "Future of business"
+      ],
+      "description": "As your clients’ businesses grow, so does their financial complexity. Leverage the suite of XYZ products to assist more complex clients to increase efficiency, gain greater insights and ultimately scale their operations. Streamline collaboration across teams and multi-entity structures with the use of XYZ, Syft and the XYZ ecosystem.",
+      "shortDescription": "Empower growing businesses with XYZ & Syft Analytics. Boost efficiency, gain insights, and scale operations across complex and multi-entity organisations."
+    },
+    {
+      "id": "S260903092001",
+      "title": "XYZcon opening showcase",
+      "track": "Supercharge",
+      "stageNumber": "Supercharge Stage",
+      "stage": "Supercharge Stage",
+      "startDateTime": "2026-09-03T09:20:00",
+      "endDateTime": "2026-09-03T09:30:00",
+      "presenters": [
+        "Sukhinder Singh Cassidy"
+      ],
+      "description": "Supercharging Your Future: Embrace Innovation, Unlock Capacity, and Redefine Impact with AI Hear from XYZ’s CEO on how AI is poised to drive unprecedented change in the coming years. Join us to discover how XYZ is democratising this innovation, empowering you to embrace a \"Supercharged Future\" with reimagined experiences, personalised insights, and automated actions for greater impact.",
+      "shortDescription": "Hear from XYZ’s CEO on how you can supercharge your future with AI to deliver reimagined experiences, personalized insights, and automated actions.",
+      "flags": {
+        "keynote": true
+      }
+    },
+    {
+      "id": "S260903093001",
+      "title": "XYZcon opening showcase: Product and tech",
+      "track": "Supercharge",
+      "stageNumber": "Supercharge Stage",
+      "stage": "Supercharge Stage",
+      "startDateTime": "2026-09-03T09:30:00",
+      "endDateTime": "2026-09-03T10:15:00",
+      "presenters": [
+        "Diya Jolly"
+      ],
+      "description": "XYZ’s Product Strategy: The Intelligent Platform to Harness AI, Automate Your Work, and Multiply Your Impact Hear about XYZ's evolved product strategy from Diya Jolly, our CPTO. Learn how our unique agentic approach streamlines your work to empower your human expertise, freeing you to multiply your impact through a reimagined XYZ experience with automated actions and real-time insights.",
+      "shortDescription": "This session reveals XYZ's evolved strategy, leveraging AI for automated actions, personalised insights, and reimagined experiences to multiply your impact.",
+      "flags": {
+        "keynote": true
+      }
+    },
+    {
+      "id": "S260903113001",
+      "title": "Charting your course: Define your success, discover your endgame, and power your future with tech",
+      "track": "Supercharge",
+      "stageNumber": "Supercharge Stage",
+      "stage": "Supercharge Stage",
+      "startDateTime": "2026-09-03T11:30:00",
+      "endDateTime": "2026-09-03T12:00:00",
+      "presenters": [
+        "Angad Soin"
+      ],
+      "description": "Advisors are crucial for small business success. But what does success mean to today's entrepreneurs? Join us to discover how XYZ is empowering you to become a proactive, strategic partner. Learn to define your ‘endgame’, attract ideal clients, and amplify your impact to help small businesses thrive. Speaker: Angad Soin, Managing Director ANZ and Global Chief Strategy Officer, XYZ",
+      "shortDescription": "This session is about helping you redefine success for you, your clients, and amplify your impact to help small businesses thrive.",
+      "flags": {
+        "keynote": true
+      }
+    },
+    {
+      "id": "S260903120001",
+      "title": "Joe Brumm | Special guest",
+      "track": "Supercharge",
+      "stageNumber": "Supercharge Stage",
+      "stage": "Supercharge Stage",
+      "startDateTime": "2026-09-03T12:00:00",
+      "endDateTime": "2026-09-03T12:45:00",
+      "presenters": [
+        "Joe Brumm"
+      ],
+      "tags": [
+        "External speaker"
+      ],
+      "description": "Hear Joe's leadership journey and principles of collaboration, innovation and inclusivity in the creation of global sensation, Bluey.",
+      "shortDescription": "Hear how Joe’s inclusive, innovative leadership helped bring global sensation Bluey to life.",
+      "flags": {
+        "keynote": true
+      }
+    }
+  ]
+}

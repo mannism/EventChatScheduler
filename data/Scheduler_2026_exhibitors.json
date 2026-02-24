@@ -1,0 +1,1375 @@
+{
+  "event": {
+    "name": "XYZcon",
+    "year": 2026,
+    "timezone": "Australia/Sydney",
+    "startDate": "2026-09-03",
+    "endDate": "2026-09-04"
+  },
+  "schemaVersion": "1.0",
+  "notes": "Exhibitors dataset. tags and regions align with sessions dataset fields for unified filtering and AI retrieval.",
+  "exhibitors": [
+    {
+      "id": "Eapprovalmax",
+      "name": "ApprovalMax",
+      "tags": [
+        "Bills and expenses",
+        "Invoicing and jobs"
+      ],
+      "regions": [
+        "Australia",
+        "Canada",
+        "Global",
+        "Hong Kong",
+        "Indonesia",
+        "Ireland",
+        "Malaysia",
+        "New Zealand",
+        "Philippines",
+        "Singapore",
+        "South Africa",
+        "United Kingdom",
+        "United States"
+      ]
+    },
+    {
+      "id": "Efusesign",
+      "name": "FuseSign",
+      "tags": [
+        "Accountant tools",
+        "Practice manager"
+      ],
+      "regions": [
+        "Australia",
+        "Canada",
+        "Global",
+        "Hong Kong",
+        "Indonesia",
+        "Ireland",
+        "Malaysia",
+        "New Zealand",
+        "Philippines",
+        "Singapore",
+        "South Africa",
+        "United Kingdom",
+        "United States"
+      ]
+    },
+    {
+      "id": "Egocardless",
+      "name": "GoCardless",
+      "tags": [
+        "Payments"
+      ],
+      "regions": [
+        "Australia",
+        "Canada",
+        "Ireland",
+        "New Zealand",
+        "United Kingdom",
+        "United States"
+      ]
+    },
+    {
+      "id": "Egojee",
+      "name": "Gojee",
+      "tags": [
+        "Invoicing and jobs",
+        "Inventory"
+      ],
+      "regions": [
+        "Australia",
+        "New Zealand"
+      ]
+    },
+    {
+      "id": "Eofx",
+      "name": "OFX",
+      "tags": [
+        "Bills and expenses",
+        "Payments"
+      ],
+      "regions": [
+        "Australia"
+      ]
+    },
+    {
+      "id": "Ea2x",
+      "name": "A2X",
+      "tags": [
+        "Ecommerce",
+        "Accountant tools"
+      ],
+      "regions": [
+        "Australia",
+        "Canada",
+        "Global",
+        "Hong Kong",
+        "Ireland",
+        "Malaysia",
+        "New Zealand",
+        "Philippines",
+        "Singapore",
+        "South Africa",
+        "United Kingdom",
+        "United States"
+      ]
+    },
+    {
+      "id": "Eahoyahoy",
+      "name": "AhoyAhoy",
+      "tags": [
+        "Discover"
+      ],
+      "regions": []
+    },
+    {
+      "id": "Eairwallex",
+      "name": "Airwallex",
+      "tags": [
+        "Payments",
+        "Bills and expenses"
+      ],
+      "regions": [
+        "Australia",
+        "Hong Kong",
+        "New Zealand",
+        "Singapore",
+        "United Kingdom",
+        "United States"
+      ]
+    },
+    {
+      "id": "Eappventory",
+      "name": "AppVentory",
+      "tags": [
+        "Other",
+        "Accountant tools"
+      ],
+      "regions": [
+        "Australia",
+        "Canada",
+        "Global",
+        "Hong Kong",
+        "Indonesia",
+        "Ireland",
+        "Malaysia",
+        "New Zealand",
+        "Philippines",
+        "Singapore",
+        "South Africa",
+        "United Kingdom",
+        "United States"
+      ]
+    },
+    {
+      "id": "Ecastaway-cloud",
+      "name": "Castaway Cloud",
+      "tags": [
+        "Accountant tools",
+        "Reporting and forecasting"
+      ],
+      "regions": [
+        "Australia",
+        "Canada",
+        "Global",
+        "Hong Kong",
+        "Indonesia",
+        "Ireland",
+        "Malaysia",
+        "New Zealand",
+        "Philippines",
+        "Singapore",
+        "South Africa",
+        "United Kingdom",
+        "United States"
+      ]
+    },
+    {
+      "id": "Echaser",
+      "name": "Chaser",
+      "tags": [
+        "Debtor tracking",
+        "Invoicing and jobs"
+      ],
+      "regions": [
+        "Australia",
+        "Canada",
+        "Global",
+        "Hong Kong",
+        "Indonesia",
+        "Ireland",
+        "Malaysia",
+        "New Zealand",
+        "Philippines",
+        "Singapore",
+        "South Africa",
+        "United Kingdom",
+        "United States"
+      ]
+    },
+    {
+      "id": "Ecin7",
+      "name": "Cin7",
+      "tags": [
+        "Inventory",
+        "Ecommerce"
+      ],
+      "regions": [
+        "Australia",
+        "Canada",
+        "Global",
+        "Hong Kong",
+        "Indonesia",
+        "Ireland",
+        "Malaysia",
+        "New Zealand",
+        "Philippines",
+        "Singapore",
+        "South Africa",
+        "United Kingdom",
+        "United States"
+      ]
+    },
+    {
+      "id": "Eclarity-street",
+      "name": "Clarity Street",
+      "tags": [
+        "Cloud integrator"
+      ],
+      "regions": []
+    },
+    {
+      "id": "Ecloudpayroll",
+      "name": "CloudPayroll",
+      "tags": [
+        "Payroll HR"
+      ],
+      "regions": [
+        "Cloud Payroll: Australia",
+        "iPayroll: New Zealand"
+      ]
+    },
+    {
+      "id": "Econstant-contact",
+      "name": "Constant Contact",
+      "tags": [
+        "CRM and marketing",
+        "Other"
+      ],
+      "regions": [
+        "United States",
+        "Australia"
+      ]
+    },
+    {
+      "id": "Eezzybills",
+      "name": "EzzyBills",
+      "tags": [
+        "Bills and expenses",
+        "Invoicing and jobs"
+      ],
+      "regions": [
+        "Australia",
+        "Canada",
+        "Global",
+        "Hong Kong",
+        "Indonesia",
+        "Ireland",
+        "Malaysia",
+        "New Zealand",
+        "Philippines",
+        "Singapore",
+        "South Africa",
+        "United Kingdom",
+        "United States"
+      ]
+    },
+    {
+      "id": "Efathom",
+      "name": "Fathom",
+      "tags": [
+        "Accountant tools",
+        "Reporting and forecasting"
+      ],
+      "regions": [
+        "Australia",
+        "Canada",
+        "Global",
+        "Hong Kong",
+        "Indonesia",
+        "Ireland",
+        "Malaysia",
+        "New Zealand",
+        "Philippines",
+        "Singapore",
+        "South Africa",
+        "United Kingdom",
+        "United States"
+      ]
+    },
+    {
+      "id": "Efeesynergy-collect",
+      "name": "FeeSynergy Collect",
+      "tags": [
+        "Debtor tracking",
+        "Payments"
+      ],
+      "regions": [
+        "Australia",
+        "New Zealand"
+      ]
+    },
+    {
+      "id": "Efgs-advisory",
+      "name": "FGS Advisory",
+      "tags": [
+        "Cloud integrator"
+      ],
+      "regions": []
+    },
+    {
+      "id": "Efigured",
+      "name": "Figured",
+      "tags": [
+        "Reporting",
+        "Accountant tools"
+      ],
+      "regions": [
+        "Australia",
+        "Canada",
+        "Ireland",
+        "New Zealand",
+        "United Kingdom",
+        "United States"
+      ]
+    },
+    {
+      "id": "Efishbowl",
+      "name": "Fishbowl",
+      "tags": [
+        "Inventory",
+        "Ecommerce"
+      ],
+      "regions": [
+        "Australia",
+        "Canada",
+        "Global",
+        "Hong Kong",
+        "Indonesia",
+        "Malaysia",
+        "New Zealand",
+        "Philippines",
+        "Singapore",
+        "South Africa",
+        "United Kingdom",
+        "United States"
+      ]
+    },
+    {
+      "id": "Efundtap",
+      "name": "FundTap",
+      "tags": [
+        "Loans",
+        "financing and credit"
+      ],
+      "regions": [
+        "Australia",
+        "New Zealand"
+      ]
+    },
+    {
+      "id": "Ejet-convert",
+      "name": "Jet Convert",
+      "tags": [
+        "Convert data to XYZ"
+      ],
+      "regions": [
+        "Australia",
+        "New Zealand",
+        "United States"
+      ]
+    },
+    {
+      "id": "Elightyear-ap",
+      "name": "Lightyear AP",
+      "tags": [
+        "Invoicing and jobs",
+        "Bills and expenses"
+      ],
+      "regions": [
+        "Australia",
+        "Canada",
+        "Global",
+        "Hong Kong",
+        "Ireland",
+        "Malaysia",
+        "New Zealand",
+        "Philippines",
+        "Singapore",
+        "South Africa",
+        "United Kingdom",
+        "United States"
+      ]
+    },
+    {
+      "id": "Emanage-my-renewals",
+      "name": "Manage My Renewals",
+      "tags": [
+        "Accountant tools"
+      ],
+      "regions": [
+        "Australia"
+      ]
+    },
+    {
+      "id": "Emayday",
+      "name": "Mayday",
+      "tags": [
+        "Accountant tools",
+        "Reporting and forecasting"
+      ],
+      "regions": [
+        "Australia",
+        "Canada",
+        "Global",
+        "Hong Kong",
+        "Indonesia",
+        "Ireland",
+        "Malaysia",
+        "New Zealand",
+        "Philippines",
+        "Singapore",
+        "South Africa",
+        "United Kingdom",
+        "United States"
+      ]
+    },
+    {
+      "id": "Emurho-store-n-track",
+      "name": "MuRho Store N Track",
+      "tags": [
+        "Inventory"
+      ],
+      "regions": [
+        "Australia",
+        "Hong Kong",
+        "Indonesia",
+        "Malaysia",
+        "New Zealand",
+        "Philippines",
+        "Singapore"
+      ]
+    },
+    {
+      "id": "Epaidnice",
+      "name": "Paidnice",
+      "tags": [
+        "Debtor tracking",
+        "Invoicing and jobs"
+      ],
+      "regions": [
+        "Australia",
+        "Canada",
+        "Global",
+        "Hong Kong",
+        "Indonesia",
+        "Ireland",
+        "Malaysia",
+        "New Zealand",
+        "Philippines",
+        "Singapore",
+        "South Africa",
+        "United Kingdom",
+        "United States"
+      ]
+    },
+    {
+      "id": "Epeach-software",
+      "name": "Peach Software",
+      "tags": [
+        "Ecommerce",
+        "Inventory"
+      ],
+      "regions": [
+        "Australia",
+        "New Zealand"
+      ]
+    },
+    {
+      "id": "Epinch-payments",
+      "name": "Pinch Payments",
+      "tags": [
+        "Payments",
+        "Invoicing and jobs"
+      ],
+      "regions": [
+        "Australia",
+        "New Zealand"
+      ]
+    },
+    {
+      "id": "Eprojectworks",
+      "name": "Projectworks",
+      "tags": [
+        "Invoicing and jobs",
+        "Time tracking"
+      ],
+      "regions": [
+        "Australia",
+        "Canada",
+        "Global",
+        "Hong Kong",
+        "Indonesia",
+        "Ireland",
+        "Malaysia",
+        "New Zealand",
+        "Philippines",
+        "Singapore",
+        "South Africa",
+        "United Kingdom",
+        "United States"
+      ]
+    },
+    {
+      "id": "Ereach-reporting",
+      "name": "Reach Reporting",
+      "tags": [
+        "Reporting and forecasting",
+        "Accountant tools"
+      ],
+      "regions": [
+        "Australia",
+        "Canada",
+        "Global",
+        "Hong Kong",
+        "Indonesia",
+        "Ireland",
+        "Malaysia",
+        "New Zealand",
+        "Philippines",
+        "Singapore",
+        "South Africa",
+        "United Kingdom",
+        "United States"
+      ]
+    },
+    {
+      "id": "Eshiftcare",
+      "name": "ShiftCare",
+      "tags": [
+        "Time tracking",
+        "CRM and marketing"
+      ],
+      "regions": [
+        "Australia",
+        "Canada",
+        "New Zealand",
+        "United States"
+      ]
+    },
+    {
+      "id": "Esimpleai",
+      "name": "SimpleAI",
+      "tags": [
+        "Accountant tools",
+        "Bills and expenses"
+      ],
+      "regions": [
+        "Australia",
+        "Global",
+        "Hong Kong",
+        "Indonesia",
+        "Malaysia",
+        "New Zealand",
+        "Philippines",
+        "Singapore",
+        "United Kingdom",
+        "United States"
+      ]
+    },
+    {
+      "id": "Esinchii",
+      "name": "Sinchii",
+      "tags": [
+        "Accountant tools",
+        "Reporting and forecasting"
+      ],
+      "regions": [
+        "Australia"
+      ]
+    },
+    {
+      "id": "Espotlight-reporting",
+      "name": "Spotlight Reporting",
+      "tags": [
+        "Reporting and forecasting",
+        "Accountant tools"
+      ],
+      "regions": [
+        "Australia",
+        "Canada",
+        "Global",
+        "Hong Kong",
+        "Indonesia",
+        "Ireland",
+        "Malaysia",
+        "New Zealand",
+        "Philippines",
+        "Singapore",
+        "South Africa",
+        "United Kingdom",
+        "United States"
+      ]
+    },
+    {
+      "id": "Esquare",
+      "name": "Square",
+      "tags": [
+        "Point of sale",
+        "Payments"
+      ],
+      "regions": [
+        "Australia",
+        "Canada",
+        "Ireland",
+        "United Kingdom",
+        "United States"
+      ]
+    },
+    {
+      "id": "Esuitefiles",
+      "name": "SuiteFiles",
+      "tags": [
+        "Documents",
+        "Practice manager"
+      ],
+      "regions": [
+        "Australia",
+        "Canada",
+        "Global",
+        "Hong Kong",
+        "Indonesia",
+        "Ireland",
+        "Malaysia",
+        "New Zealand",
+        "Philippines",
+        "Singapore",
+        "South Africa",
+        "United Kingdom",
+        "United States"
+      ]
+    },
+    {
+      "id": "Esumday",
+      "name": "Sumday",
+      "tags": [
+        "Carbon accounting",
+        "Reporting and forecasting"
+      ],
+      "regions": [
+        "Australia",
+        "Canada",
+        "Global",
+        "Ireland",
+        "New Zealand",
+        "South Africa",
+        "United Kingdom",
+        "United States"
+      ]
+    },
+    {
+      "id": "Etanda",
+      "name": "Tanda",
+      "tags": [
+        "Payroll HR",
+        "Time tracking"
+      ],
+      "regions": [
+        "Australia",
+        "New Zealand",
+        "United Kingdom",
+        "United States"
+      ]
+    },
+    {
+      "id": "Etraild",
+      "name": "TRAILD",
+      "tags": [
+        "Bills and expenses",
+        "Payments"
+      ],
+      "regions": [
+        "Australia",
+        "Canada",
+        "Global",
+        "Ireland",
+        "Malaysia",
+        "New Zealand",
+        "Philippines",
+        "Singapore",
+        "South Africa",
+        "United Kingdom",
+        "United States"
+      ]
+    },
+    {
+      "id": "Etranslucent-multi-entity",
+      "name": "Translucent-#Multi-Entity",
+      "tags": [
+        "Accountant tools",
+        "Reporting and forecasting"
+      ],
+      "regions": [
+        "Australia",
+        "Canada",
+        "Global",
+        "Hong Kong",
+        "Indonesia",
+        "Ireland",
+        "Malaysia",
+        "New Zealand",
+        "Philippines",
+        "Singapore",
+        "South Africa",
+        "United Kingdom",
+        "United States"
+      ]
+    },
+    {
+      "id": "Evaricon",
+      "name": "Varicon",
+      "tags": [
+        "Bills and expenses",
+        "time tracking"
+      ],
+      "regions": [
+        "Australia"
+      ]
+    },
+    {
+      "id": "Evibe-cfo",
+      "name": "Vibe CFO",
+      "tags": [
+        "Accountant tools",
+        "Reporting and forecasting"
+      ],
+      "regions": [
+        "Australia",
+        "Canada",
+        "New Zealand",
+        "United Kingdom",
+        "United States"
+      ]
+    },
+    {
+      "id": "Eweel",
+      "name": "Weel",
+      "tags": [
+        "Bills and expenses",
+        "Payments"
+      ],
+      "regions": [
+        "Australia"
+      ]
+    },
+    {
+      "id": "Eworkflowmax",
+      "name": "WorkflowMax",
+      "tags": [
+        "Invoicing and jobs",
+        "Time tracking"
+      ],
+      "regions": [
+        "Australia",
+        "Canada",
+        "Global",
+        "Hong Kong",
+        "Indonesia",
+        "Ireland",
+        "Malaysia",
+        "New Zealand",
+        "Philippines",
+        "Singapore",
+        "South Africa",
+        "United Kingdom",
+        "United States"
+      ]
+    },
+    {
+      "id": "Eworkguru",
+      "name": "WorkGuru",
+      "tags": [
+        "Inventory",
+        "Invoicing and jobs"
+      ],
+      "regions": [
+        "Australia",
+        "Global",
+        "Ireland",
+        "New Zealand",
+        "United Kingdom"
+      ]
+    },
+    {
+      "id": "Eworldpay-for-platforms",
+      "name": "Worldpay for Platforms",
+      "tags": [
+        "Payments"
+      ],
+      "regions": [
+        "Australia",
+        "New Zealand",
+        "United States"
+      ]
+    },
+    {
+      "id": "Exonboard",
+      "name": "Xonboard",
+      "tags": [
+        "Payroll HR"
+      ],
+      "regions": [
+        "Australia"
+      ]
+    },
+    {
+      "id": "Econtent-snare",
+      "name": "Content Snare",
+      "tags": [
+        "Documents",
+        "Practice manager"
+      ],
+      "regions": [
+        "Australia",
+        "Canada",
+        "Global",
+        "Hong Kong",
+        "Indonesia",
+        "Ireland",
+        "Malaysia",
+        "New Zealand",
+        "Philippines",
+        "Singapore",
+        "South Africa",
+        "United Kingdom",
+        "United States"
+      ]
+    },
+    {
+      "id": "Eabby",
+      "name": "Abby",
+      "tags": [
+        "Accountant tools",
+        "Practice manager"
+      ],
+      "regions": [
+        "New Zealand"
+      ]
+    },
+    {
+      "id": "Eaccountancy-insurance",
+      "name": "Accountancy Insurance",
+      "tags": [
+        "Accountant tools"
+      ],
+      "regions": [
+        "Australia",
+        "New Zealand"
+      ]
+    },
+    {
+      "id": "Eaccountkit",
+      "name": "AccountKit",
+      "tags": [
+        "Accountant tools",
+        "Practice manager"
+      ],
+      "regions": [
+        "Australia",
+        "Canada",
+        "New Zealand",
+        "United Kingdom",
+        "United States"
+      ]
+    },
+    {
+      "id": "Eacis",
+      "name": "Acis",
+      "tags": [
+        "Accountant tools",
+        "Practice manager"
+      ],
+      "regions": [
+        "Australia"
+      ]
+    },
+    {
+      "id": "Eadvancetrack-outsourcing",
+      "name": "Advancetrack Outsourcing",
+      "tags": [
+        "Outsourcer"
+      ],
+      "regions": []
+    },
+    {
+      "id": "Eaider",
+      "name": "Aider",
+      "tags": [
+        "Accountant tools"
+      ],
+      "regions": [
+        "Australia",
+        "New Zealand"
+      ]
+    },
+    {
+      "id": "Eannature",
+      "name": "Annature",
+      "tags": [
+        "Accountant tools",
+        "Documents"
+      ],
+      "regions": [
+        "Australia",
+        "Canada",
+        "Global",
+        "Hong Kong",
+        "Indonesia",
+        "Ireland",
+        "Malaysia",
+        "New Zealand",
+        "Philippines",
+        "Singapore",
+        "South Africa",
+        "United Kingdom",
+        "United States"
+      ]
+    },
+    {
+      "id": "Eanz",
+      "name": "ANZ",
+      "tags": [
+        "Loans",
+        "financing and credit"
+      ],
+      "regions": [
+        "Australia",
+        "New Zealand"
+      ]
+    },
+    {
+      "id": "Eato-smartdocs",
+      "name": "ATO SmartDocs",
+      "tags": [
+        "Accountant tools",
+        "Documents"
+      ],
+      "regions": [
+        "Australia"
+      ]
+    },
+    {
+      "id": "Eatomate",
+      "name": "ATOmate",
+      "tags": [
+        "Accountant tools",
+        "Documents"
+      ],
+      "regions": [
+        "Australia"
+      ]
+    },
+    {
+      "id": "Eauditcover",
+      "name": "AuditCover",
+      "tags": [
+        "Accountant tools"
+      ],
+      "regions": [
+        "Australia"
+      ]
+    },
+    {
+      "id": "Ebas-ready",
+      "name": "BAS Ready",
+      "tags": [
+        "Accountant tools",
+        "Practice manager"
+      ],
+      "regions": [
+        "Australia"
+      ]
+    },
+    {
+      "id": "Ebgl-corporate-solutions",
+      "name": "BGL Corporate Solutions",
+      "tags": [
+        "Practice manager"
+      ],
+      "regions": [
+        "Australia"
+      ]
+    },
+    {
+      "id": "Echangegps",
+      "name": "ChangeGPS",
+      "tags": [
+        "Accountant tools"
+      ],
+      "regions": [
+        "Australia"
+      ]
+    },
+    {
+      "id": "Ecimplico-workpapers",
+      "name": "Cimplico Workpapers",
+      "tags": [
+        "Accountant tools",
+        "Reporting and forecasting"
+      ],
+      "regions": [
+        "Australia"
+      ]
+    },
+    {
+      "id": "Eplus91-powered-by-zato",
+      "name": "Plus91 (powered by Zato)",
+      "tags": [
+        "Accountant tools"
+      ],
+      "regions": [
+        "Australia",
+        "New Zealand"
+      ]
+    },
+    {
+      "id": "Ecradle-for-accountants",
+      "name": "Cradle for Accountants",
+      "tags": [
+        "Accountant tools",
+        "Practice manager"
+      ],
+      "regions": [
+        "Australia",
+        "Canada",
+        "Ireland",
+        "New Zealand",
+        "South Africa",
+        "United Kingdom",
+        "United States"
+      ]
+    },
+    {
+      "id": "Edashboard-insights",
+      "name": "Dashboard Insights",
+      "tags": [
+        "Accountant tools",
+        "Practice manager"
+      ],
+      "regions": [
+        "Australia",
+        "New Zealand"
+      ]
+    },
+    {
+      "id": "Edext",
+      "name": "Dext",
+      "tags": [
+        "Accountant tools",
+        "Bills and expenses"
+      ],
+      "regions": [
+        "Australia",
+        "Canada",
+        "Global",
+        "Hong Kong",
+        "Indonesia",
+        "Ireland",
+        "Malaysia",
+        "New Zealand",
+        "Philippines",
+        "Singapore",
+        "South Africa",
+        "United Kingdom",
+        "United States"
+      ]
+    },
+    {
+      "id": "Efyi",
+      "name": "FYI",
+      "tags": [
+        "Documents",
+        "Practice manager"
+      ],
+      "regions": [
+        "Australia",
+        "New Zealand",
+        "United Kingdom"
+      ]
+    },
+    {
+      "id": "Eignition",
+      "name": "Ignition",
+      "tags": [
+        "Accountant tools",
+        "Practice manager"
+      ],
+      "regions": [
+        "Australia",
+        "Canada",
+        "Global",
+        "Hong Kong",
+        "Indonesia",
+        "Ireland",
+        "Malaysia",
+        "New Zealand",
+        "Philippines",
+        "Singapore",
+        "South Africa",
+        "United Kingdom",
+        "United States"
+      ]
+    },
+    {
+      "id": "Ekarbon",
+      "name": "Karbon",
+      "tags": [
+        "Accountant tools",
+        "Practice manager"
+      ],
+      "regions": [
+        "Australia",
+        "Canada",
+        "Global",
+        "Hong Kong",
+        "Indonesia",
+        "Ireland",
+        "Malaysia",
+        "New Zealand",
+        "Philippines",
+        "Singapore",
+        "South Africa",
+        "United Kingdom",
+        "United States"
+      ]
+    },
+    {
+      "id": "Ekloud-connect",
+      "name": "Kloud Connect",
+      "tags": [
+        "Practice manager",
+        "Invoicing and jobs"
+      ],
+      "regions": [
+        "Australia"
+      ]
+    },
+    {
+      "id": "Elightyear-docs",
+      "name": "LightYear Docs",
+      "tags": [
+        "Documents",
+        "Accountant tools"
+      ],
+      "regions": [
+        "Australia"
+      ]
+    },
+    {
+      "id": "Elink",
+      "name": "Link",
+      "tags": [
+        "Accountant tools",
+        "Practice manager"
+      ],
+      "regions": [
+        "Australia",
+        "Canada",
+        "Global",
+        "Hong Kong",
+        "Indonesia",
+        "Ireland",
+        "Malaysia",
+        "New Zealand",
+        "Philippines",
+        "Singapore",
+        "South Africa",
+        "United Kingdom",
+        "United States"
+      ]
+    },
+    {
+      "id": "Emyworkpapers-by-bright",
+      "name": "MyWorkpapers by Bright",
+      "tags": [
+        "Practice manager",
+        "Reporting and forecasting"
+      ],
+      "regions": [
+        "Australia",
+        "New Zealand",
+        "United Kingdom",
+        "United States"
+      ]
+    },
+    {
+      "id": "Enowinfinity",
+      "name": "NowInfinity",
+      "tags": [
+        "Practice manager"
+      ],
+      "regions": [
+        "Australia",
+        "New Zealand"
+      ]
+    },
+    {
+      "id": "Eoncord",
+      "name": "Oncord",
+      "tags": [
+        "CRM and marketing",
+        "Ecommerce"
+      ],
+      "regions": [
+        "Australia",
+        "Canada",
+        "Global",
+        "Hong Kong",
+        "Indonesia",
+        "Ireland",
+        "Malaysia",
+        "New Zealand",
+        "Philippines",
+        "Singapore",
+        "South Africa",
+        "United Kingdom",
+        "United States"
+      ]
+    },
+    {
+      "id": "Erechargly",
+      "name": "Rechargly",
+      "tags": [
+        "Accountant tools",
+        "Practice manager"
+      ],
+      "regions": [
+        "Australia",
+        "Canada",
+        "Global",
+        "Hong Kong",
+        "Indonesia",
+        "Ireland",
+        "Malaysia",
+        "New Zealand",
+        "Philippines",
+        "Singapore",
+        "South Africa",
+        "United Kingdom",
+        "United States"
+      ]
+    },
+    {
+      "id": "Eseamlss",
+      "name": "Seamlss",
+      "tags": [
+        "Accountant tools",
+        "Practice manager"
+      ],
+      "regions": [
+        "Australia",
+        "New Zealand"
+      ]
+    },
+    {
+      "id": "Etax-sorted-workpapers",
+      "name": "Tax Sorted Workpapers",
+      "tags": [
+        "Accountant tools",
+        "Practice manager"
+      ],
+      "regions": [
+        "Australia"
+      ]
+    },
+    {
+      "id": "Ethe-outsource-pro",
+      "name": "The Outsource Pro",
+      "tags": [
+        "Outsourcer"
+      ],
+      "regions": []
+    },
+    {
+      "id": "Etoa-global",
+      "name": "TOA Global",
+      "tags": [
+        "Outsourcer"
+      ],
+      "regions": []
+    },
+    {
+      "id": "Evinyl",
+      "name": "Vinyl",
+      "tags": [
+        "Accountant tools",
+        "Practice manager"
+      ],
+      "regions": [
+        "Australia",
+        "Canada",
+        "Global",
+        "Hong Kong",
+        "Indonesia",
+        "Ireland",
+        "Malaysia",
+        "New Zealand",
+        "Philippines",
+        "Singapore",
+        "South Africa",
+        "United Kingdom",
+        "United States"
+      ]
+    },
+    {
+      "id": "Exbert",
+      "name": "XBert",
+      "tags": [
+        "Accountant tools",
+        "Practice manager"
+      ],
+      "regions": [
+        "Australia",
+        "Canada",
+        "New Zealand",
+        "South Africa",
+        "United Kingdom",
+        "United States"
+      ]
+    },
+    {
+      "id": "Exu-magazine",
+      "name": "XU Magazine",
+      "tags": [
+        "Discover",
+        "Media"
+      ],
+      "regions": [
+        "Australia",
+        "Canada",
+        "Global",
+        "Hong Kong",
+        "Indonesia",
+        "Ireland",
+        "Malaysia",
+        "New Zealand",
+        "Philippines",
+        "Singapore",
+        "South Africa",
+        "United Kingdom",
+        "United States"
+      ]
+    }
+  ]
+}

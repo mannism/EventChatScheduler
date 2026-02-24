@@ -1,0 +1,239 @@
+
+> web@0.1.0 dev
+> next dev
+
+▲ Next.js 16.1.6 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.86.21:3000
+- Environments: .env.local
+
+✓ Starting...
+✓ Ready in 614ms
+ GET / 200 in 626ms (compile: 301ms, render: 325ms)
+Header Profile: null
+Body UserProfile: {
+  name: 'Tester',
+  attendanceDays: [ 'Sept 3', 'Sept 4' ],
+  interests: [ 'AI', 'Tech' ]
+}
+User Profile: {
+  name: 'Tester',
+  attendanceDays: [ 'Sept 3', 'Sept 4' ],
+  interests: [ 'AI', 'Tech' ]
+}
+ POST /api/chat 200 in 9.4s (compile: 135ms, render: 9.3s)
+Header Profile: null
+Body UserProfile: undefined
+Extracted UserProfile from [INIT_CHAT] payload
+User Profile: {
+  name: 'Johnnie',
+  jobType: 'Progressive Advisor',
+  location: 'Singapore',
+  attendanceDays: [ 'Sept 3', 'Sept 4' ],
+  interests: [
+    'AI',
+    'Workflow automation',
+    'Accountant tools',
+    'Advisory services',
+    'Sustainability reporting',
+    'Payroll HR',
+    'Bills and expenses',
+    'Invoicing and jobs'
+  ]
+}
+ POST /api/chat 200 in 2.5s (compile: 8ms, render: 2.5s)
+Header Profile: null
+Body UserProfile: undefined
+Extracted UserProfile from [INIT_CHAT] payload
+User Profile: {
+  name: 'Johnnie',
+  jobType: 'Progressive Advisor',
+  location: 'Singapore',
+  attendanceDays: [ 'Sept 3', 'Sept 4' ],
+  interests: [
+    'AI',
+    'Workflow automation',
+    'Accountant tools',
+    'Advisory services',
+    'Sustainability reporting',
+    'Payroll HR',
+    'Bills and expenses',
+    'Invoicing and jobs'
+  ]
+}
+ POST /api/chat 200 in 8.1s (compile: 3ms, render: 8.1s)
+Header Profile: null
+Body UserProfile: undefined
+Extracted UserProfile from [INIT_CHAT] payload
+User Profile: {
+  name: 'Johnnie',
+  jobType: 'Progressive Advisor',
+  location: 'Singapore',
+  attendanceDays: [ 'Sept 3', 'Sept 4' ],
+  interests: [
+    'AI',
+    'Workflow automation',
+    'Accountant tools',
+    'Advisory services',
+    'Sustainability reporting',
+    'Payroll HR',
+    'Bills and expenses',
+    'Invoicing and jobs'
+  ]
+}
+ POST /api/chat 200 in 7.3s (compile: 2ms, render: 7.3s)
+Header Profile: null
+Body UserProfile: undefined
+Extracted UserProfile from [INIT_CHAT] payload
+User Profile: {
+  name: 'Johnnie',
+  jobType: 'Progressive Advisor',
+  location: 'Singapore',
+  attendanceDays: [ 'Sept 3', 'Sept 4' ],
+  interests: [
+    'AI',
+    'Workflow automation',
+    'Accountant tools',
+    'Advisory services',
+    'Sustainability reporting',
+    'Payroll HR',
+    'Bills and expenses',
+    'Invoicing and jobs'
+  ]
+}
+ POST /api/chat 200 in 9.3s (compile: 5ms, render: 9.3s)
+Header Profile: null
+Body UserProfile: undefined
+Extracted UserProfile from [INIT_CHAT] payload
+User Profile: {
+  name: 'Johnnie',
+  jobType: 'Progressive Advisor',
+  location: 'Singapore',
+  attendanceDays: [ 'Sept 3', 'Sept 4' ],
+  interests: [
+    'AI',
+    'Workflow automation',
+    'Accountant tools',
+    'Advisory services',
+    'Sustainability reporting',
+    'Payroll HR',
+    'Bills and expenses',
+    'Invoicing and jobs'
+  ]
+}
+ POST /api/chat 200 in 9.3s (compile: 6ms, render: 9.3s)
+Header Profile: null
+Body UserProfile: undefined
+Extracted UserProfile from [INIT_CHAT] payload
+User Profile: {
+  name: 'Johnnie',
+  jobType: 'Progressive Advisor',
+  location: 'Singapore',
+  attendanceDays: [ 'Sept 3', 'Sept 4' ],
+  interests: [
+    'AI',
+    'Workflow automation',
+    'Accountant tools',
+    'Advisory services',
+    'Sustainability reporting',
+    'Payroll HR',
+    'Bills and expenses',
+    'Invoicing and jobs'
+  ]
+}
+ POST /api/chat 200 in 9.9s (compile: 8ms, render: 9.9s)
+✓ Compiled in 101ms
+✓ Compiled in 795ms
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ GET / 200 in 388ms (compile: 85ms, render: 303ms)
+✓ Compiled in 71ms
+✓ Compiled in 27ms
+Header Profile: null
+Body UserProfile: {
+  name: 'Tester',
+  attendanceDays: [ 'Sept 3', 'Sept 4' ],
+  interests: [ 'AI', 'Tech' ]
+}
+User Profile: {
+  name: 'Tester',
+  attendanceDays: [ 'Sept 3', 'Sept 4' ],
+  interests: [ 'AI', 'Tech' ]
+}
+ POST /api/chat 200 in 8.0s (compile: 4ms, render: 8.0s)
+Header Profile: null
+Body UserProfile: undefined
+Extracted UserProfile from [INIT_CHAT] payload
+User Profile: {
+  name: 'Diana',
+  jobType: 'Firm Owner',
+  location: 'South Korea',
+  attendanceDays: [ 'Sept 3', 'Sept 4' ],
+  interests: [ 'Accountant tools', 'Agentic AI', 'Payroll HR', 'Ecommerce' ]
+}
+ POST /api/chat 200 in 2.3s (compile: 5ms, render: 2.3s)
+Header Profile: null
+Body UserProfile: undefined
+Extracted UserProfile from [INIT_CHAT] payload
+User Profile: {
+  name: 'Diana',
+  jobType: 'Firm Owner',
+  location: 'South Korea',
+  attendanceDays: [ 'Sept 3', 'Sept 4' ],
+  interests: [ 'Accountant tools', 'Agentic AI', 'Payroll HR', 'Ecommerce' ]
+}
+ POST /api/chat 200 in 7.5s (compile: 6ms, render: 7.5s)
+Header Profile: null
+Body UserProfile: undefined
+Extracted UserProfile from [INIT_CHAT] payload
+User Profile: {
+  name: 'Diana',
+  jobType: 'Firm Owner',
+  location: 'South Korea',
+  attendanceDays: [ 'Sept 3', 'Sept 4' ],
+  interests: [ 'Accountant tools', 'Agentic AI', 'Payroll HR', 'Ecommerce' ]
+}
+ POST /api/chat 200 in 4.1s (compile: 7ms, render: 4.1s)
+Header Profile: null
+Body UserProfile: undefined
+Extracted UserProfile from [INIT_CHAT] payload
+User Profile: {
+  name: 'Diana',
+  jobType: 'Firm Owner',
+  location: 'South Korea',
+  attendanceDays: [ 'Sept 3', 'Sept 4' ],
+  interests: [ 'Accountant tools', 'Agentic AI', 'Payroll HR', 'Ecommerce' ]
+}
+ POST /api/chat 200 in 8.9s (compile: 5ms, render: 8.9s)
+Header Profile: null
+Body UserProfile: undefined
+Extracted UserProfile from [INIT_CHAT] payload
+User Profile: {
+  name: 'Diana',
+  jobType: 'Firm Owner',
+  location: 'South Korea',
+  attendanceDays: [ 'Sept 3', 'Sept 4' ],
+  interests: [ 'Accountant tools', 'Agentic AI', 'Payroll HR', 'Ecommerce' ]
+}
+ POST /api/chat 200 in 7.3s (compile: 4ms, render: 7.3s)
+Header Profile: null
+Body UserProfile: undefined
+Extracted UserProfile from [INIT_CHAT] payload
+User Profile: {
+  name: 'Diana',
+  jobType: 'Firm Owner',
+  location: 'South Korea',
+  attendanceDays: [ 'Sept 3', 'Sept 4' ],
+  interests: [ 'Accountant tools', 'Agentic AI', 'Payroll HR', 'Ecommerce' ]
+}
+ POST /api/chat 200 in 2.0s (compile: 5ms, render: 2.0s)
+Header Profile: null
+Body UserProfile: undefined
+Extracted UserProfile from [INIT_CHAT] payload
+User Profile: {
+  name: 'Diana',
+  jobType: 'Firm Owner',
+  location: 'South Korea',
+  attendanceDays: [ 'Sept 3', 'Sept 4' ],
+  interests: [ 'Accountant tools', 'Agentic AI', 'Payroll HR', 'Ecommerce' ]
+}
+ POST /api/chat 200 in 12.1s (compile: 4ms, render: 12.1s)
