@@ -39,7 +39,7 @@ export function MainView({ sessions }: MainViewProps) {
     if (!isMounted) return null;
 
     return (
-        <main className="min-h-screen bg-slate-50 flex flex-col items-center justify-center p-4">
+        <main className="min-h-screen bg-background text-foreground flex flex-col items-center justify-center p-4">
             <div className="w-full max-w-4xl">
                 {phase === 'onboarding' && (
                     <OnboardingForm onSubmit={handleOnboardingSubmit} />

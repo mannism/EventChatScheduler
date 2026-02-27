@@ -79,7 +79,7 @@ export default function ScheduleViewPage() {
                         const dayData = scheduleData[date];
                         return (
                             <div key={date} className={index > 0 ? "mt-16" : ""}>
-                                <div className="mb-6 flex items-center border-b pb-4">
+                                <div className="mb-6 flex items-center border-b border-slate-200 pb-4">
                                     <h2 className="text-3xl font-bold text-sky-600">Schedule for {date}</h2>
                                 </div>
 

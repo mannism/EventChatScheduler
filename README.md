@@ -20,7 +20,19 @@ First, install the module dependencies:
 npm install
 ```
 
-Ensure your `.env.local` contains your active `OPENAI_API_KEY`.
+### Environment Configuration
+Create a `.env.local` file in the root directory of the project. You must include the following variables for the application to function correctly:
+
+```env
+OPENAI_API_KEY=your_openai_api_key_here
+OPENAI_MODEL="gpt-4o" # or your preferred model
+MAX_SESSIONS_PER_DAY=8
+MAX_EXHIBITORS_PER_DAY=10
+```
+- **`OPENAI_API_KEY`**: Required to authenticate with the OpenAI API for the conversational interface.
+- **`OPENAI_MODEL`**: The specific model to be used by the Vercel AI SDK (e.g., `gpt-4o`, `gpt-4-turbo`).
+- **`MAX_SESSIONS_PER_DAY`**: The maximum number of personalized sessions to recommend per user attendance day in the automated schedule.
+- **`MAX_EXHIBITORS_PER_DAY`**: The maximum number of relevant exhibitors to recommend per user attendance day in the automated schedule.
 
 Then, run the development server:
 

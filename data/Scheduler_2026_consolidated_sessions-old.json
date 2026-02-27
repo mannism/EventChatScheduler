@@ -1696,10 +1696,10 @@
       "startDateTime": "2026-09-03T14:30:00",
       "endDateTime": "2026-09-03T15:15:00",
       "presenters": [
-        "Ivy L. Alvarez",
-        "Hugo R. Costa",
-        "Zara B. Foster",
-        "Marcus G. Garcia"
+        "Anjanica Amin",
+        "Jenna Chamberlain (Syft)",
+        "Andy Taras/ anyone from Education",
+        "Gracie Miles"
       ],
       "tags": [
         "AI",
@@ -1749,10 +1749,10 @@
       "startDateTime": "2026-09-04T14:00:00",
       "endDateTime": "2026-09-04T14:45:00",
       "presenters": [
-        "Ivy L. Alvarez",
-        "Hugo R. Costa",
-        "Zara B. Foster",
-        "Marcus G. Garcia"
+        "Anjanica Amin",
+        "Jenna Chamberlain (Syft)",
+        "Andy Taras/ anyone from Education",
+        "Gracie Miles"
       ],
       "tags": [
         "AI",
@@ -1802,10 +1802,10 @@
       "startDateTime": "2026-09-03T16:30:00",
       "endDateTime": "2026-09-03T17:15:00",
       "presenters": [
-        "Chloe T. Fischer",
-        "Marcus G. Garcia",
-        "Ivy L. Alvarez",
-        "Jonah Y. Lim"
+        "2 Presenters:",
+        "Gracie Miles",
+        "Anjanica Amin",
+        "Josh Wilson"
       ],
       "tags": [
         "NZ",
@@ -1855,8 +1855,8 @@
       "startDateTime": "2026-09-03T16:30:00",
       "endDateTime": "2026-09-03T17:15:00",
       "presenters": [
-        "Jasper J. Carter",
-        "Zara E. Haque"
+        "Jennifer Glisson (presenter)",
+        "Louis Morello (demo driver)"
       ],
       "tags": [
         "XPM",
@@ -1897,8 +1897,8 @@
       "startDateTime": "2026-09-04T09:45:00",
       "endDateTime": "2026-09-04T10:30:00",
       "presenters": [
-        "Arjun E. Park",
-        "Mei U. Koh"
+        "Jason Robinson",
+        "Jodilee Manuel"
       ],
       "tags": [
         "Advisory",
@@ -1920,8 +1920,8 @@
       "startDateTime": "2026-09-04T15:00:00",
       "endDateTime": "2026-09-04T15:45:00",
       "presenters": [
-        "Marcus I. Park",
-        "Theo J. Carter"
+        "Clinton Hazel Jr (presenter)",
+        "Fiona O'Farrell (demo driver)"
       ],
       "tags": [
         "XYZ product",
@@ -1959,8 +1959,8 @@
       "startDateTime": "2026-09-04T10:45:00",
       "endDateTime": "2026-09-04T11:30:00",
       "presenters": [
-        "Aria Y. Wong",
-        "Ivy J. Brooks"
+        "Akankshu Dhawan",
+        "Eitan Sharon"
       ],
       "tags": [
         "AI",
@@ -2002,9 +2002,9 @@
       "startDateTime": "2026-09-04T11:45:00",
       "endDateTime": "2026-09-04T12:30:00",
       "presenters": [
-        "Sofia A. Ibrahim",
-        "Aisha X. Bennett",
-        "Keira Q. Brooks"
+        "XYZ Presenter: Ananya Chopra",
+        "Thomas Bramley",
+        "Syft presenter: Mitch Piper"
       ],
       "tags": [
         "Workflows",
@@ -2026,7 +2026,7 @@
       "startDateTime": "2026-09-04T09:45:00",
       "endDateTime": "2026-09-04T10:30:00",
       "presenters": [
-        "Adrian F. Rivera"
+        "Matt Church"
       ],
       "tags": [
         "External Speaker",
@@ -2044,7 +2044,7 @@
       "startDateTime": "2026-09-03T15:30:00",
       "endDateTime": "2026-09-03T16:15:00",
       "presenters": [
-        "Rina O. Evans"
+        "Ashley Fell"
       ],
       "tags": [
         "External Speaker"
@@ -2061,7 +2061,7 @@
       "startDateTime": "2026-09-04T10:45:00",
       "endDateTime": "2026-09-04T11:30:00",
       "presenters": [
-        "Omar H. Ng"
+        "Dr Lucy Hone"
       ],
       "tags": [
         "External Speaker"
@@ -2078,7 +2078,7 @@
       "startDateTime": "2026-09-04T15:00:00",
       "endDateTime": "2026-09-04T15:45:00",
       "presenters": [
-        "Mira Q. Ibrahim"
+        "Jessie French"
       ],
       "tags": [
         "External Speaker"
@@ -2095,8 +2095,8 @@
       "startDateTime": "2026-09-04T09:45:00",
       "endDateTime": "2026-09-04T10:30:00",
       "presenters": [
-        "Leo O. Weber",
-        "Mira F. Foster"
+        "Nicole Acott , Tom Sautelle",
+        "Michelle Grisdale"
       ],
       "tags": [
         "Payroll HR",
@@ -2118,9 +2118,9 @@
       "startDateTime": "2026-09-03T15:30:00",
       "endDateTime": "2026-09-03T16:15:00",
       "presenters": [
-        "Hana X. Cruz",
-        "Samira E. Ito",
-        "Marcus Y. Foster"
+        "Michael Magrath",
+        "Priyanka Bucktowonsing",
+        "Miguel Nasr"
       ],
       "tags": [
         "Compliance",
@@ -2140,9 +2140,9 @@
       "startDateTime": "2026-09-03T14:30:00",
       "endDateTime": "2026-09-03T15:15:00",
       "presenters": [
-        "Arjun B. Hernandez",
-        "Adrian U. Kapoor",
-        "Rowan Y. Rahman"
+        "Toby Delamore",
+        "Sarah Toohey",
+        "Laney Graham"
       ],
       "tags": [
         "Announcement",
@@ -2195,11 +2195,11 @@
       "startDateTime": "2026-09-03T16:30:00",
       "endDateTime": "2026-09-03T17:15:00",
       "presenters": [
-        "Jun T. Bennett",
-        "Sage I. Lim",
-        "Maya Z. Carter",
-        "Sanjay G. Zhang",
-        "Aisha S. Goh"
+        "Che Douglas (interview format)",
+        "Olivia Christiansen - Host",
+        "Slyvia Ding Panel",
+        "Akankshu Dhawan - Panel",
+        "Demo Driver - Andy Taras"
       ],
       "tags": [
         "Announcement",
@@ -2222,12 +2222,12 @@
       "startDateTime": "2026-09-04T10:45:00",
       "endDateTime": "2026-09-04T11:30:00",
       "presenters": [
-        "Eli C. O'Connor",
-        "Sofia I. Wong",
-        "Avery U. Dawson",
-        "Samira M. Bianchi",
-        "Liam I. Hamilton",
-        "Serena U. Sato"
+        "Areti Connell",
+        "Peter O'Malley",
+        "Bharathi Ramavarjula",
+        "Robert Preswick",
+        "Fiona O'Farrell",
+        "Becca Smith"
       ],
       "tags": [
         "Cash flow",
@@ -2250,9 +2250,9 @@
       "startDateTime": "2026-09-03T15:30:00",
       "endDateTime": "2026-09-03T16:15:00",
       "presenters": [
-        "Dylan Y. Ibrahim",
-        "Aisha B. Bianchi",
-        "Clara O. Hassan"
+        "Lisa Huang",
+        "Soon-ee Cheah",
+        "Nicole Acott- demo driver"
       ],
       "tags": [
         "AI",
@@ -2272,9 +2272,9 @@
       "startDateTime": "2026-09-04T09:45:00",
       "endDateTime": "2026-09-04T10:30:00",
       "presenters": [
-        "Lucas R. Khan",
-        "Layla Q. Haque",
-        "Mei I. Haque"
+        "Amy Cannon (co-presenter)",
+        "Duran Hamer (co-presenter)",
+        "Teegan Magnussen (demo driver)"
       ],
       "tags": [
         "Analytics",
@@ -2309,10 +2309,10 @@
       "startDateTime": "2026-09-04T10:45:00",
       "endDateTime": "2026-09-04T11:30:00",
       "presenters": [
-        "Isla H. Lim",
-        "Nadia O. Fischer",
-        "Rowan J. Garcia",
-        "Zara W. Teo"
+        "Caroline Waters - host",
+        "Madhu Gupta - TBC",
+        "Sarah Lawrance",
+        "Regan Ashworth"
       ],
       "tags": [
         "AI",
@@ -2344,10 +2344,10 @@
       "startDateTime": "2026-09-04T14:00:00",
       "endDateTime": "2026-09-04T14:45:00",
       "presenters": [
-        "Naomi C. Ng",
-        "Sage N. Lim",
-        "Liam P. Yamamoto",
-        "Liam P. Patel"
+        "Tam Somers",
+        "Lindsay Ellis",
+        "Hamish Purcell",
+        "Michaela Pogson"
       ],
       "tags": [
         "Sustainability",
@@ -2381,9 +2381,9 @@
       "startDateTime": "2026-09-03T15:30:00",
       "endDateTime": "2026-09-03T16:15:00",
       "presenters": [
-        "Hana Y. Novak",
-        "Arjun E. Park",
-        "Mira F. Petrov"
+        "Louise Southall - host",
+        "Jason Robinson",
+        "Susan Toft"
       ],
       "tags": [
         "Analytics",
@@ -2406,10 +2406,10 @@
       "startDateTime": "2026-09-03T14:30:00",
       "endDateTime": "2026-09-03T15:15:00",
       "presenters": [
-        "Hana Y. Patel",
-        "Miles G. Santos",
-        "Mateo Y. Teo",
-        "Theo C. Diaz"
+        "James Bergin - host",
+        "Soon-Ee Cheah - panelist",
+        "Will Flynt - panelist",
+        "Kayur Patel"
       ],
       "tags": [
         "AI",
@@ -2432,10 +2432,10 @@
       "startDateTime": "2026-09-04T15:00:00",
       "endDateTime": "2026-09-04T15:45:00",
       "presenters": [
-        "Hana Y. Patel",
-        "Miles G. Santos",
-        "Mateo Y. Teo",
-        "Theo C. Diaz"
+        "James Bergin - host",
+        "Soon-Ee Cheah - panelist",
+        "Will Flynt - panelist",
+        "Kayur Patel"
       ],
       "tags": [
         "AI",
@@ -2458,10 +2458,10 @@
       "startDateTime": "2026-09-04T11:45:00",
       "endDateTime": "2026-09-04T12:30:00",
       "presenters": [
-        "Hana Y. Patel",
-        "Rowan J. Garcia",
-        "Eli B. Bianchi",
-        "Samira K. Singh"
+        "James Bergin - host",
+        "Sarah Lawrance",
+        "Beau Gaudron",
+        "Mere Teinaki"
       ],
       "tags": [
         "AI",
@@ -2483,10 +2483,10 @@
       "startDateTime": "2026-09-04T15:00:00",
       "endDateTime": "2026-09-04T15:45:00",
       "presenters": [
-        "Marcus I. Goh",
-        "Leo K. Sato",
-        "Layla W. Ali",
-        "Keira U. Sullivan"
+        "Stuart Miller",
+        "Elissa Walker",
+        "Natalie Lennon",
+        "Matthew Addison"
       ],
       "tags": [
         "XYZ Tax",
@@ -2533,7 +2533,7 @@
       "startDateTime": "2026-09-03T14:30:00",
       "endDateTime": "2026-09-03T15:15:00",
       "presenters": [
-        "Sanjay R. Hamilton"
+        "Rebecca Buchanan"
       ],
       "tags": [
         "AI",
@@ -2553,10 +2553,10 @@
       "startDateTime": "2026-09-04T11:45:00",
       "endDateTime": "2026-09-04T12:30:00",
       "presenters": [
-        "Farah X. Evans",
-        "Hana Y. Morgan",
-        "Tariq E. Schmidt",
-        "Adrian V. Foster"
+        "Sabby Gill",
+        "Inbal Rodnay",
+        "Jason Croston",
+        "Kyelie Baxter"
       ],
       "tags": [
         "Sponsored",
@@ -2574,9 +2574,9 @@
       "startDateTime": "2026-09-04T14:00:00",
       "endDateTime": "2026-09-04T14:45:00",
       "presenters": [
-        "Isla H. Parker",
-        "Miles P. Hayes",
-        "Hugo E. Ito"
+        "Ian Boyd",
+        "Bridget Snelling",
+        "Shaun Puckrin"
       ],
       "tags": [
         "Sponsored",
@@ -2594,7 +2594,7 @@
       "startDateTime": "2026-09-04T14:00:00",
       "endDateTime": "2026-09-04T14:45:00",
       "presenters": [
-        "Nina S. Novak"
+        "Chelsea Pottenger"
       ],
       "tags": [
         "External Speaker"
@@ -2611,7 +2611,7 @@
       "startDateTime": "2026-09-03T16:30:00",
       "endDateTime": "2026-09-03T17:15:00",
       "presenters": [
-        "Aria J. Khan"
+        "Kate Christie"
       ],
       "tags": [
         "External Speaker"
@@ -2628,7 +2628,7 @@
       "startDateTime": "2026-09-04T11:45:00",
       "endDateTime": "2026-09-04T12:30:00",
       "presenters": [
-        "Mei A. Mensah"
+        "Lani Rafiti"
       ],
       "tags": [
         "External Speaker"
@@ -2645,7 +2645,7 @@
       "startDateTime": "2026-09-03T15:30:00",
       "endDateTime": "2026-09-03T16:00:00",
       "presenters": [
-        "Hazel V. Chandra"
+        "Clayton Wood"
       ],
       "tags": [
         "Culture / Soft Skills",
@@ -2672,7 +2672,7 @@
       "startDateTime": "2026-09-03T15:30:00",
       "endDateTime": "2026-09-03T16:00:00",
       "presenters": [
-        "Farah B. Goh"
+        "Jeannie Savage"
       ],
       "tags": [
         "Advisory",
@@ -2697,7 +2697,7 @@
       "startDateTime": "2026-09-03T14:30:00",
       "endDateTime": "2026-09-03T15:00:00",
       "presenters": [
-        "Layla W. Ali"
+        "Natalie Lennon"
       ],
       "tags": [
         "Bold Ideas",
@@ -2723,7 +2723,7 @@
       "startDateTime": "2026-09-03T14:30:00",
       "endDateTime": "2026-09-03T15:00:00",
       "presenters": [
-        "Adrian Y. Hassan"
+        "Laurel Millar"
       ],
       "tags": [
         "Advisory",
@@ -2749,7 +2749,7 @@
       "startDateTime": "2026-09-03T13:00:00",
       "endDateTime": "2026-09-03T13:30:00",
       "presenters": [
-        "Mei G. Costa"
+        "Sarah Lawrance + Panel"
       ],
       "tags": [
         "Culture / Soft Skills",
@@ -2777,7 +2777,7 @@
       "startDateTime": "2026-09-03T13:00:00",
       "endDateTime": "2026-09-03T13:30:00",
       "presenters": [
-        "Layla O. Schmidt"
+        "Sangeeta Bajaj"
       ],
       "tags": [
         "External speaker",
@@ -2802,7 +2802,7 @@
       "startDateTime": "2026-09-04T09:45:00",
       "endDateTime": "2026-09-04T10:15:00",
       "presenters": [
-        "Theo Z. Rossi"
+        "Timothy Munro"
       ],
       "tags": [
         "AI",
@@ -2826,7 +2826,7 @@
       "startDateTime": "2026-09-04T09:45:00",
       "endDateTime": "2026-09-04T10:15:00",
       "presenters": [
-        "Theo C. Diaz"
+        "Kayur Patel"
       ],
       "tags": [
         "AI",
@@ -2850,7 +2850,7 @@
       "startDateTime": "2026-09-04T11:45:00",
       "endDateTime": "2026-09-04T12:15:00",
       "presenters": [
-        "Mira M. Rossi"
+        "Shannon Smit"
       ],
       "tags": [
         "AI",
@@ -2875,7 +2875,7 @@
       "startDateTime": "2026-09-04T11:45:00",
       "endDateTime": "2026-09-04T12:15:00",
       "presenters": [
-        "Isla X. Nakamura"
+        "Michelle Kolze"
       ],
       "tags": [
         "Advisory",
@@ -2900,7 +2900,7 @@
       "startDateTime": "2026-09-04T10:45:00",
       "endDateTime": "2026-09-04T11:15:00",
       "presenters": [
-        "Sage P. Okafor"
+        "Ric Thorpe"
       ],
       "tags": [
         "Culture / Soft Skills",
@@ -2924,7 +2924,7 @@
       "startDateTime": "2026-09-04T10:45:00",
       "endDateTime": "2026-09-04T11:15:00",
       "presenters": [
-        "Hazel B. Kaur"
+        "Tyler Caskey"
       ],
       "tags": [
         "Custom integration",
@@ -2949,7 +2949,7 @@
       "startDateTime": "2026-09-04T12:30:00",
       "endDateTime": "2026-09-04T13:00:00",
       "presenters": [
-        "Freya R. Wong"
+        "Mark Knowles, General Manager Security Assurance"
       ],
       "tags": [
         "AI",
@@ -2972,7 +2972,7 @@
       "startDateTime": "2026-09-04T14:00:00",
       "endDateTime": "2026-09-04T14:30:00",
       "presenters": [
-        "Zara W. Teo"
+        "Regan Ashworth"
       ],
       "tags": [
         "Cloud integrator",
@@ -2995,9 +2995,9 @@
       "startDateTime": "2026-09-04T14:00:00",
       "endDateTime": "2026-09-04T14:30:00",
       "presenters": [
-        "Naomi B. Singh",
-        "Layla I. Navarro",
-        "Tariq E. Schmidt"
+        "Sam Baldwin",
+        "Aly Garrett",
+        "Jason Croston"
       ],
       "tags": [
         "XYZ product",
@@ -3017,7 +3017,7 @@
       "startDateTime": "2026-09-03T09:20:00",
       "endDateTime": "2026-09-03T09:30:00",
       "presenters": [
-        "Miles M. Foster"
+        "Sukhinder Singh Cassidy"
       ],
       "description": "Supercharging Your Future: Embrace Innovation, Unlock Capacity, and Redefine Impact with AI Hear from XYZ’s CEO on how AI is poised to drive unprecedented change in the coming years. Join us to discover how XYZ is democratising this innovation, empowering you to embrace a \"Supercharged Future\" with reimagined experiences, personalised insights, and automated actions for greater impact.",
       "shortDescription": "Hear from XYZ’s CEO on how you can supercharge your future with AI to deliver reimagined experiences, personalized insights, and automated actions.",
@@ -3034,7 +3034,7 @@
       "startDateTime": "2026-09-03T09:30:00",
       "endDateTime": "2026-09-03T10:15:00",
       "presenters": [
-        "Hugo O. Morgan"
+        "Diya Jolly"
       ],
       "description": "XYZ’s Product Strategy: The Intelligent Platform to Harness AI, Automate Your Work, and Multiply Your Impact Hear about XYZ's evolved product strategy from Diya Jolly, our CPTO. Learn how our unique agentic approach streamlines your work to empower your human expertise, freeing you to multiply your impact through a reimagined XYZ experience with automated actions and real-time insights.",
       "shortDescription": "This session reveals XYZ's evolved strategy, leveraging AI for automated actions, personalised insights, and reimagined experiences to multiply your impact.",
@@ -3051,7 +3051,7 @@
       "startDateTime": "2026-09-03T11:30:00",
       "endDateTime": "2026-09-03T12:00:00",
       "presenters": [
-        "Chloe A. Okafor"
+        "Angad Soin"
       ],
       "description": "Advisors are crucial for small business success. But what does success mean to today's entrepreneurs? Join us to discover how XYZ is empowering you to become a proactive, strategic partner. Learn to define your ‘endgame’, attract ideal clients, and amplify your impact to help small businesses thrive. Speaker: Angad Soin, Managing Director ANZ and Global Chief Strategy Officer, XYZ",
       "shortDescription": "This session is about helping you redefine success for you, your clients, and amplify your impact to help small businesses thrive.",
@@ -3068,7 +3068,7 @@
       "startDateTime": "2026-09-03T12:00:00",
       "endDateTime": "2026-09-03T12:45:00",
       "presenters": [
-        "Chloe K. Wong"
+        "Joe Brumm"
       ],
       "tags": [
         "External speaker"
