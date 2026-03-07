@@ -1,6 +1,6 @@
 # XyzCon EventChatScheduler-poc
 
-XyzCon EventChatScheduler-poc is a Next.js 14 web application designed to act as a highly intelligent, personalized AI companion for conference attendees. It leverages generative AI to help users navigate their event schedule, search for relevant sessions, and dynamically generate conflict-free customized itineraries.
+XyzCon EventChatScheduler-poc is a Next.js 16 web application designed to act as a highly intelligent, personalized AI companion for conference attendees. It leverages generative AI to help users navigate their event schedule, search for relevant sessions, and dynamically generate conflict-free customized itineraries.
 
 The AI Chat scheduler uses the json files as dataset. **The `data` folder is included in the repository to serve as sample event data so you can test and experiment with the AI scheduler out of the box.**
 
@@ -47,6 +47,22 @@ bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the outcome.
+
+### Running with Docker
+
+The application includes an optimized multi-stage `Dockerfile` to build a lightweight Next.js standalone image.
+
+Build the Docker image:
+
+```bash
+docker build -t eventchatscheduler-poc .
+```
+
+Run the Docker container (ensuring you pass the required environment variables):
+
+```bash
+docker run -p 3000:3000 --env-file .env.local eventchatscheduler-poc
+```
 
 ## Architecture & Data Layers
 
