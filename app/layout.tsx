@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Merriweather, Open_Sans, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
 import { cn } from '@/lib/utils'
+import { StatusBadge } from '@/components/StatusBadge'
 
 const merriweather = Merriweather({ 
   subsets: ['latin'], 
@@ -22,8 +23,8 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Diana Ismail – AI Twin',
-  description: 'Chat with Diana Ismail\'s AI Digital Twin.',
+  title: 'XyzCon 2026 Event Scheduler',
+  description: 'Your intelligent event companion for XyzCon 2026.',
 }
 
 export default function RootLayout({
@@ -58,10 +59,7 @@ export default function RootLayout({
               DIANA ISMAIL
             </a>
           </nav>
-          <span className="hidden sm:flex items-center gap-2 font-mono text-xs text-muted-foreground border border-border px-3 py-1.5 rounded-full bg-card">
-            <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse shadow-[0_0_0_0_rgba(34,197,94,0.4)]" />
-            AI Twin Online
-          </span>
+          <StatusBadge appName="Event Scheduler" />
         </header>
 
         <div className="relative z-10 pt-[70px]">
