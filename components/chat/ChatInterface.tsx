@@ -22,6 +22,8 @@ export function ChatInterface({ userProfile, onGenerateSchedule }: ChatInterface
     const inputRef = useRef<HTMLInputElement>(null)
     const hasInitialized = useRef(false)
     const [input, setInput] = useState('')
+    const lastUserMsgCount = useRef(0)
+    const lastAssistantMsgCount = useRef(0)
 
     // Cast result to any to handle type mismatch with installed SDK vs expected types
     const chat = useChat({
@@ -90,9 +92,29 @@ export function ChatInterface({ userProfile, onGenerateSchedule }: ChatInterface
         await doSendMessage(userMessage);
     }
 
+    // Auto-scroll when the user sends a new message
     useEffect(() => {
-        if (scrollRef.current) {
-            scrollRef.current.scrollTop = scrollRef.current.scrollHeight
+        const userMessages = messages.filter((m: any) => m.role === 'user')
+        if (userMessages.length > lastUserMsgCount.current) {
+            lastUserMsgCount.current = userMessages.length
+            setTimeout(() => {
+                if (scrollRef.current) {
+                    scrollRef.current.scrollTop = scrollRef.current.scrollHeight
+                }
+            }, 50)
+        }
+    }, [messages])
+
+    // Gentle nudge scroll when the AI response first appears
+    useEffect(() => {
+        const assistantMessages = messages.filter((m: any) => m.role === 'assistant')
+        if (assistantMessages.length > lastAssistantMsgCount.current) {
+            lastAssistantMsgCount.current = assistantMessages.length
+            setTimeout(() => {
+                if (scrollRef.current) {
+                    scrollRef.current.scrollBy({ top: 120, behavior: 'smooth' })
+                }
+            }, 150)
         }
     }, [messages])
 
@@ -112,7 +134,7 @@ export function ChatInterface({ userProfile, onGenerateSchedule }: ChatInterface
     });
 
     return (
-        <Card className="w-full max-w-[480px] mx-auto h-[80vh] flex flex-col shadow-2xl border-border bg-card/60 backdrop-blur-xl text-card-foreground overflow-hidden relative">
+        <Card className="w-full max-w-2xl mx-auto h-[80vh] flex flex-col shadow-2xl border-border bg-card/60 backdrop-blur-xl text-card-foreground overflow-hidden relative">
             {/* Geometric Header Decoration */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl -z-10 pointer-events-none" />
 
@@ -123,8 +145,8 @@ export function ChatInterface({ userProfile, onGenerateSchedule }: ChatInterface
                             <span className="font-serif font-bold text-lg">AI</span>
                         </div>
                         <div>
-                            <h2 className="font-sans font-medium text-base text-foreground">AI Diana</h2>
-                            <p className="text-xs text-muted-foreground font-normal">Ask me about my work experience</p>
+                            <h2 className="font-sans font-medium text-base text-foreground">AI Event Scheduler</h2>
+                            <p className="text-xs text-muted-foreground font-normal">Ask me about the the event or the sessions at XyzCon 2026</p>
                         </div>
                     </div>
                 </CardTitle>
@@ -171,7 +193,7 @@ export function ChatInterface({ userProfile, onGenerateSchedule }: ChatInterface
                                 className={cn(
                                     "max-w-[85%] p-3 shadow-sm relative text-[0.95em]",
                                     m.role === 'user'
-                                        ? "bg-primary/40 text-[#0b3558] rounded-[16px] rounded-br-sm"
+                                        ? "bg-primary/40 text-white rounded-[16px] rounded-br-sm"
                                         : "bg-white/10 border border-white/20 backdrop-blur-md text-foreground rounded-[16px] rounded-bl-sm"
                                 )}
                             >

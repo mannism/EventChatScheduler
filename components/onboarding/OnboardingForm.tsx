@@ -170,7 +170,7 @@ export function OnboardingForm({ onSubmit }: OnboardingFormProps) {
                         {step === 5 && "Choose your interests."}
                     </CardTitle>
                     <CardDescription className="text-lg text-muted-foreground font-sans">
-                        {step === 1 && "Let's personalize your AI Twin experience."}
+                        {step === 1 && "Let's personalize your XyzCon 2026 experience."}
                         {step === 2 && "We'll tailor the conversation to your background."}
                         {step === 3 && "To help provide location-relevant context."}
                         {step === 4 && "If we schedule a follow-up, when works?"}
