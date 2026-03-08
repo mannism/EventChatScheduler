@@ -140,13 +140,13 @@ export function OnboardingForm({ onSubmit }: OnboardingFormProps) {
     }
 
     return (
-        <div className="relative w-full max-w-2xl mx-auto">
+        <div className="relative w-full max-w-2xl mx-auto mt-20">
             {/* Geometric Decoration */}
-            <div className="absolute -top-10 -right-10 w-32 h-32 bg-mint/20 rounded-full blur-2xl -z-10" />
-            <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-xyz-blue/20 rounded-full blur-2xl -z-10" />
+            <div className="absolute -top-10 -right-10 w-32 h-32 bg-primary/20 rounded-full blur-2xl -z-10" />
+            <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-chart-1/20 rounded-full blur-2xl -z-10" />
 
-            <Card className="w-full shadow-2xl border-border bg-card text-card-foreground overflow-hidden">
-                <div className="h-2 bg-gradient-to-r from-xyz-blue via-xui-blue to-mint" />
+            <Card className="w-full shadow-2xl border-border bg-card/60 backdrop-blur-xl text-card-foreground overflow-hidden">
+                <div className="h-1 bg-gradient-to-r from-primary via-primary/50 to-primary/20" />
                 <CardHeader className="space-y-4">
                     <div className="flex justify-between items-center">
                         <span className="text-sm font-medium text-muted-foreground uppercase tracking-widest">Onboarding</span>
@@ -162,19 +162,19 @@ export function OnboardingForm({ onSubmit }: OnboardingFormProps) {
                             ))}
                         </div>
                     </div>
-                    <CardTitle className="text-3xl font-extrabold font-outfit tracking-tight text-white">
+                    <CardTitle className="text-3xl font-bold font-serif tracking-tight text-foreground">
                         {step === 1 && "Start your journey."}
                         {step === 2 && "What is your role?"}
                         {step === 3 && "Where are you from?"}
-                        {step === 4 && "Select your days."}
+                        {step === 4 && "Select your availability."}
                         {step === 5 && "Choose your interests."}
                     </CardTitle>
-                    <CardDescription className="text-lg text-muted-foreground">
-                        {step === 1 && "Let's personalize your XYZ Company experience."}
-                        {step === 2 && "We'll curate sessions based on your profile."}
-                        {step === 3 && "Connect with others from your region."}
-                        {step === 4 && "We'll build your schedule around these dates."}
-                        {step === 5 && "Select topics to tailor your recommendations."}
+                    <CardDescription className="text-lg text-muted-foreground font-sans">
+                        {step === 1 && "Let's personalize your AI Twin experience."}
+                        {step === 2 && "We'll tailor the conversation to your background."}
+                        {step === 3 && "To help provide location-relevant context."}
+                        {step === 4 && "If we schedule a follow-up, when works?"}
+                        {step === 5 && "Select topics you'd like to discuss."}
                     </CardDescription>
                 </CardHeader>
                 <CardContent className="pt-6 min-h-[400px]">
@@ -403,8 +403,8 @@ export function OnboardingForm({ onSubmit }: OnboardingFormProps) {
                                     type="button"
                                     onClick={nextStep}
                                     className={cn(
-                                        "px-8 py-6 text-lg font-bold rounded-xl shadow-xl transition-all",
-                                        "bg-gradient-to-r from-xyz-blue to-xui-blue hover:from-mint hover:to-xyz-blue text-white"
+                                        "px-8 py-6 text-lg font-bold rounded-xl shadow-xl transition-all font-sans",
+                                        "bg-primary hover:bg-primary/90 text-primary-foreground"
                                     )}
                                     disabled={!isStepValid()}
                                 >

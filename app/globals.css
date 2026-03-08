@@ -7,8 +7,9 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-body);
+  --font-mono: var(--font-mono);
+  --font-serif: var(--font-heading);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -38,15 +39,12 @@
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
-  --color-navy-blue: var(--navy-blue);
-  --color-xyz-blue: var(--xyz-blue);
-  --color-xui-blue: var(--xui-blue);
-  --color-mint: var(--mint);
-  --color-coral: var(--coral);
-  --color-pink: var(--pink);
-  --color-yellow: var(--yellow);
-  --color-highlight-blue: var(--highlight-blue);
-  --color-shadow-orange: var(--shadow-orange);
+  
+  --color-diana-bg: var(--diana-bg);
+  --color-diana-surface: var(--diana-surface);
+  --color-diana-card: var(--diana-card);
+  --color-diana-accent: var(--diana-accent);
+  
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -57,104 +55,101 @@
 }
 
 :root {
-  --radius: 0.625rem;
+  --radius: 0.75rem;
 
-  /* XyzCon Palette */
-  --navy-blue: #213B55;
-  --xyz-blue: #13B5EA;
-  --xui-blue: #0078C8;
-  --mint: #50DCAA;
-  --coral: #FF6469;
-  --pink: #FF8CAE;
-  --yellow: #FDCC08;
-  --highlight-blue: #BBF3FD;
-  --shadow-orange: #F7A800;
+  /* Font mappings */
+  --font-heading: 'Merriweather', Georgia, serif;
+  --font-body: 'Open Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+
+  /* Theme Palette from dianaismail.me */
+  --diana-accent: #0069ff;
+  --diana-bg: #0a0c10;
+  --diana-surface: #10131a;
+  --diana-card: rgba(255, 255, 255, 0.04);
+  --diana-border: rgba(255, 255, 255, 0.08);
 
   /* Theme mapping */
-  --background: var(--navy-blue);
-  --foreground: #FFFFFF;
+  --background: var(--diana-bg);
+  --foreground: #f0f2f5;
 
-  --card: #2A4A69;
-  /* Slightly lighter navy for cards */
-  --card-foreground: #FFFFFF;
+  --card: var(--diana-card);
+  --card-foreground: #f0f2f5;
 
-  --popover: var(--navy-blue);
-  --popover-foreground: #FFFFFF;
+  --popover: var(--diana-surface);
+  --popover-foreground: #f0f2f5;
 
-  --primary: var(--xyz-blue);
+  --primary: var(--diana-accent);
   --primary-foreground: #FFFFFF;
 
-  --secondary: var(--xui-blue);
-  --secondary-foreground: #FFFFFF;
+  --secondary: var(--diana-surface);
+  --secondary-foreground: #8891a4;
 
-  --muted: #2A4A69;
-  --muted-foreground: #BBF3FD;
+  --muted: #1a1d24;
+  --muted-foreground: #8891a4;
 
-  --accent: var(--mint);
-  --accent-foreground: #213B55;
+  --accent: var(--diana-accent);
+  --accent-foreground: #FFFFFF;
 
-  --destructive: var(--coral);
+  --destructive: #ff5f57;
   --destructive-foreground: #FFFFFF;
 
-  --border: #4A6A89;
-  --input: #2A4A69;
-  --ring: var(--xyz-blue);
+  --border: var(--diana-border);
+  --input: rgba(255, 255, 255, 0.06);
+  --ring: var(--diana-accent);
 
-  --radius: 0.75rem;
-  /* Rounded geometric shapes */
+  --chart-1: var(--diana-accent);
+  --chart-2: #28c840;
+  --chart-3: #ff5f57;
+  --chart-4: #ffbd2e;
+  --chart-5: #6b21a8;
 
-  --chart-1: var(--xyz-blue);
-  --chart-2: var(--mint);
-  --chart-3: var(--coral);
-  --chart-4: var(--yellow);
-  --chart-5: var(--pink);
-
-  --sidebar: var(--navy-blue);
-  --sidebar-foreground: #FFFFFF;
-  --sidebar-primary: var(--xyz-blue);
+  --sidebar: var(--diana-bg);
+  --sidebar-foreground: #f0f2f5;
+  --sidebar-primary: var(--diana-accent);
   --sidebar-primary-foreground: #FFFFFF;
-  --sidebar-accent: #2A4A69;
-  --sidebar-accent-foreground: #FFFFFF;
-  --sidebar-border: #4A6A89;
-  --sidebar-ring: var(--xyz-blue);
+  --sidebar-accent: var(--diana-surface);
+  --sidebar-accent-foreground: #f0f2f5;
+  --sidebar-border: var(--diana-border);
+  --sidebar-ring: var(--diana-accent);
 }
 
 .dark {
-  /* Same as root since we are enforcing a dark theme essentially */
-  --background: #213B55;
-  --foreground: #FFFFFF;
-  --card: #2A4A69;
-  --card-foreground: #FFFFFF;
-  --popover: #213B55;
-  --popover-foreground: #FFFFFF;
-  --primary: #13B5EA;
+  /* Enforcing single dark theme */
+  --background: #0a0c10;
+  --foreground: #f0f2f5;
+  --card: rgba(255, 255, 255, 0.04);
+  --card-foreground: #f0f2f5;
+  --popover: #10131a;
+  --popover-foreground: #f0f2f5;
+  --primary: #0069ff;
   --primary-foreground: #FFFFFF;
-  --secondary: #0078C8;
-  --secondary-foreground: #FFFFFF;
-  --muted: #2A4A69;
-  --muted-foreground: #BBF3FD;
-  --accent: #50DCAA;
-  --accent-foreground: #213B55;
-  --destructive: #FF6469;
+  --secondary: #10131a;
+  --secondary-foreground: #8891a4;
+  --muted: #1a1d24;
+  --muted-foreground: #8891a4;
+  --accent: #0069ff;
+  --accent-foreground: #FFFFFF;
+  --destructive: #ff5f57;
   --destructive-foreground: #FFFFFF;
-  --border: #4A6A89;
-  --input: #2A4A69;
-  --ring: #13B5EA;
+  --border: rgba(255, 255, 255, 0.08);
+  --input: rgba(255, 255, 255, 0.06);
+  --ring: #0069ff;
 
-  --chart-1: #13B5EA;
-  --chart-2: #50DCAA;
-  --chart-3: #FF6469;
-  --chart-4: #FDCC08;
-  --chart-5: #FF8CAE;
+  --chart-1: #0069ff;
+  --chart-2: #28c840;
+  --chart-3: #ff5f57;
+  --chart-4: #ffbd2e;
+  --chart-5: #6b21a8;
 
-  --sidebar: #213B55;
-  --sidebar-foreground: #FFFFFF;
-  --sidebar-primary: #13B5EA;
+  --sidebar: #0a0c10;
+  --sidebar-foreground: #f0f2f5;
+  --sidebar-primary: #0069ff;
   --sidebar-primary-foreground: #FFFFFF;
-  --sidebar-accent: #2A4A69;
-  --sidebar-accent-foreground: #FFFFFF;
-  --sidebar-border: #4A6A89;
-  --sidebar-ring: #13B5EA;
+  --sidebar-accent: #10131a;
+  --sidebar-accent-foreground: #f0f2f5;
+  --sidebar-border: rgba(255, 255, 255, 0.08);
+  --sidebar-ring: #0069ff;
 }
 
 @layer base {
@@ -164,6 +159,15 @@
 
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    background-color: var(--background);
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+    background-size: 48px 48px;
+    background-attachment: fixed;
   }
 }
 @layer utilities {

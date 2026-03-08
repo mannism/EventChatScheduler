@@ -112,41 +112,41 @@ export function ChatInterface({ userProfile, onGenerateSchedule }: ChatInterface
     });
 
     return (
-        <Card className="w-full max-w-4xl mx-auto h-[80vh] flex flex-col shadow-2xl border-border bg-card text-card-foreground overflow-hidden relative">
+        <Card className="w-full max-w-[480px] mx-auto h-[80vh] flex flex-col shadow-2xl border-border bg-card/60 backdrop-blur-xl text-card-foreground overflow-hidden relative">
             {/* Geometric Header Decoration */}
-            <div className="absolute top-0 right-0 w-64 h-64 bg-xyz-blue/10 rounded-full blur-3xl -z-10 pointer-events-none" />
+            <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl -z-10 pointer-events-none" />
 
-            <CardHeader className="border-b border-border bg-navy-blue/50 backdrop-blur-sm z-10">
+            <CardHeader className="border-b border-border bg-background/50 backdrop-blur-md z-10 px-4 py-3">
                 <CardTitle className="flex items-center justify-between">
                     <div className="flex items-center gap-3">
-                        <div className="h-10 w-10 rounded-full bg-gradient-to-br from-xyz-blue to-xui-blue flex items-center justify-center">
-                            <span className="font-outfit font-bold text-white text-lg">X</span>
+                        <div className="h-10 w-10 rounded-full bg-primary/20 flex items-center justify-center border border-primary/30 text-primary">
+                            <span className="font-serif font-bold text-lg">AI</span>
                         </div>
                         <div>
-                            <h2 className="font-outfit font-bold text-xl text-white tracking-tight">XyzCon Assistant</h2>
-                            <p className="text-xs text-muted-foreground font-normal">Personalized for {userProfile.name}</p>
+                            <h2 className="font-sans font-medium text-base text-foreground">AI Diana</h2>
+                            <p className="text-xs text-muted-foreground font-normal">Ask me about my work experience</p>
                         </div>
                     </div>
                 </CardTitle>
             </CardHeader>
 
-            <CardContent className="flex-1 p-0 overflow-hidden relative bg-navy-blue/30">
+            <CardContent className="flex-1 p-0 overflow-hidden relative bg-transparent">
                 <div className="h-full overflow-y-auto p-4 space-y-6" ref={scrollRef}>
                     {messages.length === 0 && (
                         <div className="flex flex-col items-center justify-center h-full text-center p-8 space-y-4 opacity-80">
-                            <div className="w-20 h-20 rounded-full bg-muted flex items-center justify-center mb-4">
-                                <Send className="h-8 w-8 text-xyz-blue" />
+                            <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mb-4 border border-border">
+                                <Send className="h-8 w-8 text-primary" />
                             </div>
-                            <h3 className="font-outfit font-bold text-2xl text-white">How can I help you today?</h3>
-                            <p className="text-muted-foreground max-w-md">
-                                Ask about sessions, speakers, networking events, or get recommendation for your schedule.
+                            <h3 className="font-serif font-bold text-xl text-foreground">How can I help you today?</h3>
+                            <p className="text-muted-foreground text-sm max-w-[280px]">
+                                Ask about my experience, projects, or background.
                             </p>
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 w-full max-w-lg mt-8">
+                            <div className="grid grid-cols-1 gap-2 w-full mt-8">
                                 {[
-                                    "Show me keynotes",
-                                    "What's happening on Sept 3?",
-                                    "Workshops for accountants",
-                                    "Networking events"
+                                    "Tell me about your projects",
+                                    "What is your background?",
+                                    "Creative Tech topics",
+                                    "Agentic workflows"
                                 ].map((suggestion) => (
                                     <button
                                         key={suggestion}
@@ -156,7 +156,7 @@ export function ChatInterface({ userProfile, onGenerateSchedule }: ChatInterface
                                                 doSendMessage(msg);
                                             }
                                         }}
-                                        className="text-sm bg-card hover:bg-xyz-blue/20 border border-border hover:border-xyz-blue text-left p-3 rounded-lg transition-colors"
+                                        className="text-sm bg-card/40 backdrop-blur-sm hover:bg-primary/20 border border-border hover:border-primary/50 text-left p-3 rounded-lg transition-colors font-sans"
                                     >
                                         {suggestion}
                                     </button>
@@ -169,13 +169,13 @@ export function ChatInterface({ userProfile, onGenerateSchedule }: ChatInterface
                         <div key={i} className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'} animate-in fade-in slide-in-from-bottom-2 duration-300`}>
                             <div
                                 className={cn(
-                                    "max-w-[85%] rounded-2xl p-4 shadow-sm relative",
+                                    "max-w-[85%] p-3 shadow-sm relative text-[0.95em]",
                                     m.role === 'user'
-                                        ? "bg-xyz-blue text-white rounded-br-sm"
-                                        : "bg-card border border-border text-card-foreground rounded-bl-sm"
+                                        ? "bg-primary/40 text-[#0b3558] rounded-[16px] rounded-br-sm"
+                                        : "bg-white/10 border border-white/20 backdrop-blur-md text-foreground rounded-[16px] rounded-bl-sm"
                                 )}
                             >
-                                <div className="markdown-prose text-[15px] leading-relaxed break-words">
+                                <div className="markdown-prose leading-relaxed break-word font-sans">
                                     <ReactMarkdown
                                         remarkPlugins={[remarkGfm]}
                                         components={{
@@ -184,7 +184,7 @@ export function ChatInterface({ userProfile, onGenerateSchedule }: ChatInterface
                                                 if (text.includes('"schedule_download"')) {
                                                     return (
                                                         <div className="my-4 p-5 rounded-2xl border border-border bg-card/60 flex flex-col items-center justify-center space-y-4 text-center shadow-sm">
-                                                            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-xyz-blue"></div>
+                                                            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
                                                             <p className="text-sm text-muted-foreground">Formatting schedule...</p>
                                                         </div>
                                                     );
@@ -208,7 +208,7 @@ export function ChatInterface({ userProfile, onGenerateSchedule }: ChatInterface
                                                         if (content.includes('"schedule_download"')) {
                                                             return (
                                                                 <div className="my-4 p-5 rounded-2xl border border-border bg-card/60 flex flex-col items-center justify-center space-y-4 text-center shadow-sm">
-                                                                    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-xyz-blue"></div>
+                                                                    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
                                                                     <p className="text-sm text-muted-foreground">Generating schedule document...</p>
                                                                 </div>
                                                             );
@@ -218,7 +218,7 @@ export function ChatInterface({ userProfile, onGenerateSchedule }: ChatInterface
                                                 if (content.includes('"schedule_download"')) {
                                                     return (
                                                         <div className="my-4 p-5 rounded-2xl border border-border bg-card/60 flex flex-col items-center justify-center space-y-4 text-center shadow-sm">
-                                                            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-xyz-blue"></div>
+                                                            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
                                                             <p className="text-sm text-muted-foreground">Generating schedule document...</p>
                                                         </div>
                                                     );
@@ -235,34 +235,34 @@ export function ChatInterface({ userProfile, onGenerateSchedule }: ChatInterface
                     ))}
 
                     {isLoading && (
-                        <div className="flex justify-start animate-pulse">
-                            <div className="bg-card border border-border rounded-2xl rounded-bl-sm p-4 flex gap-1 items-center">
-                                <div className="w-2 h-2 bg-xyz-blue rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
-                                <div className="w-2 h-2 bg-xyz-blue rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
-                                <div className="w-2 h-2 bg-xyz-blue rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
+                        <div className="flex justify-start animate-fade-in">
+                            <div className="bg-white/10 border border-white/20 backdrop-blur-md rounded-[16px] rounded-bl-sm p-3 flex gap-1 items-center w-fit">
+                                <div className="w-[6px] h-[6px] bg-current rounded-full animate-bounce" style={{ animationDelay: '-0.32s' }} />
+                                <div className="w-[6px] h-[6px] bg-current rounded-full animate-bounce" style={{ animationDelay: '-0.16s' }} />
+                                <div className="w-[6px] h-[6px] bg-current rounded-full animate-bounce" style={{ animationDelay: '0s' }} />
                             </div>
                         </div>
                     )}
                 </div>
             </CardContent>
 
-            <CardFooter className="p-4 bg-navy-blue/80 backdrop-blur-md border-t border-border z-10">
-                <form onSubmit={handleSubmit} className="flex w-full gap-3 relative">
+            <CardFooter className="p-4 bg-background/50 backdrop-blur-md border-t border-border z-10 w-full">
+                <form onSubmit={handleSubmit} className="flex w-full gap-2 relative bg-white/10 p-2 border border-white/20 rounded-xl backdrop-blur-sm">
                     <Input
                         ref={inputRef}
                         value={input}
                         onChange={(e) => setInput(e.target.value)}
-                        placeholder="Type your question..."
-                        className="flex-1 bg-input/50 border-input focus:ring-xyz-blue focus:border-xyz-blue py-6 px-4 text-base rounded-xl"
+                        placeholder="Ask me anything..."
+                        className="flex-1 bg-transparent border-none focus-visible:ring-0 focus-visible:ring-offset-0 px-2 text-sm text-foreground placeholder:text-muted-foreground/70"
                         disabled={isLoading}
                     />
                     <Button
                         type="submit"
                         size="icon"
                         disabled={isLoading || !input.trim()}
-                        className="h-[52px] w-[52px] rounded-xl bg-xyz-blue hover:bg-xui-blue text-white shadow-lg transition-all hover:scale-105 shrink-0"
+                        className="h-10 w-10 rounded-full bg-primary/60 hover:bg-primary/80 text-white shadow-lg transition-all hover:scale-105 shrink-0 border border-white/20"
                     >
-                        <Send className="h-5 w-5" />
+                        <Send className="h-4 w-4" />
                     </Button>
                 </form>
             </CardFooter>

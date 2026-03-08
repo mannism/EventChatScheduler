@@ -36,11 +36,9 @@ export function MainView({ sessions }: MainViewProps) {
         setPhase('schedule');
     }
 
-    if (!isMounted) return null;
-
     return (
-        <main className="min-h-screen bg-background text-foreground flex flex-col items-center justify-center p-4">
-            <div className="w-full max-w-4xl">
+        <main className="min-h-screen bg-transparent text-foreground flex flex-col items-center justify-center p-4">
+            <div className="w-full">
                 {phase === 'onboarding' && (
                     <OnboardingForm onSubmit={handleOnboardingSubmit} />
                 )}
