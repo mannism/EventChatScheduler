@@ -37,7 +37,7 @@ export function MainView({ sessions }: MainViewProps) {
     }
 
     return (
-        <main className="min-h-screen bg-transparent text-foreground flex flex-col items-center justify-center p-4">
+        <main className="min-h-[calc(100vh-70px)] bg-transparent text-foreground flex flex-col items-center justify-start py-4 md:py-12 px-4">
             <div className="w-full">
                 {phase === 'onboarding' && (
                     <OnboardingForm onSubmit={handleOnboardingSubmit} />

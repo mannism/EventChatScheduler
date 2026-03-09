@@ -134,7 +134,7 @@ export function ChatInterface({ userProfile, onGenerateSchedule }: ChatInterface
     });
 
     return (
-        <Card className="w-full max-w-2xl mx-auto h-[80vh] flex flex-col shadow-2xl border-border bg-card/60 backdrop-blur-xl text-card-foreground overflow-hidden relative">
+        <Card className="w-full max-w-2xl mx-auto h-[85vh] md:h-[80vh] mt-2 md:mt-0 flex flex-col shadow-2xl border-border bg-card/60 backdrop-blur-xl text-card-foreground overflow-hidden relative">
             {/* Geometric Header Decoration */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl -z-10 pointer-events-none" />
 

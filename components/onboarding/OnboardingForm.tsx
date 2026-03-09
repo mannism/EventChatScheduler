@@ -140,7 +140,7 @@ export function OnboardingForm({ onSubmit }: OnboardingFormProps) {
     }
 
     return (
-        <div className="relative w-full max-w-2xl mx-auto mt-20">
+        <div className="relative w-full max-w-2xl mx-auto mt-2 md:mt-0">
             {/* Geometric Decoration */}
             <div className="absolute -top-10 -right-10 w-32 h-32 bg-primary/20 rounded-full blur-2xl -z-10" />
             <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-chart-1/20 rounded-full blur-2xl -z-10" />
@@ -156,7 +156,7 @@ export function OnboardingForm({ onSubmit }: OnboardingFormProps) {
                                     key={i}
                                     className={cn(
                                         "h-2 w-8 rounded-full transition-all",
-                                        i + 1 === step ? "bg-xyz-blue" : i + 1 < step ? "bg-xui-blue" : "bg-muted"
+                                        i + 1 === step ? "bg-primary" : i + 1 < step ? "bg-primary/50" : "bg-white/10"
                                     )}
                                 />
                             ))}
