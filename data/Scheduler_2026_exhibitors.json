@@ -10,8 +10,8 @@
   "notes": "Exhibitors dataset. tags and regions align with sessions dataset fields for unified filtering and AI retrieval.",
   "exhibitors": [
     {
-      "id": "Eapprovalmax",
-      "name": "ApprovalMax",
+      "id": "Enorthbridgesystems",
+      "name": "Northbridge Systems",
       "tags": [
         "Bills and expenses",
         "Invoicing and jobs"
@@ -33,8 +33,8 @@
       ]
     },
     {
-      "id": "Efusesign",
-      "name": "FuseSign",
+      "id": "Enorthbridgeworks",
+      "name": "Northbridge Works",
       "tags": [
         "Accountant tools",
         "Practice manager"
@@ -56,8 +56,8 @@
       ]
     },
     {
-      "id": "Egocardless",
-      "name": "GoCardless",
+      "id": "Enorthbridgelabs",
+      "name": "Northbridge Labs",
       "tags": [
         "Payments"
       ],
@@ -71,8 +71,8 @@
       ]
     },
     {
-      "id": "Egojee",
-      "name": "Gojee",
+      "id": "Enorthbridgesolutions",
+      "name": "Northbridge Solutions",
       "tags": [
         "Invoicing and jobs",
         "Inventory"
@@ -83,8 +83,8 @@
       ]
     },
     {
-      "id": "Eofx",
-      "name": "OFX",
+      "id": "Enorthbridgepartners",
+      "name": "Northbridge Partners",
       "tags": [
         "Bills and expenses",
         "Payments"
@@ -94,8 +94,8 @@
       ]
     },
     {
-      "id": "Ea2x",
-      "name": "A2X",
+      "id": "Enorthbridgeanalytics",
+      "name": "Northbridge Analytics",
       "tags": [
         "Ecommerce",
         "Accountant tools"
@@ -116,16 +116,16 @@
       ]
     },
     {
-      "id": "Eahoyahoy",
-      "name": "AhoyAhoy",
+      "id": "Enorthbridgecloud",
+      "name": "Northbridge Cloud",
       "tags": [
         "Discover"
       ],
       "regions": []
     },
     {
-      "id": "Eairwallex",
-      "name": "Airwallex",
+      "id": "Enorthbridgelogic",
+      "name": "Northbridge Logic",
       "tags": [
         "Payments",
         "Bills and expenses"
@@ -140,8 +140,8 @@
       ]
     },
     {
-      "id": "Eappventory",
-      "name": "AppVentory",
+      "id": "Enorthbridgenetworks",
+      "name": "Northbridge Networks",
       "tags": [
         "Other",
         "Accountant tools"
@@ -163,8 +163,8 @@
       ]
     },
     {
-      "id": "Ecastaway-cloud",
-      "name": "Castaway Cloud",
+      "id": "Enorthbridgetools",
+      "name": "Northbridge Tools",
       "tags": [
         "Accountant tools",
         "Reporting and forecasting"
@@ -186,8 +186,8 @@
       ]
     },
     {
-      "id": "Echaser",
-      "name": "Chaser",
+      "id": "Enorthbridgeplatform",
+      "name": "Northbridge Platform",
       "tags": [
         "Debtor tracking",
         "Invoicing and jobs"
@@ -209,8 +209,8 @@
       ]
     },
     {
-      "id": "Ecin7",
-      "name": "Cin7",
+      "id": "Enorthbridgestudio",
+      "name": "Northbridge Studio",
       "tags": [
         "Inventory",
         "Ecommerce"
@@ -232,16 +232,16 @@
       ]
     },
     {
-      "id": "Eclarity-street",
-      "name": "Clarity Street",
+      "id": "Enorthbridgeadvisory",
+      "name": "Northbridge Advisory",
       "tags": [
         "Cloud integrator"
       ],
       "regions": []
     },
     {
-      "id": "Ecloudpayroll",
-      "name": "CloudPayroll",
+      "id": "Enorthbridgeflow",
+      "name": "Northbridge Flow",
       "tags": [
         "Payroll HR"
       ],
@@ -251,8 +251,8 @@
       ]
     },
     {
-      "id": "Econstant-contact",
-      "name": "Constant Contact",
+      "id": "Enorthbridgebridge",
+      "name": "Northbridge Bridge",
       "tags": [
         "CRM and marketing",
         "Other"
@@ -263,8 +263,8 @@
       ]
     },
     {
-      "id": "Eezzybills",
-      "name": "EzzyBills",
+      "id": "Enorthbridgeinsights",
+      "name": "Northbridge Insights",
       "tags": [
         "Bills and expenses",
         "Invoicing and jobs"
@@ -286,8 +286,8 @@
       ]
     },
     {
-      "id": "Efathom",
-      "name": "Fathom",
+      "id": "Enorthbridgedigital",
+      "name": "Northbridge Digital",
       "tags": [
         "Accountant tools",
         "Reporting and forecasting"
@@ -309,8 +309,8 @@
       ]
     },
     {
-      "id": "Efeesynergy-collect",
-      "name": "FeeSynergy Collect",
+      "id": "Enorthbridgeventures",
+      "name": "Northbridge Ventures",
       "tags": [
         "Debtor tracking",
         "Payments"
@@ -321,16 +321,16 @@
       ]
     },
     {
-      "id": "Efgs-advisory",
-      "name": "FGS Advisory",
+      "id": "Enorthbridgesoftware",
+      "name": "Northbridge Software",
       "tags": [
         "Cloud integrator"
       ],
       "regions": []
     },
     {
-      "id": "Efigured",
-      "name": "Figured",
+      "id": "Enorthbridgeengine",
+      "name": "Northbridge Engine",
       "tags": [
         "Reporting",
         "Accountant tools"
@@ -345,8 +345,8 @@
       ]
     },
     {
-      "id": "Efishbowl",
-      "name": "Fishbowl",
+      "id": "Enorthbridgeops",
+      "name": "Northbridge Ops",
       "tags": [
         "Inventory",
         "Ecommerce"
@@ -367,8 +367,8 @@
       ]
     },
     {
-      "id": "Efundtap",
-      "name": "FundTap",
+      "id": "Enorthbridgecore",
+      "name": "Northbridge Core",
       "tags": [
         "Loans",
         "financing and credit"
@@ -379,8 +379,8 @@
       ]
     },
     {
-      "id": "Ejet-convert",
-      "name": "Jet Convert",
+      "id": "Enorthbridgeworks2",
+      "name": "Northbridge Works",
       "tags": [
         "Convert data to XYZ"
       ],
@@ -391,8 +391,8 @@
       ]
     },
     {
-      "id": "Elightyear-ap",
-      "name": "Lightyear AP",
+      "id": "Enorthbridgeone",
+      "name": "Northbridge One",
       "tags": [
         "Invoicing and jobs",
         "Bills and expenses"
@@ -413,8 +413,8 @@
       ]
     },
     {
-      "id": "Emanage-my-renewals",
-      "name": "Manage My Renewals",
+      "id": "Enorthbridgehq",
+      "name": "Northbridge HQ",
       "tags": [
         "Accountant tools"
       ],
@@ -423,8 +423,8 @@
       ]
     },
     {
-      "id": "Emayday",
-      "name": "Mayday",
+      "id": "Enorthbridgeforge",
+      "name": "Northbridge Forge",
       "tags": [
         "Accountant tools",
         "Reporting and forecasting"
@@ -446,8 +446,8 @@
       ]
     },
     {
-      "id": "Emurho-store-n-track",
-      "name": "MuRho Store N Track",
+      "id": "Enorthbridgepulse",
+      "name": "Northbridge Pulse",
       "tags": [
         "Inventory"
       ],
@@ -462,8 +462,8 @@
       ]
     },
     {
-      "id": "Epaidnice",
-      "name": "Paidnice",
+      "id": "Enorthbridgesync",
+      "name": "Northbridge Sync",
       "tags": [
         "Debtor tracking",
         "Invoicing and jobs"
@@ -485,8 +485,8 @@
       ]
     },
     {
-      "id": "Epeach-software",
-      "name": "Peach Software",
+      "id": "Enorthbridgecollective",
+      "name": "Northbridge Collective",
       "tags": [
         "Ecommerce",
         "Inventory"
@@ -497,8 +497,8 @@
       ]
     },
     {
-      "id": "Epinch-payments",
-      "name": "Pinch Payments",
+      "id": "Enorthbridgematrix",
+      "name": "Northbridge Matrix",
       "tags": [
         "Payments",
         "Invoicing and jobs"
@@ -509,8 +509,8 @@
       ]
     },
     {
-      "id": "Eprojectworks",
-      "name": "Projectworks",
+      "id": "Enorthbridgedynamics",
+      "name": "Northbridge Dynamics",
       "tags": [
         "Invoicing and jobs",
         "Time tracking"
@@ -532,8 +532,8 @@
       ]
     },
     {
-      "id": "Ereach-reporting",
-      "name": "Reach Reporting",
+      "id": "Enorthbridgepath",
+      "name": "Northbridge Path",
       "tags": [
         "Reporting and forecasting",
         "Accountant tools"
@@ -555,8 +555,8 @@
       ]
     },
     {
-      "id": "Eshiftcare",
-      "name": "ShiftCare",
+      "id": "Enorthbridgesphere",
+      "name": "Northbridge Sphere",
       "tags": [
         "Time tracking",
         "CRM and marketing"
@@ -569,8 +569,8 @@
       ]
     },
     {
-      "id": "Esimpleai",
-      "name": "SimpleAI",
+      "id": "Enorthbridgelink",
+      "name": "Northbridge Link",
       "tags": [
         "Accountant tools",
         "Bills and expenses"
@@ -589,8 +589,8 @@
       ]
     },
     {
-      "id": "Esinchii",
-      "name": "Sinchii",
+      "id": "Enorthbridgepilot",
+      "name": "Northbridge Pilot",
       "tags": [
         "Accountant tools",
         "Reporting and forecasting"
@@ -600,8 +600,8 @@
       ]
     },
     {
-      "id": "Espotlight-reporting",
-      "name": "Spotlight Reporting",
+      "id": "Enorthbridgepoint",
+      "name": "Northbridge Point",
       "tags": [
         "Reporting and forecasting",
         "Accountant tools"
@@ -623,8 +623,8 @@
       ]
     },
     {
-      "id": "Esquare",
-      "name": "Square",
+      "id": "Enorthbridgestack",
+      "name": "Northbridge Stack",
       "tags": [
         "Point of sale",
         "Payments"
@@ -638,8 +638,8 @@
       ]
     },
     {
-      "id": "Esuitefiles",
-      "name": "SuiteFiles",
+      "id": "Enorthbridgebase",
+      "name": "Northbridge Base",
       "tags": [
         "Documents",
         "Practice manager"
@@ -661,8 +661,8 @@
       ]
     },
     {
-      "id": "Esumday",
-      "name": "Sumday",
+      "id": "Enorthbridgedesk",
+      "name": "Northbridge Desk",
       "tags": [
         "Carbon accounting",
         "Reporting and forecasting"
@@ -679,8 +679,8 @@
       ]
     },
     {
-      "id": "Etanda",
-      "name": "Tanda",
+      "id": "Enorthbridgedrive",
+      "name": "Northbridge Drive",
       "tags": [
         "Payroll HR",
         "Time tracking"
@@ -693,8 +693,8 @@
       ]
     },
     {
-      "id": "Etraild",
-      "name": "TRAILD",
+      "id": "Enorthbridgegroup",
+      "name": "Northbridge Group",
       "tags": [
         "Bills and expenses",
         "Payments"
@@ -714,8 +714,8 @@
       ]
     },
     {
-      "id": "Etranslucent-multi-entity",
-      "name": "Translucent-#Multi-Entity",
+      "id": "Enorthbridgehub",
+      "name": "Northbridge Hub",
       "tags": [
         "Accountant tools",
         "Reporting and forecasting"
@@ -737,8 +737,8 @@
       ]
     },
     {
-      "id": "Evaricon",
-      "name": "Varicon",
+      "id": "Enorthbridgetrack",
+      "name": "Northbridge Track",
       "tags": [
         "Bills and expenses",
         "time tracking"
@@ -748,8 +748,8 @@
       ]
     },
     {
-      "id": "Evibe-cfo",
-      "name": "Vibe CFO",
+      "id": "Enorthbridgedocs",
+      "name": "Northbridge Docs",
       "tags": [
         "Accountant tools",
         "Reporting and forecasting"
@@ -763,8 +763,8 @@
       ]
     },
     {
-      "id": "Eweel",
-      "name": "Weel",
+      "id": "Enorthbridgesuite",
+      "name": "Northbridge Suite",
       "tags": [
         "Bills and expenses",
         "Payments"
@@ -774,8 +774,8 @@
       ]
     },
     {
-      "id": "Eworkflowmax",
-      "name": "WorkflowMax",
+      "id": "Enorthbridgeedge",
+      "name": "Northbridge Edge",
       "tags": [
         "Invoicing and jobs",
         "Time tracking"
@@ -797,8 +797,8 @@
       ]
     },
     {
-      "id": "Eworkguru",
-      "name": "WorkGuru",
+      "id": "Enorthbridgegrid",
+      "name": "Northbridge Grid",
       "tags": [
         "Inventory",
         "Invoicing and jobs"
@@ -812,8 +812,8 @@
       ]
     },
     {
-      "id": "Eworldpay-for-platforms",
-      "name": "Worldpay for Platforms",
+      "id": "Enorthbridgescale",
+      "name": "Northbridge Scale",
       "tags": [
         "Payments"
       ],
@@ -824,8 +824,8 @@
       ]
     },
     {
-      "id": "Exonboard",
-      "name": "Xonboard",
+      "id": "Enorthbridgeledger",
+      "name": "Northbridge Ledger",
       "tags": [
         "Payroll HR"
       ],
@@ -834,8 +834,8 @@
       ]
     },
     {
-      "id": "Econtent-snare",
-      "name": "Content Snare",
+      "id": "Enorthbridgeatlas",
+      "name": "Northbridge Atlas",
       "tags": [
         "Documents",
         "Practice manager"
@@ -857,8 +857,8 @@
       ]
     },
     {
-      "id": "Eabby",
-      "name": "Abby",
+      "id": "Enorthbridgespring",
+      "name": "Northbridge Spring",
       "tags": [
         "Accountant tools",
         "Practice manager"
@@ -868,8 +868,8 @@
       ]
     },
     {
-      "id": "Eaccountancy-insurance",
-      "name": "Accountancy Insurance",
+      "id": "Enorthbridgecraft",
+      "name": "Northbridge Craft",
       "tags": [
         "Accountant tools"
       ],
@@ -879,8 +879,8 @@
       ]
     },
     {
-      "id": "Eaccountkit",
-      "name": "AccountKit",
+      "id": "Enorthbridgeshift",
+      "name": "Northbridge Shift",
       "tags": [
         "Accountant tools",
         "Practice manager"
@@ -894,8 +894,8 @@
       ]
     },
     {
-      "id": "Eacis",
-      "name": "Acis",
+      "id": "Enorthbridgeorbit",
+      "name": "Northbridge Orbit",
       "tags": [
         "Accountant tools",
         "Practice manager"
@@ -905,16 +905,16 @@
       ]
     },
     {
-      "id": "Eadvancetrack-outsourcing",
-      "name": "Advancetrack Outsourcing",
+      "id": "Enorthbridgesignal",
+      "name": "Northbridge Signal",
       "tags": [
         "Outsourcer"
       ],
       "regions": []
     },
     {
-      "id": "Eaider",
-      "name": "Aider",
+      "id": "Enorthbridgevault",
+      "name": "Northbridge Vault",
       "tags": [
         "Accountant tools"
       ],
@@ -924,8 +924,8 @@
       ]
     },
     {
-      "id": "Eannature",
-      "name": "Annature",
+      "id": "Enorthbridgecloud2",
+      "name": "Northbridge Cloud",
       "tags": [
         "Accountant tools",
         "Documents"
@@ -947,8 +947,8 @@
       ]
     },
     {
-      "id": "Eanz",
-      "name": "ANZ",
+      "id": "Ebluepeaksystems",
+      "name": "BluePeak Systems",
       "tags": [
         "Loans",
         "financing and credit"
@@ -959,8 +959,8 @@
       ]
     },
     {
-      "id": "Eato-smartdocs",
-      "name": "ATO SmartDocs",
+      "id": "Ebluepeakworks",
+      "name": "BluePeak Works",
       "tags": [
         "Accountant tools",
         "Documents"
@@ -970,8 +970,8 @@
       ]
     },
     {
-      "id": "Eatomate",
-      "name": "ATOmate",
+      "id": "Ebluepeaklabs",
+      "name": "BluePeak Labs",
       "tags": [
         "Accountant tools",
         "Documents"
@@ -981,8 +981,8 @@
       ]
     },
     {
-      "id": "Eauditcover",
-      "name": "AuditCover",
+      "id": "Ebluepeaksolutions",
+      "name": "BluePeak Solutions",
       "tags": [
         "Accountant tools"
       ],
@@ -991,8 +991,8 @@
       ]
     },
     {
-      "id": "Ebas-ready",
-      "name": "BAS Ready",
+      "id": "Ebluepeakpartners",
+      "name": "BluePeak Partners",
       "tags": [
         "Accountant tools",
         "Practice manager"
@@ -1002,8 +1002,8 @@
       ]
     },
     {
-      "id": "Ebgl-corporate-solutions",
-      "name": "BGL Corporate Solutions",
+      "id": "Ebluepeakanalytics",
+      "name": "BluePeak Analytics",
       "tags": [
         "Practice manager"
       ],
@@ -1012,8 +1012,8 @@
       ]
     },
     {
-      "id": "Echangegps",
-      "name": "ChangeGPS",
+      "id": "Ebluepeakcloud",
+      "name": "BluePeak Cloud",
       "tags": [
         "Accountant tools"
       ],
@@ -1022,8 +1022,8 @@
       ]
     },
     {
-      "id": "Ecimplico-workpapers",
-      "name": "Cimplico Workpapers",
+      "id": "Ebluepeaklogic",
+      "name": "BluePeak Logic",
       "tags": [
         "Accountant tools",
         "Reporting and forecasting"
@@ -1033,8 +1033,8 @@
       ]
     },
     {
-      "id": "Eplus91-powered-by-zato",
-      "name": "Plus91 (powered by Zato)",
+      "id": "Ebluepeaknetworks",
+      "name": "BluePeak Networks",
       "tags": [
         "Accountant tools"
       ],
@@ -1044,8 +1044,8 @@
       ]
     },
     {
-      "id": "Ecradle-for-accountants",
-      "name": "Cradle for Accountants",
+      "id": "Ebluepeaktools",
+      "name": "BluePeak Tools",
       "tags": [
         "Accountant tools",
         "Practice manager"
@@ -1061,8 +1061,8 @@
       ]
     },
     {
-      "id": "Edashboard-insights",
-      "name": "Dashboard Insights",
+      "id": "Ebluepeakplatform",
+      "name": "BluePeak Platform",
       "tags": [
         "Accountant tools",
         "Practice manager"
@@ -1073,8 +1073,8 @@
       ]
     },
     {
-      "id": "Edext",
-      "name": "Dext",
+      "id": "Ebluepeakstudio",
+      "name": "BluePeak Studio",
       "tags": [
         "Accountant tools",
         "Bills and expenses"
@@ -1096,8 +1096,8 @@
       ]
     },
     {
-      "id": "Efyi",
-      "name": "FYI",
+      "id": "Ebluepeakadvisory",
+      "name": "BluePeak Advisory",
       "tags": [
         "Documents",
         "Practice manager"
@@ -1109,8 +1109,8 @@
       ]
     },
     {
-      "id": "Eignition",
-      "name": "Ignition",
+      "id": "Ebluepeakflow",
+      "name": "BluePeak Flow",
       "tags": [
         "Accountant tools",
         "Practice manager"
@@ -1132,8 +1132,8 @@
       ]
     },
     {
-      "id": "Ekarbon",
-      "name": "Karbon",
+      "id": "Ebluepeakbridge",
+      "name": "BluePeak Bridge",
       "tags": [
         "Accountant tools",
         "Practice manager"
@@ -1155,8 +1155,8 @@
       ]
     },
     {
-      "id": "Ekloud-connect",
-      "name": "Kloud Connect",
+      "id": "Ebluepeakinsights",
+      "name": "BluePeak Insights",
       "tags": [
         "Practice manager",
         "Invoicing and jobs"
@@ -1166,8 +1166,8 @@
       ]
     },
     {
-      "id": "Elightyear-docs",
-      "name": "LightYear Docs",
+      "id": "Ebluepeakdigital",
+      "name": "BluePeak Digital",
       "tags": [
         "Documents",
         "Accountant tools"
@@ -1177,8 +1177,8 @@
       ]
     },
     {
-      "id": "Elink",
-      "name": "Link",
+      "id": "Ebluepeakventures",
+      "name": "BluePeak Ventures",
       "tags": [
         "Accountant tools",
         "Practice manager"
@@ -1200,8 +1200,8 @@
       ]
     },
     {
-      "id": "Emyworkpapers-by-bright",
-      "name": "MyWorkpapers by Bright",
+      "id": "Ebluepeaksoftware",
+      "name": "BluePeak Software",
       "tags": [
         "Practice manager",
         "Reporting and forecasting"
@@ -1214,8 +1214,8 @@
       ]
     },
     {
-      "id": "Enowinfinity",
-      "name": "NowInfinity",
+      "id": "Ebluepeakengine",
+      "name": "BluePeak Engine",
       "tags": [
         "Practice manager"
       ],
@@ -1225,8 +1225,8 @@
       ]
     },
     {
-      "id": "Eoncord",
-      "name": "Oncord",
+      "id": "Ebluepeakops",
+      "name": "BluePeak Ops",
       "tags": [
         "CRM and marketing",
         "Ecommerce"
@@ -1248,8 +1248,8 @@
       ]
     },
     {
-      "id": "Erechargly",
-      "name": "Rechargly",
+      "id": "Ebluepeakcore",
+      "name": "BluePeak Core",
       "tags": [
         "Accountant tools",
         "Practice manager"
@@ -1271,8 +1271,8 @@
       ]
     },
     {
-      "id": "Eseamlss",
-      "name": "Seamlss",
+      "id": "Ebluepeakworks2",
+      "name": "BluePeak Works",
       "tags": [
         "Accountant tools",
         "Practice manager"
@@ -1283,8 +1283,8 @@
       ]
     },
     {
-      "id": "Etax-sorted-workpapers",
-      "name": "Tax Sorted Workpapers",
+      "id": "Ebluepeakone",
+      "name": "BluePeak One",
       "tags": [
         "Accountant tools",
         "Practice manager"
@@ -1294,24 +1294,24 @@
       ]
     },
     {
-      "id": "Ethe-outsource-pro",
-      "name": "The Outsource Pro",
+      "id": "Ebluepeakhq",
+      "name": "BluePeak HQ",
       "tags": [
         "Outsourcer"
       ],
       "regions": []
     },
     {
-      "id": "Etoa-global",
-      "name": "TOA Global",
+      "id": "Ebluepeakforge",
+      "name": "BluePeak Forge",
       "tags": [
         "Outsourcer"
       ],
       "regions": []
     },
     {
-      "id": "Evinyl",
-      "name": "Vinyl",
+      "id": "Ebluepeakpulse",
+      "name": "BluePeak Pulse",
       "tags": [
         "Accountant tools",
         "Practice manager"
@@ -1333,8 +1333,8 @@
       ]
     },
     {
-      "id": "Exbert",
-      "name": "XBert",
+      "id": "Ebluepeaksync",
+      "name": "BluePeak Sync",
       "tags": [
         "Accountant tools",
         "Practice manager"
@@ -1349,8 +1349,8 @@
       ]
     },
     {
-      "id": "Exu-magazine",
-      "name": "XU Magazine",
+      "id": "Ebluepeakcollective",
+      "name": "BluePeak Collective",
       "tags": [
         "Discover",
         "Media"
