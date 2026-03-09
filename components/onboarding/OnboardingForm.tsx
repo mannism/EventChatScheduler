@@ -140,6 +140,9 @@ export function OnboardingForm({ onSubmit }: OnboardingFormProps) {
     }
 
     return (
+        // The top margin here (mt-2 md:mt-0) is highly specific. It ensures this component and 
+        // the ChatInterface map to the exact same vertical offset directly under the top header, 
+        // removing any wasted void space on mobile devices.
         <div className="relative w-full max-w-2xl mx-auto mt-2 md:mt-0">
             {/* Geometric Decoration */}
             <div className="absolute -top-10 -right-10 w-32 h-32 bg-primary/20 rounded-full blur-2xl -z-10" />

@@ -97,6 +97,8 @@ export function ChatInterface({ userProfile, onGenerateSchedule }: ChatInterface
         const userMessages = messages.filter((m: any) => m.role === 'user')
         if (userMessages.length > lastUserMsgCount.current) {
             lastUserMsgCount.current = userMessages.length
+            // A small 50ms delay gives React enough time to paint the new user message
+            // bubble into the DOM before we attempt to scroll down to it.
             setTimeout(() => {
                 if (scrollRef.current) {
                     scrollRef.current.scrollTop = scrollRef.current.scrollHeight
@@ -110,6 +112,8 @@ export function ChatInterface({ userProfile, onGenerateSchedule }: ChatInterface
         const assistantMessages = messages.filter((m: any) => m.role === 'assistant')
         if (assistantMessages.length > lastAssistantMsgCount.current) {
             lastAssistantMsgCount.current = assistantMessages.length
+            // Nudge the view down slightly (120px) to reveal the first few lines of the
+            // AI's response to signal new content without violently jumping to the bottom.
             setTimeout(() => {
                 if (scrollRef.current) {
                     scrollRef.current.scrollBy({ top: 120, behavior: 'smooth' })

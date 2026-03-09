@@ -42,6 +42,9 @@ export function ViewScheduleButton({ scheduleData, userProfile }: ViewScheduleBu
     };
 
     return (
+        // Note: This component is dynamically rendered inside of a markdown <pre> block. 
+        // We explicitly define font-sans, whitespace-normal, and max-w-[100%] to prevent 
+        // the parent <pre> tag's monospace/white-space properties from breaking the layout on mobile.
         <div className="my-4 p-4 md:p-5 rounded-2xl border border-border bg-card/60 flex flex-col items-center justify-center space-y-3 md:space-y-4 text-center shadow-sm w-full max-w-[100%] font-sans whitespace-normal box-border overflow-hidden">
             {/* Visible UI */}
             <h3 className="text-lg md:text-xl font-bold font-serif text-foreground whitespace-normal break-words leading-tight">Your Personalized Schedule is Ready!</h3>

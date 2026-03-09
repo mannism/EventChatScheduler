@@ -1,3 +1,11 @@
+/**
+ * StatusBadge.tsx
+ * 
+ * Client-side component that displays the online/offline connection status of the application.
+ * It listens to the browser's `navigator.onLine` API and real-time events to dynamically update
+ * the UI with a green pulsing dot (Online) or a solid red dot (Offline).
+ */
+
 "use client"
 
 import { useState, useEffect } from 'react'
