@@ -9,8 +9,9 @@
 "use client";
 
 import React, { useEffect, useState } from 'react';
-import { UserProfile } from '@/lib/types';
+import { UserProfile, APISchedule } from '@/lib/types';
 import { Loader2 } from 'lucide-react';
+import { generateICS } from '@/lib/ics';
 
 export default function ScheduleViewPage() {
     const [scheduleData, setScheduleData] = useState<any>(null);
@@ -20,9 +21,23 @@ export default function ScheduleViewPage() {
 
     useEffect(() => {
         try {
-            // Retrieve data populated by ViewScheduleButton before this tab was opened
-            const storedSchedule = sessionStorage.getItem('xyzScheduleData');
-            const storedProfile = sessionStorage.getItem('xyzUserProfile');
+            // Read the unique key from URL params, falling back to legacy keys
+            const params = new URLSearchParams(window.location.search);
+            const key = params.get('key');
+
+            let storedSchedule: string | null = null;
+            let storedProfile: string | null = null;
+
+            if (key) {
+                storedSchedule = sessionStorage.getItem(`${key}_data`);
+                storedProfile = sessionStorage.getItem(`${key}_profile`);
+            }
+
+            // Fallback: try legacy keys for backwards compatibility
+            if (!storedSchedule || !storedProfile) {
+                storedSchedule = storedSchedule || sessionStorage.getItem('xyzScheduleData');
+                storedProfile = storedProfile || sessionStorage.getItem('xyzUserProfile');
+            }
 
             if (storedSchedule && storedProfile) {
                 setScheduleData(JSON.parse(storedSchedule));
@@ -129,12 +144,29 @@ export default function ScheduleViewPage() {
                 </div>
 
                 <div className="bg-slate-50 p-6 text-center border-t border-slate-200">
-                    <button
-                        onClick={() => window.print()}
-                        className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-xl shadow-md transition-all hover:shadow-lg focus:ring-4 focus:ring-blue-100"
-                    >
-                        Print Schedule
-                    </button>
+                    <div className="flex flex-wrap justify-center gap-3">
+                        <button
+                            onClick={() => window.print()}
+                            className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-xl shadow-md transition-all hover:shadow-lg focus:ring-4 focus:ring-blue-100"
+                        >
+                            Print Schedule
+                        </button>
+                        <button
+                            onClick={() => {
+                                const ics = generateICS(scheduleData as APISchedule, userProfile?.name);
+                                const blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' });
+                                const url = URL.createObjectURL(blob);
+                                const a = document.createElement('a');
+                                a.href = url;
+                                a.download = `XyzCon_2026_Schedule_${(userProfile?.name || 'Attendee').replace(/\s+/g, '_')}.ics`;
+                                a.click();
+                                URL.revokeObjectURL(url);
+                            }}
+                            className="px-8 py-3 bg-sky-600 hover:bg-sky-700 text-white font-medium rounded-xl shadow-md transition-all hover:shadow-lg focus:ring-4 focus:ring-sky-100"
+                        >
+                            Add to Calendar
+                        </button>
+                    </div>
                     <p className="text-sm text-slate-500 mt-4">For best print results, use Landscape orientation on A4/Letter size.</p>
                 </div>
             </div>

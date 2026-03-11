@@ -1,9 +1,8 @@
 import { Session, UserProfile, Schedule, DaySchedule, ScheduleItem } from './types';
+import { shuffle, hasMatchingTag, countTagMatches } from './matching';
+import { DATE_MAP, ALL_EVENT_DATES, NETWORKING_TIMES, LUNCH_SLOT_OPTIONS, END_OF_DAY_CUTOFF } from './constants';
 
-// Keynote sessions track name
 const MANDATORY_TRACK = "Supercharge";
-const NETWORKING_TIME_D1 = { start: "17:15", end: "18:00" };
-const NETWORKING_TIME_D2 = { start: "15:45", end: "16:30" };
 
 // Helper to parse time string "HH:mm" to minutes from midnight
 function timeToMinutes(timeStr: string): number {
@@ -34,13 +33,12 @@ function hasConflict(item: ScheduleItem, newItem: Session): boolean {
 }
 
 export async function generateSchedule(userProfile: UserProfile, allSessions: Session[]): Promise<Schedule> {
-    const days: string[] = ["2026-09-03", "2026-09-04"];
+    const days: string[] = ALL_EVENT_DATES;
     const scheduleDays: DaySchedule[] = [];
 
-    // Filter sessions by days user is attending if specific? 
-    // User profile has "attendanceDays" e.g. ["Sept 3", "Sept 4"]
-    // Map to dates.
-    const userDates: string[] = userProfile.attendanceDays.map(d => d === "Sept 3" ? "2026-09-03" : "2026-09-04");
+    const userDates: string[] = userProfile.attendanceDays
+        .map(d => DATE_MAP[d])
+        .filter(Boolean);
 
     for (const date of days) {
         if (!userDates.includes(date)) continue;
@@ -53,8 +51,7 @@ export async function generateSchedule(userProfile: UserProfile, allSessions: Se
         keynotes.forEach(s => dailyItems.push({ session: s, type: 'keynote' }));
 
         // 2. Networking (Fixed)
-        // We create a dummy session for networking to block time
-        const networkingTime = date === "2026-09-03" ? NETWORKING_TIME_D1 : NETWORKING_TIME_D2;
+        const networkingTime = NETWORKING_TIMES[date] || NETWORKING_TIMES["2026-09-03"];
         const networkingSession: Session = {
             id: `networking-${date}`,
             title: "Networking Drinks",
@@ -74,12 +71,7 @@ export async function generateSchedule(userProfile: UserProfile, allSessions: Se
         // If conflict with Keynote, try 11:30-12:30 or 13:00-14:00.
         // We will insert a lunch item.
         let lunchPlaced = false;
-        const lunchOptions = [
-            { start: "12:30", end: "13:30" },
-            { start: "11:30", end: "12:30" },
-            { start: "13:00", end: "14:00" },
-            { start: "12:00", end: "13:00" }
-        ];
+        const lunchOptions = LUNCH_SLOT_OPTIONS;
 
         for (const opt of lunchOptions) {
             const lunchSession: Session = {
@@ -110,14 +102,13 @@ export async function generateSchedule(userProfile: UserProfile, allSessions: Se
 
         // 4. App Spotlight (5 per day)
         const appSpotlights = daySessions.filter(s => s.track === "App Spotlight" && !dailyItems.some(i => i.session.id === s.id));
-        // Shuffle
-        const shuffledApps = appSpotlights.sort(() => 0.5 - Math.random());
+        const shuffledApps = shuffle(appSpotlights);
         let appsAdded = 0;
 
         for (const app of shuffledApps) {
             if (appsAdded >= 5) break;
             if (!dailyItems.some(i => hasConflict(i, app))) {
-                if (timeToMinutes(app.endDateTime.split('T')[1]) > timeToMinutes("17:30")) continue;
+                if (timeToMinutes(app.endDateTime.split('T')[1]) > timeToMinutes(END_OF_DAY_CUTOFF)) continue;
                 dailyItems.push({ session: app, type: 'session' });
                 appsAdded++;
             }
@@ -131,19 +122,14 @@ export async function generateSchedule(userProfile: UserProfile, allSessions: Se
             !dailyItems.some(i => i.session.id === s.id)
         );
 
-        // Scoring: +2 for Interest match, +1 for Job Type (if we had job type mapping to tags, but we define generic)
-        // Let's rely on Interests matching tags.
+        // Score by interest tag matches
         const scoredSessions = otherSessions.map(s => {
-            let score = 0;
-            const matches = s.tags.filter(tag => userProfile.interests.includes(tag));
-            score += matches.length * 2;
-            // prioritize "Discovery" and "Partner"
-            // if (s.track === "Discovery") score += 1;
-            return { session: s, score };
+            const matchCount = countTagMatches(s.tags, userProfile.interests);
+            return { session: s, score: matchCount * 2 };
         }).sort((a, b) => b.score - a.score);
 
         for (const { session } of scoredSessions) {
-            if (timeToMinutes(session.endDateTime.split('T')[1]) > timeToMinutes("17:30")) continue;
+            if (timeToMinutes(session.endDateTime.split('T')[1]) > timeToMinutes(END_OF_DAY_CUTOFF)) continue;
             if (!dailyItems.some(i => hasConflict(i, session))) {
                 dailyItems.push({ session: session, type: 'session' });
             }

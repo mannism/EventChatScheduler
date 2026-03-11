@@ -3019,6 +3019,19 @@
       "presenters": [
         "Keegan Adams"
       ],
+      "tags": [
+        "AI",
+        "Innovation",
+        "Thought Leadership",
+        "Future of business"
+      ],
+      "regions": [
+        "Australia",
+        "Malaysia",
+        "Singapore",
+        "South Korea",
+        "Thailand"
+      ],
       "description": "Supercharging Your Future: Embrace Innovation, Unlock Capacity, and Redefine Impact with AI Hear from XYZ’s CEO on how AI is poised to drive unprecedented change in the coming years. Join us to discover how XYZ is democratising this innovation, empowering you to embrace a \"Supercharged Future\" with reimagined experiences, personalised insights, and automated actions for greater impact.",
       "shortDescription": "Hear from XYZ’s CEO on how you can supercharge your future with AI to deliver reimagined experiences, personalized insights, and automated actions.",
       "flags": {
@@ -3036,8 +3049,22 @@
       "presenters": [
         "Lowen Adams"
       ],
-      "description": "XYZ’s Product Strategy: The Intelligent Platform to Harness AI, Automate Your Work, and Multiply Your Impact Hear about XYZ's evolved product strategy from Diya Jolly, our CPTO. Learn how our unique agentic approach streamlines your work to empower your human expertise, freeing you to multiply your impact through a reimagined XYZ experience with automated actions and real-time insights.",
-      "shortDescription": "This session reveals XYZ's evolved strategy, leveraging AI for automated actions, personalised insights, and reimagined experiences to multiply your impact.",
+      "tags": [
+        "AI",
+        "Agentic AI",
+        "Innovation",
+        "Technology",
+        "Workflow automation"
+      ],
+      "regions": [
+        "Australia",
+        "Malaysia",
+        "Singapore",
+        "South Korea",
+        "Thailand"
+      ],
+      "description": "XYZ’s Product Strategy: The Intelligent Platform to Harness AI, Automate Your Work, and Multiply Your Impact Hear about XYZ’s evolved product strategy from Diya Jolly, our CPTO. Learn how our unique agentic approach streamlines your work to empower your human expertise, freeing you to multiply your impact through a reimagined XYZ experience with automated actions and real-time insights.",
+      "shortDescription": "This session reveals XYZ’s evolved strategy, leveraging AI for automated actions, personalised insights, and reimagined experiences to multiply your impact.",
       "flags": {
         "keynote": true
       }
@@ -3053,7 +3080,20 @@
       "presenters": [
         "Monroe Adams"
       ],
-      "description": "Advisors are crucial for small business success. But what does success mean to today's entrepreneurs? Join us to discover how XYZ is empowering you to become a proactive, strategic partner. Learn to define your ‘endgame’, attract ideal clients, and amplify your impact to help small businesses thrive. Speaker: Angad Soin, Managing Director ANZ and Global Chief Strategy Officer, XYZ",
+      "tags": [
+        "Advisory services",
+        "Growth",
+        "Thought Leadership",
+        "Future of business"
+      ],
+      "regions": [
+        "Australia",
+        "Malaysia",
+        "Singapore",
+        "South Korea",
+        "Thailand"
+      ],
+      "description": "Advisors are crucial for small business success. But what does success mean to today’s entrepreneurs? Join us to discover how XYZ is empowering you to become a proactive, strategic partner. Learn to define your ‘endgame’, attract ideal clients, and amplify your impact to help small businesses thrive. Speaker: Angad Soin, Managing Director ANZ and Global Chief Strategy Officer, XYZ",
       "shortDescription": "This session is about helping you redefine success for you, your clients, and amplify your impact to help small businesses thrive.",
       "flags": {
         "keynote": true
@@ -3071,9 +3111,19 @@
         "Niall Adams"
       ],
       "tags": [
-        "External speaker"
+        "External Speaker",
+        "Thought Leadership",
+        "Innovation",
+        "Culture / Soft Skills"
       ],
-      "description": "Hear Niall's leadership journey and principles of collaboration, innovation and inclusivity in the creation of global sensation, Dewie.",
+      "regions": [
+        "Australia",
+        "Malaysia",
+        "Singapore",
+        "South Korea",
+        "Thailand"
+      ],
+      "description": "Hear Niall’s leadership journey and principles of collaboration, innovation and inclusivity in the creation of global sensation, Dewie.",
       "shortDescription": "Hear how Niall’s inclusive, innovative leadership helped bring global sensation Dewie to life.",
       "flags": {
         "keynote": true

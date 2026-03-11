@@ -1,4 +1,4 @@
-# XyzCon EventChatScheduler-poc
+# XyzCon EventChatScheduler-poc v2.0
 
 XyzCon EventChatScheduler-poc is a Next.js 16 web application designed to act as a highly intelligent, personalized AI companion for conference attendees. It leverages generative AI to help users navigate their event schedule, search for relevant sessions, and dynamically generate conflict-free customized itineraries.
 
@@ -25,12 +25,12 @@ Create a `.env.local` file in the root directory of the project. You must includ
 
 ```env
 OPENAI_API_KEY=your_openai_api_key_here
-OPENAI_MODEL="gpt-4o" # or your preferred model
+OPENAI_MODEL="gpt-5.1" # or your preferred model
 MAX_SESSIONS_PER_DAY=8
 MAX_EXHIBITORS_PER_DAY=10
 ```
 - **`OPENAI_API_KEY`**: Required to authenticate with the OpenAI API for the conversational interface.
-- **`OPENAI_MODEL`**: The specific model to be used by the Vercel AI SDK (e.g., `gpt-4o`, `gpt-4-turbo`).
+- **`OPENAI_MODEL`**: The specific model to be used by the Vercel AI SDK (e.g., `gpt-5.1`, `gpt-4o`).
 - **`MAX_SESSIONS_PER_DAY`**: The maximum number of personalized sessions to recommend per user attendance day in the automated schedule.
 - **`MAX_EXHIBITORS_PER_DAY`**: The maximum number of relevant exhibitors to recommend per user attendance day in the automated schedule.
 

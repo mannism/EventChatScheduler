@@ -35,3 +35,19 @@ export interface DaySchedule {
 export interface Schedule {
     days: DaySchedule[];
 }
+
+/** API schedule format returned by the createSchedule tool */
+export interface APIScheduleSession {
+    time: string;
+    title: string;
+    stage: string;
+    presenters: string;
+    summary: string;
+}
+
+export interface APIScheduleDay {
+    sessions: APIScheduleSession[];
+    exhibitors: string[];
+}
+
+export type APISchedule = Record<string, APIScheduleDay>;

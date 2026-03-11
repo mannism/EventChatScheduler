@@ -5,7 +5,7 @@ import { useState, useEffect, useRef } from 'react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card'
-import { Send } from 'lucide-react'
+import { Send, UserPen } from 'lucide-react'
 import { UserProfile } from '@/lib/types'
 import { cn } from '@/lib/utils'
 import ReactMarkdown from 'react-markdown'
@@ -15,9 +15,10 @@ import { ViewScheduleButton } from './ViewScheduleButton'
 interface ChatInterfaceProps {
     userProfile: UserProfile
     onGenerateSchedule: () => void
+    onEditProfile?: () => void
 }
 
-export function ChatInterface({ userProfile, onGenerateSchedule }: ChatInterfaceProps) {
+export function ChatInterface({ userProfile, onGenerateSchedule, onEditProfile }: ChatInterfaceProps) {
     const scrollRef = useRef<HTMLDivElement>(null)
     const inputRef = useRef<HTMLInputElement>(null)
     const hasInitialized = useRef(false)
@@ -46,8 +47,20 @@ export function ChatInterface({ userProfile, onGenerateSchedule }: ChatInterface
         // console.log('useChat keys:', Object.keys(chat));
     }, [chat]);
 
+    // Helper to extract text from message
+    const getMessageText = (m: any) => {
+        if (typeof m.content === 'string') return m.content;
+        if (Array.isArray(m.parts)) {
+            return m.parts.filter((p: any) => p.type === 'text').map((p: any) => p.text).join('');
+        }
+        return '';
+    }
+
     // Derived state
     const isLoading = originalIsLoading || status === 'streaming' || status === 'submitted';
+    const lastAssistantMsg = [...messages].reverse().find((m: any) => m.role === 'assistant');
+    const isStreamingWithContent = isLoading && lastAssistantMsg && getMessageText(lastAssistantMsg).length > 0;
+    const isWaitingForResponse = isLoading && !isStreamingWithContent;
 
     // Action handler
     const doSendMessage = async (userMessage: any) => {
@@ -122,14 +135,15 @@ export function ChatInterface({ userProfile, onGenerateSchedule }: ChatInterface
         }
     }, [messages])
 
-    // Helper to extract text from message
-    const getMessageText = (m: any) => {
-        if (typeof m.content === 'string') return m.content;
-        if (Array.isArray(m.parts)) {
-            return m.parts.filter((p: any) => p.type === 'text').map((p: any) => p.text).join('');
+    // Keep the loading indicator visible by scrolling to bottom while loading
+    useEffect(() => {
+        if (isLoading && scrollRef.current) {
+            const timer = setTimeout(() => {
+                scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: 'smooth' });
+            }, 100);
+            return () => clearTimeout(timer);
         }
-        return '';
-    }
+    }, [isLoading, messages])
 
     const displayMessages = messages.filter((m: any) => {
         const text = getMessageText(m);
@@ -153,11 +167,16 @@ export function ChatInterface({ userProfile, onGenerateSchedule }: ChatInterface
                             <p className="text-xs text-muted-foreground font-normal">Ask me about the the event or the sessions at XyzCon 2026</p>
                         </div>
                     </div>
+                    {onEditProfile && (
+                        <Button variant="ghost" size="icon" onClick={onEditProfile} title="Edit Profile" className="text-muted-foreground hover:text-foreground">
+                            <UserPen className="h-5 w-5" />
+                        </Button>
+                    )}
                 </CardTitle>
             </CardHeader>
 
             <CardContent className="flex-1 p-0 overflow-hidden relative bg-transparent">
-                <div className="h-full overflow-y-auto p-4 space-y-6" ref={scrollRef}>
+                <div className="h-full overflow-y-auto p-4 pb-6 space-y-6" ref={scrollRef}>
                     {messages.length === 0 && (
                         <div className="flex flex-col items-center justify-center h-full text-center p-8 space-y-4 opacity-80">
                             <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mb-4 border border-border">
@@ -165,14 +184,14 @@ export function ChatInterface({ userProfile, onGenerateSchedule }: ChatInterface
                             </div>
                             <h3 className="font-serif font-bold text-xl text-foreground">How can I help you today?</h3>
                             <p className="text-muted-foreground text-sm max-w-[280px]">
-                                Ask about my experience, projects, or background.
+                                Ask about sessions, exhibitors, or get a personalized schedule.
                             </p>
                             <div className="grid grid-cols-1 gap-2 w-full mt-8">
                                 {[
-                                    "Tell me about your projects",
-                                    "What is your background?",
-                                    "Creative Tech topics",
-                                    "Agentic workflows"
+                                    "Create my personalized schedule",
+                                    "What keynotes are happening?",
+                                    "Which exhibitors should I visit?",
+                                    "Find sessions about AI"
                                 ].map((suggestion) => (
                                     <button
                                         key={suggestion}
@@ -260,12 +279,23 @@ export function ChatInterface({ userProfile, onGenerateSchedule }: ChatInterface
                         </div>
                     ))}
 
-                    {isLoading && (
+                    {/* State 1: Waiting for first response — bouncing dots */}
+                    {isWaitingForResponse && (
                         <div className="flex justify-start animate-fade-in">
                             <div className="bg-white/10 border border-white/20 backdrop-blur-md rounded-[16px] rounded-bl-sm p-3 flex gap-1 items-center w-fit">
                                 <div className="w-[6px] h-[6px] bg-current rounded-full animate-bounce" style={{ animationDelay: '-0.32s' }} />
                                 <div className="w-[6px] h-[6px] bg-current rounded-full animate-bounce" style={{ animationDelay: '-0.16s' }} />
                                 <div className="w-[6px] h-[6px] bg-current rounded-full animate-bounce" style={{ animationDelay: '0s' }} />
+                            </div>
+                        </div>
+                    )}
+
+                    {/* State 2: Streaming paused (e.g. tool calls) — subtle pulsing indicator */}
+                    {isStreamingWithContent && (
+                        <div className="flex justify-start animate-fade-in">
+                            <div className="flex items-center gap-2 px-4 py-2 text-sm text-muted-foreground">
+                                <div className="w-2 h-2 bg-primary/50 rounded-full animate-pulse" />
+                                <span className="animate-pulse">Thinking...</span>
                             </div>
                         </div>
                     )}

@@ -13,6 +13,8 @@ import { NextRequest } from 'next/server';
 import { z } from 'zod';
 import fs from 'fs';
 import path from 'path';
+import { shuffle, hasMatchingTag, scoreSession } from '@/lib/matching';
+import { DATE_MAP, ALL_EVENT_DATES, NETWORKING_TIMES, LUNCH_SLOT_OPTIONS, END_OF_DAY_CUTOFF } from '@/lib/constants';
 
 export const runtime = 'nodejs';
 
@@ -23,16 +25,28 @@ const sessionsData = JSON.parse(fs.readFileSync(sessionsPath, 'utf8')).sessions;
 const exhibitorsPath = path.join(process.cwd(), 'data/Scheduler_2026_exhibitors.json');
 const exhibitorsData = JSON.parse(fs.readFileSync(exhibitorsPath, 'utf8')).exhibitors;
 
+/** Shuffle items that have equal _score values while preserving score-based ordering */
+function shuffleEqualScores(items: any[]): any[] {
+    if (items.length <= 1) return items;
+    const result: any[] = [];
+    let i = 0;
+    while (i < items.length) {
+        let j = i;
+        while (j < items.length && items[j]._score === items[i]._score) j++;
+        result.push(...shuffle(items.slice(i, j)));
+        i = j;
+    }
+    return result;
+}
+
 export async function POST(req: NextRequest) {
     try {
         const body = await req.json();
         const messages = body.messages;
 
         const headerProfile = req.headers.get('x-user-profile') || req.headers.get('X-User-Profile');
-        console.log("Header Profile:", headerProfile);
 
         let rawUserProfile = body.userProfile;
-        console.log("Body UserProfile:", body.userProfile);
 
         if (!rawUserProfile && headerProfile) {
             try {
@@ -51,7 +65,7 @@ export async function POST(req: NextRequest) {
                     const payload = JSON.parse(payloadStr);
                     if (payload.type === 'init' && payload.profile) {
                         rawUserProfile = payload.profile;
-                        console.log("Extracted UserProfile from [INIT_CHAT] payload");
+                        // UserProfile extracted from [INIT_CHAT] payload
                     }
                 } catch (e) {
                     console.error("Failed to parse [INIT_CHAT] payload:", e);
@@ -106,35 +120,79 @@ export async function POST(req: NextRequest) {
     Interests: ${safeInterests.join(', ')}
     Location: ${safeLocation}
     `;
-        console.log("User Profile:", userProfile);
 
         const maxSessions = parseInt(process.env.MAX_SESSIONS_PER_DAY || "3", 10);
         const maxExhibitors = parseInt(process.env.MAX_EXHIBITORS_PER_DAY || "3", 10);
+
+        // Pre-build keynote reference with full detail so the LLM can rephrase naturally
+        const keynotes = sessionsData
+            .filter((s: any) => s.track === "Supercharge")
+            .sort((a: any, b: any) => a.startDateTime.localeCompare(b.startDateTime))
+            .map((s: any) => {
+                const startTime = s.startDateTime.substring(11, 16);
+                const endTime = s.endDateTime.substring(11, 16);
+                const date = s.startDateTime.substring(0, 10);
+                return [
+                    `**${s.title}**`,
+                    `Time: ${startTime} – ${endTime}, ${date} | Stage: Supercharge Stage`,
+                    `Speaker: ${s.presenters?.join(", ") || "TBA"}`,
+                    `Description: ${s.description || s.shortDescription || ""}`,
+                ].join('\n');
+            })
+            .join('\n\n');
 
         const instructions = `
     Use the provided system prompt behavior.
     Context:
     ${context}
-    
-    # CRITICAL INSTRUCTIONS
-    1. Keep responses human, natural and easy to read.
-    2. If the user asks about the keynote, keynote session, Keynotes, Keynote Sessions or supercharged session - including speakers and topics, 
-      - USE the searchSessions tool with track="Supercharge" to find keynote sessions
-      - Use the returned data to respond accordingly.
-      - If the presenter data is empty or "N/A", tell the user "I do not have that data in my records currently."
-    3. If the user asks about sessions they should go to, USE the searchSessions tool to recommend sessions matching their interests and location. Recommend exactly a maximum of ${maxSessions} relevant sessions for each day the user is attending with session timings that do not clash.
-    4. If the user asks about "Exhibitors", "Exhibitor", "Event Partners", "Sponsors" or "exhibiting partner", USE the getExhibitors tool. Recommend exactly a maximum of ${maxExhibitors} relevant Exhibitors for each day the user is attending. (NOTE: If they ask about "Partner & Community" sessions, use the searchSessions tool instead).
-    5. If the user asks about presenters, speakers, or session details from a specific presenter's name, USE the getPresenters tool. Only use the "all" parameter if the user explicitly asks for ALL presenters. Otherwise, getPresenters will automatically filter by their attendance days and interests.
-    6. If the user asks for a personalized schedule, USE the createSchedule tool to generate one.
-    7. When displaying dates, display in this format: "Sep 9"
-    8. When displaying times, display in this format: "10:00 AM"
-    9. If the user speaks in a different language, respond in the same language. 
-    10. ALWAYS RESPOND in HUMAN, NATURAL and EASY TO READ format. Rephrase, and summarise where possible.
-    11. When responding with session details, ALWAYS ensure that the response includes the session title, stage, stage number and time.
-    12. DO NOT GUESS. If you are not sure about something, ask the user for clarification.
-    13. DO NOT SPEAK ABOUT POLITICS, RELIGION, OR ANY CONTROVERSIAL TOPICS.
-    14. DO NOT use Markdown headers (such as # or ##). You MAY use markdown formatting for bold (**), italics (* or _), and bulleted lists. 
-    15. CRITICAL OVERRIDE FOR SCHEDULES: Ignore the "human-readable/summarize" rule when the user asks for a schedule! If you are displaying the schedule from the createSchedule tool, you MUST output ONLY a JSON code block containing the exact schedule data. DO NOT summarise, DO NOT add conversational filler inside the JSON. Format it exactly like this:
+
+    # KEYNOTE SESSIONS (Supercharge Track)
+    These are the Day 1 main stage keynotes. ALL attendees should attend. You have full details below — answer keynote questions directly without calling a tool. Rephrase the descriptions in your own words, in plain conversational language:
+
+    ${keynotes}
+
+    # TOOL USAGE
+    - **Keynotes / Supercharge**: Answer from above. Only call searchSessions with track="Supercharge" if user wants something not covered above.
+    - **Session recommendations**: USE searchSessions. Max ${maxSessions} non-clashing sessions per day.
+    - **Exhibitors / Event Partners / Sponsors**: USE getExhibitors. Max ${maxExhibitors} per day. ("Partner & Community" is a session track — use searchSessions for those.)
+    - **Presenters / Speakers**: USE getPresenters. Only pass all=true if explicitly asked for ALL.
+    - **Personalized schedule**: USE createSchedule.
+
+    # HOW TO PRESENT SESSION INFORMATION
+
+    ## When listing MULTIPLE sessions:
+    Keep it concise. For each session show ONLY:
+
+    **Session Title**
+    Time: HH:MM – HH:MM AM/PM, Sep D | Stage: [stage name]
+    Speaker: [name(s)]
+    [One sentence summary in plain language — what the attendee will get from this session.]
+
+    CRITICAL: You MUST insert a full empty paragraph (two newlines / "\\n\\n") between each session entry. Sessions must be visually separated — never run them together. After the full list, ask: "Want me to go into more detail on any of these?"
+
+    ## When describing a SINGLE session (or user asks for details):
+    Use the full format:
+
+    **Session Title**
+    Time: HH:MM – HH:MM AM/PM, Sep D
+    Stage: [stage name]
+    Speaker: [name(s)]
+    What it's about:
+    [2-4 short bullet points rephrasing the description in plain language. Explain what the attendee will learn or gain. Connect to the user's role/interests where possible.]
+
+    IMPORTANT STYLE RULES:
+    - Start with a brief, warm intro that acknowledges the question and personalises to the user (role, interests, location).
+    - Rephrase session descriptions in your OWN words — do NOT copy marketing text verbatim. Explain like you're talking to a colleague.
+    - Use 12-hour time format: "9:20 AM", "12:45 PM". Use en-dash for ranges: "9:20 – 9:30 AM".
+    - Use "Sep 3" / "Sep 4" for dates.
+    - End with a natural follow-up: offer to dig deeper, suggest related sessions, or ask what matters most.
+    - Be concise. No filler. No repeating information.
+    - DO NOT use Markdown headers (# or ##). Use **bold** for session titles, *italics* for emphasis, and bullet points.
+    - DO NOT discuss politics, religion, or controversial topics.
+    - DO NOT guess. If unsure, say so.
+    - If the user speaks in a different language, respond in that language.
+
+    SCHEDULE OVERRIDE: When outputting schedule data from createSchedule, output ONLY a JSON code block — no conversational text inside:
 \`\`\`json
 {
   "type": "schedule_download",
@@ -168,17 +226,28 @@ export async function POST(req: NextRequest) {
                         // Determine allowed dates based on LLM query or User Profile
                         const allowedDates: string[] = [];
                         if (date) {
-                            if (date.includes("3") || date.includes("03")) allowedDates.push("2026-09-03");
-                            if (date.includes("4") || date.includes("04")) allowedDates.push("2026-09-04");
+                            // Check if date matches any known date mapping or ISO format
+                            for (const [label, iso] of Object.entries(DATE_MAP)) {
+                                if (date.includes(label) || date.includes(iso)) {
+                                    allowedDates.push(iso);
+                                }
+                            }
+                            // Fallback: try matching day number
+                            if (allowedDates.length === 0) {
+                                if (date.includes("3") || date.includes("03")) allowedDates.push("2026-09-03");
+                                if (date.includes("4") || date.includes("04")) allowedDates.push("2026-09-04");
+                            }
                         } else {
                             const attendingDays = userProfile?.attendanceDays || [];
-                            if (attendingDays.includes("Sept 3")) allowedDates.push("2026-09-03");
-                            if (attendingDays.includes("Sept 4")) allowedDates.push("2026-09-04");
+                            for (const day of attendingDays) {
+                                const iso = DATE_MAP[day];
+                                if (iso) allowedDates.push(iso);
+                            }
                         }
 
-                        // Default to both days if nothing is specified or matched
+                        // Default to all event days if nothing matched
                         if (allowedDates.length === 0) {
-                            allowedDates.push("2026-09-03", "2026-09-04");
+                            allowedDates.push(...ALL_EVENT_DATES);
                         }
 
                         // Filter by date
@@ -194,11 +263,11 @@ export async function POST(req: NextRequest) {
                         }
                         if (tags && tags.length > 0) {
                             filtered = filtered.filter((s: any) =>
-                                s.tags?.some((tag: string) => tags.some((t: string) => tag.toLowerCase().includes(t.toLowerCase())))
+                                hasMatchingTag(s.tags || [], tags)
                             );
                         }
 
-                        // Group by day and select max 5 non-clashing
+                        // Group by day, score by relevance, select top non-clashing
                         const sessionsByDay: Record<string, any[]> = {};
                         for (const s of filtered) {
                             const day = s.startDateTime.substring(0, 10);
@@ -208,7 +277,13 @@ export async function POST(req: NextRequest) {
 
                         const finalSessions: any[] = [];
                         for (const day in sessionsByDay) {
-                            const daySessions = sessionsByDay[day].sort((a: any, b: any) => new Date(a.startDateTime).getTime() - new Date(b.startDateTime).getTime());
+                            // Sort by relevance score (descending), then by time for tie-breaking
+                            const daySessions = sessionsByDay[day]
+                                .map((s: any) => ({ ...s, _score: scoreSession(s, userProfile) }))
+                                .sort((a: any, b: any) => {
+                                    if (b._score !== a._score) return b._score - a._score;
+                                    return new Date(a.startDateTime).getTime() - new Date(b.startDateTime).getTime();
+                                });
                             let selectedForDay = [];
                             let lastEndTime = 0;
 
@@ -226,9 +301,14 @@ export async function POST(req: NextRequest) {
                         }
                         return finalSessions.map(s => ({
                             name: s.title,
+                            track: s.track || "",
+                            stage: s.stage || "",
+                            stageNumber: s.stageNumber || "",
                             date: `${s.startDateTime.substring(0, 10)}, ${s.startDateTime.substring(11, 16)} - ${s.endDateTime.substring(11, 16)}`,
-                            shortSummary: s.shortDescription || s.description || "",
-                            presenters: s.presenters?.join(", ") || "N/A"
+                            shortSummary: s.shortDescription || "",
+                            description: s.description || "",
+                            presenters: s.presenters?.join(", ") || "N/A",
+                            tags: s.tags || []
                         }));
                     },
                 }),
@@ -252,11 +332,34 @@ export async function POST(req: NextRequest) {
                         }
                         if (tags && tags.length > 0) {
                             filtered = filtered.filter((e: any) =>
-                                e.tags?.some((tag: string) => tags.some((t: string) => tag.toLowerCase().includes(t.toLowerCase())))
+                                hasMatchingTag(e.tags || [], tags)
                             );
                         }
+
+                        // Score and rank exhibitors by relevance (tag matches + region)
+                        const userLocation = userProfile?.location;
+                        const scoredExhibitors = filtered.map((e: any) => {
+                            let score = 0;
+                            const userInterests = userProfile?.interests || [];
+                            if (userInterests.length > 0) {
+                                score += (e.tags || []).filter((tag: string) =>
+                                    userInterests.some((i: string) => {
+                                        const t = tag.toLowerCase().trim();
+                                        const interest = i.toLowerCase().trim();
+                                        if (t === interest) return true;
+                                        const escaped = interest.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+                                        return new RegExp(`(?:^|\\W)${escaped}(?:$|\\W)`, 'i').test(tag);
+                                    })
+                                ).length * 3;
+                            }
+                            if (userLocation && e.regions?.some((r: string) => r.toLowerCase() === userLocation.toLowerCase())) {
+                                score += 2;
+                            }
+                            return { ...e, _score: score };
+                        }).sort((a: any, b: any) => b._score - a._score);
+
                         const daysCount = Math.max(1, userProfile.attendanceDays?.length || 1);
-                        return filtered.slice(0, maxExhibitors * daysCount).map((e: any) => ({
+                        return scoredExhibitors.slice(0, maxExhibitors * daysCount).map((e: any) => ({
                             name: e.name,
                             description: e.shortDescription || e.description || "",
                             tags: e.tags
@@ -294,9 +397,11 @@ export async function POST(req: NextRequest) {
                             // Determine allowed dates based on User Profile
                             const allowedDates: string[] = [];
                             const attendingDays = userProfile?.attendanceDays || [];
-                            if (attendingDays.includes("Sept 3")) allowedDates.push("2026-09-03");
-                            if (attendingDays.includes("Sept 4")) allowedDates.push("2026-09-04");
-                            if (allowedDates.length === 0) allowedDates.push("2026-09-03", "2026-09-04");
+                            for (const day of attendingDays) {
+                                const iso = DATE_MAP[day];
+                                if (iso) allowedDates.push(iso);
+                            }
+                            if (allowedDates.length === 0) allowedDates.push(...ALL_EVENT_DATES);
 
                             const userInterests = userProfile?.interests || [];
 
@@ -306,7 +411,7 @@ export async function POST(req: NextRequest) {
                                 filtered = filtered.filter((s: any) => allowedDates.includes(s.startDateTime.substring(0, 10)));
                                 if (userInterests.length > 0) {
                                     filtered = filtered.filter((s: any) =>
-                                        s.tags?.some((tag: string) => userInterests.some((ui: string) => tag.toLowerCase().includes(ui.toLowerCase())))
+                                        hasMatchingTag(s.tags || [], userInterests)
                                     );
                                 }
                             }
@@ -336,9 +441,11 @@ export async function POST(req: NextRequest) {
                     execute: async () => {
                         const attendingDays = userProfile?.attendanceDays || [];
                         const validDates: string[] = [];
-                        if (attendingDays.includes("Sept 3")) validDates.push("2026-09-03");
-                        if (attendingDays.includes("Sept 4")) validDates.push("2026-09-04");
-                        if (validDates.length === 0) validDates.push("2026-09-03", "2026-09-04");
+                        for (const day of attendingDays) {
+                            const iso = DATE_MAP[day];
+                            if (iso) validDates.push(iso);
+                        }
+                        if (validDates.length === 0) validDates.push(...ALL_EVENT_DATES);
 
                         const userInterests = userProfile?.interests || [];
                         const sessionsByDay: Record<string, any[]> = {};
@@ -356,28 +463,28 @@ export async function POST(req: NextRequest) {
                         validDates.forEach(day => {
                             const daySessions = sessionsByDay[day].filter(s => {
                                 const time = s.endDateTime.substring(11, 16);
-                                return time <= "18:00";
+                                return time <= END_OF_DAY_CUTOFF;
                             });
 
                             const mandatory = daySessions.filter(s => s.track === "Supercharge");
-                            const interested = daySessions.filter(s =>
-                                s.track !== "Supercharge" &&
-                                s.tags &&
-                                s.tags.some((tag: string) => userInterests.some((i: string) => tag.toLowerCase().includes(i.toLowerCase())))
-                            );
-                            const others = daySessions.filter(s => s.track !== "Supercharge" && !interested.includes(s));
-                            const mix = [...interested, ...others].sort(() => 0.5 - Math.random());
+                            // Score and sort non-mandatory sessions by relevance
+                            const nonMandatory = daySessions
+                                .filter(s => s.track !== "Supercharge")
+                                .map(s => ({ ...s, _score: scoreSession(s, userProfile) }))
+                                .sort((a, b) => {
+                                    if (b._score !== a._score) return b._score - a._score;
+                                    return 0; // equal scores get shuffled below
+                                });
+                            // Shuffle sessions with equal scores for variety
+                            const mix = shuffleEqualScores(nonMandatory);
 
                             const daySchedule: any[] = [];
 
                             const fixedNetworking: any[] = [];
-                            if (day === "2026-09-03") {
+                            const netTime = NETWORKING_TIMES[day];
+                            if (netTime) {
                                 fixedNetworking.push({
-                                    type: "Fixed", title: "Networking", startDateTime: `${day}T17:15:00`, endDateTime: `${day}T18:00:00`, stage: "Networking Area", stageNumber: "N/A", presenters: [], shortDescription: "End of day networking."
-                                });
-                            } else if (day === "2026-09-04") {
-                                fixedNetworking.push({
-                                    type: "Fixed", title: "Networking", startDateTime: `${day}T15:45:00`, endDateTime: `${day}T16:30:00`, stage: "Networking Area", stageNumber: "N/A", presenters: [], shortDescription: "End of day networking."
+                                    type: "Fixed", title: "Networking", startDateTime: `${day}T${netTime.start}:00`, endDateTime: `${day}T${netTime.end}:00`, stage: "Networking Area", stageNumber: "N/A", presenters: [], shortDescription: "End of day networking."
                                 });
                             }
 
@@ -412,12 +519,10 @@ export async function POST(req: NextRequest) {
                             fixedNetworking.forEach(n => tryAddSession(n, true));
                             mandatory.forEach(m => tryAddSession(m));
 
-                            let lunchSlots = [
-                                { start: `${day}T11:30:00`, end: `${day}T12:30:00` },
-                                { start: `${day}T12:00:00`, end: `${day}T13:00:00` },
-                                { start: `${day}T12:30:00`, end: `${day}T13:30:00` },
-                                { start: `${day}T13:00:00`, end: `${day}T14:00:00` }
-                            ].sort(() => 0.5 - Math.random());
+                            const lunchSlots = LUNCH_SLOT_OPTIONS.map(opt => ({
+                                start: `${day}T${opt.start}:00`,
+                                end: `${day}T${opt.end}:00`
+                            }));
 
                             for (const slot of lunchSlots) {
                                 const lunchSession = {
@@ -429,13 +534,14 @@ export async function POST(req: NextRequest) {
                             mix.forEach(m => tryAddSession(m));
                             daySchedule.sort((a, b) => new Date(a.startDateTime).getTime() - new Date(b.startDateTime).getTime());
 
+                            // Score and rank exhibitors by relevance
                             let dayExhibitors = exhibitorsData;
                             if (userInterests.length > 0) {
-                                const matchedExhs = dayExhibitors.filter((e: any) => e.tags && e.tags.some((tag: string) => userInterests.some((i: string) => tag.toLowerCase().includes(i.toLowerCase()))));
+                                const matchedExhs = dayExhibitors.filter((e: any) => hasMatchingTag(e.tags || [], userInterests));
                                 const unmatchedExhs = dayExhibitors.filter((e: any) => !matchedExhs.includes(e));
-                                dayExhibitors = [...matchedExhs.sort(() => 0.5 - Math.random()), ...unmatchedExhs.sort(() => 0.5 - Math.random())];
+                                dayExhibitors = [...shuffle(matchedExhs), ...shuffle(unmatchedExhs)];
                             } else {
-                                dayExhibitors = dayExhibitors.sort(() => 0.5 - Math.random());
+                                dayExhibitors = shuffle(dayExhibitors);
                             }
 
                             schedule[day] = {
@@ -468,8 +574,7 @@ export async function POST(req: NextRequest) {
         console.error("API /chat error:", error);
         return new Response(JSON.stringify({
             error: 'Internal Server Error',
-            message: error.message,
-            stack: error.stack
+            message: error.message
         }), {
             status: 500,
             headers: { 'Content-Type': 'application/json' },

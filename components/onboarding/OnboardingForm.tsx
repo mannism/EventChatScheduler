@@ -58,20 +58,21 @@ const formSchema = z.object({
 
 interface OnboardingFormProps {
     onSubmit: (data: UserProfile) => void
+    defaultValues?: UserProfile
 }
 
-export function OnboardingForm({ onSubmit }: OnboardingFormProps) {
+export function OnboardingForm({ onSubmit, defaultValues }: OnboardingFormProps) {
     const [step, setStep] = useState(1)
     const [openInterests, setOpenInterests] = useState(false)
 
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
-            name: "",
-            jobType: "",
-            location: "",
-            attendanceDays: [],
-            interests: [],
+            name: defaultValues?.name || "",
+            jobType: defaultValues?.jobType || "",
+            location: defaultValues?.location || "",
+            attendanceDays: defaultValues?.attendanceDays || [],
+            interests: defaultValues?.interests || [],
         },
     })
 

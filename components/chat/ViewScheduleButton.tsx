@@ -25,18 +25,15 @@ export function ViewScheduleButton({ scheduleData, userProfile }: ViewScheduleBu
         setIsOpening(true);
 
         try {
-            // Using sessionStorage to pass the schedule payload to the new tab safely.
-            // This avoids URL query string limits when dealing with large JSON schedules,
-            // and ensures the sibling tab (on the same origin) can load the data instantly.
-            sessionStorage.setItem('xyzScheduleData', JSON.stringify(scheduleData));
-            sessionStorage.setItem('xyzUserProfile', JSON.stringify(userProfile));
+            // Use a unique key to prevent collisions when multiple schedules are opened
+            const key = `xyzSchedule_${Date.now()}`;
+            sessionStorage.setItem(`${key}_data`, JSON.stringify(scheduleData));
+            sessionStorage.setItem(`${key}_profile`, JSON.stringify(userProfile));
 
-            // Open the new route targeting the dedicated schedule rendering page
-            window.open('/schedule', '_blank');
+            window.open(`/schedule?key=${encodeURIComponent(key)}`, '_blank');
         } catch (err) {
             console.error("Failed to open schedule", err);
         } finally {
-            // A short delay so the button interaction feels responsive and purposeful before unspinning
             setTimeout(() => setIsOpening(false), 500);
         }
     };
