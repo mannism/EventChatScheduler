@@ -1,7 +1,24 @@
+/**
+ * lib/scheduler.ts
+ *
+ * Client-side schedule generation engine. Builds a conflict-free, personalized
+ * multi-day itinerary for a user based on their attendance days and interests.
+ *
+ * Schedule generation pipeline (per day):
+ *   1. Mandatory keynotes (Supercharge track) — always included
+ *   2. Fixed networking slot — end-of-day social event
+ *   3. Lunch break — placed in first available slot (12:30, 11:30, 12:00, or 13:00)
+ *   4. App Spotlight sessions — up to 5 randomized demos per day
+ *   5. Personalized backfill — remaining sessions scored by interest tag matches
+ *
+ * All sessions are checked for time conflicts with a 5-minute buffer between items.
+ */
+
 import { Session, UserProfile, Schedule, DaySchedule, ScheduleItem } from './types';
 import { shuffle, hasMatchingTag, countTagMatches } from './matching';
 import { DATE_MAP, ALL_EVENT_DATES, NETWORKING_TIMES, LUNCH_SLOT_OPTIONS, END_OF_DAY_CUTOFF } from './constants';
 
+/** Track name for mandatory keynote sessions that all attendees should attend */
 const MANDATORY_TRACK = "Supercharge";
 
 // Helper to parse time string "HH:mm" to minutes from midnight
@@ -32,6 +49,11 @@ function hasConflict(item: ScheduleItem, newItem: Session): boolean {
     return (itemEnd + 5 > newStart) && (newEnd + 5 > itemStart);
 }
 
+/**
+ * Generate a complete, conflict-free schedule for the given user.
+ * Iterates over the user's selected attendance days and fills each day
+ * with keynotes, networking, lunch, App Spotlight demos, and personalized sessions.
+ */
 export async function generateSchedule(userProfile: UserProfile, allSessions: Session[]): Promise<Schedule> {
     const days: string[] = ALL_EVENT_DATES;
     const scheduleDays: DaySchedule[] = [];
@@ -65,11 +87,8 @@ export async function generateSchedule(userProfile: UserProfile, allSessions: Se
         };
         dailyItems.push({ session: networkingSession, type: 'networking' });
 
-        // 3. Lunch (1 hour between 11:30 and 14:00)
-        // We need to find a slot. 
-        // For simplicity, let's try to place lunch at 12:30 - 13:30 first. 
-        // If conflict with Keynote, try 11:30-12:30 or 13:00-14:00.
-        // We will insert a lunch item.
+        // 3. Lunch Break (1 hour) — tries preferred slots in order: 12:30, 11:30, 12:00, 13:00
+        // Skips any slot that conflicts with already-placed keynotes or networking
         let lunchPlaced = false;
         const lunchOptions = LUNCH_SLOT_OPTIONS;
 
@@ -95,12 +114,10 @@ export async function generateSchedule(userProfile: UserProfile, allSessions: Se
             }
         }
 
-        // If lunch not placed, force it (this might overlap keynote if schedule is bad, but keynotes are priority. 
-        // User prompt says "optimized to not conflict with Keynotes". 
-        // If all slots conflict, we skip lunch? No, mandatory. 
-        // But Keynotes are usually fixed. We assume there is a gap.
+        // If all lunch slots conflict with keynotes, lunch is omitted (rare edge case).
+        // Keynotes are fixed and take priority; the event schedule normally has a gap.
 
-        // 4. App Spotlight (5 per day)
+        // 4. App Spotlight sessions (up to 5 per day, randomized for variety)
         const appSpotlights = daySessions.filter(s => s.track === "App Spotlight" && !dailyItems.some(i => i.session.id === s.id));
         const shuffledApps = shuffle(appSpotlights);
         let appsAdded = 0;
@@ -114,15 +131,15 @@ export async function generateSchedule(userProfile: UserProfile, allSessions: Se
             }
         }
 
-        // 5. Personalization (Fill gaps)
-        // Score remaining sessions
+        // 5. Personalized backfill — score remaining sessions by interest relevance
+        // and fill gaps in the schedule with the highest-scoring non-conflicting sessions
         const otherSessions = daySessions.filter(s =>
             s.track !== "App Spotlight" &&
             s.track !== MANDATORY_TRACK &&
             !dailyItems.some(i => i.session.id === s.id)
         );
 
-        // Score by interest tag matches
+        // Score by interest tag matches (2 points per matching tag)
         const scoredSessions = otherSessions.map(s => {
             const matchCount = countTagMatches(s.tags, userProfile.interests);
             return { session: s, score: matchCount * 2 };

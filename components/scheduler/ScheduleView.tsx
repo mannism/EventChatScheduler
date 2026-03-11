@@ -1,3 +1,14 @@
+/**
+ * ScheduleView.tsx
+ *
+ * In-app schedule display component rendered inside the main view after
+ * the client-side scheduler generates a personalized itinerary. Displays
+ * sessions organized by day in a tabbed layout with print support.
+ *
+ * Each session card is color-coded by type: keynotes get a primary gradient,
+ * breaks/lunch/networking are muted, and regular sessions use a subtle glass effect.
+ */
+
 "use client"
 
 import { Schedule, ScheduleItem } from "@/lib/types"

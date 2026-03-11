@@ -1,3 +1,15 @@
+/**
+ * MainView.tsx
+ *
+ * Top-level phase controller that orchestrates the app's three main views:
+ *   1. Onboarding — multi-step form to collect user profile
+ *   2. Chat — AI conversation interface with tool-based session search
+ *   3. Schedule — generated itinerary with print support
+ *
+ * Phase and profile state are persisted to localStorage so returning users
+ * resume from the chat phase without re-onboarding.
+ */
+
 "use client"
 
 import { useState, useEffect } from "react"
@@ -12,8 +24,10 @@ interface MainViewProps {
     sessions: Session[]
 }
 
+/** The three sequential phases of the application */
 type Phase = 'onboarding' | 'chat' | 'schedule'
 
+/** localStorage keys for persisting user state across page reloads */
 const STORAGE_KEY_PROFILE = 'xyzcon_userProfile';
 const STORAGE_KEY_PHASE = 'xyzcon_phase';
 

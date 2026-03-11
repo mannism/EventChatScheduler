@@ -1,3 +1,17 @@
+/**
+ * OnboardingForm.tsx
+ *
+ * Multi-step onboarding wizard (5 steps) that collects the user's profile:
+ *   Step 1: Name
+ *   Step 2: Job type / role
+ *   Step 3: Location (country)
+ *   Step 4: Attendance days (Day 1, Day 2, or Both)
+ *   Step 5: Interest topics (multi-select with search)
+ *
+ * Uses React Hook Form + Zod for per-step validation. Each step validates
+ * only its own fields before allowing progression to the next step.
+ */
+
 "use client"
 
 import { useState } from "react"
@@ -38,6 +52,7 @@ import { Check, ChevronsUpDown } from "lucide-react"
 import { UserProfile } from "@/lib/types"
 import { COUNTRIES, ATTENDANCE_OPTIONS, JOB_TYPES, INTERESTS } from "@/lib/constants"
 
+/** Zod validation schema — each field maps to one onboarding step */
 const formSchema = z.object({
     name: z.string().min(2, {
         message: "Name must be at least 2 characters.",
@@ -78,6 +93,7 @@ export function OnboardingForm({ onSubmit, defaultValues }: OnboardingFormProps)
 
     const totalSteps = 5
 
+    // Validate only the current step's fields, then advance or submit
     const nextStep = async () => {
         let fieldsToValidate: (keyof z.infer<typeof formSchema>)[] = []
 
@@ -120,9 +136,10 @@ export function OnboardingForm({ onSubmit, defaultValues }: OnboardingFormProps)
     }
 
 
-    // Watch all fields to determine button state
+    // Watch all fields reactively to enable/disable the Continue button
     const values = form.watch()
 
+    /** Check if the current step has valid input (used to disable the Continue button) */
     const isStepValid = () => {
         switch (step) {
             case 1:

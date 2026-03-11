@@ -1,3 +1,17 @@
+/**
+ * ChatInterface.tsx
+ *
+ * Main conversational UI powered by the Vercel AI SDK's useChat hook.
+ * Handles the full chat lifecycle:
+ *   - Initialization: sends [INIT_CHAT] with user profile to trigger AI greeting
+ *   - Message rendering: filters system directives, renders markdown with GFM support
+ *   - Schedule interception: detects "schedule_download" JSON blocks in AI responses
+ *     and renders ViewScheduleButton instead of raw JSON
+ *   - Auto-scroll: three-tier scrolling strategy (user message → snap to bottom,
+ *     AI response → gentle 120px nudge, loading → keep indicator visible)
+ *   - Loading states: bouncing dots while waiting, pulsing indicator during streaming
+ */
+
 "use client"
 
 import { useChat } from '@ai-sdk/react'
@@ -47,7 +61,7 @@ export function ChatInterface({ userProfile, onGenerateSchedule, onEditProfile }
         // console.log('useChat keys:', Object.keys(chat));
     }, [chat]);
 
-    // Helper to extract text from message
+    // Helper to extract text — handles both string content and parts-based messages
     const getMessageText = (m: any) => {
         if (typeof m.content === 'string') return m.content;
         if (Array.isArray(m.parts)) {
@@ -56,13 +70,13 @@ export function ChatInterface({ userProfile, onGenerateSchedule, onEditProfile }
         return '';
     }
 
-    // Derived state
+    // Derived loading state — covers both legacy isLoading flag and newer status-based API
     const isLoading = originalIsLoading || status === 'streaming' || status === 'submitted';
     const lastAssistantMsg = [...messages].reverse().find((m: any) => m.role === 'assistant');
     const isStreamingWithContent = isLoading && lastAssistantMsg && getMessageText(lastAssistantMsg).length > 0;
     const isWaitingForResponse = isLoading && !isStreamingWithContent;
 
-    // Action handler
+    // Universal send handler — tries append() first, falls back to sendMessage()
     const doSendMessage = async (userMessage: any) => {
         if (append) {
             await append(userMessage, { body: { userProfile } });
@@ -73,6 +87,8 @@ export function ChatInterface({ userProfile, onGenerateSchedule, onEditProfile }
         }
     }
 
+    // On first render, send [INIT_CHAT] with profile to trigger the AI greeting.
+    // The 50ms delay ensures the useChat hook is fully mounted before sending.
     useEffect(() => {
         if (!hasInitialized.current && messages.length === 0) {
             hasInitialized.current = true;
@@ -145,6 +161,7 @@ export function ChatInterface({ userProfile, onGenerateSchedule, onEditProfile }
         }
     }, [isLoading, messages])
 
+    // Filter out system directives ([INIT_CHAT], [GENERATE_SCHEDULE]) from user-visible messages
     const displayMessages = messages.filter((m: any) => {
         const text = getMessageText(m);
         if (!text.trim()) return false;
