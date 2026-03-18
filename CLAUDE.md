@@ -87,3 +87,37 @@ data/
 - System messages/directives hidden from user-visible chat
 - Glass-morphism dark theme (Diana Ismail inspired) via CSS variables in globals.css
 - No test framework configured — manual test scripts in root (test_*.js)
+
+## Developer Rules
+
+### Error Handling
+- Wrap every OpenAI API call (and any future external service call) in a `try/catch` block
+- Log API failures with relevant metadata (timestamp, status code, endpoint) — **never log PII, user messages, or API keys**
+- Return a graceful fallback response when the AI service fails so the app remains usable (e.g., return a 500 with a safe message rather than an unhandled crash)
+
+### User-Facing Errors
+- **Never expose `error.message`, stack traces, or internal details to the client** — the current `route.ts` returns `error.message` directly, which should be replaced with a generic safe message
+- Use helpful, non-technical messages: e.g., `"The AI assistant is temporarily unavailable. Please try again in a moment."`
+
+### Input Validation
+- Validate all incoming API payloads with Zod schemas — Zod is already used for the onboarding form; extend this discipline to the `/api/chat` route body
+- Do **not** bypass ReactMarkdown's XSS protection by using `dangerouslySetInnerHTML` to render AI-generated content
+
+### Secrets Management
+- Never hardcode `OPENAI_API_KEY` or any credentials in source files
+- All secrets must come from `.env.local`, which is excluded from version control via `.gitignore`
+- Do not commit `.env.local` or any file containing real API keys
+
+### Code Quality
+- Add JSDoc block comments to all complex business logic — especially in `lib/scheduler.ts`, `lib/matching.ts`, and `app/api/chat/route.ts`
+- Use descriptive variable and function names; avoid single-letter identifiers outside of array `.map()` / `.filter()` loops
+
+### Testing
+- No test framework is currently configured — `test_*.js` manual scripts exist in the project root
+- When a test framework is introduced, new features and bug fixes must include unit tests; the AI chat API route and schedule generation logic are the highest-priority paths to cover
+
+### Git Workflow
+- Break large tasks into small, focused subtasks and commit each as a checkpoint before moving to the next
+- **Branch naming**: `<type>/<short-description>-v<version>` — e.g., `feature/ics-export-v0.1`, `bugfix/scroll-fix-v1.2`
+- **Branch types**: `feature/` (new functionality), `bugfix/` (bug fixes), `refactor/` (restructuring), `chore/` (config/deps/tooling)
+- **Commit message format**: `[v<version>] <type>: <what was done>` — e.g., `[v0.1] feature: add iCalendar export to schedule page`
