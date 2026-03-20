@@ -10,6 +10,14 @@ Versioning follows [Semantic Versioning](https://semver.org/) — future updates
 
 ---
 
+## [2.1.5] - 2026-03-20
+
+### Added
+- `components/Footer.tsx` — site footer matching `labs.dianaismail.me`: copyright line left, "Return to portfolio" link with `ArrowUpRight` icon right; `font-mono`, `text-muted-foreground`, `hover:text-cyan-600 dark:hover:text-cyan-400`, `border-t border-slate-200 dark:border-white/[0.08]`
+- `app/layout.tsx` — imported and rendered `<Footer />` below `{children}`
+
+---
+
 ## [2.1.4] - 2026-03-20
 
 ### Fixed
