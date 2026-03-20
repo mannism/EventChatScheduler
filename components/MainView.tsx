@@ -8,15 +8,19 @@
  *
  * Phase and profile state are persisted to localStorage so returning users
  * resume from the chat phase without re-onboarding.
+ *
+ * Visual layer:
+ * - Hero section (visible only during onboarding) fades in with Framer Motion
+ * - Phase transitions use AnimatePresence for smooth fade + slide
  */
 
 "use client"
 
 import { useState, useEffect } from "react"
+import { motion, AnimatePresence } from "framer-motion"
 import { UserProfile, Session, Schedule } from "@/lib/types"
 import { OnboardingForm } from "@/components/onboarding/OnboardingForm"
 import { ChatInterface } from "@/components/chat/ChatInterface"
-
 import { generateSchedule } from "@/lib/scheduler"
 import { ScheduleView } from "@/components/scheduler/ScheduleView"
 
@@ -30,6 +34,13 @@ type Phase = 'onboarding' | 'chat' | 'schedule'
 /** localStorage keys for persisting user state across page reloads */
 const STORAGE_KEY_PROFILE = 'xyzcon_userProfile';
 const STORAGE_KEY_PHASE = 'xyzcon_phase';
+
+/** Framer Motion variants shared across phase panels */
+const phaseVariants = {
+    initial: { opacity: 0, y: 16 },
+    animate: { opacity: 1, y: 0, transition: { duration: 0.35, ease: 'easeOut' as const } },
+    exit:    { opacity: 0, y: -12, transition: { duration: 0.2, ease: 'easeIn' as const } },
+}
 
 export function MainView({ sessions }: MainViewProps) {
     const [isMounted, setIsMounted] = useState(false)
@@ -86,21 +97,51 @@ export function MainView({ sessions }: MainViewProps) {
     }
 
     return (
-        <main className="min-h-[calc(100vh-70px)] bg-transparent text-foreground flex flex-col items-center justify-start py-4 md:py-12 px-4">
-            <div className="w-full">
+        <main className="min-h-[calc(100vh-64px)] bg-transparent text-foreground flex flex-col items-center justify-start py-4 md:py-10 px-4">
+
+            {/* Hero — visible only on the onboarding phase */}
+            <AnimatePresence>
                 {phase === 'onboarding' && (
-                    <OnboardingForm onSubmit={handleOnboardingSubmit} defaultValues={userProfile || undefined} />
+                    <motion.div
+                        key="hero"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } }}
+                        exit={{ opacity: 0, y: -10, transition: { duration: 0.2 } }}
+                        className="text-center mb-8 md:mb-10 w-full max-w-2xl mx-auto"
+                    >
+                        <p className="text-xs font-mono text-cyan-700 dark:text-cyan-400 uppercase tracking-[0.2em] mb-3">
+                            XyzCon 2026
+                        </p>
+                        <h1 className="text-3xl md:text-4xl font-serif font-bold text-foreground tracking-tight">
+                            AI-powered conference assistant
+                        </h1>
+                    </motion.div>
                 )}
-                {phase === 'chat' && userProfile && (
-                    <ChatInterface
-                        userProfile={userProfile}
-                        onGenerateSchedule={handleGenerateSchedule}
-                        onEditProfile={handleEditProfile}
-                    />
-                )}
-                {phase === 'schedule' && schedule && (
-                    <ScheduleView schedule={schedule} />
-                )}
+            </AnimatePresence>
+
+            {/* Phase panels */}
+            <div className="w-full">
+                <AnimatePresence mode="wait">
+                    {phase === 'onboarding' && (
+                        <motion.div key="onboarding" variants={phaseVariants} initial="initial" animate="animate" exit="exit">
+                            <OnboardingForm onSubmit={handleOnboardingSubmit} defaultValues={userProfile || undefined} />
+                        </motion.div>
+                    )}
+                    {phase === 'chat' && userProfile && (
+                        <motion.div key="chat" variants={phaseVariants} initial="initial" animate="animate" exit="exit">
+                            <ChatInterface
+                                userProfile={userProfile}
+                                onGenerateSchedule={handleGenerateSchedule}
+                                onEditProfile={handleEditProfile}
+                            />
+                        </motion.div>
+                    )}
+                    {phase === 'schedule' && schedule && (
+                        <motion.div key="schedule" variants={phaseVariants} initial="initial" animate="animate" exit="exit">
+                            <ScheduleView schedule={schedule} />
+                        </motion.div>
+                    )}
+                </AnimatePresence>
             </div>
         </main>
     )
