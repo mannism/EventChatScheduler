@@ -10,11 +10,14 @@
  *
  * Uses React Hook Form + Zod for per-step validation. Each step validates
  * only its own fields before allowing progression to the next step.
+ *
+ * Visual layer: glass-card surface, cyan accent, gradient CTA button, Framer Motion entry.
  */
 
 "use client"
 
 import { useState } from "react"
+import { motion } from "framer-motion"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import * as z from "zod"
@@ -22,10 +25,8 @@ import { Button } from "@/components/ui/button"
 import {
     Form,
     FormControl,
-    FormDescription,
     FormField,
     FormItem,
-    FormLabel,
     FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
@@ -36,8 +37,7 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select"
-import { Checkbox } from "@/components/ui/checkbox"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
 import {
     Command,
@@ -72,7 +72,9 @@ const formSchema = z.object({
 })
 
 interface OnboardingFormProps {
+    /** Called with the completed user profile when all steps are validated */
     onSubmit: (data: UserProfile) => void
+    /** Pre-fills the form when the user returns to edit their profile */
     defaultValues?: UserProfile
 }
 
@@ -135,7 +137,6 @@ export function OnboardingForm({ onSubmit, defaultValues }: OnboardingFormProps)
         onSubmit(values as UserProfile)
     }
 
-
     // Watch all fields reactively to enable/disable the Continue button
     const values = form.watch()
 
@@ -158,26 +159,40 @@ export function OnboardingForm({ onSubmit, defaultValues }: OnboardingFormProps)
     }
 
     return (
-        // The top margin here (mt-2 md:mt-0) is highly specific. It ensures this component and 
-        // the ChatInterface map to the exact same vertical offset directly under the top header, 
-        // removing any wasted void space on mobile devices.
-        <div className="relative w-full max-w-2xl mx-auto mt-2 md:mt-0">
-            {/* Geometric Decoration */}
-            <div className="absolute -top-10 -right-10 w-32 h-32 bg-primary/20 rounded-full blur-2xl -z-10" />
-            <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-chart-1/20 rounded-full blur-2xl -z-10" />
+        <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, ease: 'easeOut' }}
+            className="relative w-full max-w-2xl mx-auto"
+        >
+            {/* Geometric ambient decorations */}
+            <div className="absolute -top-10 -right-10 w-32 h-32 bg-cyan-400/10 rounded-full blur-2xl -z-10" />
+            <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-violet-500/10 rounded-full blur-2xl -z-10" />
 
-            <Card className="w-full shadow-2xl border-border bg-card/60 backdrop-blur-xl text-card-foreground overflow-hidden">
-                <div className="h-1 bg-gradient-to-r from-primary via-primary/50 to-primary/20" />
-                <CardHeader className="space-y-4">
+            <Card className="glass-card w-full overflow-hidden rounded-2xl border-0">
+                {/* Cyan progress bar at top */}
+                <div
+                    className="h-0.5 bg-gradient-to-r from-cyan-500 via-cyan-400/60 to-cyan-400/10 transition-all duration-500"
+                    style={{ width: `${(step / totalSteps) * 100}%` }}
+                />
+
+                <CardHeader className="space-y-4 pt-6">
                     <div className="flex justify-between items-center">
-                        <span className="text-sm font-medium text-muted-foreground uppercase tracking-widest">Onboarding</span>
-                        <div className="flex gap-1">
+                        <span className="text-xs font-mono text-muted-foreground uppercase tracking-widest">
+                            Onboarding
+                        </span>
+                        {/* Step indicator dots */}
+                        <div className="flex gap-1.5">
                             {Array.from({ length: totalSteps }).map((_, i) => (
                                 <div
                                     key={i}
                                     className={cn(
-                                        "h-2 w-8 rounded-full transition-all",
-                                        i + 1 === step ? "bg-primary" : i + 1 < step ? "bg-primary/50" : "bg-white/10"
+                                        "h-1.5 rounded-full transition-all duration-300",
+                                        i + 1 === step
+                                            ? "w-6 bg-cyan-500 dark:bg-cyan-400"
+                                            : i + 1 < step
+                                                ? "w-3 bg-cyan-500/50 dark:bg-cyan-400/50"
+                                                : "w-3 bg-black/20 dark:bg-slate-700/60"
                                     )}
                                 />
                             ))}
@@ -198,6 +213,7 @@ export function OnboardingForm({ onSubmit, defaultValues }: OnboardingFormProps)
                         {step === 5 && "Select topics you'd like to discuss."}
                     </CardDescription>
                 </CardHeader>
+
                 <CardContent className="pt-6 min-h-[400px]">
                     <Form {...form}>
                         <form onSubmit={(e) => e.preventDefault()} className="space-y-8">
@@ -211,7 +227,7 @@ export function OnboardingForm({ onSubmit, defaultValues }: OnboardingFormProps)
                                                 <Input
                                                     placeholder="Enter your full name"
                                                     {...field}
-                                                    className="text-lg py-8 px-6 bg-input/50 border-input focus:border-xyz-blue focus:ring-xyz-blue transition-all"
+                                                    className="text-lg py-8 px-6 bg-input/50 border-border focus-visible:ring-4 focus-visible:ring-cyan-500 transition-all"
                                                     onKeyDown={(e) => {
                                                         if (e.key === 'Enter') {
                                                             e.preventDefault();
@@ -235,13 +251,13 @@ export function OnboardingForm({ onSubmit, defaultValues }: OnboardingFormProps)
                                         <FormItem>
                                             <Select onValueChange={field.onChange} defaultValue={field.value}>
                                                 <FormControl>
-                                                    <SelectTrigger className="py-8 px-6 text-lg bg-input/50 border-input focus:ring-xyz-blue">
+                                                    <SelectTrigger className="py-8 px-6 text-lg bg-input/50 border-border focus:ring-4 focus:ring-cyan-500">
                                                         <SelectValue placeholder="Select your role" />
                                                     </SelectTrigger>
                                                 </FormControl>
                                                 <SelectContent className="bg-popover border-border">
                                                     {JOB_TYPES.map((job) => (
-                                                        <SelectItem key={job} value={job} className="text-lg py-3 focus:bg-xyz-blue focus:text-white cursor-pointer">
+                                                        <SelectItem key={job} value={job} className="text-lg py-3 focus:bg-cyan-400/20 focus:text-foreground cursor-pointer">
                                                             {job}
                                                         </SelectItem>
                                                     ))}
@@ -261,13 +277,13 @@ export function OnboardingForm({ onSubmit, defaultValues }: OnboardingFormProps)
                                         <FormItem>
                                             <Select onValueChange={field.onChange} defaultValue={field.value}>
                                                 <FormControl>
-                                                    <SelectTrigger className="py-8 px-6 text-lg bg-input/50 border-input focus:ring-xyz-blue">
+                                                    <SelectTrigger className="py-8 px-6 text-lg bg-input/50 border-border focus:ring-4 focus:ring-cyan-500">
                                                         <SelectValue placeholder="Select your location" />
                                                     </SelectTrigger>
                                                 </FormControl>
                                                 <SelectContent className="bg-popover border-border max-h-[300px]">
                                                     {COUNTRIES.map((country) => (
-                                                        <SelectItem key={country} value={country} className="text-lg py-3 focus:bg-xyz-blue focus:text-white cursor-pointer">
+                                                        <SelectItem key={country} value={country} className="text-lg py-3 focus:bg-cyan-400/20 focus:text-foreground cursor-pointer">
                                                             {country}
                                                         </SelectItem>
                                                     ))}
@@ -292,17 +308,16 @@ export function OnboardingForm({ onSubmit, defaultValues }: OnboardingFormProps)
                                                         control={form.control}
                                                         name="attendanceDays"
                                                         render={({ field }) => {
-                                                            const isChecked = field.value?.includes(JSON.stringify(option.value));
                                                             return (
                                                                 <FormItem className="flex-1 space-y-0">
                                                                     <FormControl>
                                                                         <div
                                                                             onClick={() => field.onChange(option.value)}
                                                                             className={cn(
-                                                                                "cursor-pointer rounded-xl border-2 p-4 text-center transition-all h-full flex items-center justify-center hover:bg-muted/50",
+                                                                                "cursor-pointer rounded-xl border-2 p-4 text-center transition-all h-full flex items-center justify-center hover:bg-muted/50 min-h-[48px] focus-visible:ring-4 focus-visible:ring-cyan-500",
                                                                                 JSON.stringify(field.value) === JSON.stringify(option.value)
-                                                                                    ? "border-xyz-blue bg-xyz-blue/10 text-xyz-blue font-bold shadow-lg shadow-xyz-blue/20"
-                                                                                    : "border-input bg-card text-muted-foreground hover:border-xyz-blue/50"
+                                                                                    ? "border-cyan-600 bg-cyan-50 text-cyan-700 dark:border-cyan-400 dark:bg-cyan-400/10 dark:text-cyan-400 font-bold shadow-lg shadow-cyan-400/10"
+                                                                                    : "border-input bg-card text-muted-foreground hover:border-cyan-500/40 dark:hover:border-cyan-400/40"
                                                                             )}
                                                                         >
                                                                             <span className="text-lg">{option.label}</span>
@@ -334,7 +349,7 @@ export function OnboardingForm({ onSubmit, defaultValues }: OnboardingFormProps)
                                                             role="combobox"
                                                             aria-expanded={openInterests}
                                                             className={cn(
-                                                                "w-full justify-between py-8 px-6 text-lg bg-input/50 border-input hover:bg-input/70 hover:text-foreground",
+                                                                "w-full justify-between py-8 px-6 text-lg bg-input/50 border-border hover:bg-input/70 hover:text-foreground focus-visible:ring-4 focus-visible:ring-cyan-500 min-h-[48px]",
                                                                 !field.value || field.value.length === 0 && "text-muted-foreground"
                                                             )}
                                                         >
@@ -362,11 +377,11 @@ export function OnboardingForm({ onSubmit, defaultValues }: OnboardingFormProps)
                                                                                 : [...current, tag]
                                                                             field.onChange(updated)
                                                                         }}
-                                                                        className="cursor-pointer text-base py-3 aria-selected:bg-xyz-blue/20 aria-selected:text-foreground"
+                                                                        className="cursor-pointer text-base py-3 aria-selected:bg-cyan-100 dark:aria-selected:bg-cyan-400/20 aria-selected:text-foreground"
                                                                     >
                                                                         <Check
                                                                             className={cn(
-                                                                                "mr-3 h-5 w-5 text-xyz-blue",
+                                                                                "mr-3 h-5 w-5 text-cyan-700 dark:text-cyan-400",
                                                                                 field.value?.includes(tag)
                                                                                     ? "opacity-100"
                                                                                     : "opacity-0"
@@ -387,7 +402,7 @@ export function OnboardingForm({ onSubmit, defaultValues }: OnboardingFormProps)
                                                     {field.value.map((tag) => (
                                                         <div
                                                             key={tag}
-                                                            className="bg-xyz-blue/10 text-xyz-blue border border-xyz-blue/20 px-3 py-1 rounded-full text-sm font-medium flex items-center gap-1"
+                                                            className="bg-cyan-50 text-cyan-700 border border-cyan-600/25 dark:bg-cyan-400/10 dark:text-cyan-400 dark:border-cyan-400/25 px-3 py-1 rounded-full text-sm font-medium flex items-center gap-1"
                                                         >
                                                             {tag}
                                                             <button
@@ -397,7 +412,8 @@ export function OnboardingForm({ onSubmit, defaultValues }: OnboardingFormProps)
                                                                     const updated = field.value.filter((t) => t !== tag);
                                                                     field.onChange(updated);
                                                                 }}
-                                                                className="hover:text-red-400 transition-colors"
+                                                                className="hover:text-red-400 transition-colors ml-0.5 focus-visible:outline-none"
+                                                                aria-label={`Remove ${tag}`}
                                                             >
                                                                 ×
                                                             </button>
@@ -413,7 +429,12 @@ export function OnboardingForm({ onSubmit, defaultValues }: OnboardingFormProps)
 
                             <div className="flex justify-between pt-8">
                                 {step > 1 ? (
-                                    <Button type="button" variant="ghost" onClick={prevStep} className="text-muted-foreground hover:text-white">
+                                    <Button
+                                        type="button"
+                                        variant="ghost"
+                                        onClick={prevStep}
+                                        className="text-muted-foreground hover:text-foreground focus-visible:ring-4 focus-visible:ring-cyan-500 min-h-[48px]"
+                                    >
                                         Back
                                     </Button>
                                 ) : (
@@ -424,8 +445,9 @@ export function OnboardingForm({ onSubmit, defaultValues }: OnboardingFormProps)
                                     type="button"
                                     onClick={nextStep}
                                     className={cn(
-                                        "px-8 py-6 text-lg font-bold rounded-xl shadow-xl transition-all font-sans",
-                                        "bg-primary hover:bg-primary/90 text-primary-foreground"
+                                        "px-8 py-6 text-lg font-bold rounded-xl shadow-xl transition-all font-sans min-h-[48px]",
+                                        "bg-gradient-to-r from-cyan-500 to-blue-500 hover:brightness-110 hover:scale-105 text-white border-0",
+                                        "focus-visible:ring-4 focus-visible:ring-cyan-500"
                                     )}
                                     disabled={!isStepValid()}
                                 >
@@ -436,6 +458,6 @@ export function OnboardingForm({ onSubmit, defaultValues }: OnboardingFormProps)
                     </Form>
                 </CardContent>
             </Card>
-        </div>
+        </motion.div>
     )
 }
