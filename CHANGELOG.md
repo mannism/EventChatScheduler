@@ -10,6 +10,13 @@ Versioning follows [Semantic Versioning](https://semver.org/) — future updates
 
 ---
 
+## [2.1.2] - 2026-03-20
+
+### Changed
+- `components/chat/ChatInterface.tsx` — replaced icon-only Restart button with plain text "Restart"; removed unused `UserPen` import
+
+---
+
 ## [2.1.1] - 2026-03-20
 
 ### Changed
