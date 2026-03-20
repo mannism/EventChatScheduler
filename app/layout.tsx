@@ -75,8 +75,7 @@ export default function RootLayout({
           {/* Left: Labs by Diana link */}
           <a
             href="https://labs.dianaismail.me"
-            target="_blank"
-            rel="noreferrer"
+            target="_self"
             className="inline-flex items-center gap-1.5 font-mono text-sm text-slate-500 dark:text-slate-400 no-underline transition-colors hover:text-cyan-600 dark:hover:text-cyan-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 rounded"
           >
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
