@@ -22,7 +22,7 @@ import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card'
-import { Send, UserPen } from 'lucide-react'
+import { Send } from 'lucide-react'
 import { UserProfile } from '@/lib/types'
 import { cn } from '@/lib/utils'
 import ReactMarkdown from 'react-markdown'
@@ -198,13 +198,10 @@ export function ChatInterface({ userProfile, onGenerateSchedule, onEditProfile }
                         {onEditProfile && (
                             <Button
                                 variant="ghost"
-                                size="icon"
                                 onClick={onEditProfile}
-                                title="Restart"
-                                aria-label="Restart"
-                                className="text-muted-foreground hover:text-foreground focus-visible:ring-4 focus-visible:ring-cyan-500"
+                                className="text-sm text-muted-foreground hover:text-foreground focus-visible:ring-4 focus-visible:ring-cyan-500"
                             >
-                                <UserPen className="h-5 w-5" />
+                                Restart
                             </Button>
                         )}
                     </CardTitle>
