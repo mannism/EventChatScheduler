@@ -10,6 +10,14 @@ Versioning follows [Semantic Versioning](https://semver.org/) — future updates
 
 ---
 
+## [2.1.4] - 2026-03-20
+
+### Fixed
+- `components/scheduler/ScheduleView.tsx` — Print button gradient `from-cyan-500→from-cyan-600`; white text on cyan-500 = 2.43:1 (❌ WCAG 1.4.11) → 3.68:1 (✅)
+- `components/onboarding/OnboardingForm.tsx` — CTA "Continue/Start" button gradient `from-cyan-500→from-cyan-600` (same fix); active step dot `bg-cyan-500→bg-cyan-600` (2.43:1→3.68:1 ✅); progress bar `from-cyan-500→from-cyan-600`; tag remove × button hover `red-400→red-600` in light mode (2.66:1→4.64:1 ✅)
+
+---
+
 ## [2.1.3] - 2026-03-20
 
 ### Fixed
