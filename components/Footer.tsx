@@ -4,9 +4,9 @@
  * Site footer matching the labs.dianaismail.me footer aesthetic.
  * Font-mono, muted text, cyan accent on hover, subtle top border.
  * Light/dark-aware via Tailwind dark: utilities.
+ *
+ * Server component — no client-side hooks or browser APIs.
  */
-
-"use client"
 
 import { ArrowUpRight } from "lucide-react"
 
