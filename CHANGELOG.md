@@ -10,6 +10,13 @@ Versioning follows [Semantic Versioning](https://semver.org/) — future updates
 
 ---
 
+## [2.1.3] - 2026-03-20
+
+### Fixed
+- `components/chat/ChatInterface.tsx` — send button gradient stepped up from `from-cyan-500 to-blue-500` to `from-cyan-600 to-blue-600`; white icon on cyan-500 averaged ~2.92:1 (failed WCAG 1.4.11 non-text 3:1), now averages ~4.3:1 (✅)
+
+---
+
 ## [2.1.2] - 2026-03-20
 
 ### Changed
