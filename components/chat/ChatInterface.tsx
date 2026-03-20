@@ -10,12 +10,15 @@
  *   - Auto-scroll: three-tier scrolling strategy (user message → snap to bottom,
  *     AI response → gentle 120px nudge, loading → keep indicator visible)
  *   - Loading states: bouncing dots while waiting, pulsing indicator during streaming
+ *
+ * Visual layer: glass-card surface, cyan accent throughout, Framer Motion hover lift.
  */
 
 "use client"
 
 import { useChat } from '@ai-sdk/react'
 import { useState, useEffect, useRef } from 'react'
+import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card'
@@ -27,8 +30,11 @@ import remarkGfm from 'remark-gfm'
 import { ViewScheduleButton } from './ViewScheduleButton'
 
 interface ChatInterfaceProps {
+    /** The authenticated user's profile used to personalise AI responses */
     userProfile: UserProfile
+    /** Called when the AI triggers a schedule generation */
     onGenerateSchedule: () => void
+    /** Called when the user wants to edit their profile */
     onEditProfile?: () => void
 }
 
@@ -81,7 +87,7 @@ export function ChatInterface({ userProfile, onGenerateSchedule, onEditProfile }
         if (append) {
             await append(userMessage, { body: { userProfile } });
         } else if (sendMessage) {
-            await sendMessage(userMessage); // Assuming sendMessage takes the message object
+            await sendMessage(userMessage);
         } else {
             console.error('No send method found (append/sendMessage missing)');
         }
@@ -169,176 +175,191 @@ export function ChatInterface({ userProfile, onGenerateSchedule, onEditProfile }
     });
 
     return (
-        <Card className="w-full max-w-2xl mx-auto h-[85vh] md:h-[80vh] mt-2 md:mt-0 flex flex-col shadow-2xl border-border bg-card/60 backdrop-blur-xl text-card-foreground overflow-hidden relative">
-            {/* Geometric Header Decoration */}
-            <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl -z-10 pointer-events-none" />
+        <motion.div
+            whileHover={{ scale: 1.005, y: -2 }}
+            transition={{ duration: 0.3, ease: 'easeOut' }}
+            className="w-full max-w-2xl mx-auto mt-2 md:mt-0"
+        >
+            <Card className="glass-card w-full h-[85vh] md:h-[80vh] flex flex-col overflow-hidden relative rounded-2xl border-0">
+                {/* Subtle geometric decoration */}
+                <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-400/5 rounded-full blur-3xl -z-10 pointer-events-none" />
 
-            <CardHeader className="border-b border-border bg-background/50 backdrop-blur-md z-10 px-4 py-3">
-                <CardTitle className="flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                        <div className="h-10 w-10 rounded-full bg-primary/20 flex items-center justify-center border border-primary/30 text-primary">
-                            <span className="font-serif font-bold text-lg">AI</span>
-                        </div>
-                        <div>
-                            <h2 className="font-sans font-medium text-base text-foreground">AI Event Scheduler</h2>
-                            <p className="text-xs text-muted-foreground font-normal">Ask me about the the event or the sessions at XyzCon 2026</p>
-                        </div>
-                    </div>
-                    {onEditProfile && (
-                        <Button variant="ghost" size="icon" onClick={onEditProfile} title="Edit Profile" className="text-muted-foreground hover:text-foreground">
-                            <UserPen className="h-5 w-5" />
-                        </Button>
-                    )}
-                </CardTitle>
-            </CardHeader>
-
-            <CardContent className="flex-1 p-0 overflow-hidden relative bg-transparent">
-                <div className="h-full overflow-y-auto p-4 pb-6 space-y-6" ref={scrollRef}>
-                    {messages.length === 0 && (
-                        <div className="flex flex-col items-center justify-center h-full text-center p-8 space-y-4 opacity-80">
-                            <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mb-4 border border-border">
-                                <Send className="h-8 w-8 text-primary" />
+                <CardHeader className="border-b border-black/10 dark:border-slate-800/60 bg-white/60 dark:bg-background/40 backdrop-blur-md z-10 px-4 py-3">
+                    <CardTitle className="flex items-center justify-between">
+                        <div className="flex items-center gap-3">
+                            <div className="h-10 w-10 rounded-full bg-cyan-100 dark:bg-cyan-400/10 flex items-center justify-center border border-cyan-600/30 dark:border-cyan-400/30 text-cyan-700 dark:text-cyan-400 shrink-0">
+                                <span className="font-serif font-bold text-lg">AI</span>
                             </div>
-                            <h3 className="font-serif font-bold text-xl text-foreground">How can I help you today?</h3>
-                            <p className="text-muted-foreground text-sm max-w-[280px]">
-                                Ask about sessions, exhibitors, or get a personalized schedule.
-                            </p>
-                            <div className="grid grid-cols-1 gap-2 w-full mt-8">
-                                {[
-                                    "Create my personalized schedule",
-                                    "What keynotes are happening?",
-                                    "Which exhibitors should I visit?",
-                                    "Find sessions about AI"
-                                ].map((suggestion) => (
-                                    <button
-                                        key={suggestion}
-                                        onClick={() => {
-                                            if (!isLoading) {
-                                                const msg = { role: 'user', content: suggestion };
-                                                doSendMessage(msg);
-                                            }
-                                        }}
-                                        className="text-sm bg-card/40 backdrop-blur-sm hover:bg-primary/20 border border-border hover:border-primary/50 text-left p-3 rounded-lg transition-colors font-sans"
-                                    >
-                                        {suggestion}
-                                    </button>
-                                ))}
+                            <div>
+                                <h2 className="font-sans font-medium text-base text-foreground">AI Event Scheduler</h2>
+                                <p className="text-xs text-muted-foreground font-normal">Ask me about the the event or the sessions at XyzCon 2026</p>
                             </div>
                         </div>
-                    )}
-
-                    {displayMessages.map((m: any, i: number) => (
-                        <div key={i} className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'} animate-in fade-in slide-in-from-bottom-2 duration-300`}>
-                            <div
-                                className={cn(
-                                    "max-w-[85%] p-3 shadow-sm relative text-[0.95em]",
-                                    m.role === 'user'
-                                        ? "bg-primary/40 text-white rounded-[16px] rounded-br-sm"
-                                        : "bg-white/10 border border-white/20 backdrop-blur-md text-foreground rounded-[16px] rounded-bl-sm"
-                                )}
+                        {onEditProfile && (
+                            <Button
+                                variant="ghost"
+                                size="icon"
+                                onClick={onEditProfile}
+                                title="Edit Profile"
+                                aria-label="Edit profile"
+                                className="text-muted-foreground hover:text-foreground focus-visible:ring-4 focus-visible:ring-cyan-500"
                             >
-                                <div className="markdown-prose leading-relaxed break-word font-sans">
-                                    <ReactMarkdown
-                                        remarkPlugins={[remarkGfm]}
-                                        components={{
-                                            p({ children }: any) {
-                                                const text = String(children);
-                                                if (text.includes('"schedule_download"')) {
-                                                    return (
-                                                        <div className="my-4 p-5 rounded-2xl border border-border bg-card/60 flex flex-col items-center justify-center space-y-4 text-center shadow-sm">
-                                                            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
-                                                            <p className="text-sm text-muted-foreground">Formatting schedule...</p>
-                                                        </div>
-                                                    );
-                                                }
-                                                return <p className="mb-4 last:mb-0">{children}</p>;
-                                            },
-                                            code({ node, inline, className, children, ...props }: any) {
-                                                const match = /language-(\w+)/.exec(className || '');
-                                                const content = String(children).replace(/\n$/, '');
+                                <UserPen className="h-5 w-5" />
+                            </Button>
+                        )}
+                    </CardTitle>
+                </CardHeader>
 
-                                                // If the LLM returns a JSON code block, check if it's the schedule output.
-                                                // If "type" equals "schedule_download", suppress the raw JSON text and render
-                                                // the custom ViewScheduleButton component instead, passing it the payload.
-                                                if (!inline && match && match[1] === 'json') {
-                                                    try {
-                                                        const parsed = JSON.parse(content);
-                                                        if (parsed.type === 'schedule_download') {
-                                                            return <ViewScheduleButton scheduleData={parsed.data} userProfile={userProfile} />;
-                                                        }
-                                                    } catch (e) {
-                                                        if (content.includes('"schedule_download"')) {
-                                                            return (
-                                                                <div className="my-4 p-5 rounded-2xl border border-border bg-card/60 flex flex-col items-center justify-center space-y-4 text-center shadow-sm">
-                                                                    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
-                                                                    <p className="text-sm text-muted-foreground">Generating schedule document...</p>
-                                                                </div>
-                                                            );
-                                                        }
-                                                    }
+                <CardContent className="flex-1 p-0 overflow-hidden relative bg-transparent">
+                    <div className="h-full overflow-y-auto p-4 pb-6 space-y-6" ref={scrollRef}>
+                        {messages.length === 0 && (
+                            <div className="flex flex-col items-center justify-center h-full text-center p-8 space-y-4 opacity-80">
+                                <div className="w-20 h-20 rounded-full bg-cyan-100 dark:bg-cyan-400/10 flex items-center justify-center mb-4 border border-black/10 dark:border-slate-700">
+                                    <Send className="h-8 w-8 text-cyan-700 dark:text-cyan-400" />
+                                </div>
+                                <h3 className="font-serif font-bold text-xl text-foreground">How can I help you today?</h3>
+                                <p className="text-muted-foreground text-sm max-w-[280px]">
+                                    Ask about sessions, exhibitors, or get a personalized schedule.
+                                </p>
+                                <div className="grid grid-cols-1 gap-2 w-full mt-8">
+                                    {[
+                                        "Create my personalized schedule",
+                                        "What keynotes are happening?",
+                                        "Which exhibitors should I visit?",
+                                        "Find sessions about AI"
+                                    ].map((suggestion) => (
+                                        <button
+                                            key={suggestion}
+                                            onClick={() => {
+                                                if (!isLoading) {
+                                                    const msg = { role: 'user', content: suggestion };
+                                                    doSendMessage(msg);
                                                 }
-                                                if (content.includes('"schedule_download"')) {
-                                                    return (
-                                                        <div className="my-4 p-5 rounded-2xl border border-border bg-card/60 flex flex-col items-center justify-center space-y-4 text-center shadow-sm">
-                                                            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
-                                                            <p className="text-sm text-muted-foreground">Generating schedule document...</p>
-                                                        </div>
-                                                    );
-                                                }
-                                                return <code className={className} {...props}>{children}</code>;
-                                            }
-                                        }}
-                                    >
-                                        {getMessageText(m)}
-                                    </ReactMarkdown>
+                                            }}
+                                            className="text-sm bg-black/[0.04] hover:bg-cyan-500/10 border border-black/10 hover:border-cyan-500/30 dark:bg-slate-900/40 dark:border-slate-800/60 dark:hover:bg-cyan-500/10 dark:hover:border-cyan-400/40 text-left p-3 rounded-lg transition-all duration-200 font-sans focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-cyan-500 min-h-[48px]"
+                                        >
+                                            {suggestion}
+                                        </button>
+                                    ))}
                                 </div>
                             </div>
-                        </div>
-                    ))}
+                        )}
 
-                    {/* State 1: Waiting for first response — bouncing dots */}
-                    {isWaitingForResponse && (
-                        <div className="flex justify-start animate-fade-in">
-                            <div className="bg-white/10 border border-white/20 backdrop-blur-md rounded-[16px] rounded-bl-sm p-3 flex gap-1 items-center w-fit">
-                                <div className="w-[6px] h-[6px] bg-current rounded-full animate-bounce" style={{ animationDelay: '-0.32s' }} />
-                                <div className="w-[6px] h-[6px] bg-current rounded-full animate-bounce" style={{ animationDelay: '-0.16s' }} />
-                                <div className="w-[6px] h-[6px] bg-current rounded-full animate-bounce" style={{ animationDelay: '0s' }} />
+                        {displayMessages.map((m: any, i: number) => (
+                            <div key={i} className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'} animate-in fade-in slide-in-from-bottom-2 duration-300`}>
+                                <div
+                                    className={cn(
+                                        "max-w-[85%] p-3 shadow-sm relative text-[0.95em]",
+                                        m.role === 'user'
+                                            ? "bg-cyan-100 border border-cyan-300/60 text-slate-900 dark:bg-cyan-500/30 dark:border-cyan-400/20 dark:text-foreground rounded-[16px] rounded-br-sm"
+                                            : "bg-white/80 border border-black/10 backdrop-blur-md text-slate-900 dark:bg-slate-900/50 dark:border-slate-700/50 dark:text-foreground rounded-[16px] rounded-bl-sm"
+                                    )}
+                                >
+                                    <div className="markdown-prose leading-relaxed break-word font-sans">
+                                        <ReactMarkdown
+                                            remarkPlugins={[remarkGfm]}
+                                            components={{
+                                                p({ children }: any) {
+                                                    const text = String(children);
+                                                    if (text.includes('"schedule_download"')) {
+                                                        return (
+                                                            <div className="my-4 p-5 rounded-2xl border border-black/10 bg-white/60 dark:border-slate-700/60 dark:bg-slate-900/60 flex flex-col items-center justify-center space-y-4 text-center shadow-sm">
+                                                                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-cyan-400"></div>
+                                                                <p className="text-sm text-muted-foreground">Formatting schedule...</p>
+                                                            </div>
+                                                        );
+                                                    }
+                                                    return <p className="mb-4 last:mb-0">{children}</p>;
+                                                },
+                                                code({ node, inline, className, children, ...props }: any) {
+                                                    const match = /language-(\w+)/.exec(className || '');
+                                                    const content = String(children).replace(/\n$/, '');
+
+                                                    // If the LLM returns a JSON code block, check if it's the schedule output.
+                                                    // If "type" equals "schedule_download", suppress the raw JSON text and render
+                                                    // the custom ViewScheduleButton component instead, passing it the payload.
+                                                    if (!inline && match && match[1] === 'json') {
+                                                        try {
+                                                            const parsed = JSON.parse(content);
+                                                            if (parsed.type === 'schedule_download') {
+                                                                return <ViewScheduleButton scheduleData={parsed.data} userProfile={userProfile} />;
+                                                            }
+                                                        } catch (e) {
+                                                            if (content.includes('"schedule_download"')) {
+                                                                return (
+                                                                    <div className="my-4 p-5 rounded-2xl border border-black/10 bg-white/60 dark:border-slate-700/60 dark:bg-slate-900/60 flex flex-col items-center justify-center space-y-4 text-center shadow-sm">
+                                                                        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-cyan-400"></div>
+                                                                        <p className="text-sm text-muted-foreground">Generating schedule document...</p>
+                                                                    </div>
+                                                                );
+                                                            }
+                                                        }
+                                                    }
+                                                    if (content.includes('"schedule_download"')) {
+                                                        return (
+                                                            <div className="my-4 p-5 rounded-2xl border border-black/10 bg-white/60 dark:border-slate-700/60 dark:bg-slate-900/60 flex flex-col items-center justify-center space-y-4 text-center shadow-sm">
+                                                                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-cyan-400"></div>
+                                                                <p className="text-sm text-muted-foreground">Generating schedule document...</p>
+                                                            </div>
+                                                        );
+                                                    }
+                                                    return <code className={className} {...props}>{children}</code>;
+                                                }
+                                            }}
+                                        >
+                                            {getMessageText(m)}
+                                        </ReactMarkdown>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    )}
+                        ))}
 
-                    {/* State 2: Streaming paused (e.g. tool calls) — subtle pulsing indicator */}
-                    {isStreamingWithContent && (
-                        <div className="flex justify-start animate-fade-in">
-                            <div className="flex items-center gap-2 px-4 py-2 text-sm text-muted-foreground">
-                                <div className="w-2 h-2 bg-primary/50 rounded-full animate-pulse" />
-                                <span className="animate-pulse">Thinking...</span>
+                        {/* State 1: Waiting for first response — bouncing dots */}
+                        {isWaitingForResponse && (
+                            <div className="flex justify-start animate-fade-in">
+                                <div className="bg-white/80 border border-black/10 dark:bg-slate-900/50 dark:border-slate-700/50 backdrop-blur-md rounded-[16px] rounded-bl-sm p-3 flex gap-1 items-center w-fit">
+                                    <div className="w-[6px] h-[6px] bg-cyan-600 dark:bg-cyan-400 rounded-full animate-bounce" style={{ animationDelay: '-0.32s' }} />
+                                    <div className="w-[6px] h-[6px] bg-cyan-600 dark:bg-cyan-400 rounded-full animate-bounce" style={{ animationDelay: '-0.16s' }} />
+                                    <div className="w-[6px] h-[6px] bg-cyan-600 dark:bg-cyan-400 rounded-full animate-bounce" style={{ animationDelay: '0s' }} />
+                                </div>
                             </div>
-                        </div>
-                    )}
-                </div>
-            </CardContent>
+                        )}
 
-            <CardFooter className="p-4 bg-background/50 backdrop-blur-md border-t border-border z-10 w-full">
-                <form onSubmit={handleSubmit} className="flex w-full gap-2 relative bg-white/10 p-2 border border-white/20 rounded-xl backdrop-blur-sm">
-                    <Input
-                        ref={inputRef}
-                        value={input}
-                        onChange={(e) => setInput(e.target.value)}
-                        placeholder="Ask me anything..."
-                        className="flex-1 bg-transparent border-none focus-visible:ring-0 focus-visible:ring-offset-0 px-2 text-sm text-foreground placeholder:text-muted-foreground/70"
-                        disabled={isLoading}
-                    />
-                    <Button
-                        type="submit"
-                        size="icon"
-                        disabled={isLoading || !input.trim()}
-                        className="h-10 w-10 rounded-full bg-primary/60 hover:bg-primary/80 text-white shadow-lg transition-all hover:scale-105 shrink-0 border border-white/20"
-                    >
-                        <Send className="h-4 w-4" />
-                    </Button>
-                </form>
-            </CardFooter>
-        </Card>
+                        {/* State 2: Streaming paused (e.g. tool calls) — subtle pulsing indicator */}
+                        {isStreamingWithContent && (
+                            <div className="flex justify-start animate-fade-in">
+                                <div className="flex items-center gap-2 px-4 py-2 text-sm text-muted-foreground">
+                                    <div className="w-2 h-2 bg-cyan-600/70 dark:bg-cyan-400/60 rounded-full animate-pulse" />
+                                    <span className="animate-pulse">Thinking...</span>
+                                </div>
+                            </div>
+                        )}
+                    </div>
+                </CardContent>
+
+                <CardFooter className="p-4 bg-white/60 dark:bg-background/40 backdrop-blur-md border-t border-black/10 dark:border-slate-800/60 z-10 w-full">
+                    <form onSubmit={handleSubmit} className="flex w-full gap-2 relative bg-white/70 dark:bg-slate-900/40 p-2 border border-black/10 dark:border-slate-700/50 rounded-xl backdrop-blur-sm">
+                        <Input
+                            ref={inputRef}
+                            value={input}
+                            onChange={(e) => setInput(e.target.value)}
+                            placeholder="Ask me anything..."
+                            className="flex-1 bg-transparent border-none focus-visible:ring-0 focus-visible:ring-offset-0 px-2 text-sm text-foreground placeholder:text-muted-foreground/80"
+                            disabled={isLoading}
+                            aria-label="Chat message input"
+                        />
+                        <Button
+                            type="submit"
+                            size="icon"
+                            disabled={isLoading || !input.trim()}
+                            aria-label="Send message"
+                            className="h-10 w-10 min-w-[40px] min-h-[40px] rounded-full bg-gradient-to-br from-cyan-500 to-blue-500 hover:brightness-110 hover:scale-105 text-white shadow-lg transition-all shrink-0 border-0 focus-visible:ring-4 focus-visible:ring-cyan-500"
+                        >
+                            <Send className="h-4 w-4" />
+                        </Button>
+                    </form>
+                </CardFooter>
+            </Card>
+        </motion.div>
     )
 }
