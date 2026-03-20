@@ -10,6 +10,13 @@ Versioning follows [Semantic Versioning](https://semver.org/) — future updates
 
 ---
 
+## [2.1.1] - 2026-03-20
+
+### Changed
+- `components/chat/ChatInterface.tsx` — renamed "Edit Profile" button tooltip and aria-label to "Restart"
+
+---
+
 ## [2.1.0] - 2026-03-20
 
 ### Added
