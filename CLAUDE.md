@@ -71,14 +71,17 @@ data/
 
 ## Conventions
 
-- **Components**: PascalCase filenames and exports
+- **Components**: PascalCase filenames and exports; props defined as TypeScript interfaces with JSDoc `/** */` descriptions
 - **Functions/variables**: camelCase
 - **Constants**: UPPER_SNAKE_CASE
 - **Types**: PascalCase interfaces in `lib/types.ts`
 - **Client components**: `"use client"` directive at top
-- **Styling**: Tailwind utility classes, `cn()` for conditional merging
+- **Styling**: Tailwind utility classes, `cn()` for conditional merging; glass-morphism utilities prefixed `glass-*`
 - **UI components**: shadcn/ui pattern — composable, Radix-based, in `components/ui/`
 - **Path aliases**: `@/*` maps to project root
+- **Fonts**: Merriweather (`font-serif` / headings), Open Sans (`font-sans` / body), JetBrains Mono (`font-mono` / code)
+- **Brand colors**: `#0a0c10` background, `#0069ff` accent blue (`xyz-blue`), `#f0f2f5` primary text
+- **TypeScript**: strict mode — no `any` types, no unused locals or params
 
 ## Key Patterns
 
@@ -111,6 +114,8 @@ data/
 ### Code Quality
 - Add JSDoc block comments to all complex business logic — especially in `lib/scheduler.ts`, `lib/matching.ts`, and `app/api/chat/route.ts`
 - Use descriptive variable and function names; avoid single-letter identifiers outside of array `.map()` / `.filter()` loops
+- TypeScript strict mode is enforced — no `any` types, no unused locals or params
+- Props interfaces must include JSDoc `/** */` descriptions
 
 ### Testing
 - No test framework is currently configured — `test_*.js` manual scripts exist in the project root
@@ -119,5 +124,18 @@ data/
 ### Git Workflow
 - Break large tasks into small, focused subtasks and commit each as a checkpoint before moving to the next
 - **Branch naming**: `<type>/<short-description>-v<version>` — e.g., `feature/ics-export-v0.1`, `bugfix/scroll-fix-v1.2`
-- **Branch types**: `feature/` (new functionality), `bugfix/` (bug fixes), `refactor/` (restructuring), `chore/` (config/deps/tooling)
 - **Commit message format**: `[v<version>] <type>: <what was done>` — e.g., `[v0.1] feature: add iCalendar export to schedule page`
+
+| Type | When to use | Version bump |
+|---|---|---|
+| `feature/` | New functionality | Minor: `1.0.0 → 1.1.0` |
+| `bugfix/` | Bug fixes | Patch: `1.0.0 → 1.0.1` |
+| `refactor/` | Code restructuring | Patch: `1.0.0 → 1.0.1` |
+| `chore/` | Config, deps, tooling | Patch: `1.0.0 → 1.0.1` |
+
+**After every commit (default, unless told otherwise):**
+1. Bump `package.json` version to the new version number
+2. Add an entry to `CHANGELOG.md` under `## [x.y.z] - YYYY-MM-DD`
+3. Tag the commit: `git tag v<version>`
+4. Update code comments in any changed files to reflect new behaviour
+5. Update `README.md` if the change affects usage, setup, features, or configuration
