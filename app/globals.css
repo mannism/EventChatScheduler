@@ -39,12 +39,14 @@
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
-  
+
+  /* Lab console accent — cyan replaces old xyz-blue */
+  --color-xyz-blue: #22d3ee;
   --color-diana-bg: var(--diana-bg);
   --color-diana-surface: var(--diana-surface);
   --color-diana-card: var(--diana-card);
   --color-diana-accent: var(--diana-accent);
-  
+
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -54,6 +56,7 @@
   --radius-4xl: calc(var(--radius) + 16px);
 }
 
+/* ─── Dark mode (default) ────────────────────────────────── */
 :root {
   --radius: 0.75rem;
 
@@ -62,99 +65,153 @@
   --font-body: 'Open Sans', ui-sans-serif, system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', 'Courier New', monospace;
 
-  /* Theme Palette from dianaismail.me */
-  --diana-accent: #0069ff;
-  --diana-bg: #0a0c10;
-  --diana-surface: #10131a;
-  --diana-card: rgba(255, 255, 255, 0.04);
-  --diana-border: rgba(255, 255, 255, 0.08);
+  /* Lab console palette — dark default */
+  --diana-accent: #22d3ee;          /* cyan-400 */
+  --diana-bg: #020617;              /* slate-950 */
+  --diana-surface: #0f172a;         /* slate-900 */
+  --diana-card: rgba(15, 23, 42, 0.6);
+  --diana-border: rgba(51, 65, 85, 0.5); /* slate-700/50 */
 
-  /* Theme mapping */
   --background: var(--diana-bg);
-  --foreground: #f0f2f5;
+  --foreground: #f1f5f9;            /* slate-100 */
 
   --card: var(--diana-card);
-  --card-foreground: #f0f2f5;
+  --card-foreground: #f1f5f9;
 
   --popover: var(--diana-surface);
-  --popover-foreground: #f0f2f5;
+  --popover-foreground: #f1f5f9;
 
-  --primary: var(--diana-accent);
-  --primary-foreground: #FFFFFF;
+  --primary: #22d3ee;               /* cyan-400 */
+  --primary-foreground: #020617;
 
   --secondary: var(--diana-surface);
-  --secondary-foreground: #8891a4;
+  --secondary-foreground: #94a3b8;  /* slate-400 */
 
-  --muted: #1a1d24;
-  --muted-foreground: #8891a4;
+  --muted: #1e293b;                 /* slate-800 */
+  --muted-foreground: #94a3b8;      /* slate-400 */
 
-  --accent: var(--diana-accent);
-  --accent-foreground: #FFFFFF;
+  --accent: #22d3ee;
+  --accent-foreground: #020617;
 
-  --destructive: #ff5f57;
-  --destructive-foreground: #FFFFFF;
+  --destructive: #f87171;           /* red-400 */
+  --destructive-foreground: #fff;
 
   --border: var(--diana-border);
-  --input: rgba(255, 255, 255, 0.06);
-  --ring: var(--diana-accent);
+  --input: rgba(30, 41, 59, 0.8);   /* slate-800/80 */
+  --ring: #22d3ee;
 
-  --chart-1: var(--diana-accent);
-  --chart-2: #28c840;
-  --chart-3: #ff5f57;
-  --chart-4: #ffbd2e;
-  --chart-5: #6b21a8;
+  --chart-1: #22d3ee;
+  --chart-2: #34d399;
+  --chart-3: #f87171;
+  --chart-4: #fbbf24;
+  --chart-5: #a78bfa;
 
   --sidebar: var(--diana-bg);
-  --sidebar-foreground: #f0f2f5;
-  --sidebar-primary: var(--diana-accent);
-  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-foreground: #f1f5f9;
+  --sidebar-primary: #22d3ee;
+  --sidebar-primary-foreground: #020617;
   --sidebar-accent: var(--diana-surface);
-  --sidebar-accent-foreground: #f0f2f5;
+  --sidebar-accent-foreground: #f1f5f9;
   --sidebar-border: var(--diana-border);
-  --sidebar-ring: var(--diana-accent);
+  --sidebar-ring: #22d3ee;
 }
 
+/* Tailwind dark: variant mirror */
 .dark {
-  /* Enforcing single dark theme */
-  --background: #0a0c10;
-  --foreground: #f0f2f5;
-  --card: rgba(255, 255, 255, 0.04);
-  --card-foreground: #f0f2f5;
-  --popover: #10131a;
-  --popover-foreground: #f0f2f5;
-  --primary: #0069ff;
-  --primary-foreground: #FFFFFF;
-  --secondary: #10131a;
-  --secondary-foreground: #8891a4;
-  --muted: #1a1d24;
-  --muted-foreground: #8891a4;
-  --accent: #0069ff;
-  --accent-foreground: #FFFFFF;
-  --destructive: #ff5f57;
-  --destructive-foreground: #FFFFFF;
-  --border: rgba(255, 255, 255, 0.08);
-  --input: rgba(255, 255, 255, 0.06);
-  --ring: #0069ff;
+  --background: #020617;
+  --foreground: #f1f5f9;
+  --card: rgba(15, 23, 42, 0.6);
+  --card-foreground: #f1f5f9;
+  --popover: #0f172a;
+  --popover-foreground: #f1f5f9;
+  --primary: #22d3ee;
+  --primary-foreground: #020617;
+  --secondary: #0f172a;
+  --secondary-foreground: #94a3b8;
+  --muted: #1e293b;
+  --muted-foreground: #94a3b8;
+  --accent: #22d3ee;
+  --accent-foreground: #020617;
+  --destructive: #f87171;
+  --destructive-foreground: #fff;
+  --border: rgba(51, 65, 85, 0.5);
+  --input: rgba(30, 41, 59, 0.8);
+  --ring: #22d3ee;
+  --chart-1: #22d3ee;
+  --chart-2: #34d399;
+  --chart-3: #f87171;
+  --chart-4: #fbbf24;
+  --chart-5: #a78bfa;
+  --sidebar: #020617;
+  --sidebar-foreground: #f1f5f9;
+  --sidebar-primary: #22d3ee;
+  --sidebar-primary-foreground: #020617;
+  --sidebar-accent: #0f172a;
+  --sidebar-accent-foreground: #f1f5f9;
+  --sidebar-border: rgba(51, 65, 85, 0.5);
+  --sidebar-ring: #22d3ee;
+}
 
-  --chart-1: #0069ff;
-  --chart-2: #28c840;
-  --chart-3: #ff5f57;
-  --chart-4: #ffbd2e;
-  --chart-5: #6b21a8;
+/* ─── Light mode override ─────────────────────────────────── */
+.light {
+  --diana-accent: #0891b2;          /* cyan-600 */
+  --diana-bg: #f8fafc;              /* slate-50 */
+  --diana-surface: #f1f5f9;         /* slate-100 */
+  --diana-card: rgba(255, 255, 255, 0.80); /* white glass — matches labs reference */
+  --diana-border: rgba(0, 0, 0, 0.08);    /* black/8% — matches labs reference */
 
-  --sidebar: #0a0c10;
-  --sidebar-foreground: #f0f2f5;
-  --sidebar-primary: #0069ff;
-  --sidebar-primary-foreground: #FFFFFF;
-  --sidebar-accent: #10131a;
-  --sidebar-accent-foreground: #f0f2f5;
-  --sidebar-border: rgba(255, 255, 255, 0.08);
-  --sidebar-ring: #0069ff;
+  --background: #f8fafc;
+  --foreground: #0f172a;            /* slate-900 */
+
+  --card: rgba(255, 255, 255, 0.80);
+  --card-foreground: #0f172a;
+
+  --popover: rgba(255, 255, 255, 0.95);
+  --popover-foreground: #0f172a;
+
+  --primary: #0891b2;               /* cyan-600 */
+  --primary-foreground: #fff;
+
+  --secondary: rgba(0, 0, 0, 0.04);
+  --secondary-foreground: #475569;  /* slate-600 */
+
+  --muted: rgba(0, 0, 0, 0.04);     /* matches labs --tab-bg */
+  --muted-foreground: #64748b;      /* slate-500 */
+
+  --accent: #0891b2;
+  --accent-foreground: #fff;
+
+  --destructive: #dc2626;
+  --destructive-foreground: #fff;
+
+  --border: rgba(0, 0, 0, 0.08);    /* matches labs --border-subtle */
+  --input: rgba(255, 255, 255, 0.85);
+  --ring: #0891b2;
+
+  --chart-1: #0891b2;
+  --chart-2: #059669;
+  --chart-3: #dc2626;
+  --chart-4: #d97706;
+  --chart-5: #7c3aed;
+
+  --sidebar: #f8fafc;
+  --sidebar-foreground: #0f172a;
+  --sidebar-primary: #0891b2;
+  --sidebar-primary-foreground: #fff;
+  --sidebar-accent: #f1f5f9;
+  --sidebar-accent-foreground: #0f172a;
+  --sidebar-border: rgba(148, 163, 184, 0.4);
+  --sidebar-ring: #0891b2;
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
+  }
+
+  /* Smooth color transitions when theme toggles */
+  html {
+    transition: background-color 300ms ease, color 300ms ease;
   }
 
   body {
@@ -163,13 +220,63 @@
     font-size: 16px;
     line-height: 1.6;
     background-color: var(--background);
+    /* Subtle slate grid — dark mode */
     background-image:
-      linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+      linear-gradient(rgba(148, 163, 184, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(148, 163, 184, 0.04) 1px, transparent 1px);
     background-size: 48px 48px;
     background-attachment: fixed;
   }
 }
+
+/* Light mode grid — slightly more visible on light bg */
+.light body {
+  background-image:
+    linear-gradient(rgba(100, 116, 139, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(100, 116, 139, 0.07) 1px, transparent 1px);
+}
+
+/* ─── Glass card utility ──────────────────────────────────── */
+@layer utilities {
+  /**
+   * .glass-card — reusable glass-morphism surface.
+   * Dark (default): dark slate bg, subtle slate border, deep shadow.
+   * Light: near-white bg, light slate border, soft shadow.
+   * Hover on either: cyan glow shadow lift.
+   */
+  .glass-card {
+    @apply backdrop-blur-sm shadow-2xl transition-all duration-300;
+    border: 1px solid rgba(51, 65, 85, 0.5);
+    background-color: rgba(15, 23, 42, 0.6);
+    box-shadow: 0 20px 40px -8px rgba(0, 0, 0, 0.4);
+  }
+
+  .glass-card:hover {
+    box-shadow:
+      0 25px 50px -12px rgba(34, 211, 238, 0.15),
+      0 0 0 1px rgba(34, 211, 238, 0.08),
+      0 20px 40px -8px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Light mode glass — white/translucent, black-opacity borders (labs reference pattern) */
+  .light .glass-card {
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    background-color: rgba(255, 255, 255, 0.80);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  }
+
+  .light .glass-card:hover {
+    border-color: rgba(8, 145, 178, 0.35);
+    box-shadow:
+      0 8px 32px rgba(8, 145, 178, 0.10),
+      0 0 0 1px rgba(8, 145, 178, 0.08),
+      0 4px 24px rgba(0, 0, 0, 0.06);
+  }
+}
+
+/* ─── Markdown content utilities ─────────────────────────── */
 @layer utilities {
   .markdown-content table {
     @apply w-full border-collapse my-4 text-sm border border-border/50 rounded-lg overflow-hidden;
