@@ -200,8 +200,8 @@ export function ChatInterface({ userProfile, onGenerateSchedule, onEditProfile }
                                 variant="ghost"
                                 size="icon"
                                 onClick={onEditProfile}
-                                title="Edit Profile"
-                                aria-label="Edit profile"
+                                title="Restart"
+                                aria-label="Restart"
                                 className="text-muted-foreground hover:text-foreground focus-visible:ring-4 focus-visible:ring-cyan-500"
                             >
                                 <UserPen className="h-5 w-5" />
