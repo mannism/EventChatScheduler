@@ -57,7 +57,7 @@ export function ScheduleView({ schedule }: ScheduleViewProps) {
                     <Button
                         onClick={handlePrint}
                         aria-label="Print itinerary"
-                        className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:brightness-110 hover:scale-105 text-white shadow-lg px-6 py-6 rounded-xl transition-all font-sans border-0 focus-visible:ring-4 focus-visible:ring-cyan-500 min-h-[48px]"
+                        className="bg-gradient-to-r from-cyan-600 to-blue-600 hover:brightness-110 hover:scale-105 text-white shadow-lg px-6 py-6 rounded-xl transition-all font-sans border-0 focus-visible:ring-4 focus-visible:ring-cyan-500 min-h-[48px]"
                     >
                         <Download className="mr-2 h-5 w-5" /> Print Itinerary
                     </Button>

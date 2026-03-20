@@ -172,7 +172,7 @@ export function OnboardingForm({ onSubmit, defaultValues }: OnboardingFormProps)
             <Card className="glass-card w-full overflow-hidden rounded-2xl border-0">
                 {/* Cyan progress bar at top */}
                 <div
-                    className="h-0.5 bg-gradient-to-r from-cyan-500 via-cyan-400/60 to-cyan-400/10 transition-all duration-500"
+                    className="h-0.5 bg-gradient-to-r from-cyan-600 via-cyan-500/60 to-cyan-500/10 transition-all duration-500"
                     style={{ width: `${(step / totalSteps) * 100}%` }}
                 />
 
@@ -189,9 +189,9 @@ export function OnboardingForm({ onSubmit, defaultValues }: OnboardingFormProps)
                                     className={cn(
                                         "h-1.5 rounded-full transition-all duration-300",
                                         i + 1 === step
-                                            ? "w-6 bg-cyan-500 dark:bg-cyan-400"
+                                            ? "w-6 bg-cyan-600 dark:bg-cyan-400"
                                             : i + 1 < step
-                                                ? "w-3 bg-cyan-500/50 dark:bg-cyan-400/50"
+                                                ? "w-3 bg-cyan-600/50 dark:bg-cyan-400/50"
                                                 : "w-3 bg-black/20 dark:bg-slate-700/60"
                                     )}
                                 />
@@ -412,7 +412,7 @@ export function OnboardingForm({ onSubmit, defaultValues }: OnboardingFormProps)
                                                                     const updated = field.value.filter((t) => t !== tag);
                                                                     field.onChange(updated);
                                                                 }}
-                                                                className="hover:text-red-400 transition-colors ml-0.5 focus-visible:outline-none"
+                                                                className="hover:text-red-600 dark:hover:text-red-400 transition-colors ml-0.5 focus-visible:outline-none"
                                                                 aria-label={`Remove ${tag}`}
                                                             >
                                                                 ×
@@ -446,7 +446,7 @@ export function OnboardingForm({ onSubmit, defaultValues }: OnboardingFormProps)
                                     onClick={nextStep}
                                     className={cn(
                                         "px-8 py-6 text-lg font-bold rounded-xl shadow-xl transition-all font-sans min-h-[48px]",
-                                        "bg-gradient-to-r from-cyan-500 to-blue-500 hover:brightness-110 hover:scale-105 text-white border-0",
+                                        "bg-gradient-to-r from-cyan-600 to-blue-600 hover:brightness-110 hover:scale-105 text-white border-0",
                                         "focus-visible:ring-4 focus-visible:ring-cyan-500"
                                     )}
                                     disabled={!isStepValid()}
