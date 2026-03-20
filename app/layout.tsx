@@ -15,6 +15,7 @@ import './globals.css'
 import { cn } from '@/lib/utils'
 import { StatusBadge } from '@/components/StatusBadge'
 import { ThemeToggle } from '@/components/ThemeToggle'
+import { Footer } from '@/components/Footer'
 
 const merriweather = Merriweather({
   subsets: ['latin'],
@@ -95,6 +96,7 @@ export default function RootLayout({
         {/* Main content — offset by header height */}
         <div className="relative z-10 pt-[64px]">
           {children}
+          <Footer />
         </div>
       </body>
     </html>
