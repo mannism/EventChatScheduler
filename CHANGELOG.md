@@ -10,6 +10,14 @@ Versioning follows [Semantic Versioning](https://semver.org/) — future updates
 
 ---
 
+## [2.2.4] - 2026-03-22
+
+### Changed
+- `app/layout.tsx` — "← Labs by Diana" plain link replaced with pill badge `← // LABS by Diana`; rounded-full border, font-mono, hover cyan accent, links to `https://labs.dianaismail.me/`
+- `components/Footer.tsx` — removed "Return to portfolio" link and `ArrowUpRight` import; copyright moved to right-aligned
+
+---
+
 ## [2.2.3] - 2026-03-22
 
 ### Fixed
