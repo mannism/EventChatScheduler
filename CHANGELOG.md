@@ -10,6 +10,19 @@ Versioning follows [Semantic Versioning](https://semver.org/) — future updates
 
 ---
 
+## [2.2.2] - 2026-03-22
+
+### Fixed (WCAG AA — 7 failures)
+- `globals.css` (.light) — `--primary`, `--accent`, `--ring`, `--sidebar-primary`, `--diana-accent` bumped from cyan-600 (#0891b2) to cyan-700 (#0e7490); white-on-cyan-600 = 3.68:1 ❌ → white-on-cyan-700 = 5.36:1 ✅; fixes `ViewScheduleButton` `bg-primary` button in light mode
+- `OnboardingForm.tsx` — CTA button `from-cyan-600` → `from-cyan-700`; white text contrast 3.68:1 ❌ → 5.36:1 ✅
+- `ScheduleView.tsx` — Print button `from-cyan-600` → `from-cyan-700`; same fix
+- `schedule/page.tsx` — date heading `text-sky-600` → `text-sky-700`; sky-600 on white = 4.10:1 ❌ → sky-700 = 5.93:1 ✅
+- `schedule/page.tsx` — "Add to Calendar" `bg-sky-600` → `bg-sky-700`; white on sky-600 = 4.10:1 ❌ → sky-700 = 5.93:1 ✅
+- `schedule/page.tsx` — Print button focus ring `ring-blue-100` → `ring-blue-700 ring-offset-2`; ring-blue-100 on slate-50 = 1.1:1 ❌ (invisible) → visible ✅
+- `schedule/page.tsx` — Calendar button focus ring `ring-sky-100` → `ring-sky-700 ring-offset-2`; same invisible ring fix ✅
+
+---
+
 ## [2.2.1] - 2026-03-22
 
 ### Changed
