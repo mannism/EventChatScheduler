@@ -93,9 +93,12 @@ data/
 - sessionStorage used for large schedule data transfer (avoids URL size limits)
 - System messages/directives hidden from user-visible chat
 - Glass-morphism dark theme (Diana Ismail inspired) via CSS variables in globals.css
-- No test framework configured — manual test scripts in root (test_*.js)
 
 ## Developer Rules
+
+### Break Down Large Tasks
+- Split large tasks into small, focused subtasks
+- Complete and verify each subtask before moving to the next to avoid cascading breakage
 
 ### Error Handling
 - Wrap every OpenAI API call (and any future external service call) in a `try/catch` block
@@ -103,7 +106,7 @@ data/
 - Return a graceful fallback response when the AI service fails so the app remains usable (e.g., return a 500 with a safe message rather than an unhandled crash)
 
 ### User-Facing Errors
-- **Never expose `error.message`, stack traces, or internal details to the client** — the current `route.ts` returns `error.message` directly, which should be replaced with a generic safe message
+- **Never expose `error.message`, stack traces, or internal details to the client**
 - Use helpful, non-technical messages: e.g., `"The AI assistant is temporarily unavailable. Please try again in a moment."`
 
 ### Input Validation
@@ -116,19 +119,18 @@ data/
 - Do not commit `.env.local` or any file containing real API keys
 
 ### Code Quality
-- Add JSDoc block comments to all complex business logic — especially in `lib/scheduler.ts`, `lib/matching.ts`, and `app/api/chat/route.ts`
-- Use descriptive variable and function names; avoid single-letter identifiers outside of array `.map()` / `.filter()` loops
-- TypeScript strict mode is enforced — no `any` types, no unused locals or params
-- Props interfaces must include JSDoc `/** */` descriptions
+- Use descriptive variable and function names; add JSDoc for any non-obvious logic
+- Props interfaces must have JSDoc `/** */` descriptions (already enforced in existing components)
+- TypeScript strict mode is on — no `any` types, no unused locals or params
+- Auth, payment, and data deletion paths require integration tests before merge
+- Avoid N+1 queries: audit history must be fetched with a single paginated query
 
 ### Testing
-- No test framework is currently configured — `test_*.js` manual scripts exist in the project root
 - When a test framework is introduced, new features and bug fixes must include unit tests; the AI chat API route and schedule generation logic are the highest-priority paths to cover
 
 ### Git Workflow
-- Break large tasks into small, focused subtasks and commit each as a checkpoint before moving to the next
-- **Branch naming**: `<type>/<short-description>-v<version>` — e.g., `feature/ics-export-v0.1`, `bugfix/scroll-fix-v1.2`
-- **Commit message format**: `[v<version>] <type>: <what was done>` — e.g., `[v0.1] feature: add iCalendar export to schedule page`
+- **Branch naming**: `<type>/<short-description>-v<new-version>` — e.g., `feature/ics-export-v0.1`, `bugfix/scroll-fix-v1.2`
+- **Commit message format**: `[v<new-version>] <type>: <what was done>` — e.g., `[v0.1] feature: add iCalendar export to schedule page`
 
 | Type | When to use | Version bump |
 |---|---|---|
@@ -137,7 +139,7 @@ data/
 | `refactor/` | Code restructuring | Patch: `1.0.0 → 1.0.1` |
 | `chore/` | Config, deps, tooling | Patch: `1.0.0 → 1.0.1` |
 
-**After every commit (default, unless told otherwise):**
+**Commit after every update (default, unless specifically instructed otherwise):**
 1. Bump `package.json` version to the new version number
 2. Add an entry to `CHANGELOG.md` under `## [x.y.z] - YYYY-MM-DD`
 3. Tag the commit: `git tag v<version>`

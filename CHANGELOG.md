@@ -10,6 +10,13 @@ Versioning follows [Semantic Versioning](https://semver.org/) — future updates
 
 ---
 
+## [2.3.2] - 2026-03-22
+
+### Changed
+- `CLAUDE.md` — updated Developer Rules: added "Break Down Large Tasks" section; updated Code Quality rules (JSDoc, no `any`, integration test requirement, N+1 query rule); updated Git Workflow to use `<new-version>` in branch/commit naming; removed stale note about manual test scripts
+
+---
+
 ## [2.3.1] - 2026-03-22
 
 ### Added
