@@ -10,6 +10,13 @@ Versioning follows [Semantic Versioning](https://semver.org/) — future updates
 
 ---
 
+## [2.2.8] - 2026-03-22
+
+### Removed
+- `app/favicon-16x16.png`, `app/favicon-32x32.png`, `app/favicon-48x48.png`, `app/favicon-512x512.png`, `app/apple-touch-icon.png.png`, `app/android-chrome-192x192.png` — duplicate files not auto-served by Next.js App Router; canonical copies live in `public/`
+
+---
+
 ## [2.2.7] - 2026-03-22
 
 ### Removed
