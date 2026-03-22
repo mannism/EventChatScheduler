@@ -154,7 +154,7 @@
 
 /* ─── Light mode override ─────────────────────────────────── */
 .light {
-  --diana-accent: #0891b2;          /* cyan-600 */
+  --diana-accent: #0e7490;          /* cyan-700 — WCAG AA: white text 5.36:1 ✅ */
   --diana-bg: #f8fafc;              /* slate-50 */
   --diana-surface: #f1f5f9;         /* slate-100 */
   --diana-card: rgba(255, 255, 255, 0.80); /* white glass — matches labs reference */
@@ -169,7 +169,7 @@
   --popover: rgba(255, 255, 255, 0.95);
   --popover-foreground: #0f172a;
 
-  --primary: #0891b2;               /* cyan-600 */
+  --primary: #0e7490;               /* cyan-700 — white text 5.36:1 vs cyan-600 3.68:1 */
   --primary-foreground: #fff;
 
   --secondary: rgba(0, 0, 0, 0.04);
@@ -178,7 +178,7 @@
   --muted: rgba(0, 0, 0, 0.04);     /* matches labs --tab-bg */
   --muted-foreground: #64748b;      /* slate-500 */
 
-  --accent: #0891b2;
+  --accent: #0e7490;
   --accent-foreground: #fff;
 
   --destructive: #dc2626;
@@ -186,9 +186,9 @@
 
   --border: rgba(0, 0, 0, 0.08);    /* matches labs --border-subtle */
   --input: rgba(255, 255, 255, 0.85);
-  --ring: #0891b2;
+  --ring: #0e7490;
 
-  --chart-1: #0891b2;
+  --chart-1: #0e7490;
   --chart-2: #059669;
   --chart-3: #dc2626;
   --chart-4: #d97706;
@@ -196,7 +196,7 @@
 
   --sidebar: #f8fafc;
   --sidebar-foreground: #0f172a;
-  --sidebar-primary: #0891b2;
+  --sidebar-primary: #0e7490;
   --sidebar-primary-foreground: #fff;
   --sidebar-accent: #f1f5f9;
   --sidebar-accent-foreground: #0f172a;

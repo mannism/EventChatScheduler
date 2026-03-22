@@ -446,7 +446,7 @@ export function OnboardingForm({ onSubmit, defaultValues }: OnboardingFormProps)
                                     onClick={nextStep}
                                     className={cn(
                                         "px-8 py-6 text-lg font-bold rounded-xl shadow-xl transition-all font-sans min-h-[48px]",
-                                        "bg-gradient-to-r from-cyan-600 to-blue-600 hover:brightness-110 hover:scale-105 text-white border-0",
+                                        "bg-gradient-to-r from-cyan-700 to-blue-600 hover:brightness-110 hover:scale-105 text-white border-0",
                                         "focus-visible:ring-4 focus-visible:ring-cyan-500"
                                     )}
                                     disabled={!isStepValid()}

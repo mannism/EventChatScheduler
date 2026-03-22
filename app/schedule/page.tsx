@@ -95,7 +95,7 @@ export default function ScheduleViewPage() {
                         return (
                             <div key={date} className={index > 0 ? "mt-16" : ""}>
                                 <div className="mb-6 flex items-center border-b border-slate-200 pb-4">
-                                    <h2 className="text-3xl font-bold text-sky-600">Schedule for {date}</h2>
+                                    <h2 className="text-3xl font-bold text-sky-700">Schedule for {date}</h2>
                                 </div>
 
                                 <div className="overflow-x-auto">
@@ -147,7 +147,7 @@ export default function ScheduleViewPage() {
                     <div className="flex flex-wrap justify-center gap-3">
                         <button
                             onClick={() => window.print()}
-                            className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-xl shadow-md transition-all hover:shadow-lg focus:ring-4 focus:ring-blue-100"
+                            className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-xl shadow-md transition-all hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-offset-2 focus:ring-blue-700"
                         >
                             Print Schedule
                         </button>
@@ -162,7 +162,7 @@ export default function ScheduleViewPage() {
                                 a.click();
                                 URL.revokeObjectURL(url);
                             }}
-                            className="px-8 py-3 bg-sky-600 hover:bg-sky-700 text-white font-medium rounded-xl shadow-md transition-all hover:shadow-lg focus:ring-4 focus:ring-sky-100"
+                            className="px-8 py-3 bg-sky-700 hover:bg-sky-800 text-white font-medium rounded-xl shadow-md transition-all hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-offset-2 focus:ring-sky-700"
                         >
                             Add to Calendar
                         </button>
