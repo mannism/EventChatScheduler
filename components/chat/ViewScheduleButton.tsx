@@ -14,7 +14,7 @@ import { ExternalLink, Loader2 } from 'lucide-react';
 import { UserProfile } from '@/lib/types';
 
 interface ViewScheduleButtonProps {
-    scheduleData: any;
+    scheduleData: unknown;
     userProfile: UserProfile;
 }
 
@@ -46,7 +46,7 @@ export function ViewScheduleButton({ scheduleData, userProfile }: ViewScheduleBu
             {/* Visible UI */}
             <h3 className="text-lg md:text-xl font-bold font-serif text-foreground whitespace-normal break-words leading-tight">Your Personalized Schedule is Ready!</h3>
             <p className="text-sm text-muted-foreground w-full break-words whitespace-normal text-balance">
-                We've generated a 2-day event schedule tailored to your interests and availability, complete with keynotes and recommended exhibitors.
+                We&apos;ve generated a 2-day event schedule tailored to your interests and availability, complete with keynotes and recommended exhibitors.
             </p>
             <Button onClick={handleView} disabled={isOpening} className="mt-2 w-full sm:w-auto bg-primary hover:bg-primary/90 text-primary-foreground font-medium rounded-xl h-12 px-6 whitespace-nowrap font-sans">
                 {isOpening ? <Loader2 className="mr-2 h-5 w-5 animate-spin" /> : <ExternalLink className="mr-2 h-5 w-5" />}

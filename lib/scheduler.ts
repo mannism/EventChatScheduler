@@ -65,7 +65,7 @@ export async function generateSchedule(userProfile: UserProfile, allSessions: Se
     for (const date of days) {
         if (!userDates.includes(date)) continue;
 
-        let dailyItems: ScheduleItem[] = [];
+        const dailyItems: ScheduleItem[] = [];
         const daySessions = allSessions.filter(s => s.startDateTime.startsWith(date));
 
         // 1. Mandatory Sessions (Keynotes)

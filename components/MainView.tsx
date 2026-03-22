@@ -22,7 +22,7 @@
 
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, startTransition } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { UserProfile, Session, Schedule } from "@/lib/types"
 import { OnboardingForm } from "@/components/onboarding/OnboardingForm"
@@ -56,21 +56,23 @@ export function MainView({ sessions }: MainViewProps) {
 
     // Restore state from localStorage on mount
     useEffect(() => {
-        try {
-            const savedProfile = localStorage.getItem(STORAGE_KEY_PROFILE);
-            const savedPhase = localStorage.getItem(STORAGE_KEY_PHASE) as Phase | null;
-            if (savedProfile) {
-                const profile = JSON.parse(savedProfile);
-                setUserProfile(profile);
-                // Only restore to chat phase (not schedule, since that needs regeneration)
-                if (savedPhase === 'chat') {
-                    setPhase('chat');
+        startTransition(() => {
+            try {
+                const savedProfile = localStorage.getItem(STORAGE_KEY_PROFILE);
+                const savedPhase = localStorage.getItem(STORAGE_KEY_PHASE) as Phase | null;
+                if (savedProfile) {
+                    const profile = JSON.parse(savedProfile);
+                    setUserProfile(profile);
+                    // Only restore to chat phase (not schedule, since that needs regeneration)
+                    if (savedPhase === 'chat') {
+                        setPhase('chat');
+                    }
                 }
+            } catch {
+                // Ignore localStorage errors
             }
-        } catch {
-            // Ignore localStorage errors
-        }
-        setIsMounted(true)
+            setIsMounted(true);
+        });
     }, [])
 
     // Persist state changes to localStorage

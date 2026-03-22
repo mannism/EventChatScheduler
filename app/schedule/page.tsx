@@ -9,12 +9,12 @@
 "use client";
 
 import React, { useEffect, useState } from 'react';
-import { UserProfile, APISchedule } from '@/lib/types';
+import { UserProfile, APISchedule, APIScheduleSession } from '@/lib/types';
 import { Loader2 } from 'lucide-react';
 import { generateICS } from '@/lib/ics';
 
 export default function ScheduleViewPage() {
-    const [scheduleData, setScheduleData] = useState<any>(null);
+    const [scheduleData, setScheduleData] = useState<APISchedule | null>(null);
     const [userProfile, setUserProfile] = useState<UserProfile | null>(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
@@ -110,7 +110,7 @@ export default function ScheduleViewPage() {
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {dayData.sessions.map((s: any, i: number) => (
+                                            {dayData.sessions.map((s: APIScheduleSession, i: number) => (
                                                 <tr key={i} className={`hover:bg-slate-50 transition-colors ${i % 2 === 0 ? 'bg-white' : 'bg-slate-50/50'}`}>
                                                     <td className="p-4 border border-slate-200 font-medium whitespace-nowrap text-slate-600">{s.time}</td>
                                                     <td className="p-4 border border-slate-200 font-bold text-slate-800">{s.title}</td>
