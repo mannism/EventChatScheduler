@@ -10,6 +10,19 @@ Versioning follows [Semantic Versioning](https://semver.org/) — future updates
 
 ---
 
+## [2.2.0] - 2026-03-22
+
+### Added
+- `data/seo.json` — centralised SEO configuration file: title, description, keywords, author, siteUrl, siteName, twitterHandle, and full OpenGraph + Twitter Card fields; single source of truth for all metadata
+- `app/layout.tsx` — full Next.js `Metadata` object now driven by `seo.json`: openGraph type/locale/url/siteName/images, Twitter `summary_large_image` card, robots index+follow, `metadataBase`, `alternates.canonical`
+- `README.md` — updated to v2.2: added ThemeToggle, Footer, and dark/light theme sections; added `seo.json` to datasets; updated project structure tree; WCAG AA note; brand colour update
+
+### Validated
+- TypeScript strict-mode check (`tsc --noEmit`) passes with zero errors across all source files
+- All components (`MainView`, `ChatInterface`, `OnboardingForm`, `ScheduleView`, `ThemeToggle`, `StatusBadge`, `Footer`) carry JSDoc file-level comments
+
+---
+
 ## [2.1.5] - 2026-03-20
 
 ### Added
