@@ -108,7 +108,7 @@ export function MainView({ sessions }: MainViewProps) {
                 XyzCon 2026
             </p>
             <h1 className="text-3xl md:text-4xl font-serif font-bold text-foreground tracking-tight">
-                AI Conference Assistant
+                AI Conference Assistant (Demo)
             </h1>
         </div>
     )
@@ -151,7 +151,7 @@ export function MainView({ sessions }: MainViewProps) {
                                 XyzCon 2026
                             </p>
                             <h1 className="text-3xl md:text-4xl font-serif font-bold text-foreground tracking-tight">
-                                AI Conference Assistant
+                                AI Conference Assistant (Demo)
                             </h1>
                         </motion.div>
                     )}
