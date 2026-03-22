@@ -1,19 +1,25 @@
 {
-  "title": "AI Conference Assistant (demo for XyzCon 2026)",
-  "description": "A demo AI-powered event companion for XyzCon 2026 by XYZ. Chat with an intelligent assistant to discover sessions, find exhibitors, and generate a conflict-free personalized schedule.",
+  "title": "AI Conference Assistant (demo) | Labs By Diana Ismail",
+  "description": "Experience the AI Chat Scheduler: chat to discover sessions, get recommendations, and create personalized conflict-free event itineraries instantly.",
   "keywords": [
-    "demo project",
+    "ai chat scheduler",
+    "event assistant",
     "conference scheduler",
-    "AI assistant",
-    "event planner",
-    "personalised schedule",
-    "conference app",
-    "OpenAI",
-    "Next.js"
+    "agenda planner",
+    "conversational ai",
+    "personalized itinerary",
+    "conflict-free schedule",
+    "event tech",
+    "agentic ai",
+    "openai",
+    "next.js",
+    "vercel ai sdk",
+    "react",
+    "typescript"
   ],
   "author": "Diana Ismail",
   "siteUrl": "https://scheduler.dianaismail.me",
-  "siteName": "XyzCon 2026",
+  "siteName": "AI-powered Conference Assistant (demo) -XyzCon 2026",
   "twitterHandle": "@fkzl",
   "openGraph": {
     "type": "website",
@@ -21,6 +27,6 @@
     "imageUrl": "/favicon-512x512.png",
     "imageWidth": 1200,
     "imageHeight": 630,
-    "imageAlt": "XyzCon 2026 Event Scheduler — AI-powered conference assistant"
+    "imageAlt": "AI-powered Conference Assistant (demo)"
   }
 }

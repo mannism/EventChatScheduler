@@ -10,6 +10,17 @@ Versioning follows [Semantic Versioning](https://semver.org/) — future updates
 
 ---
 
+## [2.2.6] - 2026-03-22
+
+### Fixed
+- `app/layout.tsx` — added `icons` metadata field declaring all favicon sizes (16×16, 32×32, 48×48, 512×512, apple-touch-icon, android-chrome-192×192)
+- `public/` — copied all PNG favicon files from `app/` to `public/` so they are URL-accessible; fixed `apple-touch-icon.png.png` double extension → `apple-touch-icon.png`
+
+### Changed
+- `data/seo.json` — updated title, description, and keywords for better SEO
+
+---
+
 ## [2.2.5] - 2026-03-22
 
 ### Changed
