@@ -129,6 +129,7 @@ data/
 - When a test framework is introduced, new features and bug fixes must include unit tests; the AI chat API route and schedule generation logic are the highest-priority paths to cover
 
 ### Git Workflow
+- **ALWAYS commit to a new branch. NEVER commit directly to `main`.** Only merge to `main` when the user explicitly requests it.
 - **Branch naming**: `<type>/<short-description>-v<new-version>` — e.g., `feature/ics-export-v0.1`, `bugfix/scroll-fix-v1.2`
 - **Commit message format**: `[v<new-version>] <type>: <what was done>` — e.g., `[v0.1] feature: add iCalendar export to schedule page`
 
@@ -145,3 +146,10 @@ data/
 3. Tag the commit: `git tag v<version>`
 4. Update code comments in any changed files to reflect new behaviour
 5. Update `README.md` if the change affects usage, setup, features, or configuration
+
+**Examples**
+- Branch: `feature/add-dark-mode-v0.1`
+- Commit: `[v0.1] feature: add dark mode toggle to settings panel`
+---
+- Branch: `bugfix/fix-login-redirect-v1.2`
+- Commit: `[v1.2] bugfix: fix redirect loop after OAuth login`
