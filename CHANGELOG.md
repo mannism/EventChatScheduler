@@ -1,3 +1,10 @@
+## [2.3.4](https://github.com/mannism/EventChatScheduler/compare/v2.3.3...v2.3.4) (2026-03-22)
+
+### Bug Fixes
+
+* merge bugfix/eslint-ajv-conflict — resolve all ESLint/TypeScript errors ([a9b28f8](https://github.com/mannism/EventChatScheduler/commit/a9b28f8f468e024bfcc032fd3907e0334b4b5e76))
+* resolve all ESLint and TypeScript strict-mode errors ([bc1c809](https://github.com/mannism/EventChatScheduler/commit/bc1c809e9cea6e21f5acab2e38e48ecd1be4fbc0))
+
 # Changelog
 
 All notable changes to AI Conference Assistant are documented here.

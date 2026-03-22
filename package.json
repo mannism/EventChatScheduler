@@ -1,6 +1,6 @@
 {
   "name": "ai-conference-assistant",
-  "version": "2.3.3",
+  "version": "2.3.4",
   "private": true,
   "engines": {
     "node": ">=20.0.0"
