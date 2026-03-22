@@ -10,6 +10,22 @@ Versioning follows [Semantic Versioning](https://semver.org/) — future updates
 
 ---
 
+## [2.2.7] - 2026-03-22
+
+### Removed
+- `components/StatusBadge.tsx` — component was removed from layout in v2.2.5 but file remained
+- `components/ui/checkbox.tsx`, `components/ui/scroll-area.tsx` — unused shadcn primitives
+- `lib/openai.ts` — redundant OpenAI wrapper; chat route uses `@ai-sdk/openai` directly
+- `lib/data.ts` — removed unused `getSessionById()` and `getUniqueTags()` exports
+- `data/Scheduler_2026_consolidated_sessions-old.json` — stale backup data file
+- `public/file.svg`, `public/globe.svg`, `public/next.svg`, `public/vercel.svg`, `public/window.svg` — Next.js boilerplate SVGs never referenced
+- 26 root-level test and simulation scripts (`test_*.js`, `test_*.ts`, `simulate_usechat.js`) — manual scripts with no test runner configured
+
+### Fixed
+- `app/layout.tsx` — corrected stale JSDoc comment referencing removed StatusBadge
+
+---
+
 ## [2.2.6] - 2026-03-22
 
 ### Fixed

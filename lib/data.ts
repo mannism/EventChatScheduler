@@ -18,18 +18,3 @@ export async function getSessions(): Promise<Session[]> {
     return data.sessions;
 }
 
-/** Find a single session by its unique ID */
-export function getSessionById(id: string, sessions: Session[]): Session | undefined {
-    return sessions.find(s => s.id === id);
-}
-
-/** Extract and sort all unique tags across all sessions */
-export function getUniqueTags(sessions: Session[]): string[] {
-    const tags = new Set<string>();
-    sessions.forEach(session => {
-        if (session.tags) {
-            session.tags.forEach(tag => tags.add(tag));
-        }
-    });
-    return Array.from(tags).sort();
-}

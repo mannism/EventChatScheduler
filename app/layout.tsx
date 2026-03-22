@@ -5,7 +5,7 @@
  * - Google Fonts: Merriweather (headings), Open Sans (body), JetBrains Mono (code)
  * - Dark-first theme (class="dark" on <html>, ThemeToggle manages toggle)
  * - Ambient background decorations (slow-pulsing blur gradients)
- * - Fixed glassmorphic header: "← Labs by Diana" on left, StatusBadge + ThemeToggle on right
+ * - Fixed glassmorphic header: "← Labs by Diana" on left, ThemeToggle on right
  * - Content area offset by header height (64px)
  * - SEO metadata driven by data/seo.json for easy maintenance
  */
