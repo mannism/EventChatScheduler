@@ -10,6 +10,17 @@ Versioning follows [Semantic Versioning](https://semver.org/) — future updates
 
 ---
 
+## [2.3.3] - 2026-03-22
+
+### Changed
+- Wired up `semantic-release` with full plugin chain (`commit-analyzer`, `release-notes-generator`, `changelog`, `npm`, `git`, `github`)
+- Custom commit parser handles `[vX.Y.Z] type:` prefix — compatible with project commit convention
+- Updated `.github/workflows/release.yml` to use Node 22 and run `npx semantic-release` on push to `main`
+- Added `--ignore-engines` to Dockerfile `npm ci` to suppress EBADENGINE warnings from semantic-release devDependencies
+- Updated `CLAUDE.md` git workflow: always use a branch, never commit directly to `main`
+
+---
+
 ## [2.3.2] - 2026-03-22
 
 ### Changed
