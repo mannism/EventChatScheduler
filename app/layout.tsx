@@ -119,7 +119,7 @@ export default function RootLayout({
 
           {/* Right: status + theme toggle */}
           <div className="flex items-center gap-3">
-            <StatusBadge appName="AI Event Scheduler" />
+            <StatusBadge appName="AI Conference Assistant" />
             <ThemeToggle />
           </div>
         </header>

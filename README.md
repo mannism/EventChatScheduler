@@ -1,8 +1,8 @@
-# XyzCon EventChatScheduler v2.2
+# AI Conference Assistant v2.2
 
-XyzCon EventChatScheduler is a Next.js 16 web application that acts as an intelligent, personalised AI companion for conference attendees. It uses generative AI to help users navigate the event schedule, search for relevant sessions, and dynamically generate conflict-free customised itineraries through natural language chat.
+AI Conference Assistant is a Next.js 16 demo built for XYZ, showcasing AI-powered event assistance capabilities for XyzCon 2026. It uses generative AI to help attendees navigate the event schedule, search for relevant sessions, and dynamically generate conflict-free personalized itineraries through natural language chat.
 
-The AI Chat Scheduler uses the JSON files in `/data` as its dataset. **The `data` folder is included in the repository as sample event data so you can test and experiment with the AI scheduler out of the box.**
+The assistant uses the JSON files in `/data` as its dataset. **The `data` folder is included in the repository as sample event data so you can test and experiment with the AI assistant out of the box.**
 
 ## Key Features
 

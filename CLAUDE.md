@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-XyzCon EventChatScheduler — a Next.js 16 AI-powered conference assistant POC. Uses OpenAI GPT-5.1 via Vercel AI SDK to help attendees discover sessions, get exhibitor info, and generate conflict-free personalized schedules through natural language chat.
+AI Conference Assistant — a Next.js 16 demo built for XYZ showcasing AI-powered event assistance capabilities for XyzCon 2026. Uses OpenAI GPT-5.1 via Vercel AI SDK to help attendees discover sessions, get exhibitor info, and generate conflict-free personalized schedules through natural language chat.
 
 ## Tech Stack
 

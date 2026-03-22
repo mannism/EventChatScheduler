@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to XyzCon EventChatScheduler are documented here.
+All notable changes to AI Conference Assistant are documented here.
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 Versioning follows [Semantic Versioning](https://semver.org/) — future updates start from `2.0.0`.
 

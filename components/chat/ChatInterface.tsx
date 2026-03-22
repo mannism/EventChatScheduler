@@ -191,7 +191,7 @@ export function ChatInterface({ userProfile, onGenerateSchedule, onEditProfile }
                                 <span className="font-serif font-bold text-lg">AI</span>
                             </div>
                             <div>
-                                <h2 className="font-sans font-medium text-base text-foreground">AI Event Scheduler</h2>
+                                <h2 className="font-sans font-medium text-base text-foreground">AI Conference Assistant</h2>
                                 <p className="text-xs text-muted-foreground font-normal">Ask me about the the event or the sessions at XyzCon 2026</p>
                             </div>
                         </div>

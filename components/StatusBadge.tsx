@@ -18,7 +18,7 @@ interface StatusBadgeProps {
   appName?: string
 }
 
-export function StatusBadge({ appName = "AI Event Scheduler" }: StatusBadgeProps) {
+export function StatusBadge({ appName = "AI Conference Assistant" }: StatusBadgeProps) {
   const [isOnline, setIsOnline] = useState(true)
 
   useEffect(() => {

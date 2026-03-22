@@ -26,7 +26,7 @@ export function generateICS(schedule: APISchedule, userName?: string): string {
     const lines: string[] = [
         'BEGIN:VCALENDAR',
         'VERSION:2.0',
-        'PRODID:-//XyzCon//EventChatScheduler//EN',
+        'PRODID:-//XYZ//AIConferenceAssistant//EN',
         'CALSCALE:GREGORIAN',
         'METHOD:PUBLISH',
         `X-WR-CALNAME:XyzCon 2026 - ${escapeICS(userName || 'My Schedule')}`,
