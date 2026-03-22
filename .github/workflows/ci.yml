@@ -7,6 +7,35 @@ on:
     branches: [main]
 
 jobs:
+  sync-readme-version:
+    name: Sync README version
+    runs-on: ubuntu-latest
+    # Only run on direct pushes to main, not on PRs or [skip ci] commits
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main' && !contains(github.event.head_commit.message, '[skip ci]')
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Sync version in README.md
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          sed -i "s/# AI Conference Assistant v[0-9]*\.[0-9]*\.[0-9]*/# AI Conference Assistant v${VERSION}/" README.md
+
+      - name: Commit if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if ! git diff --quiet README.md; then
+            git add README.md
+            git commit -m "[skip ci] chore: sync README version from package.json"
+            git push
+          fi
+
   check:
     name: Typecheck, Lint & Build
     runs-on: ubuntu-latest
