@@ -10,6 +10,14 @@ Versioning follows [Semantic Versioning](https://semver.org/) — future updates
 
 ---
 
+## [2.2.5] - 2026-03-22
+
+### Changed
+- `app/layout.tsx` — removed `StatusBadge` ("AI Conference Assistant online"); header inner content now constrained to `max-w-5xl mx-auto` (1024px) matching footer; badge font `text-xs` → `text-sm`
+- `components/Footer.tsx` — `container mx-auto px-4` → `max-w-5xl mx-auto px-6 md:px-8` to align with header; removed `mt-20` margin
+
+---
+
 ## [2.2.4] - 2026-03-22
 
 ### Changed
