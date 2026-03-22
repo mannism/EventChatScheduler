@@ -10,6 +10,14 @@ Versioning follows [Semantic Versioning](https://semver.org/) — future updates
 
 ---
 
+## [2.3.1] - 2026-03-22
+
+### Added
+- `.github/workflows/ci.yml` — CI workflow: runs typecheck, lint, and production build on every push to `main` and every pull request
+- `.github/workflows/release.yml` — Release workflow: automatically creates a GitHub Release with CHANGELOG notes whenever a `v*` tag is pushed
+
+---
+
 ## [2.3.0] - 2026-03-22
 
 ### Fixed
