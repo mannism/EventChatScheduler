@@ -104,17 +104,22 @@ export default function RootLayout({
 
         {/* Fixed glassmorphic header */}
         <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-8 py-3.5 border-b transition-colors duration-300 bg-slate-50/80 dark:bg-slate-950/80 backdrop-blur-sm border-slate-200 dark:border-slate-800">
-          {/* Left: Labs by Diana link */}
+          {/* Left: Labs by Diana badge link */}
           <a
-            href="https://labs.dianaismail.me"
+            href="https://labs.dianaismail.me/"
             target="_self"
-            className="inline-flex items-center gap-1.5 font-mono text-sm text-slate-500 dark:text-slate-400 no-underline transition-colors hover:text-cyan-600 dark:hover:text-cyan-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 rounded"
+            className="inline-flex items-center gap-1.5 font-mono text-xs no-underline transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 rounded-full group"
+            aria-label="Back to Labs by Diana"
           >
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <line x1="19" y1="12" x2="5" y2="12" />
-              <polyline points="12 19 5 12 12 5" />
-            </svg>
-            Labs by Diana
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-slate-200 dark:border-slate-700 bg-white/80 dark:bg-slate-900/60 text-slate-500 dark:text-slate-400 group-hover:border-cyan-600/50 dark:group-hover:border-cyan-400/50 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-all duration-200">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <line x1="19" y1="12" x2="5" y2="12" />
+                <polyline points="12 19 5 12 12 5" />
+              </svg>
+              <span className="text-slate-300 dark:text-slate-600 select-none">//</span>
+              <span className="tracking-widest uppercase font-semibold">LABS</span>
+              <span className="text-slate-400 dark:text-slate-500 font-normal normal-case tracking-normal">by Diana</span>
+            </span>
           </a>
 
           {/* Right: status + theme toggle */}
