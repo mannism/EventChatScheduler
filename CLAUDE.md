@@ -130,26 +130,26 @@ data/
 
 ### Git Workflow
 - **ALWAYS commit to a new branch. NEVER commit directly to `main`.** Only merge to `main` when the user explicitly requests it.
-- **Branch naming**: `<type>/<short-description>-v<new-version>` — e.g., `feature/ics-export-v0.1`, `bugfix/scroll-fix-v1.2`
-- **Commit message format**: `[v<new-version>] <type>: <what was done>` — e.g., `[v0.1] feature: add iCalendar export to schedule page`
+- **Versions are controlled by semantic-release** — do not manually bump `package.json`, tag commits, or write `CHANGELOG.md` entries. Semantic-release handles all of this automatically on merge to `main`.
+- **Branch naming**: `<type>/<short-description>` — e.g., `feature/ics-export`, `bugfix/scroll-fix`
+- **Commit message format**: `<type>: <what was done>` — e.g., `feat: add iCalendar export to schedule page`
 
-| Type | When to use | Version bump |
+| Type | When to use | Release triggered |
 |---|---|---|
-| `feature/` | New functionality | Minor: `1.0.0 → 1.1.0` |
-| `bugfix/` | Bug fixes | Patch: `1.0.0 → 1.0.1` |
-| `refactor/` | Code restructuring | Patch: `1.0.0 → 1.0.1` |
-| `chore/` | Config, deps, tooling | Patch: `1.0.0 → 1.0.1` |
+| `feat:` | New functionality | Minor bump (`1.0.0 → 1.1.0`) |
+| `fix:` | Bug fixes | Patch bump (`1.0.0 → 1.0.1`) |
+| `refactor:` | Code restructuring | Patch bump |
+| `chore:` | Config, deps, tooling | No release |
+| `docs:` | Documentation only | No release |
+| `ci:` | CI/CD changes | No release |
 
-**Commit after every update (default, unless specifically instructed otherwise):**
-1. Bump `package.json` version to the new version number
-2. Add an entry to `CHANGELOG.md` under `## [x.y.z] - YYYY-MM-DD`
-3. Tag the commit: `git tag v<version>`
-4. Update code comments in any changed files to reflect new behaviour
-5. Update `README.md` if the change affects usage, setup, features, or configuration
+**After every commit:**
+1. Update code comments in any changed files to reflect new behaviour
+2. Update `README.md` if the change affects usage, setup, features, or configuration
 
 **Examples**
-- Branch: `feature/add-dark-mode-v0.1`
-- Commit: `[v0.1] feature: add dark mode toggle to settings panel`
+- Branch: `feature/add-dark-mode`
+- Commit: `feat: add dark mode toggle to settings panel`
 ---
-- Branch: `bugfix/fix-login-redirect-v1.2`
-- Commit: `[v1.2] bugfix: fix redirect loop after OAuth login`
+- Branch: `bugfix/fix-login-redirect`
+- Commit: `fix: fix redirect loop after OAuth login`
