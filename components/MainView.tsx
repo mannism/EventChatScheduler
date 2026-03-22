@@ -12,6 +12,12 @@
  * Visual layer:
  * - Hero section (visible only during onboarding) fades in with Framer Motion
  * - Phase transitions use AnimatePresence for smooth fade + slide
+ *
+ * Hydration note:
+ * AnimatePresence uses useId() internally. To prevent SSR/client ID mismatches
+ * (which break shadcn FormItem's aria attributes), AnimatePresence is only
+ * rendered after mount (isMounted). During SSR and initial hydration, phase
+ * panels render as plain divs so both trees are identical.
  */
 
 "use client"
@@ -96,53 +102,93 @@ export function MainView({ sessions }: MainViewProps) {
         setPhase('schedule');
     }
 
-    return (
-        <main className="min-h-[calc(100vh-64px)] bg-transparent text-foreground flex flex-col items-center justify-start py-4 md:py-10 px-4">
+    const heroContent = phase === 'onboarding' && (
+        <div className="text-center mb-8 md:mb-10 w-full max-w-2xl mx-auto">
+            <p className="text-xs font-mono text-cyan-700 dark:text-cyan-400 uppercase tracking-[0.2em] mb-3">
+                XyzCon 2026
+            </p>
+            <h1 className="text-3xl md:text-4xl font-serif font-bold text-foreground tracking-tight">
+                AI Conference Assistant
+            </h1>
+        </div>
+    )
 
-            {/* Hero — visible only on the onboarding phase */}
-            <AnimatePresence>
-                {phase === 'onboarding' && (
-                    <motion.div
-                        key="hero"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } }}
-                        exit={{ opacity: 0, y: -10, transition: { duration: 0.2 } }}
-                        className="text-center mb-8 md:mb-10 w-full max-w-2xl mx-auto"
-                    >
-                        <p className="text-xs font-mono text-cyan-700 dark:text-cyan-400 uppercase tracking-[0.2em] mb-3">
-                            XyzCon 2026
-                        </p>
-                        <h1 className="text-3xl md:text-4xl font-serif font-bold text-foreground tracking-tight">
-                            AI Conference Assistant
-                        </h1>
-                    </motion.div>
-                )}
-            </AnimatePresence>
+    const phasePanel = (
+        <div className="w-full">
+            {phase === 'onboarding' && (
+                <OnboardingForm onSubmit={handleOnboardingSubmit} defaultValues={userProfile || undefined} />
+            )}
+            {phase === 'chat' && userProfile && (
+                <ChatInterface
+                    userProfile={userProfile}
+                    onGenerateSchedule={handleGenerateSchedule}
+                    onEditProfile={handleEditProfile}
+                />
+            )}
+            {phase === 'schedule' && schedule && (
+                <ScheduleView schedule={schedule} />
+            )}
+        </div>
+    )
 
-            {/* Phase panels */}
-            <div className="w-full">
-                <AnimatePresence mode="wait">
+    // After hydration: wrap with AnimatePresence for transitions.
+    // AnimatePresence uses useId() internally — rendering it only post-mount
+    // ensures server and client produce identical trees during hydration,
+    // preventing aria ID mismatches in shadcn FormItem.
+    if (isMounted) {
+        return (
+            <main className="min-h-[calc(100vh-64px)] bg-transparent text-foreground flex flex-col items-center justify-start py-4 md:py-10 px-4">
+                <AnimatePresence>
                     {phase === 'onboarding' && (
-                        <motion.div key="onboarding" variants={phaseVariants} initial="initial" animate="animate" exit="exit">
-                            <OnboardingForm onSubmit={handleOnboardingSubmit} defaultValues={userProfile || undefined} />
-                        </motion.div>
-                    )}
-                    {phase === 'chat' && userProfile && (
-                        <motion.div key="chat" variants={phaseVariants} initial="initial" animate="animate" exit="exit">
-                            <ChatInterface
-                                userProfile={userProfile}
-                                onGenerateSchedule={handleGenerateSchedule}
-                                onEditProfile={handleEditProfile}
-                            />
-                        </motion.div>
-                    )}
-                    {phase === 'schedule' && schedule && (
-                        <motion.div key="schedule" variants={phaseVariants} initial="initial" animate="animate" exit="exit">
-                            <ScheduleView schedule={schedule} />
+                        <motion.div
+                            key="hero"
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } }}
+                            exit={{ opacity: 0, y: -10, transition: { duration: 0.2 } }}
+                            className="text-center mb-8 md:mb-10 w-full max-w-2xl mx-auto"
+                        >
+                            <p className="text-xs font-mono text-cyan-700 dark:text-cyan-400 uppercase tracking-[0.2em] mb-3">
+                                XyzCon 2026
+                            </p>
+                            <h1 className="text-3xl md:text-4xl font-serif font-bold text-foreground tracking-tight">
+                                AI Conference Assistant
+                            </h1>
                         </motion.div>
                     )}
                 </AnimatePresence>
-            </div>
+                <div className="w-full">
+                    <AnimatePresence mode="wait">
+                        {phase === 'onboarding' && (
+                            <motion.div key="onboarding" variants={phaseVariants} initial="initial" animate="animate" exit="exit">
+                                <OnboardingForm onSubmit={handleOnboardingSubmit} defaultValues={userProfile || undefined} />
+                            </motion.div>
+                        )}
+                        {phase === 'chat' && userProfile && (
+                            <motion.div key="chat" variants={phaseVariants} initial="initial" animate="animate" exit="exit">
+                                <ChatInterface
+                                    userProfile={userProfile}
+                                    onGenerateSchedule={handleGenerateSchedule}
+                                    onEditProfile={handleEditProfile}
+                                />
+                            </motion.div>
+                        )}
+                        {phase === 'schedule' && schedule && (
+                            <motion.div key="schedule" variants={phaseVariants} initial="initial" animate="animate" exit="exit">
+                                <ScheduleView schedule={schedule} />
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
+                </div>
+            </main>
+        )
+    }
+
+    // SSR / hydration pass — plain structure with no AnimatePresence so the
+    // component tree is identical on server and client, avoiding useId() drift.
+    return (
+        <main className="min-h-[calc(100vh-64px)] bg-transparent text-foreground flex flex-col items-center justify-start py-4 md:py-10 px-4">
+            {heroContent}
+            {phasePanel}
         </main>
     )
 }
