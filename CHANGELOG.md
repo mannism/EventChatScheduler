@@ -10,6 +10,13 @@ Versioning follows [Semantic Versioning](https://semver.org/) — future updates
 
 ---
 
+## [2.2.3] - 2026-03-22
+
+### Fixed
+- `components/chat/ChatInterface.tsx` — send button gradient `from-cyan-600 to-blue-600` → `from-cyan-700 to-blue-700`; white icon on cyan-600 = 3.68:1 (marginal) → cyan-700 = 5.36:1 ✅, blue-700 = 6.70:1 ✅; focus ring tightened with `ring-offset-2` for clear keyboard visibility
+
+---
+
 ## [2.2.2] - 2026-03-22
 
 ### Fixed (WCAG AA — 7 failures)
