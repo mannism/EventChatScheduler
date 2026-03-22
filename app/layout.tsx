@@ -130,7 +130,7 @@ export default function RootLayout({
                   <line x1="19" y1="12" x2="5" y2="12" />
                   <polyline points="12 19 5 12 12 5" />
                 </svg>
-                <span className="text-slate-300 dark:text-slate-600 select-none">//</span>
+                <span className="text-slate-300 dark:text-slate-600 select-none">{'//'}</span>
                 <span className="tracking-widest uppercase font-semibold">LABS</span>
                 <span className="text-slate-400 dark:text-slate-500 font-normal normal-case tracking-normal">by Diana</span>
               </span>

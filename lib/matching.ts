@@ -5,7 +5,7 @@
  * Used by both app/api/chat/route.ts and lib/scheduler.ts.
  */
 
-import { UserProfile } from './types';
+import { UserProfile, Session } from './types';
 import { JOB_TYPE_TAG_AFFINITY } from './constants';
 
 /**
@@ -75,7 +75,7 @@ export function countTagMatches(tags: string[], interests: string[]): number {
  * +1 if session has keynote or externalSpeaker metadata
  * +1 for job-type tag affinity
  */
-export function scoreSession(session: any, userProfile: Partial<UserProfile>): number {
+export function scoreSession(session: Session, userProfile: Partial<UserProfile>): number {
     let score = 0;
 
     // Interest tag matches (+3 each)

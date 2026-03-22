@@ -10,22 +10,13 @@
 
 "use client"
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, startTransition } from 'react'
 import { Moon, Sun } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 export function ThemeToggle() {
   const [isDark, setIsDark] = useState(true)
   const [mounted, setMounted] = useState(false)
-
-  // Read persisted preference on mount and sync class to <html>
-  useEffect(() => {
-    const saved = localStorage.getItem('theme')
-    const prefersDark = saved ? saved === 'dark' : true
-    setIsDark(prefersDark)
-    applyTheme(prefersDark)
-    setMounted(true)
-  }, [])
 
   const applyTheme = (dark: boolean) => {
     const root = document.documentElement
@@ -37,6 +28,17 @@ export function ThemeToggle() {
       root.classList.remove('dark')
     }
   }
+
+  // Read persisted preference on mount and sync class to <html>
+  useEffect(() => {
+    const saved = localStorage.getItem('theme')
+    const prefersDark = saved ? saved === 'dark' : true
+    applyTheme(prefersDark)
+    startTransition(() => {
+      setIsDark(prefersDark)
+      setMounted(true)
+    })
+  }, [])
 
   const toggle = () => {
     const next = !isDark

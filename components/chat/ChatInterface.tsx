@@ -16,7 +16,10 @@
 
 "use client"
 
+import React from 'react'
 import { useChat } from '@ai-sdk/react'
+import { DefaultChatTransport } from 'ai'
+import type { UIMessage, TextUIPart } from 'ai'
 import { useState, useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/button'
@@ -46,51 +49,36 @@ export function ChatInterface({ userProfile, onGenerateSchedule, onEditProfile }
     const lastUserMsgCount = useRef(0)
     const lastAssistantMsgCount = useRef(0)
 
-    // Cast result to any to handle type mismatch with installed SDK vs expected types
-    const chat = useChat({
-        api: '/api/chat',
-        onFinish: (message: any) => {
-            // Checking both structure possibilities
-            const content = message.content || (message.parts ? message.parts.map((p: any) => p.text).join('') : '');
-
-            if (content && content.includes('[GENERATE_SCHEDULE]')) {
-                onGenerateSchedule()
+    const { messages, sendMessage, status } = useChat({
+        transport: new DefaultChatTransport({ api: '/api/chat' }),
+        onFinish: ({ message }) => {
+            const text = message.parts
+                .filter((p): p is TextUIPart => p.type === 'text')
+                .map((p) => p.text)
+                .join('');
+            if (text.includes('[GENERATE_SCHEDULE]')) {
+                onGenerateSchedule();
             }
         },
-    } as any) as any;
+    });
 
-    // Polyfill or extract available methods based on inspection
-    const { messages, append, sendMessage, status, isLoading: originalIsLoading } = chat;
-
-    useEffect(() => {
-        // Debugging the actual returned object
-        // console.log('useChat keys:', Object.keys(chat));
-    }, [chat]);
-
-    // Helper to extract text — handles both string content and parts-based messages
-    const getMessageText = (m: any) => {
-        if (typeof m.content === 'string') return m.content;
-        if (Array.isArray(m.parts)) {
-            return m.parts.filter((p: any) => p.type === 'text').map((p: any) => p.text).join('');
-        }
-        return '';
+    // Helper to extract text content from a message's parts array
+    const getMessageText = (m: UIMessage): string => {
+        return m.parts
+            .filter((p): p is TextUIPart => p.type === 'text')
+            .map((p) => p.text)
+            .join('');
     }
 
-    // Derived loading state — covers both legacy isLoading flag and newer status-based API
-    const isLoading = originalIsLoading || status === 'streaming' || status === 'submitted';
-    const lastAssistantMsg = [...messages].reverse().find((m: any) => m.role === 'assistant');
+    // Derived loading state from status
+    const isLoading = status === 'streaming' || status === 'submitted';
+    const lastAssistantMsg = [...messages].reverse().find((m) => m.role === 'assistant');
     const isStreamingWithContent = isLoading && lastAssistantMsg && getMessageText(lastAssistantMsg).length > 0;
     const isWaitingForResponse = isLoading && !isStreamingWithContent;
 
-    // Universal send handler — tries append() first, falls back to sendMessage()
-    const doSendMessage = async (userMessage: any) => {
-        if (append) {
-            await append(userMessage, { body: { userProfile } });
-        } else if (sendMessage) {
-            await sendMessage(userMessage);
-        } else {
-            console.error('No send method found (append/sendMessage missing)');
-        }
+    // Send a text message via the useChat sendMessage method
+    const doSendMessage = async (text: string) => {
+        await sendMessage({ text }, { body: { userProfile } });
     }
 
     // On first render, send [INIT_CHAT] with profile to trigger the AI greeting.
@@ -103,9 +91,10 @@ export function ChatInterface({ userProfile, onGenerateSchedule, onEditProfile }
                     type: "init",
                     profile: userProfile
                 });
-                doSendMessage({ role: 'user', content: `[INIT_CHAT] ${initPayload}` });
+                doSendMessage(`[INIT_CHAT] ${initPayload}`);
             }, 50);
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [messages.length, userProfile]);
 
     useEffect(() => {
@@ -121,15 +110,15 @@ export function ChatInterface({ userProfile, onGenerateSchedule, onEditProfile }
         e.preventDefault()
         if (!input.trim()) return
 
-        const userMessage = { role: 'user', content: input };
+        const text = input;
         setInput('')
 
-        await doSendMessage(userMessage);
+        await doSendMessage(text);
     }
 
     // Auto-scroll when the user sends a new message
     useEffect(() => {
-        const userMessages = messages.filter((m: any) => m.role === 'user')
+        const userMessages = messages.filter((m) => m.role === 'user')
         if (userMessages.length > lastUserMsgCount.current) {
             lastUserMsgCount.current = userMessages.length
             // A small 50ms delay gives React enough time to paint the new user message
@@ -144,7 +133,7 @@ export function ChatInterface({ userProfile, onGenerateSchedule, onEditProfile }
 
     // Gentle nudge scroll when the AI response first appears
     useEffect(() => {
-        const assistantMessages = messages.filter((m: any) => m.role === 'assistant')
+        const assistantMessages = messages.filter((m) => m.role === 'assistant')
         if (assistantMessages.length > lastAssistantMsgCount.current) {
             lastAssistantMsgCount.current = assistantMessages.length
             // Nudge the view down slightly (120px) to reveal the first few lines of the
@@ -168,7 +157,7 @@ export function ChatInterface({ userProfile, onGenerateSchedule, onEditProfile }
     }, [isLoading, messages])
 
     // Filter out system directives ([INIT_CHAT], [GENERATE_SCHEDULE]) from user-visible messages
-    const displayMessages = messages.filter((m: any) => {
+    const displayMessages = messages.filter((m) => {
         const text = getMessageText(m);
         if (!text.trim()) return false;
         return !text.includes('[GENERATE_SCHEDULE]') && !text.includes('[INIT_CHAT]');
@@ -229,8 +218,7 @@ export function ChatInterface({ userProfile, onGenerateSchedule, onEditProfile }
                                             key={suggestion}
                                             onClick={() => {
                                                 if (!isLoading) {
-                                                    const msg = { role: 'user', content: suggestion };
-                                                    doSendMessage(msg);
+                                                    doSendMessage(suggestion);
                                                 }
                                             }}
                                             className="text-sm bg-black/[0.04] hover:bg-cyan-500/10 border border-black/10 hover:border-cyan-500/30 dark:bg-slate-900/40 dark:border-slate-800/60 dark:hover:bg-cyan-500/10 dark:hover:border-cyan-400/40 text-left p-3 rounded-lg transition-all duration-200 font-sans focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-cyan-500 min-h-[48px]"
@@ -242,7 +230,7 @@ export function ChatInterface({ userProfile, onGenerateSchedule, onEditProfile }
                             </div>
                         )}
 
-                        {displayMessages.map((m: any, i: number) => (
+                        {displayMessages.map((m: UIMessage, i: number) => (
                             <div key={i} className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'} animate-in fade-in slide-in-from-bottom-2 duration-300`}>
                                 <div
                                     className={cn(
@@ -256,7 +244,7 @@ export function ChatInterface({ userProfile, onGenerateSchedule, onEditProfile }
                                         <ReactMarkdown
                                             remarkPlugins={[remarkGfm]}
                                             components={{
-                                                p({ children }: any) {
+                                                p({ children }: { children?: React.ReactNode }) {
                                                     const text = String(children);
                                                     if (text.includes('"schedule_download"')) {
                                                         return (
@@ -268,20 +256,20 @@ export function ChatInterface({ userProfile, onGenerateSchedule, onEditProfile }
                                                     }
                                                     return <p className="mb-4 last:mb-0">{children}</p>;
                                                 },
-                                                code({ node, inline, className, children, ...props }: any) {
+                                                code({ className, children, ...props }: React.HTMLAttributes<HTMLElement> & { node?: unknown }) {
                                                     const match = /language-(\w+)/.exec(className || '');
                                                     const content = String(children).replace(/\n$/, '');
 
                                                     // If the LLM returns a JSON code block, check if it's the schedule output.
                                                     // If "type" equals "schedule_download", suppress the raw JSON text and render
                                                     // the custom ViewScheduleButton component instead, passing it the payload.
-                                                    if (!inline && match && match[1] === 'json') {
+                                                    if (match && match[1] === 'json') {
                                                         try {
                                                             const parsed = JSON.parse(content);
                                                             if (parsed.type === 'schedule_download') {
                                                                 return <ViewScheduleButton scheduleData={parsed.data} userProfile={userProfile} />;
                                                             }
-                                                        } catch (e) {
+                                                        } catch {
                                                             if (content.includes('"schedule_download"')) {
                                                                 return (
                                                                     <div className="my-4 p-5 rounded-2xl border border-black/10 bg-white/60 dark:border-slate-700/60 dark:bg-slate-900/60 flex flex-col items-center justify-center space-y-4 text-center shadow-sm">

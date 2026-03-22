@@ -17,10 +17,22 @@ export interface Session {
     endDateTime: string;
     tags: string[];
     regions: string[];
+    presenters?: string[];
+    description?: string;
+    shortDescription?: string;
     metadata?: {
         appPartner?: string;
-        [key: string]: any;
+        [key: string]: unknown;
     };
+}
+
+/** An exhibitor or event partner at the conference */
+export interface Exhibitor {
+    name: string;
+    tags: string[];
+    shortDescription?: string;
+    description?: string;
+    regions?: string[];
 }
 
 /** User profile collected during the onboarding flow */
