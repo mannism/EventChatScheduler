@@ -10,6 +10,17 @@ Versioning follows [Semantic Versioning](https://semver.org/) — future updates
 
 ---
 
+## [2.2.1] - 2026-03-22
+
+### Changed
+- `components/MainView.tsx` — hero heading updated to "AI Conference Assistant (Demo)"
+- `components/chat/ChatInterface.tsx` — chat header updated to "AI Conference Assistant (demo)"; fixed typo "Converence" → "Conference"
+
+### Added
+- App icon assets: `app/favicon-16x16.png`, `favicon-32x32.png`, `favicon-48x48.png`, `favicon-512x512.png`, `android-chrome-192x192.png`, `apple-touch-icon.png.png`
+
+---
+
 ## [2.2.0] - 2026-03-22
 
 ### Added
