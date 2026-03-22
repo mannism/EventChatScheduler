@@ -1,4 +1,4 @@
-# AI Conference Assistant v2.2
+# AI Conference Assistant v2.2.8
 
 AI Conference Assistant is a Next.js 16 demo built for XYZ, showcasing AI-powered event assistance capabilities for XyzCon 2026. It uses generative AI to help attendees navigate the event schedule, search for relevant sessions, and dynamically generate conflict-free personalized itineraries through natural language chat.
 
@@ -98,9 +98,7 @@ Onboarding (5-step form) → Chat (AI conversation + tools) → Schedule (printa
 
 - **`components/ThemeToggle.tsx`** — Dark/light theme toggle button. Reads and writes `localStorage('theme')`, toggles `.dark`/`.light` on `<html>`. Pre-mount placeholder prevents hydration mismatch. WCAG AA contrast in both modes.
 
-- **`components/Footer.tsx`** — Server component footer matching `labs.dianaismail.me`: copyright on left, "Return to portfolio" link on right. Font-mono, muted, border-top separator.
-
-- **`components/StatusBadge.tsx`** — Client component using `navigator.onLine` for real-time connection status in the header.
+- **`components/Footer.tsx`** — Server component footer: copyright right-aligned, font-mono, muted, border-top separator.
 
 - **`app/schedule/page.tsx`** — Standalone route that reads schedule data from `sessionStorage` and renders a landscape-oriented HTML table for printing. Includes iCalendar export.
 
@@ -140,7 +138,9 @@ Static JSON files used as the AI's backend — no database required:
 
 ```
 app/
-  api/chat/route.ts    # Chat API — system prompt, tool definitions, streaming
+  api/
+    chat/route.ts      # Chat API — system prompt, tool definitions, streaming
+    health/route.ts    # Health check endpoint for Railway readiness probe
   page.tsx             # Home page — server-side session loading
   schedule/page.tsx    # Printable schedule view (reads sessionStorage)
   layout.tsx           # Root layout — fonts, ambient bg, header, SEO metadata
@@ -148,8 +148,7 @@ app/
 components/
   MainView.tsx         # Phase controller: onboarding → chat → schedule
   ThemeToggle.tsx      # Dark/light toggle — localStorage-persisted, hydration-safe
-  StatusBadge.tsx      # Online/offline status indicator (navigator.onLine)
-  Footer.tsx           # Server component footer matching labs.dianaismail.me
+  Footer.tsx           # Server component footer
   chat/
     ChatInterface.tsx  # AI chat UI — markdown rendering, schedule interception
     ViewScheduleButton.tsx  # sessionStorage schedule handoff to /schedule route
@@ -166,7 +165,6 @@ lib/
   ics.ts               # iCalendar (.ics) export generator
   constants.ts         # Event config (dates, job types, interests, networking times)
   utils.ts             # cn() utility — clsx + tailwind-merge
-  openai.ts            # OpenAI SDK v6 singleton wrapper
 data/
   seo.json                                    # SEO metadata — title, OG, Twitter Card
   Scheduler_2026_consolidated_sessions.json   # Event sessions dataset

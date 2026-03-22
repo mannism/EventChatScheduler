@@ -32,14 +32,17 @@ npm run lint     # ESLint
 
 ```
 app/
-  api/chat/route.ts    # Main chat API — system prompt, tool definitions, streaming
+  api/
+    chat/route.ts      # Main chat API — system prompt, tool definitions, streaming
+    health/route.ts    # Health check endpoint for Railway readiness probe
   page.tsx             # Home page entry
   schedule/page.tsx    # Printable schedule view (reads sessionStorage)
   layout.tsx           # Root layout with fonts & header
   globals.css          # Tailwind theme, CSS variables, glass-morphism styles
 components/
   MainView.tsx         # Phase controller: onboarding → chat → schedule
-  StatusBadge.tsx      # Online/offline indicator
+  ThemeToggle.tsx      # Dark/light theme toggle
+  Footer.tsx           # Server component footer
   chat/               # ChatInterface.tsx, ViewScheduleButton.tsx
   onboarding/         # OnboardingForm.tsx (multi-step)
   scheduler/          # ScheduleView.tsx
@@ -48,9 +51,10 @@ lib/
   types.ts            # Core TypeScript interfaces
   data.ts             # Session data loader
   scheduler.ts        # Schedule generation (conflict detection, lunch/networking slots)
+  matching.ts         # Tag matching, session scoring
+  ics.ts              # iCalendar (.ics) export generator
   constants.ts        # Job types, interests, countries
   utils.ts            # cn() utility (clsx + tailwind-merge)
-  openai.ts           # OpenAI SDK wrapper
 data/
   Scheduler_2026_consolidated_sessions.json   # Event sessions
   Scheduler_2026_exhibitors.json              # Exhibitor/sponsor data

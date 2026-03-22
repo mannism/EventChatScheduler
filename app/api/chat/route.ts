@@ -570,11 +570,11 @@ export async function POST(req: NextRequest) {
         });
 
         return result.toUIMessageStreamResponse();
-    } catch (error: any) {
+    } catch (error: unknown) {
         console.error("API /chat error:", error);
         return new Response(JSON.stringify({
             error: 'Internal Server Error',
-            message: error.message
+            message: 'The AI assistant is temporarily unavailable. Please try again in a moment.',
         }), {
             status: 500,
             headers: { 'Content-Type': 'application/json' },

@@ -10,6 +10,19 @@ Versioning follows [Semantic Versioning](https://semver.org/) — future updates
 
 ---
 
+## [2.2.9] - 2026-03-22
+
+### Added
+- `app/api/health/route.ts` — GET `/api/health` endpoint returning `{ status: "ok" }` for Railway readiness probes
+- `package.json` — `engines` field specifying `node >=20.0.0` to match Dockerfile base image
+
+### Fixed
+- `app/api/chat/route.ts` — error handler no longer returns `error.message` to clients; replaced with safe generic message per security guidelines
+- `Dockerfile` — `mkdir .next` → `mkdir -p .next` (idempotent, safe if directory exists)
+- `README.md`, `CLAUDE.md` — removed stale references to deleted files (`StatusBadge.tsx`, `lib/openai.ts`); added `app/api/health/route.ts` to project structure; updated version to v2.2.8
+
+---
+
 ## [2.2.8] - 2026-03-22
 
 ### Removed
