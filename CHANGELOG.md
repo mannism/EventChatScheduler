@@ -10,6 +10,15 @@ Versioning follows [Semantic Versioning](https://semver.org/) — future updates
 
 ---
 
+## [2.3.0] - 2026-03-22
+
+### Fixed
+- `Dockerfile` — updated all `ENV key value` to `ENV key=value` format (resolves 5× `LegacyKeyValueFormat` build warnings); removed stale comment on builder stage
+- `package.json` — removed unused `semantic-release`, `@semantic-release/changelog`, `@semantic-release/git`, `@semantic-release/github` devDependencies (required Node 22+, caused `EBADENGINE` warnings on Node 20)
+- `package.json` — downgraded `eslint` from `^10` to `^9` to match peer requirements of `eslint-config-next` and bundled plugins (resolves 4× `ERESOLVE` peer conflict warnings)
+
+---
+
 ## [2.2.9] - 2026-03-22
 
 ### Added
