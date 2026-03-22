@@ -7,6 +7,7 @@
  * - Ambient background decorations (slow-pulsing blur gradients)
  * - Fixed glassmorphic header: "← Labs by Diana" on left, StatusBadge + ThemeToggle on right
  * - Content area offset by header height (64px)
+ * - SEO metadata driven by data/seo.json for easy maintenance
  */
 
 import type { Metadata } from 'next'
@@ -16,6 +17,7 @@ import { cn } from '@/lib/utils'
 import { StatusBadge } from '@/components/StatusBadge'
 import { ThemeToggle } from '@/components/ThemeToggle'
 import { Footer } from '@/components/Footer'
+import seo from '@/data/seo.json'
 
 const merriweather = Merriweather({
   subsets: ['latin'],
@@ -36,8 +38,38 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'XyzCon 2026 Event Scheduler',
-  description: 'Your intelligent event companion for XyzCon 2026.',
+  title: seo.title,
+  description: seo.description,
+  keywords: seo.keywords,
+  authors: [{ name: seo.author }],
+  metadataBase: new URL(seo.siteUrl),
+  alternates: { canonical: '/' },
+  openGraph: {
+    type: seo.openGraph.type as 'website',
+    locale: seo.openGraph.locale,
+    url: seo.siteUrl,
+    siteName: seo.siteName,
+    title: seo.title,
+    description: seo.description,
+    images: [{
+      url: seo.openGraph.imageUrl,
+      width: seo.openGraph.imageWidth,
+      height: seo.openGraph.imageHeight,
+      alt: seo.openGraph.imageAlt,
+    }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: seo.title,
+    description: seo.description,
+    creator: seo.twitterHandle,
+    images: [seo.openGraph.imageUrl],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true },
+  },
 }
 
 export default function RootLayout({

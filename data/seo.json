@@ -1,0 +1,26 @@
+{
+  "title": "XyzCon 2026 Event Scheduler | AI Conference Assistant",
+  "description": "An AI-powered event companion for XyzCon 2026. Chat with an intelligent assistant to discover sessions, find exhibitors, and generate a conflict-free personalised schedule.",
+  "keywords": [
+    "XyzCon 2026",
+    "conference scheduler",
+    "AI assistant",
+    "event planner",
+    "personalised schedule",
+    "conference app",
+    "OpenAI",
+    "Next.js"
+  ],
+  "author": "Diana Ismail",
+  "siteUrl": "https://scheduler.dianaismail.me",
+  "siteName": "XyzCon 2026",
+  "twitterHandle": "@fkzl",
+  "openGraph": {
+    "type": "website",
+    "locale": "en_US",
+    "imageUrl": "/favicon-512x512.png",
+    "imageWidth": 1200,
+    "imageHeight": 630,
+    "imageAlt": "XyzCon 2026 Event Scheduler — AI-powered conference assistant"
+  }
+}
