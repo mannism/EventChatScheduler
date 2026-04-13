@@ -1,5 +1,7 @@
 # CLAUDE.md
 
+> Global rules (TypeScript, security, git workflow, accessibility baseline) are in ~/.claude/CLAUDE.md
+
 ## Project Overview
 
 AI Conference Assistant — a Next.js 16 demo built for XYZ showcasing AI-powered event assistance capabilities for XyzCon 2026. Uses OpenAI GPT-5.1 via Vercel AI SDK to help attendees discover sessions, get exhibitor info, and generate conflict-free personalized schedules through natural language chat.
@@ -10,7 +12,7 @@ AI Conference Assistant — a Next.js 16 demo built for XYZ showcasing AI-powere
 - **AI**: Vercel AI SDK (`ai`, `@ai-sdk/react`), OpenAI SDK v6
 - **UI**: Tailwind CSS v4, shadcn/ui (Radix UI), Lucide icons, Framer Motion
 - **Forms**: React Hook Form + Zod validation
-- **Deployment**: Docker (multi-stage, node:20-alpine), standalone output mode
+- **Deployment**: Docker (multi-stage, node:20-alpine), standalone output mode, Railway-ready (health check at `/api/health`)
 
 ## Commands
 
@@ -31,34 +33,47 @@ npm run lint     # ESLint
 ## Project Structure
 
 ```
+.github/
+  dependabot.yml                               # Weekly npm dependency updates
+  workflows/
+    ci.yml                                     # Typecheck, lint, build + npm audit
+    release.yml                                # semantic-release on merge to main
 app/
   api/
-    chat/route.ts      # Main chat API — system prompt, tool definitions, streaming
-    health/route.ts    # Health check endpoint for Railway readiness probe
-  page.tsx             # Home page entry
-  schedule/page.tsx    # Printable schedule view (reads sessionStorage)
-  layout.tsx           # Root layout with fonts & header
-  globals.css          # Tailwind theme, CSS variables, glass-morphism styles
+    chat/route.ts                              # Main chat API — system prompt, tool definitions, streaming
+    health/route.ts                            # Health check endpoint for Railway readiness probe
+  page.tsx                                     # Home page entry
+  schedule/page.tsx                            # Printable schedule view (reads sessionStorage)
+  layout.tsx                                   # Root layout with fonts, header, SEO metadata
+  globals.css                                  # Tailwind theme, CSS variables, glass-morphism styles
+  favicon.ico                                  # App favicon
 components/
-  MainView.tsx         # Phase controller: onboarding → chat → schedule
-  ThemeToggle.tsx      # Dark/light theme toggle
-  Footer.tsx           # Server component footer
-  chat/               # ChatInterface.tsx, ViewScheduleButton.tsx
-  onboarding/         # OnboardingForm.tsx (multi-step)
-  scheduler/          # ScheduleView.tsx
-  ui/                 # shadcn/ui primitives (button, card, form, tabs, etc.)
+  MainView.tsx                                 # Phase controller: onboarding → chat → schedule
+  ThemeToggle.tsx                              # Dark/light theme toggle
+  Footer.tsx                                   # Server component footer
+  chat/
+    ChatInterface.tsx                          # AI chat UI — markdown rendering, schedule interception
+    ViewScheduleButton.tsx                     # sessionStorage schedule handoff to /schedule route
+  onboarding/
+    OnboardingForm.tsx                         # 5-step wizard (name, role, location, days, interests)
+  scheduler/
+    ScheduleView.tsx                           # Tabbed in-app schedule display with print support
+  ui/                                          # shadcn/ui primitives (button, card, command, dialog, form, input, label, popover, select, tabs)
 lib/
-  types.ts            # Core TypeScript interfaces
-  data.ts             # Session data loader
-  scheduler.ts        # Schedule generation (conflict detection, lunch/networking slots)
-  matching.ts         # Tag matching, session scoring
-  ics.ts              # iCalendar (.ics) export generator
-  constants.ts        # Job types, interests, countries
-  utils.ts            # cn() utility (clsx + tailwind-merge)
+  types.ts                                     # Core TypeScript interfaces
+  data.ts                                      # Server-side session data loader (reads JSON from disk)
+  data/sessions.json                           # Compiled session data (generated/cached)
+  scheduler.ts                                 # Schedule generation (conflict detection, 5-step pipeline)
+  matching.ts                                  # Tag matching, session scoring, Fisher-Yates shuffle
+  ics.ts                                       # iCalendar (.ics) export generator
+  constants.ts                                 # Event config (dates, job types, interests, networking times)
+  utils.ts                                     # cn() utility (clsx + tailwind-merge)
 data/
-  Scheduler_2026_consolidated_sessions.json   # Event sessions
-  Scheduler_2026_exhibitors.json              # Exhibitor/sponsor data
-  Scheduler_System_Prompt.txt                 # AI system prompt
+  seo.json                                     # SEO metadata — title, OG, Twitter Card
+  Scheduler_2026_consolidated_sessions.json    # Event sessions dataset
+  Scheduler_2026_exhibitors.json               # Exhibitor/sponsor profiles
+  Scheduler_System_Prompt.txt                  # AI system prompt reference
+public/                                        # Favicon variants (16/32/48/192/512px, apple-touch-icon)
 ```
 
 ## Architecture
@@ -75,17 +90,12 @@ data/
 
 ## Conventions
 
-- **Components**: PascalCase filenames and exports; props defined as TypeScript interfaces with JSDoc `/** */` descriptions
-- **Functions/variables**: camelCase
-- **Constants**: UPPER_SNAKE_CASE
-- **Types**: PascalCase interfaces in `lib/types.ts`
 - **Client components**: `"use client"` directive at top
 - **Styling**: Tailwind utility classes, `cn()` for conditional merging; glass-morphism utilities prefixed `glass-*`
 - **UI components**: shadcn/ui pattern — composable, Radix-based, in `components/ui/`
 - **Path aliases**: `@/*` maps to project root
 - **Fonts**: Merriweather (`font-serif` / headings), Open Sans (`font-sans` / body), JetBrains Mono (`font-mono` / code)
 - **Brand colors**: `#0a0c10` background, `#0069ff` accent blue (`xyz-blue`), `#f0f2f5` primary text
-- **TypeScript**: strict mode — no `any` types, no unused locals or params
 
 ## Key Patterns
 
@@ -96,60 +106,42 @@ data/
 
 ## Developer Rules
 
-### Break Down Large Tasks
-- Split large tasks into small, focused subtasks
-- Complete and verify each subtask before moving to the next to avoid cascading breakage
-
 ### Error Handling
-- Wrap every OpenAI API call (and any future external service call) in a `try/catch` block
-- Log API failures with relevant metadata (timestamp, status code, endpoint) — **never log PII, user messages, or API keys**
 - Return a graceful fallback response when the AI service fails so the app remains usable (e.g., return a 500 with a safe message rather than an unhandled crash)
-
-### User-Facing Errors
-- **Never expose `error.message`, stack traces, or internal details to the client**
-- Use helpful, non-technical messages: e.g., `"The AI assistant is temporarily unavailable. Please try again in a moment."`
 
 ### Input Validation
 - Validate all incoming API payloads with Zod schemas — Zod is already used for the onboarding form; extend this discipline to the `/api/chat` route body
 - Do **not** bypass ReactMarkdown's XSS protection by using `dangerouslySetInnerHTML` to render AI-generated content
 
-### Secrets Management
-- Never hardcode `OPENAI_API_KEY` or any credentials in source files
-- All secrets must come from `.env.local`, which is excluded from version control via `.gitignore`
-- Do not commit `.env.local` or any file containing real API keys
+### Security Headers (IMPLEMENTED)
+- Security headers configured in `next.config.ts` via `async headers()` on all routes (`/(.*)`):
+  - `X-Frame-Options: DENY`
+  - `X-Content-Type-Options: nosniff`
+  - `Referrer-Policy: strict-origin-when-cross-origin`
+  - `Strict-Transport-Security` (HSTS, 2-year max-age, includeSubDomains, preload)
+  - `Content-Security-Policy` (default-src self, frame-ancestors none, restricted script/style/img/font/connect sources)
+  - `Permissions-Policy` (camera, microphone, geolocation disabled)
+- **Rate limiting (GAP):** No rate limiting on `/api/chat`. Must add before production use.
 
-### Code Quality
-- Use descriptive variable and function names; add JSDoc for any non-obvious logic
-- Props interfaces must have JSDoc `/** */` descriptions (already enforced in existing components)
-- TypeScript strict mode is on — no `any` types, no unused locals or params
-- Auth, payment, and data deletion paths require integration tests before merge
-- Avoid N+1 queries: audit history must be fetched with a single paginated query
+### OWASP Security Checklist (mandatory on every release)
+Full cross-project checklist: `Owner Inbox/research/security-audit-cross-project.md`
+
+**EventChatScheduler-specific smoke tests (Quinn runs on every release):**
+| Test | Expected |
+|------|----------|
+| Chat input validation — malformed body to `/api/chat` | Zod rejects with 400 |
+| `<script>` in chat input | Rendered as text via ReactMarkdown |
+| Security headers check | HSTS, X-Frame-Options, CSP, X-Content-Type-Options |
+| Trigger 500 error | Safe error message, no stack traces |
+| `npm audit --production` | Zero high/critical |
+| View source — no OPENAI_API_KEY in client | Pass |
+
+### CI Security (mandatory — IMPLEMENTED)
+- **Dependabot** enabled (`.github/dependabot.yml`) — weekly npm updates, groups minor/patch, limit 5 open PRs
+- **npm audit** step in CI (`.github/workflows/ci.yml` `security-audit` job): `npm audit --production --audit-level=high`
+- **CI pipeline** (`.github/workflows/ci.yml`): typecheck (`tsc --noEmit`), lint, build, and security audit on every push/PR to main
+- **semantic-release** (`.github/workflows/release.yml`): automated versioning, CHANGELOG, and GitHub Releases on merge to main
+- **Quarterly review:** Sable runs OWASP ZAP against staging first Monday of each quarter
 
 ### Testing
 - When a test framework is introduced, new features and bug fixes must include unit tests; the AI chat API route and schedule generation logic are the highest-priority paths to cover
-
-### Git Workflow
-- **ALWAYS commit to a new branch. NEVER commit directly to `main`.** Only merge to `main` when the user explicitly requests it.
-- **Versions are controlled by semantic-release** — do not manually bump `package.json`, tag commits, or write `CHANGELOG.md` entries. Semantic-release handles all of this automatically on merge to `main`.
-- **Branch naming**: `<type>/<short-description>` — e.g., `feature/ics-export`, `bugfix/scroll-fix`
-- **Commit message format**: `<type>: <what was done>` — e.g., `feat: add iCalendar export to schedule page`
-
-| Type | When to use | Release triggered |
-|---|---|---|
-| `feat:` | New functionality | Minor bump (`1.0.0 → 1.1.0`) |
-| `fix:` | Bug fixes | Patch bump (`1.0.0 → 1.0.1`) |
-| `refactor:` | Code restructuring | Patch bump |
-| `chore:` | Config, deps, tooling | No release |
-| `docs:` | Documentation only | No release |
-| `ci:` | CI/CD changes | No release |
-
-**After every commit:**
-1. Update code comments in any changed files to reflect new behaviour
-2. Update `README.md` if the change affects usage, setup, features, or configuration
-
-**Examples**
-- Branch: `feature/add-dark-mode`
-- Commit: `feat: add dark mode toggle to settings panel`
----
-- Branch: `bugfix/fix-login-redirect`
-- Commit: `fix: fix redirect loop after OAuth login`
