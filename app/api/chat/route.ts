@@ -186,15 +186,18 @@ When outputting schedule data from createSchedule, output ONLY a JSON code block
 
         /**
          * Dynamic system prompt suffix — appended after the static prefix.
-         * Contains only per-user data (profile). Placed last so cache prefix is maximised.
+         * Compact JSON to minimise per-request token cost. Placed last so cache prefix is maximised.
          */
-        const dynamicPrompt = `
-User Profile:
-Name: ${safeName}
-Role: ${safeRole}
-Attendance Days: ${safeAttendanceDays.join(', ')}
-Interests: ${safeInterests.join(', ')}
-Location: ${safeLocation}`;
+        const userContextJson = JSON.stringify({
+            name: safeName,
+            role: safeRole,
+            days: safeAttendanceDays,
+            interests: safeInterests,
+            location: safeLocation,
+            maxSessions,
+            maxExhibitors,
+        });
+        const dynamicPrompt = `User context: ${userContextJson}`;
 
         const result = await streamText({
             model: openai(process.env.OPENAI_MODEL || 'gpt-5.1'),
