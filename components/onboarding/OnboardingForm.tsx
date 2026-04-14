@@ -1,12 +1,13 @@
 /**
  * OnboardingForm.tsx
  *
- * Multi-step onboarding wizard (5 steps) that collects the user's profile:
- *   Step 1: Name
- *   Step 2: Job type / role
- *   Step 3: Location (country)
- *   Step 4: Attendance days (Day 1, Day 2, or Both)
- *   Step 5: Interest topics (multi-select with search)
+ * Multi-step onboarding wizard (3 steps) that collects the user's profile:
+ *   Step 1: "Tell us about yourself." — Name (text input) + Role (select), stacked vertically
+ *   Step 2: "When are you attending?" — Location (select) + Attendance Days (day picker), stacked vertically
+ *   Step 3: "What interests you?" — Interest topics (multi-select with search)
+ *
+ * Reduced from 5 steps — each combined step groups logically related fields to cut
+ * ~40% of onboarding friction without losing any collected data.
  *
  * Uses React Hook Form + Zod for per-step validation. Each step validates
  * only its own fields before allowing progression to the next step.
@@ -52,7 +53,7 @@ import { Check, ChevronsUpDown } from "lucide-react"
 import { UserProfile } from "@/lib/types"
 import { COUNTRIES, ATTENDANCE_OPTIONS, JOB_TYPES, INTERESTS } from "@/lib/constants"
 
-/** Zod validation schema — each field maps to one onboarding step */
+/** Zod validation schema — all five profile fields */
 const formSchema = z.object({
     name: z.string().min(2, {
         message: "Name must be at least 2 characters.",
@@ -93,30 +94,23 @@ export function OnboardingForm({ onSubmit, defaultValues }: OnboardingFormProps)
         },
     })
 
-    const totalSteps = 5
+    const totalSteps = 3
+
+    /**
+     * Fields validated per step — only these are triggered before advancing.
+     *   Step 1: name + jobType   (who you are)
+     *   Step 2: location + attendanceDays  (when/where you're attending)
+     *   Step 3: interests  (what you want to see)
+     */
+    const STEP_FIELDS: Record<number, (keyof z.infer<typeof formSchema>)[]> = {
+        1: ["name", "jobType"],
+        2: ["location", "attendanceDays"],
+        3: ["interests"],
+    }
 
     // Validate only the current step's fields, then advance or submit
     const nextStep = async () => {
-        let fieldsToValidate: (keyof z.infer<typeof formSchema>)[] = []
-
-        switch (step) {
-            case 1:
-                fieldsToValidate = ["name"]
-                break
-            case 2:
-                fieldsToValidate = ["jobType"]
-                break
-            case 3:
-                fieldsToValidate = ["location"]
-                break
-            case 4:
-                fieldsToValidate = ["attendanceDays"]
-                break
-            case 5:
-                fieldsToValidate = ["interests"]
-                break
-        }
-
+        const fieldsToValidate = STEP_FIELDS[step] ?? []
         const isValid = await form.trigger(fieldsToValidate)
         if (isValid) {
             if (step < totalSteps) {
@@ -140,18 +134,24 @@ export function OnboardingForm({ onSubmit, defaultValues }: OnboardingFormProps)
     // Watch all fields reactively to enable/disable the Continue button
     const values = form.watch()
 
-    /** Check if the current step has valid input (used to disable the Continue button) */
+    /**
+     * Check if ALL fields for the current step have valid input.
+     * Used to enable/disable the Continue button — both fields in combined steps
+     * must be filled before the button activates.
+     */
     const isStepValid = () => {
         switch (step) {
             case 1:
-                return values.name && values.name.length >= 2
+                return (
+                    values.name && values.name.length >= 2 &&
+                    values.jobType && values.jobType.length > 0
+                )
             case 2:
-                return values.jobType && values.jobType.length > 0
+                return (
+                    values.location && values.location.length > 0 &&
+                    values.attendanceDays && values.attendanceDays.length > 0
+                )
             case 3:
-                return values.location && values.location.length > 0
-            case 4:
-                return values.attendanceDays && values.attendanceDays.length > 0
-            case 5:
                 return values.interests && values.interests.length > 0
             default:
                 return false
@@ -181,7 +181,7 @@ export function OnboardingForm({ onSubmit, defaultValues }: OnboardingFormProps)
                         <span className="text-xs font-mono text-muted-foreground uppercase tracking-widest">
                             Onboarding
                         </span>
-                        {/* Step indicator dots */}
+                        {/* Step indicator dots — 3 dots for 3 steps */}
                         <div className="flex gap-1.5">
                             {Array.from({ length: totalSteps }).map((_, i) => (
                                 <div
@@ -199,143 +199,141 @@ export function OnboardingForm({ onSubmit, defaultValues }: OnboardingFormProps)
                         </div>
                     </div>
                     <CardTitle className="text-3xl font-bold font-serif tracking-tight text-foreground">
-                        {step === 1 && "Start your journey."}
-                        {step === 2 && "What is your role?"}
-                        {step === 3 && "Where are you from?"}
-                        {step === 4 && "Select your availability."}
-                        {step === 5 && "Choose your interests."}
+                        {step === 1 && "Tell us about yourself."}
+                        {step === 2 && "When are you attending?"}
+                        {step === 3 && "What interests you?"}
                     </CardTitle>
                     <CardDescription className="text-lg text-muted-foreground font-sans">
                         {step === 1 && "Let's personalize your XyzCon 2026 experience."}
-                        {step === 2 && "We'll tailor the conversation to your background."}
-                        {step === 3 && "To help provide location-relevant context."}
-                        {step === 4 && "If we schedule a follow-up, when works?"}
-                        {step === 5 && "Select topics you'd like to discuss."}
+                        {step === 2 && "We'll tailor recommendations to your schedule."}
+                        {step === 3 && "Select topics you'd like to explore."}
                     </CardDescription>
                 </CardHeader>
 
                 <CardContent className="pt-6 min-h-[400px]">
                     <Form {...form}>
                         <form onSubmit={(e) => e.preventDefault()} className="space-y-8">
+
+                            {/* Step 1: Name + Role — stacked vertically with space-y-6 */}
                             {step === 1 && (
-                                <FormField
-                                    control={form.control}
-                                    name="name"
-                                    render={({ field }) => (
-                                        <FormItem>
-                                            <FormControl>
-                                                <Input
-                                                    placeholder="Enter your full name"
-                                                    {...field}
-                                                    className="text-lg py-8 px-6 bg-input/50 border-border focus-visible:ring-4 focus-visible:ring-cyan-500 transition-all"
-                                                    onKeyDown={(e) => {
-                                                        if (e.key === 'Enter') {
-                                                            e.preventDefault();
-                                                            nextStep();
-                                                        }
-                                                    }}
-                                                    autoFocus
-                                                />
-                                            </FormControl>
-                                            <FormMessage />
-                                        </FormItem>
-                                    )}
-                                />
-                            )}
-
-                            {step === 2 && (
-                                <FormField
-                                    control={form.control}
-                                    name="jobType"
-                                    render={({ field }) => (
-                                        <FormItem>
-                                            <Select onValueChange={field.onChange} defaultValue={field.value}>
+                                <div className="space-y-6">
+                                    <FormField
+                                        control={form.control}
+                                        name="name"
+                                        render={({ field }) => (
+                                            <FormItem>
                                                 <FormControl>
-                                                    <SelectTrigger className="py-8 px-6 text-lg bg-input/50 border-border focus:ring-4 focus:ring-cyan-500">
-                                                        <SelectValue placeholder="Select your role" />
-                                                    </SelectTrigger>
-                                                </FormControl>
-                                                <SelectContent className="bg-popover border-border">
-                                                    {JOB_TYPES.map((job) => (
-                                                        <SelectItem key={job} value={job} className="text-lg py-3 focus:bg-cyan-400/20 focus:text-foreground cursor-pointer">
-                                                            {job}
-                                                        </SelectItem>
-                                                    ))}
-                                                </SelectContent>
-                                            </Select>
-                                            <FormMessage />
-                                        </FormItem>
-                                    )}
-                                />
-                            )}
-
-                            {step === 3 && (
-                                <FormField
-                                    control={form.control}
-                                    name="location"
-                                    render={({ field }) => (
-                                        <FormItem>
-                                            <Select onValueChange={field.onChange} defaultValue={field.value}>
-                                                <FormControl>
-                                                    <SelectTrigger className="py-8 px-6 text-lg bg-input/50 border-border focus:ring-4 focus:ring-cyan-500">
-                                                        <SelectValue placeholder="Select your location" />
-                                                    </SelectTrigger>
-                                                </FormControl>
-                                                <SelectContent className="bg-popover border-border max-h-[300px]">
-                                                    {COUNTRIES.map((country) => (
-                                                        <SelectItem key={country} value={country} className="text-lg py-3 focus:bg-cyan-400/20 focus:text-foreground cursor-pointer">
-                                                            {country}
-                                                        </SelectItem>
-                                                    ))}
-                                                </SelectContent>
-                                            </Select>
-                                            <FormMessage />
-                                        </FormItem>
-                                    )}
-                                />
-                            )}
-
-                            {step === 4 && (
-                                <FormField
-                                    control={form.control}
-                                    name="attendanceDays"
-                                    render={() => (
-                                        <FormItem>
-                                            <div className="flex flex-col sm:flex-row gap-4 w-full">
-                                                {ATTENDANCE_OPTIONS.map((option) => (
-                                                    <FormField
-                                                        key={option.label}
-                                                        control={form.control}
-                                                        name="attendanceDays"
-                                                        render={({ field }) => {
-                                                            return (
-                                                                <FormItem className="flex-1 space-y-0">
-                                                                    <FormControl>
-                                                                        <div
-                                                                            onClick={() => field.onChange(option.value)}
-                                                                            className={cn(
-                                                                                "cursor-pointer rounded-xl border-2 p-4 text-center transition-all h-full flex items-center justify-center hover:bg-muted/50 min-h-[48px] focus-visible:ring-4 focus-visible:ring-cyan-500",
-                                                                                JSON.stringify(field.value) === JSON.stringify(option.value)
-                                                                                    ? "border-cyan-600 bg-cyan-50 text-cyan-700 dark:border-cyan-400 dark:bg-cyan-400/10 dark:text-cyan-400 font-bold shadow-lg shadow-cyan-400/10"
-                                                                                    : "border-input bg-card text-muted-foreground hover:border-cyan-500/40 dark:hover:border-cyan-400/40"
-                                                                            )}
-                                                                        >
-                                                                            <span className="text-lg">{option.label}</span>
-                                                                        </div>
-                                                                    </FormControl>
-                                                                </FormItem>
-                                                            )
+                                                    <Input
+                                                        placeholder="Enter your full name"
+                                                        {...field}
+                                                        className="text-lg py-8 px-6 bg-input/50 border-border focus-visible:ring-4 focus-visible:ring-cyan-500 transition-all"
+                                                        onKeyDown={(e) => {
+                                                            // Enter in the name field must NOT advance — jobType also needs filling
+                                                            if (e.key === 'Enter') {
+                                                                e.preventDefault();
+                                                            }
                                                         }}
+                                                        autoFocus
                                                     />
-                                                ))}
-                                            </div>
-                                            <FormMessage />
-                                        </FormItem>
-                                    )}
-                                />
+                                                </FormControl>
+                                                <FormMessage />
+                                            </FormItem>
+                                        )}
+                                    />
+                                    <FormField
+                                        control={form.control}
+                                        name="jobType"
+                                        render={({ field }) => (
+                                            <FormItem>
+                                                <Select onValueChange={field.onChange} defaultValue={field.value}>
+                                                    <FormControl>
+                                                        <SelectTrigger className="py-8 px-6 text-lg bg-input/50 border-border focus:ring-4 focus:ring-cyan-500">
+                                                            <SelectValue placeholder="Select your role" />
+                                                        </SelectTrigger>
+                                                    </FormControl>
+                                                    <SelectContent className="bg-popover border-border">
+                                                        {JOB_TYPES.map((job) => (
+                                                            <SelectItem key={job} value={job} className="text-lg py-3 focus:bg-cyan-400/20 focus:text-foreground cursor-pointer">
+                                                                {job}
+                                                            </SelectItem>
+                                                        ))}
+                                                    </SelectContent>
+                                                </Select>
+                                                <FormMessage />
+                                            </FormItem>
+                                        )}
+                                    />
+                                </div>
                             )}
 
-                            {step === 5 && (
+                            {/* Step 2: Location + Attendance Days — stacked vertically with space-y-6 */}
+                            {step === 2 && (
+                                <div className="space-y-6">
+                                    <FormField
+                                        control={form.control}
+                                        name="location"
+                                        render={({ field }) => (
+                                            <FormItem>
+                                                <Select onValueChange={field.onChange} defaultValue={field.value}>
+                                                    <FormControl>
+                                                        <SelectTrigger className="py-8 px-6 text-lg bg-input/50 border-border focus:ring-4 focus:ring-cyan-500">
+                                                            <SelectValue placeholder="Select your location" />
+                                                        </SelectTrigger>
+                                                    </FormControl>
+                                                    <SelectContent className="bg-popover border-border max-h-[300px]">
+                                                        {COUNTRIES.map((country) => (
+                                                            <SelectItem key={country} value={country} className="text-lg py-3 focus:bg-cyan-400/20 focus:text-foreground cursor-pointer">
+                                                                {country}
+                                                            </SelectItem>
+                                                        ))}
+                                                    </SelectContent>
+                                                </Select>
+                                                <FormMessage />
+                                            </FormItem>
+                                        )}
+                                    />
+                                    <FormField
+                                        control={form.control}
+                                        name="attendanceDays"
+                                        render={() => (
+                                            <FormItem>
+                                                <div className="flex flex-col sm:flex-row gap-4 w-full">
+                                                    {ATTENDANCE_OPTIONS.map((option) => (
+                                                        <FormField
+                                                            key={option.label}
+                                                            control={form.control}
+                                                            name="attendanceDays"
+                                                            render={({ field }) => {
+                                                                return (
+                                                                    <FormItem className="flex-1 space-y-0">
+                                                                        <FormControl>
+                                                                            <div
+                                                                                onClick={() => field.onChange(option.value)}
+                                                                                className={cn(
+                                                                                    "cursor-pointer rounded-xl border-2 p-4 text-center transition-all h-full flex items-center justify-center hover:bg-muted/50 min-h-[48px] focus-visible:ring-4 focus-visible:ring-cyan-500",
+                                                                                    JSON.stringify(field.value) === JSON.stringify(option.value)
+                                                                                        ? "border-cyan-600 bg-cyan-50 text-cyan-700 dark:border-cyan-400 dark:bg-cyan-400/10 dark:text-cyan-400 font-bold shadow-lg shadow-cyan-400/10"
+                                                                                        : "border-input bg-card text-muted-foreground hover:border-cyan-500/40 dark:hover:border-cyan-400/40"
+                                                                                )}
+                                                                            >
+                                                                                <span className="text-lg">{option.label}</span>
+                                                                            </div>
+                                                                        </FormControl>
+                                                                    </FormItem>
+                                                                )
+                                                            }}
+                                                        />
+                                                    ))}
+                                                </div>
+                                                <FormMessage />
+                                            </FormItem>
+                                        )}
+                                    />
+                                </div>
+                            )}
+
+                            {/* Step 3: Interests — unchanged multi-select with tag display */}
+                            {step === 3 && (
                                 <FormField
                                     control={form.control}
                                     name="interests"
