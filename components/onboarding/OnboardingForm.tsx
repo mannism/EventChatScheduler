@@ -297,21 +297,33 @@ export function OnboardingForm({ onSubmit, defaultValues }: OnboardingFormProps)
                                         name="attendanceDays"
                                         render={() => (
                                             <FormItem>
-                                                <div className="flex flex-col sm:flex-row gap-4 w-full">
+                                                {/* radiogroup role groups the individual radio cards for AT announcement */}
+                                                <div role="radiogroup" aria-label="Attendance days" className="flex flex-col sm:flex-row gap-4 w-full">
                                                     {ATTENDANCE_OPTIONS.map((option) => (
                                                         <FormField
                                                             key={option.label}
                                                             control={form.control}
                                                             name="attendanceDays"
                                                             render={({ field }) => {
+                                                                const isSelected = JSON.stringify(field.value) === JSON.stringify(option.value);
                                                                 return (
                                                                     <FormItem className="flex-1 space-y-0">
                                                                         <FormControl>
                                                                             <div
+                                                                                role="radio"
+                                                                                aria-checked={isSelected}
+                                                                                tabIndex={0}
                                                                                 onClick={() => field.onChange(option.value)}
+                                                                                onKeyDown={(e) => {
+                                                                                    // WCAG 2.1.1: Enter and Space must activate the selection
+                                                                                    if (e.key === 'Enter' || e.key === ' ') {
+                                                                                        e.preventDefault();
+                                                                                        field.onChange(option.value);
+                                                                                    }
+                                                                                }}
                                                                                 className={cn(
-                                                                                    "cursor-pointer rounded-xl border-2 p-4 text-center transition-all h-full flex items-center justify-center hover:bg-muted/50 min-h-[48px] focus-visible:ring-4 focus-visible:ring-cyan-500",
-                                                                                    JSON.stringify(field.value) === JSON.stringify(option.value)
+                                                                                    "cursor-pointer rounded-xl border-2 p-4 text-center transition-all h-full flex items-center justify-center hover:bg-muted/50 min-h-[48px] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-cyan-500",
+                                                                                    isSelected
                                                                                         ? "border-cyan-600 bg-cyan-50 text-cyan-700 dark:border-cyan-400 dark:bg-cyan-400/10 dark:text-cyan-400 font-bold shadow-lg shadow-cyan-400/10"
                                                                                         : "border-input bg-card text-muted-foreground hover:border-cyan-500/40 dark:hover:border-cyan-400/40"
                                                                                 )}
