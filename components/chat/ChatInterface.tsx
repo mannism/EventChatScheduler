@@ -361,7 +361,7 @@ export function ChatInterface({ userProfile, onGenerateSchedule, onEditProfile }
                             size="icon"
                             disabled={isLoading || !input.trim()}
                             aria-label="Send message"
-                            className="h-10 w-10 min-w-[40px] min-h-[40px] rounded-full bg-gradient-to-br from-cyan-700 to-blue-700 hover:brightness-110 hover:scale-105 text-white shadow-lg transition-all shrink-0 border-0 focus-visible:ring-4 focus-visible:ring-offset-2 focus-visible:ring-cyan-600"
+                            className="h-11 w-11 min-w-[44px] min-h-[44px] rounded-full bg-gradient-to-br from-cyan-700 to-blue-700 hover:brightness-110 hover:scale-105 text-white shadow-lg transition-all shrink-0 border-0 focus-visible:ring-4 focus-visible:ring-offset-2 focus-visible:ring-cyan-600"
                         >
                             <Send className="h-4 w-4" />
                         </Button>
