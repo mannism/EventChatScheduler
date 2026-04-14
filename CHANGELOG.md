@@ -1,3 +1,23 @@
+## [2.4.0](https://github.com/mannism/EventChatScheduler/compare/v2.3.5...v2.4.0) (2026-04-14)
+
+### Features
+
+* add detail param to searchSessions tool ([5d15ce0](https://github.com/mannism/EventChatScheduler/commit/5d15ce09a4aa85509fa55280d1c3aaddb1979218))
+* reduce wizard from 5 steps to 3 by combining related fields ([76b8d50](https://github.com/mannism/EventChatScheduler/commit/76b8d50b3826e974593bfd94b2cb0d7d6b116a5d))
+* show contextual tool-call progress labels during AI tool execution ([4af56bf](https://github.com/mannism/EventChatScheduler/commit/4af56bf14e6c1cc6cd0522a5718ee8ebaf1a2759))
+
+### Bug Fixes
+
+* add Zod validation to /api/chat request body ([fdabb92](https://github.com/mannism/EventChatScheduler/commit/fdabb9228cc1c565180f76459c1409b5c72c8799))
+* consolidate schedule_download detection to single code path ([4ea8a3d](https://github.com/mannism/EventChatScheduler/commit/4ea8a3df601cdf596baa55d3b82de01468554fd8))
+* consolidate three scroll useEffects into a single scroll manager ([86fedcc](https://github.com/mannism/EventChatScheduler/commit/86fedccd598c3acc0ebf908085679ccb2e8f3dca))
+* deduplicate schedule generation — delegate to lib/scheduler ([92c6dad](https://github.com/mannism/EventChatScheduler/commit/92c6dad39466f215aecfe15d4ff22db730f6cdd5))
+* remove hover animation from chat card wrapper ([646fbb0](https://github.com/mannism/EventChatScheduler/commit/646fbb02852e675a83fabc34a3558a60071e2ccf))
+
+### Performance Improvements
+
+* reduce stepCountIs limit from 5 to 3 ([0a748d8](https://github.com/mannism/EventChatScheduler/commit/0a748d8f9aa7bf6b675de3895ca539d363ea6699))
+
 ## [2.3.5](https://github.com/mannism/EventChatScheduler/compare/v2.3.4...v2.3.5) (2026-04-13)
 
 ### Bug Fixes
