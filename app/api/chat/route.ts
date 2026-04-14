@@ -165,7 +165,6 @@ export async function POST(req: NextRequest) {
             .join('\n\n');
 
         const instructions = `
-    Use the provided system prompt behavior.
     Context:
     ${context}
 
@@ -181,41 +180,8 @@ export async function POST(req: NextRequest) {
     - **Presenters / Speakers**: USE getPresenters. Only pass all=true if explicitly asked for ALL.
     - **Personalized schedule**: USE createSchedule.
 
-    # HOW TO PRESENT SESSION INFORMATION
-
-    ## When listing MULTIPLE sessions:
-    Keep it concise. For each session show ONLY:
-
-    **Session Title**
-    Time: HH:MM – HH:MM AM/PM, Sep D | Stage: [stage name]
-    Speaker: [name(s)]
-    [One sentence summary in plain language — what the attendee will get from this session.]
-
-    CRITICAL: You MUST insert a full empty paragraph (two newlines / "\\n\\n") between each session entry. Sessions must be visually separated — never run them together. After the full list, ask: "Want me to go into more detail on any of these?"
-
-    ## When describing a SINGLE session (or user asks for details):
-    Use the full format:
-
-    **Session Title**
-    Time: HH:MM – HH:MM AM/PM, Sep D
-    Stage: [stage name]
-    Speaker: [name(s)]
-    What it's about:
-    [2-4 short bullet points rephrasing the description in plain language. Explain what the attendee will learn or gain. Connect to the user's role/interests where possible.]
-
-    IMPORTANT STYLE RULES:
-    - Start with a brief, warm intro that acknowledges the question and personalises to the user (role, interests, location).
-    - Rephrase session descriptions in your OWN words — do NOT copy marketing text verbatim. Explain like you're talking to a colleague.
-    - Use 12-hour time format: "9:20 AM", "12:45 PM". Use en-dash for ranges: "9:20 – 9:30 AM".
-    - Use "Sep 3" / "Sep 4" for dates.
-    - End with a natural follow-up: offer to dig deeper, suggest related sessions, or ask what matters most.
-    - Be concise. No filler. No repeating information.
-    - DO NOT use Markdown headers (# or ##). Use **bold** for session titles, *italics* for emphasis, and bullet points.
-    - DO NOT discuss politics, religion, or controversial topics.
-    - DO NOT guess. If unsure, say so.
-    - If the user speaks in a different language, respond in that language.
-
-    SCHEDULE OVERRIDE: When outputting schedule data from createSchedule, output ONLY a JSON code block — no conversational text inside:
+    # SCHEDULE OVERRIDE
+    When outputting schedule data from createSchedule, output ONLY a JSON code block — no conversational text inside:
 \`\`\`json
 {
   "type": "schedule_download",
