@@ -83,7 +83,7 @@ The Docker image uses a multi-stage build with `node:20-alpine` and Next.js stan
 ## Architecture
 
 ```
-Onboarding (5-step form)  -->  Chat (AI conversation + tools)  -->  Schedule (printable view)
+Onboarding (3-step form)  -->  Chat (AI conversation + tools)  -->  Schedule (printable view)
 ```
 
 **State management**: React hooks only -- no global store. `localStorage` persists user profile and phase across reloads. `sessionStorage` transfers large schedule payloads to the print view.
@@ -92,10 +92,10 @@ Onboarding (5-step form)  -->  Chat (AI conversation + tools)  -->  Schedule (pr
 
 | Module | Description |
 |--------|-------------|
-| `app/api/chat/route.ts` | Core API route driving stream completions and OpenAI tool calling. Defines 4 tools, enforces strict JSON formatting, and streams responses via the Vercel AI SDK. |
+| `app/api/chat/route.ts` | Core API route with Zod-validated request body. Cache-optimized system prompt (static prefix + dynamic user context). Defines 4 tools, delegates schedule generation to `lib/scheduler.ts`, and streams responses via the Vercel AI SDK. |
 | `components/MainView.tsx` | Phase controller orchestrating onboarding, chat, and schedule. Persists user profile and current phase to `localStorage` so returning users skip onboarding. |
-| `components/chat/ChatInterface.tsx` | Renders the conversation UI. Intercepts Markdown payloads (JSON code blocks marked `schedule_download`) to dynamically spawn the `ViewScheduleButton`. Three-tier auto-scroll system. |
-| `components/onboarding/OnboardingForm.tsx` | Multi-step wizard collecting user profile (name, role, location, attendance days, interests) with per-step Zod validation. |
+| `components/chat/ChatInterface.tsx` | Renders the conversation UI. Intercepts Markdown payloads (JSON code blocks marked `schedule_download`) to dynamically spawn the `ViewScheduleButton`. Shows contextual tool-call progress labels. Single scroll manager with near-bottom detection. |
+| `components/onboarding/OnboardingForm.tsx` | 3-step wizard collecting user profile: (1) name + role, (2) location + attendance days, (3) interests. Per-step Zod validation. |
 | `components/scheduler/ScheduleView.tsx` | In-app tabbed schedule display with print support. Session cards are color-coded by type (keynotes, breaks, regular sessions). |
 | `lib/scheduler.ts` | Client-side schedule generation engine: 5-step pipeline (mandatory keynotes, fixed networking, lunch, App Spotlight, personalized backfill by interest score). |
 | `lib/matching.ts` | Shared tag matching (exact + word-boundary regex), multi-factor session scoring, Fisher-Yates shuffle. |
@@ -105,7 +105,7 @@ Onboarding (5-step form)  -->  Chat (AI conversation + tools)  -->  Schedule (pr
 
 | Tool | Description |
 |------|-------------|
-| `searchSessions` | Search sessions by track, tags, date, or presenter. Returns scored, non-clashing results. |
+| `searchSessions` | Search sessions by track, tags, date, or presenter. Returns scored, non-clashing results. Supports `detail` param for full vs. short descriptions. |
 | `getExhibitors` | Look up exhibitors/sponsors by name or interest tags. Ranked by relevance to user profile. |
 | `getPresenters` | Find presenters and their sessions. Supports filtered or exhaustive listing. |
 | `createSchedule` | Generates a complete personalized 2-day schedule with keynotes, breaks, and exhibitor recommendations. |
@@ -128,7 +128,7 @@ Onboarding (5-step form)  -->  Chat (AI conversation + tools)  -->  Schedule (pr
     release.yml                                # semantic-release on merge to main
 app/
   api/
-    chat/route.ts                              # Chat API -- system prompt, tool definitions, streaming
+    chat/route.ts                              # Chat API -- Zod-validated, cache-optimized prompt, tool definitions, streaming
     health/route.ts                            # Health check endpoint for Railway readiness probe
   page.tsx                                     # Home page -- server-side session loading
   schedule/page.tsx                            # Printable schedule view (reads sessionStorage)
@@ -139,10 +139,10 @@ components/
   ThemeToggle.tsx                              # Dark/light toggle -- localStorage-persisted, hydration-safe
   Footer.tsx                                   # Server component footer
   chat/
-    ChatInterface.tsx                          # AI chat UI -- markdown rendering, schedule interception
+    ChatInterface.tsx                          # AI chat UI -- markdown rendering, schedule interception, tool-call progress
     ViewScheduleButton.tsx                     # sessionStorage schedule handoff to /schedule route
   onboarding/
-    OnboardingForm.tsx                         # 5-step wizard (name, role, location, days, interests)
+    OnboardingForm.tsx                         # 3-step wizard (name+role, location+days, interests)
   scheduler/
     ScheduleView.tsx                           # Tabbed in-app schedule display with print support
   ui/                                          # shadcn/ui primitives (button, card, command, dialog, form, input, label, popover, select, tabs)
@@ -178,7 +178,7 @@ All routes are served with the following security headers (configured in `next.c
 ### Application Security
 
 - AI-generated content rendered via ReactMarkdown (XSS-safe) -- no `dangerouslySetInnerHTML`
-- Zod validation on the onboarding form; extending to `/api/chat` route body
+- Zod validation on the onboarding form and `/api/chat` request body (returns 400 on malformed input)
 - API keys server-side only -- never exposed to the client bundle
 - Graceful error handling on AI service failures (safe 500 messages, no stack traces)
 

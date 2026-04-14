@@ -40,7 +40,7 @@ npm run lint     # ESLint
     release.yml                                # semantic-release on merge to main
 app/
   api/
-    chat/route.ts                              # Main chat API — system prompt, tool definitions, streaming
+    chat/route.ts                              # Main chat API — Zod-validated, cache-optimized prompt, tool definitions, streaming
     health/route.ts                            # Health check endpoint for Railway readiness probe
   page.tsx                                     # Home page entry
   schedule/page.tsx                            # Printable schedule view (reads sessionStorage)
@@ -52,10 +52,10 @@ components/
   ThemeToggle.tsx                              # Dark/light theme toggle
   Footer.tsx                                   # Server component footer
   chat/
-    ChatInterface.tsx                          # AI chat UI — markdown rendering, schedule interception
+    ChatInterface.tsx                          # AI chat UI — markdown rendering, schedule interception, tool-call progress
     ViewScheduleButton.tsx                     # sessionStorage schedule handoff to /schedule route
   onboarding/
-    OnboardingForm.tsx                         # 5-step wizard (name, role, location, days, interests)
+    OnboardingForm.tsx                         # 3-step wizard (name+role, location+days, interests)
   scheduler/
     ScheduleView.tsx                           # Tabbed in-app schedule display with print support
   ui/                                          # shadcn/ui primitives (button, card, command, dialog, form, input, label, popover, select, tabs)
@@ -82,7 +82,7 @@ public/                                        # Favicon variants (16/32/48/192/
 
 **State management**: React hooks only — no global store. Cross-tab data via sessionStorage.
 
-**API route** (`app/api/chat/route.ts`): Core logic hub — loads system prompt, builds user context from profile, defines 4 LLM tools (`searchSessions`, `getExhibitors`, `getPresenters`, `createSchedule`), streams responses via `streamText()`.
+**API route** (`app/api/chat/route.ts`): Core logic hub — Zod-validated request body, cache-optimized system prompt (static prefix + dynamic user context suffix for OpenAI automatic prompt caching), defines 4 LLM tools (`searchSessions`, `getExhibitors`, `getPresenters`, `createSchedule`), streams responses via `streamText()`. Schedule generation delegates to `lib/scheduler.ts` (single source of truth).
 
 **Schedule logic** (`lib/scheduler.ts`): Conflict-free session selection with mandatory keynotes, fixed networking/lunch blocks, exhibitor mixing by user interests.
 
@@ -100,8 +100,12 @@ public/                                        # Favicon variants (16/32/48/192/
 ## Key Patterns
 
 - Tool definitions use Zod schemas for type-safe LLM function calling
+- System prompt split into static prefix (brand, voice, formatting, keynotes, tool rules) + dynamic suffix (user context JSON) for OpenAI automatic prompt caching (~50% input token discount on cached prefix)
+- `searchSessions` supports `detail` param — short summaries by default, full descriptions on demand (reduces token payload)
+- Tool step limit set to 3 (`stepCountIs(3)`) to prevent runaway token consumption
 - sessionStorage used for large schedule data transfer (avoids URL size limits)
 - System messages/directives hidden from user-visible chat
+- Tool-call progress labels shown during AI tool execution (e.g. "Searching sessions...", "Building your schedule...")
 - Glass-morphism dark theme (Diana Ismail inspired) via CSS variables in globals.css
 
 ## Developer Rules
@@ -110,7 +114,7 @@ public/                                        # Favicon variants (16/32/48/192/
 - Return a graceful fallback response when the AI service fails so the app remains usable (e.g., return a 500 with a safe message rather than an unhandled crash)
 
 ### Input Validation
-- Validate all incoming API payloads with Zod schemas — Zod is already used for the onboarding form; extend this discipline to the `/api/chat` route body
+- Validate all incoming API payloads with Zod schemas — `/api/chat` request body is Zod-validated (messages array + optional userProfile), returns 400 on malformed input
 - Do **not** bypass ReactMarkdown's XSS protection by using `dangerouslySetInnerHTML` to render AI-generated content
 
 ### Security Headers (IMPLEMENTED)
