@@ -456,9 +456,8 @@ When outputting schedule data from createSchedule, output ONLY a JSON code block
                     description: 'Generates a personalized 2-day event schedule for the user based on their attendance days and interests.',
                     inputSchema: z.object({}),
                     execute: async () => {
-                        // typedProfile is built at the top of the handler from safe fallback values
-                        const userInterests = safeInterests;
-
+                        // typedProfile is built at the top of the handler from safe fallback values.
+                        // safeInterests (from outer closure) is used directly below — no local alias needed.
                         const { days } = await generateSchedule(typedProfile, sessionsData);
 
                         /**
@@ -477,8 +476,8 @@ When outputting schedule data from createSchedule, output ONLY a JSON code block
                             // Matched exhibitors are shuffled separately from unmatched so interest
                             // relevance is preserved while adding variety within each tier.
                             let dayExhibitors: Exhibitor[] = exhibitorsData;
-                            if (userInterests.length > 0) {
-                                const matchedExhs = dayExhibitors.filter((e) => hasMatchingTag(e.tags || [], userInterests));
+                            if (safeInterests.length > 0) {
+                                const matchedExhs = dayExhibitors.filter((e) => hasMatchingTag(e.tags || [], safeInterests));
                                 const unmatchedExhs = dayExhibitors.filter((e) => !matchedExhs.includes(e));
                                 dayExhibitors = [...shuffle(matchedExhs), ...shuffle(unmatchedExhs)];
                             } else {
