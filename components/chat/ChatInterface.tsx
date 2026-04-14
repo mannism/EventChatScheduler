@@ -277,36 +277,33 @@ export function ChatInterface({ userProfile, onGenerateSchedule, onEditProfile }
                                                     return <p className="mb-4 last:mb-0">{children}</p>;
                                                 },
                                                 code({ className, children, ...props }: React.HTMLAttributes<HTMLElement> & { node?: unknown }) {
-                                                    const match = /language-(\w+)/.exec(className || '');
                                                     const content = String(children).replace(/\n$/, '');
 
-                                                    // If the LLM returns a JSON code block, check if it's the schedule output.
-                                                    // If "type" equals "schedule_download", suppress the raw JSON text and render
-                                                    // the custom ViewScheduleButton component instead, passing it the payload.
-                                                    if (match && match[1] === 'json') {
-                                                        try {
-                                                            const parsed = JSON.parse(content);
-                                                            if (parsed.type === 'schedule_download') {
-                                                                return <ViewScheduleButton scheduleData={parsed.data} userProfile={userProfile} />;
-                                                            }
-                                                        } catch {
-                                                            if (content.includes('"schedule_download"')) {
-                                                                return (
-                                                                    <div className="my-4 p-5 rounded-2xl border border-black/10 bg-white/60 dark:border-slate-700/60 dark:bg-slate-900/60 flex flex-col items-center justify-center space-y-4 text-center shadow-sm">
-                                                                        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-cyan-400"></div>
-                                                                        <p className="text-sm text-muted-foreground">Generating schedule document...</p>
-                                                                    </div>
-                                                                );
-                                                            }
+                                                    /**
+                                                     * Single schedule_download detection path for code blocks.
+                                                     *
+                                                     * 1. Try to parse — if valid JSON with type === 'schedule_download', render the button.
+                                                     * 2. Parse failed but content mentions schedule_download — streaming partial JSON,
+                                                     *    show loading spinner until the block completes.
+                                                     * 3. Otherwise render a normal <code> element.
+                                                     *
+                                                     * The <p> handler above is the separate streaming fallback for when the LLM
+                                                     * emits schedule JSON outside a fenced code block during streaming.
+                                                     */
+                                                    try {
+                                                        const parsed = JSON.parse(content);
+                                                        if (parsed.type === 'schedule_download') {
+                                                            return <ViewScheduleButton scheduleData={parsed.data} userProfile={userProfile} />;
                                                         }
-                                                    }
-                                                    if (content.includes('"schedule_download"')) {
-                                                        return (
-                                                            <div className="my-4 p-5 rounded-2xl border border-black/10 bg-white/60 dark:border-slate-700/60 dark:bg-slate-900/60 flex flex-col items-center justify-center space-y-4 text-center shadow-sm">
-                                                                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-cyan-400"></div>
-                                                                <p className="text-sm text-muted-foreground">Generating schedule document...</p>
-                                                            </div>
-                                                        );
+                                                    } catch {
+                                                        if (content.includes('"schedule_download"')) {
+                                                            return (
+                                                                <div className="my-4 p-5 rounded-2xl border border-black/10 bg-white/60 dark:border-slate-700/60 dark:bg-slate-900/60 flex flex-col items-center justify-center space-y-4 text-center shadow-sm">
+                                                                    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-cyan-400"></div>
+                                                                    <p className="text-sm text-muted-foreground">Generating schedule document...</p>
+                                                                </div>
+                                                            );
+                                                        }
                                                     }
                                                     return <code className={className} {...props}>{children}</code>;
                                                 }
