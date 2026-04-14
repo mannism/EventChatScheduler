@@ -39,6 +39,28 @@ interface ScheduleSlot {
 /** Raw message shape from the request body before conversion */
 type ChatMessage = { role: 'system' | 'user' | 'assistant'; content?: string; parts?: { type: string; text?: string }[] };
 
+/**
+ * Zod schema for the /api/chat request body.
+ * Validates the messages array shape and optional userProfile object.
+ * Returns 400 with a safe error message on failure — never exposes internal details.
+ */
+const chatRequestSchema = z.object({
+    messages: z.array(
+        z.object({
+            role: z.enum(['system', 'user', 'assistant']),
+            // content and parts are both optional — the handler normalises both shapes
+            content: z.string().optional(),
+            parts: z.array(
+                z.object({
+                    type: z.string(),
+                    text: z.string().optional(),
+                })
+            ).optional(),
+        })
+    ),
+    userProfile: z.record(z.unknown()).optional(),
+});
+
 export const runtime = 'nodejs';
 
 // Pre-load data
@@ -64,7 +86,18 @@ function shuffleEqualScores<T extends { _score: number }>(items: T[]): T[] {
 
 export async function POST(req: NextRequest) {
     try {
-        const body = await req.json();
+        const rawBody = await req.json();
+        const parseResult = chatRequestSchema.safeParse(rawBody);
+        if (!parseResult.success) {
+            return new Response(JSON.stringify({
+                error: 'Bad Request',
+                message: 'Invalid request format.',
+            }), {
+                status: 400,
+                headers: { 'Content-Type': 'application/json' },
+            });
+        }
+        const body = parseResult.data;
         const messages = body.messages;
 
         const headerProfile = req.headers.get('x-user-profile') || req.headers.get('X-User-Profile');
