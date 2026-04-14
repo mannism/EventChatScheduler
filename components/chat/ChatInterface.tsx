@@ -8,8 +8,8 @@
  *   - Schedule interception: detects "schedule_download" JSON blocks in AI responses
  *     and renders ViewScheduleButton instead of raw JSON
  *   - Auto-scroll: single scroll manager (user message → snap to bottom,
- *     new assistant content → scroll only if near bottom)
- *   - Loading states: bouncing dots while waiting, contextual tool-call labels during tool execution
+ *     new assistant content → scroll only if within 150px of bottom)
+ *   - Loading states: bouncing dots while waiting, pulsing indicator during streaming
  *
  * Visual layer: glass-card surface, cyan accent throughout.
  */
@@ -45,8 +45,8 @@ export function ChatInterface({ userProfile, onGenerateSchedule, onEditProfile }
     const inputRef = useRef<HTMLInputElement>(null)
     const hasInitialized = useRef(false)
     const [input, setInput] = useState('')
+    // Track user message count to detect new user messages for scroll snapping
     const lastUserMsgCount = useRef(0)
-    const lastAssistantMsgCount = useRef(0)
 
     const { messages, sendMessage, status } = useChat({
         transport: new DefaultChatTransport({ api: '/api/chat' }),
@@ -115,45 +115,38 @@ export function ChatInterface({ userProfile, onGenerateSchedule, onEditProfile }
         await doSendMessage(text);
     }
 
-    // Auto-scroll when the user sends a new message
+    /**
+     * Single scroll manager — replaces three separate useEffect scroll hooks that
+     * were fighting each other (user snap, assistant nudge, loading scroll).
+     *
+     * Rules:
+     *   - New user message → snap to bottom immediately so the user's own bubble is visible
+     *   - New assistant content → scroll only if the user is within 150px of the bottom.
+     *     If they've scrolled up to read history, we leave them alone.
+     */
     useEffect(() => {
-        const userMessages = messages.filter((m) => m.role === 'user')
-        if (userMessages.length > lastUserMsgCount.current) {
-            lastUserMsgCount.current = userMessages.length
-            // A small 50ms delay gives React enough time to paint the new user message
-            // bubble into the DOM before we attempt to scroll down to it.
+        const userMessages = messages.filter((m) => m.role === 'user');
+        const isNewUserMessage = userMessages.length > lastUserMsgCount.current;
+
+        if (isNewUserMessage) {
+            // Snap to bottom on user send — 50ms delay lets React paint the new bubble first
+            lastUserMsgCount.current = userMessages.length;
             setTimeout(() => {
                 if (scrollRef.current) {
-                    scrollRef.current.scrollTop = scrollRef.current.scrollHeight
+                    scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
                 }
-            }, 50)
-        }
-    }, [messages])
-
-    // Gentle nudge scroll when the AI response first appears
-    useEffect(() => {
-        const assistantMessages = messages.filter((m) => m.role === 'assistant')
-        if (assistantMessages.length > lastAssistantMsgCount.current) {
-            lastAssistantMsgCount.current = assistantMessages.length
-            // Nudge the view down slightly (120px) to reveal the first few lines of the
-            // AI's response to signal new content without violently jumping to the bottom.
-            setTimeout(() => {
-                if (scrollRef.current) {
-                    scrollRef.current.scrollBy({ top: 120, behavior: 'smooth' })
+            }, 50);
+        } else {
+            // New assistant content — only scroll if user is near the bottom (within 150px)
+            if (scrollRef.current) {
+                const { scrollTop, scrollHeight, clientHeight } = scrollRef.current;
+                const distanceFromBottom = scrollHeight - scrollTop - clientHeight;
+                if (distanceFromBottom < 150) {
+                    scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
                 }
-            }, 150)
+            }
         }
-    }, [messages])
-
-    // Keep the loading indicator visible by scrolling to bottom while loading
-    useEffect(() => {
-        if (isLoading && scrollRef.current) {
-            const timer = setTimeout(() => {
-                scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: 'smooth' });
-            }, 100);
-            return () => clearTimeout(timer);
-        }
-    }, [isLoading, messages])
+    }, [messages]);
 
     // Filter out system directives ([INIT_CHAT], [GENERATE_SCHEDULE]) from user-visible messages
     const displayMessages = messages.filter((m) => {
