@@ -503,7 +503,7 @@ When outputting schedule data from createSchedule, output ONLY a JSON code block
                     }
                 }),
             },
-            stopWhen: stepCountIs(5)
+            stopWhen: stepCountIs(3)
         });
 
         return result.toUIMessageStreamResponse();
