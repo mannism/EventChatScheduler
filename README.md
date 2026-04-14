@@ -6,7 +6,7 @@ The assistant uses the JSON files in `/data` as its dataset. **The `data` folder
 
 ## Features
 
-- **Conversational AI Interface**: Powered by the Vercel AI SDK and OpenAI GPT-5.1, attendees can ask questions about the event, find keynote speakers, or discover specific themes like "Partner & Community" sessions.
+- **Conversational AI Interface**: Powered by the Vercel AI SDK and OpenAI GPT-5.4-mini, attendees can ask questions about the event, find keynote speakers, or discover specific themes like "Partner & Community" sessions.
 - **Dynamic Tool Execution**: The chatbot uses background tools (`searchSessions`, `getExhibitors`, `getPresenters`, `createSchedule`) to retrieve precise JSON event data and seamlessly integrate it into the conversation context.
 - **Interactive Schedule Generation**: The AI builds a comprehensive, automated daily schedule mapping back-to-back sessions against the user's specific attendance days and thematic interests -- complete with conflict detection and a 5-minute buffer between sessions.
 - **Printable HTML Schedule**: Generates a large JSON payload of the user's itinerary, safely passes it via `sessionStorage`, and opens an elegant Next.js `/schedule` route optimized for printing in landscape format.
@@ -45,7 +45,7 @@ Create a `.env.local` file in the project root:
 
 ```env
 OPENAI_API_KEY=your_openai_api_key_here
-OPENAI_MODEL="gpt-5.1"         # or your preferred model
+OPENAI_MODEL="gpt-5.4-mini"    # or your preferred model
 MAX_SESSIONS_PER_DAY=8
 MAX_EXHIBITORS_PER_DAY=10
 ```
@@ -53,7 +53,7 @@ MAX_EXHIBITORS_PER_DAY=10
 | Variable | Required | Description |
 |----------|----------|-------------|
 | `OPENAI_API_KEY` | Yes | Authenticates with the OpenAI API |
-| `OPENAI_MODEL` | No | Model ID used by the Vercel AI SDK (default: `gpt-5.1`) |
+| `OPENAI_MODEL` | No | Model ID used by the Vercel AI SDK (default: `gpt-5.4-mini`) |
 | `MAX_SESSIONS_PER_DAY` | No | Maximum personalized sessions to recommend per attendance day |
 | `MAX_EXHIBITORS_PER_DAY` | No | Maximum exhibitor recommendations per attendance day |
 

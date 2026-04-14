@@ -200,7 +200,7 @@ When outputting schedule data from createSchedule, output ONLY a JSON code block
         const dynamicPrompt = `User context: ${userContextJson}`;
 
         const result = await streamText({
-            model: openai(process.env.OPENAI_MODEL || 'gpt-5.1'),
+            model: openai(process.env.OPENAI_MODEL || 'gpt-5.4-mini'),
             system: staticPrompt + '\n\n' + dynamicPrompt,
             messages: processMessages,
             tools: {

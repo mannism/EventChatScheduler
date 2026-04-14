@@ -4,7 +4,7 @@
 
 ## Project Overview
 
-AI Conference Assistant — a Next.js 16 demo built for XYZ showcasing AI-powered event assistance capabilities for XyzCon 2026. Uses OpenAI GPT-5.1 via Vercel AI SDK to help attendees discover sessions, get exhibitor info, and generate conflict-free personalized schedules through natural language chat.
+AI Conference Assistant — a Next.js 16 demo built for XYZ showcasing AI-powered event assistance capabilities for XyzCon 2026. Uses OpenAI GPT-5.4-mini via Vercel AI SDK to help attendees discover sessions, get exhibitor info, and generate conflict-free personalized schedules through natural language chat.
 
 ## Tech Stack
 
@@ -26,7 +26,7 @@ npm run lint     # ESLint
 ## Environment Variables (.env.local)
 
 - `OPENAI_API_KEY` — Required
-- `OPENAI_MODEL` — Model ID (default: gpt-5.1)
+- `OPENAI_MODEL` — Model ID (default: gpt-5.4-mini)
 - `MAX_SESSIONS_PER_DAY` — Schedule cap per day
 - `MAX_EXHIBITORS_PER_DAY` — Exhibitor recommendations cap
 
