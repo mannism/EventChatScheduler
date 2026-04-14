@@ -236,12 +236,14 @@ When outputting schedule data from createSchedule, output ONLY a JSON code block
                         tags: z.array(z.string()).optional().describe('Topics or interests to filter by.'),
                         date: z.string().optional().describe('Specific date to filter sessions for, e.g. "2026-09-03" or "Sept 3".'),
                         presenter: z.string().optional().describe('Filter sessions by a specific presenter name.'),
+                        detail: z.boolean().optional().describe('When true, include full session descriptions. Default false — returns short summaries only.'),
                     }),
-                    execute: async ({ track, tags, date, presenter }: {
+                    execute: async ({ track, tags, date, presenter, detail }: {
                         track?: string;
                         tags?: string[];
                         date?: string;
                         presenter?: string;
+                        detail?: boolean;
                     }) => {
                         let filtered: Session[] = sessionsData;
 
@@ -319,6 +321,8 @@ When outputting schedule data from createSchedule, output ONLY a JSON code block
                             }
                             finalSessions.push(...selectedForDay);
                         }
+                        // Return full description only when detail=true — reduces token payload
+                        // for list queries where the LLM just needs short summaries.
                         return finalSessions.map(s => ({
                             name: s.title,
                             track: s.track || "",
@@ -326,7 +330,7 @@ When outputting schedule data from createSchedule, output ONLY a JSON code block
                             stageNumber: s.stageNumber || "",
                             date: `${s.startDateTime.substring(0, 10)}, ${s.startDateTime.substring(11, 16)} - ${s.endDateTime.substring(11, 16)}`,
                             shortSummary: s.shortDescription || "",
-                            description: s.description || "",
+                            ...(detail ? { description: s.description || "" } : {}),
                             presenters: s.presenters?.join(", ") || "N/A",
                             tags: s.tags || []
                         }));
