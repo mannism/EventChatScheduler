@@ -9,7 +9,8 @@
  *     and renders ViewScheduleButton instead of raw JSON
  *   - Auto-scroll: single scroll manager (user message → snap to bottom,
  *     new assistant content → scroll only if within 150px of bottom)
- *   - Loading states: bouncing dots while waiting, pulsing indicator during streaming
+ *   - Loading states: bouncing dots while waiting, contextual tool-call labels during
+ *     tool execution (searchSessions, getExhibitors, getPresenters, createSchedule)
  *
  * Visual layer: glass-card surface, cyan accent throughout.
  */
@@ -18,7 +19,7 @@
 
 import React from 'react'
 import { useChat } from '@ai-sdk/react'
-import { DefaultChatTransport } from 'ai'
+import { DefaultChatTransport, isToolUIPart, getToolName } from 'ai'
 import type { UIMessage, TextUIPart } from 'ai'
 import { useState, useEffect, useRef } from 'react'
 import { Button } from '@/components/ui/button'
@@ -30,6 +31,14 @@ import { cn } from '@/lib/utils'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import { ViewScheduleButton } from './ViewScheduleButton'
+
+/** Maps LLM tool names to user-facing progress labels shown during tool execution */
+const TOOL_LABELS: Record<string, string> = {
+    searchSessions: 'Searching sessions...',
+    getExhibitors: 'Looking up exhibitors...',
+    getPresenters: 'Finding speakers...',
+    createSchedule: 'Building your schedule...',
+}
 
 interface ChatInterfaceProps {
     /** The authenticated user's profile used to personalise AI responses */
@@ -74,6 +83,29 @@ export function ChatInterface({ userProfile, onGenerateSchedule, onEditProfile }
     const lastAssistantMsg = [...messages].reverse().find((m) => m.role === 'assistant');
     const isStreamingWithContent = isLoading && lastAssistantMsg && getMessageText(lastAssistantMsg).length > 0;
     const isWaitingForResponse = isLoading && !isStreamingWithContent;
+
+    /**
+     * Detect active tool invocations in the last assistant message.
+     * Returns the first active tool's user-friendly label, or null if none.
+     *
+     * The Vercel AI SDK surfaces tool calls as UIMessageParts with type 'tool-{name}'
+     * (static tools) or 'dynamic-tool' (dynamic tools). isToolUIPart() guards both.
+     * We check for state 'input-streaming' or 'input-available' — the tool call has
+     * been dispatched but has not yet returned a result.
+     */
+    const activeToolLabel: string | null = (() => {
+        if (!isLoading || !lastAssistantMsg) return null;
+        for (const part of lastAssistantMsg.parts) {
+            if (
+                isToolUIPart(part) &&
+                (part.state === 'input-streaming' || part.state === 'input-available')
+            ) {
+                const name = getToolName(part);
+                return TOOL_LABELS[name] ?? `Running ${name}...`;
+            }
+        }
+        return null;
+    })();
 
     // Send a text message via the useChat sendMessage method
     const doSendMessage = async (text: string) => {
@@ -298,12 +330,18 @@ export function ChatInterface({ userProfile, onGenerateSchedule, onEditProfile }
                             </div>
                         )}
 
-                        {/* State 2: Streaming paused (e.g. tool calls) — subtle pulsing indicator */}
+                        {/*
+                         * State 2: Streaming with content (tool calls in progress or between tokens).
+                         * Shows a contextual label when an active tool invocation is detected
+                         * (e.g. "Searching sessions..."), falling back to "Thinking..." otherwise.
+                         */}
                         {isStreamingWithContent && (
                             <div className="flex justify-start animate-fade-in">
                                 <div className="flex items-center gap-2 px-4 py-2 text-sm text-muted-foreground">
                                     <div className="w-2 h-2 bg-cyan-600/70 dark:bg-cyan-400/60 rounded-full animate-pulse" />
-                                    <span className="animate-pulse">Thinking...</span>
+                                    <span className="animate-pulse">
+                                        {activeToolLabel ?? 'Thinking...'}
+                                    </span>
                                 </div>
                             </div>
                         )}
