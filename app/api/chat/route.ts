@@ -135,19 +135,11 @@ export async function POST(req: NextRequest) {
             ];
         }
 
-        const context = `
-    User Profile:
-    Name: ${safeName}
-    Role: ${safeRole}
-    Attendance Days: ${safeAttendanceDays.join(', ')}
-    Interests: ${safeInterests.join(', ')}
-    Location: ${safeLocation}
-    `;
-
         const maxSessions = parseInt(process.env.MAX_SESSIONS_PER_DAY || "3", 10);
         const maxExhibitors = parseInt(process.env.MAX_EXHIBITORS_PER_DAY || "3", 10);
 
-        // Pre-build keynote reference with full detail so the LLM can rephrase naturally
+        // Pre-build keynote reference with full detail so the LLM can rephrase naturally.
+        // Built from pre-loaded sessionsData — identical for every user, maximises cache prefix.
         const keynotes = sessionsData
             .filter((s) => s.track === "Supercharge")
             .sort((a, b) => a.startDateTime.localeCompare(b.startDateTime))
@@ -164,35 +156,49 @@ export async function POST(req: NextRequest) {
             })
             .join('\n\n');
 
-        const instructions = `
-    Context:
-    ${context}
+        /**
+         * Static system prompt prefix — identical for every user and every request.
+         * OpenAI caches the longest byte-identical prefix at a 50% input token discount.
+         * All content that does not vary by user profile belongs here.
+         */
+        const staticPrompt = `${systemPrompt}
 
-    # KEYNOTE SESSIONS (Supercharge Track)
-    These are the Day 1 main stage keynotes. ALL attendees should attend. You have full details below — answer keynote questions directly without calling a tool. Rephrase the descriptions in your own words, in plain conversational language:
+# KEYNOTE SESSIONS (Supercharge Track)
+These are the Day 1 main stage keynotes. ALL attendees should attend. You have full details below — answer keynote questions directly without calling a tool. Rephrase the descriptions in your own words, in plain conversational language:
 
-    ${keynotes}
+${keynotes}
 
-    # TOOL USAGE
-    - **Keynotes / Supercharge**: Answer from above. Only call searchSessions with track="Supercharge" if user wants something not covered above.
-    - **Session recommendations**: USE searchSessions. Max ${maxSessions} non-clashing sessions per day.
-    - **Exhibitors / Event Partners / Sponsors**: USE getExhibitors. Max ${maxExhibitors} per day. ("Partner & Community" is a session track — use searchSessions for those.)
-    - **Presenters / Speakers**: USE getPresenters. Only pass all=true if explicitly asked for ALL.
-    - **Personalized schedule**: USE createSchedule.
+# TOOL USAGE
+- **Keynotes / Supercharge**: Answer from above. Only call searchSessions with track="Supercharge" if user wants something not covered above.
+- **Session recommendations**: USE searchSessions. Max ${maxSessions} non-clashing sessions per day.
+- **Exhibitors / Event Partners / Sponsors**: USE getExhibitors. Max ${maxExhibitors} per day. ("Partner & Community" is a session track — use searchSessions for those.)
+- **Presenters / Speakers**: USE getPresenters. Only pass all=true if explicitly asked for ALL.
+- **Personalized schedule**: USE createSchedule.
 
-    # SCHEDULE OVERRIDE
-    When outputting schedule data from createSchedule, output ONLY a JSON code block — no conversational text inside:
+# SCHEDULE OVERRIDE
+When outputting schedule data from createSchedule, output ONLY a JSON code block — no conversational text inside:
 \`\`\`json
 {
   "type": "schedule_download",
   "data": { ...exact JSON from createSchedule... }
 }
-\`\`\`
-    `;
+\`\`\``;
+
+        /**
+         * Dynamic system prompt suffix — appended after the static prefix.
+         * Contains only per-user data (profile). Placed last so cache prefix is maximised.
+         */
+        const dynamicPrompt = `
+User Profile:
+Name: ${safeName}
+Role: ${safeRole}
+Attendance Days: ${safeAttendanceDays.join(', ')}
+Interests: ${safeInterests.join(', ')}
+Location: ${safeLocation}`;
 
         const result = await streamText({
             model: openai(process.env.OPENAI_MODEL || 'gpt-5.1'),
-            system: systemPrompt + '\n\n' + instructions,
+            system: staticPrompt + '\n\n' + dynamicPrompt,
             messages: processMessages,
             tools: {
                 /**
