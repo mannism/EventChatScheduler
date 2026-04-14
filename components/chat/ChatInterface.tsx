@@ -7,11 +7,11 @@
  *   - Message rendering: filters system directives, renders markdown with GFM support
  *   - Schedule interception: detects "schedule_download" JSON blocks in AI responses
  *     and renders ViewScheduleButton instead of raw JSON
- *   - Auto-scroll: three-tier scrolling strategy (user message → snap to bottom,
- *     AI response → gentle 120px nudge, loading → keep indicator visible)
- *   - Loading states: bouncing dots while waiting, pulsing indicator during streaming
+ *   - Auto-scroll: single scroll manager (user message → snap to bottom,
+ *     new assistant content → scroll only if near bottom)
+ *   - Loading states: bouncing dots while waiting, contextual tool-call labels during tool execution
  *
- * Visual layer: glass-card surface, cyan accent throughout, Framer Motion hover lift.
+ * Visual layer: glass-card surface, cyan accent throughout.
  */
 
 "use client"
@@ -21,7 +21,6 @@ import { useChat } from '@ai-sdk/react'
 import { DefaultChatTransport } from 'ai'
 import type { UIMessage, TextUIPart } from 'ai'
 import { useState, useEffect, useRef } from 'react'
-import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card'
@@ -164,11 +163,7 @@ export function ChatInterface({ userProfile, onGenerateSchedule, onEditProfile }
     });
 
     return (
-        <motion.div
-            whileHover={{ scale: 1.005, y: -2 }}
-            transition={{ duration: 0.3, ease: 'easeOut' }}
-            className="w-full max-w-2xl mx-auto mt-2 md:mt-0"
-        >
+        <div className="w-full max-w-2xl mx-auto mt-2 md:mt-0">
             <Card className="glass-card w-full h-[85vh] md:h-[80vh] flex flex-col overflow-hidden relative rounded-2xl border-0">
                 {/* Subtle geometric decoration */}
                 <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-400/5 rounded-full blur-3xl -z-10 pointer-events-none" />
@@ -345,6 +340,6 @@ export function ChatInterface({ userProfile, onGenerateSchedule, onEditProfile }
                     </form>
                 </CardFooter>
             </Card>
-        </motion.div>
+        </div>
     )
 }
