@@ -15,26 +15,12 @@ import { z } from 'zod';
 import fs from 'fs';
 import path from 'path';
 import { shuffle, hasMatchingTag, scoreSession } from '@/lib/matching';
-import { DATE_MAP, ALL_EVENT_DATES, NETWORKING_TIMES, LUNCH_SLOT_OPTIONS, END_OF_DAY_CUTOFF } from '@/lib/constants';
-import type { Session, Exhibitor } from '@/lib/types';
+import { DATE_MAP, ALL_EVENT_DATES } from '@/lib/constants';
+import type { Session, Exhibitor, UserProfile } from '@/lib/types';
+import { generateSchedule } from '@/lib/scheduler';
 
 /** Session with a computed relevance score appended */
 type ScoredSession = Session & { _score: number };
-
-/** A slot in the daily schedule — either a real Session or a fixed block (lunch/networking) */
-interface ScheduleSlot {
-    type?: string;
-    title: string;
-    startDateTime: string;
-    endDateTime: string;
-    stage?: string;
-    stageNumber?: string;
-    presenters?: string[];
-    shortDescription?: string;
-    description?: string;
-    track?: string;
-    location?: string;
-}
 
 /** Raw message shape from the request body before conversion */
 type ChatMessage = { role: 'system' | 'user' | 'assistant'; content?: string; parts?: { type: string; text?: string }[] };
@@ -58,7 +44,9 @@ const chatRequestSchema = z.object({
             ).optional(),
         })
     ),
-    userProfile: z.record(z.unknown()).optional(),
+    // passthrough() preserves the full object without constraining individual fields —
+    // the handler uses safe fallbacks for every property, so we don't over-constrain here.
+    userProfile: z.object({}).passthrough().optional(),
 });
 
 export const runtime = 'nodejs';
@@ -70,19 +58,6 @@ const sessionsData = JSON.parse(fs.readFileSync(sessionsPath, 'utf8')).sessions 
 const exhibitorsPath = path.join(process.cwd(), 'data/Scheduler_2026_exhibitors.json');
 const exhibitorsData = JSON.parse(fs.readFileSync(exhibitorsPath, 'utf8')).exhibitors as Exhibitor[];
 
-/** Shuffle items that have equal _score values while preserving score-based ordering */
-function shuffleEqualScores<T extends { _score: number }>(items: T[]): T[] {
-    if (items.length <= 1) return items;
-    const result: T[] = [];
-    let i = 0;
-    while (i < items.length) {
-        let j = i;
-        while (j < items.length && items[j]._score === items[i]._score) j++;
-        result.push(...shuffle(items.slice(i, j)));
-        i = j;
-    }
-    return result;
-}
 
 export async function POST(req: NextRequest) {
     try {
@@ -102,7 +77,7 @@ export async function POST(req: NextRequest) {
 
         const headerProfile = req.headers.get('x-user-profile') || req.headers.get('X-User-Profile');
 
-        let rawUserProfile = body.userProfile;
+        let rawUserProfile: Record<string, unknown> | undefined = body.userProfile as Record<string, unknown> | undefined;
 
         if (!rawUserProfile && headerProfile) {
             try {
@@ -129,13 +104,26 @@ export async function POST(req: NextRequest) {
             }
         }
 
-        // Ensure userProfile is at least an object with default properties to prevent TypeErrors
-        const userProfile = rawUserProfile || {};
-        const safeName = userProfile.name || "Guest";
-        const safeRole = userProfile.role || userProfile.jobType || "Attendee";
-        const safeLocation = userProfile.location || "Unknown";
-        const safeAttendanceDays = userProfile.attendanceDays || [];
-        const safeInterests = userProfile.interests || [];
+        // Normalise the raw (untyped) profile into typed safe values, then into a UserProfile.
+        // userProfile is Record<string, unknown> from the parsed JSON — we never trust its field types.
+        const userProfile: Record<string, unknown> = rawUserProfile ?? {};
+        const safeName = (userProfile.name as string | undefined) || "Guest";
+        const safeRole = (userProfile.role as string | undefined) || (userProfile.jobType as string | undefined) || "Attendee";
+        const safeLocation = (userProfile.location as string | undefined) || "Unknown";
+        const safeAttendanceDays = (userProfile.attendanceDays as string[] | undefined) || [];
+        const safeInterests = (userProfile.interests as string[] | undefined) || [];
+
+        /**
+         * Typed UserProfile built from safe fallback values.
+         * Used wherever strict UserProfile typing is required (scoreSession, generateSchedule).
+         */
+        const typedProfile: UserProfile = {
+            name: safeName,
+            jobType: safeRole,
+            attendanceDays: safeAttendanceDays,
+            interests: safeInterests,
+            location: safeLocation,
+        };
 
         const promptPath = path.join(process.cwd(), 'data/Scheduler_System_Prompt.txt');
         const systemPrompt = fs.readFileSync(promptPath, 'utf8');
@@ -272,8 +260,7 @@ When outputting schedule data from createSchedule, output ONLY a JSON code block
                                 if (date.includes("4") || date.includes("04")) allowedDates.push("2026-09-04");
                             }
                         } else {
-                            const attendingDays = userProfile?.attendanceDays || [];
-                            for (const day of attendingDays) {
+                            for (const day of safeAttendanceDays) {
                                 const iso = DATE_MAP[day];
                                 if (iso) allowedDates.push(iso);
                             }
@@ -306,7 +293,7 @@ When outputting schedule data from createSchedule, output ONLY a JSON code block
                         for (const s of filtered) {
                             const day = s.startDateTime.substring(0, 10);
                             if (!sessionsByDay[day]) sessionsByDay[day] = [];
-                            sessionsByDay[day].push({ ...s, _score: scoreSession(s, userProfile) });
+                            sessionsByDay[day].push({ ...s, _score: scoreSession(s, typedProfile) });
                         }
 
                         const finalSessions: ScoredSession[] = [];
@@ -368,13 +355,11 @@ When outputting schedule data from createSchedule, output ONLY a JSON code block
                         }
 
                         // Score and rank exhibitors by relevance (tag matches + region)
-                        const userLocation = userProfile?.location;
                         const scoredExhibitors = filtered.map((e) => {
                             let score = 0;
-                            const userInterests = (userProfile?.interests || []) as string[];
-                            if (userInterests.length > 0) {
+                            if (safeInterests.length > 0) {
                                 score += (e.tags || []).filter((tag) =>
-                                    userInterests.some((i) => {
+                                    safeInterests.some((i) => {
                                         const t = tag.toLowerCase().trim();
                                         const interest = i.toLowerCase().trim();
                                         if (t === interest) return true;
@@ -383,13 +368,13 @@ When outputting schedule data from createSchedule, output ONLY a JSON code block
                                     })
                                 ).length * 3;
                             }
-                            if (userLocation && e.regions?.some((r) => r.toLowerCase() === userLocation.toLowerCase())) {
+                            if (safeLocation && e.regions?.some((r) => r.toLowerCase() === safeLocation.toLowerCase())) {
                                 score += 2;
                             }
                             return { ...e, _score: score };
                         }).sort((a, b) => b._score - a._score);
 
-                        const daysCount = Math.max(1, userProfile.attendanceDays?.length || 1);
+                        const daysCount = Math.max(1, safeAttendanceDays.length || 1);
                         return scoredExhibitors.slice(0, maxExhibitors * daysCount).map((e) => ({
                             name: e.name,
                             description: e.shortDescription || e.description || "",
@@ -424,14 +409,13 @@ When outputting schedule data from createSchedule, output ONLY a JSON code block
                         } else {
                             // Determine allowed dates based on User Profile
                             const allowedDates: string[] = [];
-                            const attendingDays = userProfile?.attendanceDays || [];
-                            for (const day of attendingDays) {
+                            for (const day of safeAttendanceDays) {
                                 const iso = DATE_MAP[day];
                                 if (iso) allowedDates.push(iso);
                             }
                             if (allowedDates.length === 0) allowedDates.push(...ALL_EVENT_DATES);
 
-                            const userInterests = userProfile?.interests || [];
+                            const userInterests = safeInterests;
 
                             // Filter sessions by dates and interests if 'all' is not explicitly true
                             let filtered: Session[] = sessionsData;
@@ -459,109 +443,35 @@ When outputting schedule data from createSchedule, output ONLY a JSON code block
                 }),
                 /**
                  * TOOL: createSchedule
-                 * Automatically builds a dense, conflict-free, personalized schedule.
-                 * Includes fixed networking/lunch events, mandatory keynotes, and backfill sessions based on interests.
+                 * Delegates to generateSchedule() in lib/scheduler.ts — the single authoritative
+                 * schedule-building algorithm with 5-minute gap buffering and conflict detection.
+                 * This execute function adapts the Schedule output into the shape the LLM prompt
+                 * expects: { [date]: { sessions: [...], exhibitors: [...] } }
                  */
                 createSchedule: tool({
                     description: 'Generates a personalized 2-day event schedule for the user based on their attendance days and interests.',
                     inputSchema: z.object({}),
                     execute: async () => {
-                        const attendingDays = userProfile?.attendanceDays || [];
-                        const validDates: string[] = [];
-                        for (const day of attendingDays) {
-                            const iso = DATE_MAP[day];
-                            if (iso) validDates.push(iso);
-                        }
-                        if (validDates.length === 0) validDates.push(...ALL_EVENT_DATES);
+                        // typedProfile is built at the top of the handler from safe fallback values
+                        const userInterests = safeInterests;
 
-                        const userInterests = userProfile?.interests || [];
-                        const sessionsByDay: Record<string, Session[]> = {};
-                        validDates.forEach(d => sessionsByDay[d] = []);
+                        const { days } = await generateSchedule(typedProfile, sessionsData);
 
-                        sessionsData.forEach((s) => {
-                            const d = s.startDateTime.substring(0, 10);
-                            if (sessionsByDay[d]) {
-                                sessionsByDay[d].push(s);
-                            }
-                        });
-
+                        /**
+                         * Adapter: transform DaySchedule[] → APISchedule
+                         * lib/scheduler returns { days: DaySchedule[] } where each item has
+                         * { session: Session, type: string }. The LLM prompt expects a flat
+                         * object keyed by date with sessions mapped to { time, title, stage,
+                         * presenters, summary } and exhibitor names.
+                         */
                         const schedule: Record<string, { sessions: { time: string; title: string; stage: string; presenters: string; summary: string }[]; exhibitors: string[] }> = {};
 
-                        validDates.forEach(day => {
-                            const daySessions = sessionsByDay[day].filter(s => {
-                                const time = s.endDateTime.substring(11, 16);
-                                return time <= END_OF_DAY_CUTOFF;
-                            });
+                        for (const daySchedule of days) {
+                            const { date, items } = daySchedule;
 
-                            const mandatory = daySessions.filter(s => s.track === "Supercharge");
-                            // Score and sort non-mandatory sessions by relevance
-                            const nonMandatory = daySessions
-                                .filter(s => s.track !== "Supercharge")
-                                .map(s => ({ ...s, _score: scoreSession(s, userProfile) }))
-                                .sort((a, b) => {
-                                    if (b._score !== a._score) return b._score - a._score;
-                                    return 0; // equal scores get shuffled below
-                                });
-                            // Shuffle sessions with equal scores for variety
-                            const mix = shuffleEqualScores(nonMandatory);
-
-                            const daySchedule: ScheduleSlot[] = [];
-
-                            const fixedNetworking: ScheduleSlot[] = [];
-                            const netTime = NETWORKING_TIMES[day];
-                            if (netTime) {
-                                fixedNetworking.push({
-                                    type: "Fixed", title: "Networking", startDateTime: `${day}T${netTime.start}:00`, endDateTime: `${day}T${netTime.end}:00`, stage: "Networking Area", stageNumber: "N/A", presenters: [], shortDescription: "End of day networking."
-                                });
-                            }
-
-                            const isOverlap = (start1: number, end1: number, start2: number, end2: number) => {
-                                return Math.max(start1, start2) < Math.min(end1, end2);
-                            };
-
-                            const tryAddSession = (s: ScheduleSlot, _ignoreGap = false) => {
-                                const sStart = new Date(s.startDateTime).getTime();
-                                const sEnd = new Date(s.endDateTime).getTime();
-
-                                if (s.type !== "Fixed") {
-                                    for (const n of fixedNetworking) {
-                                        if (isOverlap(sStart, sEnd, new Date(n.startDateTime).getTime(), new Date(n.endDateTime).getTime())) {
-                                            return false;
-                                        }
-                                    }
-                                }
-
-                                for (const e of daySchedule) {
-                                    const eStart = new Date(e.startDateTime).getTime();
-                                    const eEnd = new Date(e.endDateTime).getTime();
-                                    const gap = 0; // Removed 5 minute mandatory spacing to allow back-to-back sessions
-
-                                    if (sStart < eEnd + gap && eStart < sEnd + gap) return false;
-                                }
-
-                                daySchedule.push(s);
-                                return true;
-                            }
-
-                            fixedNetworking.forEach(n => tryAddSession(n, true));
-                            mandatory.forEach(m => tryAddSession(m));
-
-                            const lunchSlots = LUNCH_SLOT_OPTIONS.map(opt => ({
-                                start: `${day}T${opt.start}:00`,
-                                end: `${day}T${opt.end}:00`
-                            }));
-
-                            for (const slot of lunchSlots) {
-                                const lunchSession = {
-                                    type: "Fixed", title: "Lunch Break", startDateTime: slot.start, endDateTime: slot.end, stage: "Dining Area", stageNumber: "N/A", presenters: [], shortDescription: "1-Hour Lunch Break."
-                                };
-                                if (tryAddSession(lunchSession, true)) break;
-                            }
-
-                            mix.forEach(m => tryAddSession(m));
-                            daySchedule.sort((a, b) => new Date(a.startDateTime).getTime() - new Date(b.startDateTime).getTime());
-
-                            // Score and rank exhibitors by relevance
+                            // Rank exhibitors by interest tag matches, then by region proximity.
+                            // Matched exhibitors are shuffled separately from unmatched so interest
+                            // relevance is preserved while adding variety within each tier.
                             let dayExhibitors: Exhibitor[] = exhibitorsData;
                             if (userInterests.length > 0) {
                                 const matchedExhs = dayExhibitors.filter((e) => hasMatchingTag(e.tags || [], userInterests));
@@ -571,9 +481,9 @@ When outputting schedule data from createSchedule, output ONLY a JSON code block
                                 dayExhibitors = shuffle(dayExhibitors);
                             }
 
-                            schedule[day] = {
-                                sessions: daySchedule.map((s) => {
-                                    let finalStage = s.stage || s.location || "TBA";
+                            schedule[date] = {
+                                sessions: items.map(({ session: s }) => {
+                                    let finalStage = s.stage || "TBA";
                                     if (s.track !== "Supercharge" && s.stageNumber && s.stageNumber !== "N/A" && s.stageNumber !== "TBA") {
                                         finalStage = `${finalStage} / ${s.stageNumber}`;
                                     }
@@ -587,7 +497,7 @@ When outputting schedule data from createSchedule, output ONLY a JSON code block
                                 }),
                                 exhibitors: dayExhibitors.slice(0, 8).map((e) => e.name)
                             };
-                        });
+                        }
 
                         return schedule;
                     }
