@@ -1,0 +1,33 @@
+name: lib/utils
+purpose: Exports the cn() helper that merges Tailwind CSS class strings with conflict resolution, used across all components that apply conditional styles.
+owner: nix
+status: active
+
+depends_on:
+  - package: clsx
+    version: ">=2.0"
+    why: handles conditional class name joining (arrays, objects, falsy filtering)
+  - package: tailwind-merge
+    version: ">=2.0"
+    why: resolves conflicting Tailwind utility classes so the last rule wins (e.g. "p-2 p-4" → "p-4")
+
+depended_on_by:
+  - module: app/layout.tsx
+    how: calls cn() to merge font class names on the root <body> element
+  - module: components/chat/ChatInterface.tsx
+    how: calls cn() for conditional message bubble, scroll anchor, and layout classes
+  - module: components/ThemeToggle.tsx
+    how: calls cn() to merge variant and state classes on the toggle button
+  - module: components/onboarding/OnboardingForm.tsx
+    how: calls cn() for conditional step visibility and input focus-ring classes
+  - module: components/scheduler/ScheduleView.tsx
+    how: calls cn() for conditional session-type badge and layout classes
+
+exports:
+  - cn
+
+notes: |
+  Single-function module by design. Do not add unrelated utilities here —
+  create a purpose-specific file instead. The tailwind-merge dependency
+  requires a Tailwind content scan config to work correctly; if Tailwind
+  config changes materially, verify twMerge still resolves conflicts as expected.
