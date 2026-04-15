@@ -1,0 +1,44 @@
+name: lib/types
+purpose: Defines all core TypeScript interfaces shared across the application — sessions, exhibitors, user profiles, schedule shapes, and API response types.
+owner: nix
+status: active
+
+depends_on: []
+  # No internal or external dependencies — this is the type root.
+
+depended_on_by:
+  - module: lib/matching.ts
+    how: imports UserProfile and Session for function parameter and return types
+  - module: lib/scheduler.ts
+    how: imports Session, UserProfile, Schedule, DaySchedule, and ScheduleItem as the full data model for schedule generation
+  - module: lib/data.ts
+    how: imports Session as the return type of getSessions()
+  - module: lib/ics.ts
+    how: imports APISchedule as the input type for generateICS()
+  - module: app/api/chat/route.ts
+    how: imports Session, Exhibitor, and UserProfile for type-safe data loading and LLM tool definitions
+  - module: app/schedule/page.tsx
+    how: imports UserProfile, APISchedule, and APIScheduleSession to type sessionStorage payload and ICS download
+  - module: components/chat/ChatInterface.tsx
+    how: imports UserProfile as a component prop type
+  - module: components/chat/ViewScheduleButton.tsx
+    how: imports UserProfile as a component prop type
+
+exports:
+  - Session
+  - Exhibitor
+  - UserProfile
+  - ScheduleItem
+  - DaySchedule
+  - Schedule
+  - APIScheduleSession
+  - APIScheduleDay
+  - APISchedule
+
+notes: |
+  Single source of truth for all data shapes. Any new data structure
+  (new LLM tool output, new CMS field, etc.) should be defined here first.
+  The split between Schedule (rich client-side model used by ScheduleView)
+  and APISchedule (flat string-keyed format returned by the createSchedule
+  LLM tool) is intentional — do not merge them. The APISchedule shape is
+  what gets stored in sessionStorage and handed off to /schedule.
