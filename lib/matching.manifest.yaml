@@ -1,0 +1,31 @@
+name: lib/matching
+purpose: Provides tag-based session scoring and Fisher-Yates shuffle utilities used by both the schedule generator and the chat API route to rank and randomize sessions.
+owner: nix
+status: active
+
+depends_on:
+  - module: lib/types.ts
+    why: UserProfile and Session interfaces define the inputs to all scoring functions
+  - module: lib/constants.ts
+    why: JOB_TYPE_TAG_AFFINITY map is needed by scoreSession() to boost sessions matching the user's job role
+
+depended_on_by:
+  - module: lib/scheduler.ts
+    how: calls shuffle() for App Spotlight randomization and hasMatchingTag() + countTagMatches() for personalized backfill scoring
+  - module: app/api/chat/route.ts
+    how: calls shuffle() for result randomization, hasMatchingTag() for exhibitor filtering, and scoreSession() for the searchSessions tool ranking
+
+exports:
+  - shuffle
+  - matchesInterest
+  - hasMatchingTag
+  - countTagMatches
+  - scoreSession
+
+notes: |
+  scoreSession() is the authoritative relevance function for the chat API;
+  scheduler.ts uses countTagMatches() directly (simpler, no location/metadata
+  bonus) because the schedule pipeline weights differently than search ranking.
+  matchesInterest() uses word-boundary regex to avoid false positives like
+  "AI" matching "Catering Area" — this is load-bearing behaviour, do not
+  simplify to a plain .includes() check.
