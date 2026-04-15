@@ -1,0 +1,37 @@
+name: lib/constants
+purpose: Centralises all event-specific configuration — countries, job types, interests, date mappings, schedule timing rules, and job-to-tag affinity weights.
+owner: nix
+status: active
+
+depends_on: []
+  # No dependencies — this is a leaf configuration module.
+
+depended_on_by:
+  - module: lib/matching.ts
+    how: imports JOB_TYPE_TAG_AFFINITY to apply job-role scoring bonus in scoreSession()
+  - module: lib/scheduler.ts
+    how: imports DATE_MAP, ALL_EVENT_DATES, NETWORKING_TIMES, LUNCH_SLOT_OPTIONS, and END_OF_DAY_CUTOFF to drive the per-day schedule generation pipeline
+  - module: app/api/chat/route.ts
+    how: imports DATE_MAP and ALL_EVENT_DATES for date normalisation in the searchSessions tool
+  - module: components/onboarding/OnboardingForm.tsx
+    how: imports COUNTRIES, ATTENDANCE_OPTIONS, JOB_TYPES, and INTERESTS to populate select and multi-select fields
+
+exports:
+  - COUNTRIES
+  - ATTENDANCE_OPTIONS
+  - JOB_TYPES
+  - INTERESTS
+  - DATE_MAP
+  - ALL_EVENT_DATES
+  - JOB_TYPE_TAG_AFFINITY
+  - NETWORKING_TIMES
+  - LUNCH_SLOT_OPTIONS
+  - END_OF_DAY_CUTOFF
+
+notes: |
+  All event dates, times, and taxonomy values live here. When XyzCon dates
+  change for a future year, DATE_MAP, ALL_EVENT_DATES, and NETWORKING_TIMES
+  are the three values to update first — everything downstream derives from
+  them. INTERESTS and JOB_TYPES are the canonical lists; the system prompt
+  (data/Scheduler_System_Prompt.txt) references these same values — keep them
+  in sync manually when either changes.
