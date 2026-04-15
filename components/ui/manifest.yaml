@@ -1,0 +1,46 @@
+name: components/ui
+purpose: Reusable shadcn/ui primitives (Radix UI-based) providing accessible, unstyled-by-default interactive components consumed throughout the application.
+owner: nix
+status: active
+
+depends_on:
+  - package: "@radix-ui/*"
+    version: ">=1.0"
+    why: headless primitives (Dialog, Popover, Select, Tabs, etc.) provide accessibility semantics, keyboard navigation, and focus management without visual opinions
+  - package: class-variance-authority
+    version: ">=0.7"
+    why: cva() drives variant-based prop-to-class mapping on Button and other polymorphic components
+  - module: lib/utils.ts
+    why: cn() is used by every component in this directory to merge variant classes with consumer-supplied overrides
+
+depended_on_by:
+  - module: components/chat/ChatInterface.tsx
+    how: imports Button, Input, Card, CardContent, CardHeader, CardTitle, CardFooter for the chat message UI and send form
+  - module: components/chat/ViewScheduleButton.tsx
+    how: imports Button for the schedule download CTA
+  - module: components/onboarding/OnboardingForm.tsx
+    how: imports Button, Input, Card, CardContent, CardDescription, CardHeader, CardTitle, Popover, PopoverContent, PopoverTrigger, Form, FormControl, FormField, FormItem, FormLabel, FormMessage, Label, Select, and Command primitives across all three onboarding steps
+  - module: components/scheduler/ScheduleView.tsx
+    how: imports Button, Card, CardContent, CardHeader, CardTitle, CardDescription, Tabs, TabsContent, TabsList, TabsTrigger for the tabbed schedule display
+
+exports:
+  # Primitives currently used by consumers (full shadcn/ui set installed but only these are in active use)
+  - Button  # button.tsx — primary CTA and icon-button variants
+  - Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter  # card.tsx
+  - Input  # input.tsx — single-line text field
+  - Label  # label.tsx — accessible form label
+  - Select, SelectContent, SelectItem, SelectTrigger, SelectValue  # select.tsx
+  - Popover, PopoverContent, PopoverTrigger  # popover.tsx
+  - Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList  # command.tsx — powers multi-select interest picker
+  - Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger  # dialog.tsx
+  - Form, FormControl, FormField, FormItem, FormLabel, FormMessage  # form.tsx — React Hook Form integration
+  - Tabs, TabsContent, TabsList, TabsTrigger  # tabs.tsx
+
+notes: |
+  Components are generated via the shadcn/ui CLI and then owned by this repo —
+  they are not upgraded automatically. To update a primitive: re-run the
+  shadcn/ui add command and review the diff carefully, as local style
+  customisations may be overwritten. The Command component powers the
+  searchable interest multi-select in OnboardingForm — it is more complex
+  than it appears; test keyboard navigation (arrow keys, Enter, Escape) after
+  any update.
