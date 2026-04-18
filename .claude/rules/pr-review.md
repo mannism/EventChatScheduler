@@ -12,3 +12,4 @@ Before merging any PR — especially agent-generated code — the reviewer must 
 
 - Agent-generated PRs: include answers in the PR description
 - Format: numbered list matching the questions above
+- If any gate answer reveals behavior not captured in the module's `manifest.yaml`, update the manifest in this PR.
