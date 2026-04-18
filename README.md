@@ -1,4 +1,4 @@
-# AI Conference Assistant v2.4.0
+# AI Conference Assistant v2.4.1
 
 AI Conference Assistant is a Next.js 16 demo built for XYZ, showcasing AI-powered event assistance capabilities for XyzCon 2026. It uses generative AI to help attendees navigate the event schedule, search for relevant sessions, and dynamically generate conflict-free personalized itineraries through natural language chat.
 

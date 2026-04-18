@@ -110,6 +110,8 @@ public/                                        # Favicon variants (16/32/48/192/
 
 ## Developer Rules
 
+All PRs must include comprehension gate answers — see `.claude/rules/pr-review.md`
+
 ### Error Handling
 - Return a graceful fallback response when the AI service fails so the app remains usable (e.g., return a 500 with a safe message rather than an unhandled crash)
 

@@ -1,3 +1,12 @@
+## [2.4.1](https://github.com/mannism/EventChatScheduler/compare/v2.4.0...v2.4.1) (2026-04-14)
+
+### Bug Fixes
+
+* increase send button to 44x44px per WCAG 2.5.5 ([7df03cf](https://github.com/mannism/EventChatScheduler/commit/7df03cf1eb955b470969d6be27a1c95c8e4a1ec8))
+* make attendance day picker keyboard accessible ([8a0e4cd](https://github.com/mannism/EventChatScheduler/commit/8a0e4cdccc5e7f970107a5f19ba723c733ea2609))
+* remove dead userInterests variable in createSchedule tool ([225a5f1](https://github.com/mannism/EventChatScheduler/commit/225a5f176bdba5f835e16030f55a0a8e5a30efa1))
+* remove duplicate "the" in chat header subtitle ([db2ca72](https://github.com/mannism/EventChatScheduler/commit/db2ca728a2aaf69bedcc575268e213e3a0237a45))
+
 ## [2.4.0](https://github.com/mannism/EventChatScheduler/compare/v2.3.5...v2.4.0) (2026-04-14)
 
 ### Features
