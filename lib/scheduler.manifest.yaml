@@ -1,0 +1,36 @@
+name: lib/scheduler
+purpose: Generates a conflict-free, personalized multi-day conference itinerary for a user — mandatory keynotes, fixed networking/lunch blocks, App Spotlight sessions, and interest-scored backfill.
+owner: nix
+status: active
+
+depends_on:
+  - module: lib/types.ts
+    why: Session, UserProfile, Schedule, DaySchedule, and ScheduleItem interfaces define all input/output shapes for the generation pipeline
+  - module: lib/matching.ts
+    why: shuffle() randomizes App Spotlight sessions; hasMatchingTag() and countTagMatches() score personalized backfill candidates
+  - module: lib/constants.ts
+    why: DATE_MAP, ALL_EVENT_DATES, NETWORKING_TIMES, LUNCH_SLOT_OPTIONS, and END_OF_DAY_CUTOFF drive per-day slot placement rules
+
+depended_on_by:
+  - module: app/api/chat/route.ts
+    how: calls generateSchedule() inside the createSchedule LLM tool to produce the schedule returned to the chat stream
+  - module: components/MainView.tsx
+    how: calls generateSchedule() on the [GENERATE_SCHEDULE] trigger to transition the UI from chat phase to schedule phase
+
+exports:
+  - generateSchedule
+
+notes: |
+  Single-export module by design — all internal helpers (timeToMinutes,
+  hasConflict, etc.) are private. generateSchedule() is the only public
+  contract. The 5-minute conflict buffer between sessions is load-bearing;
+  do not reduce it without checking all session durations in the dataset.
+  Schedule generation pipeline order is fixed:
+    1. Mandatory keynotes (Supercharge track)
+    2. Fixed networking slot (end-of-day)
+    3. Lunch break (first available of 12:30, 11:30, 12:00, 13:00)
+    4. App Spotlight sessions (up to 5, randomized)
+    5. Personalized backfill (scored by countTagMatches)
+  app/api/chat/route.ts is the single authoritative schedule generation
+  path for the AI chat flow — MainView uses generateSchedule() directly
+  for the [GENERATE_SCHEDULE] UI trigger outside the chat context.
