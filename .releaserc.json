@@ -49,15 +49,9 @@
       }
     ],
     [
-      "@semantic-release/exec",
-      {
-        "prepareCmd": "sed -i 's/# AI Conference Assistant v[0-9]*\\.[0-9]*\\.[0-9]*/# AI Conference Assistant v${nextRelease.version}/' README.md"
-      }
-    ],
-    [
       "@semantic-release/git",
       {
-        "assets": ["package.json", "CHANGELOG.md", "README.md"],
+        "assets": ["package.json", "CHANGELOG.md"],
         "message": "[skip ci] chore: release v${nextRelease.version}"
       }
     ],
