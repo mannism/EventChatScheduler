@@ -1,7 +1,5 @@
 # AI Conference Assistant
 
-![version](https://img.shields.io/github/package-json/v/mannism/EventChatScheduler)
-
 AI Conference Assistant is a Next.js 16 demo built for XYZ, showcasing AI-powered event assistance capabilities for XyzCon 2026. It uses generative AI to help attendees navigate the event schedule, search for relevant sessions, and dynamically generate conflict-free personalized itineraries through natural language chat.
 
 The assistant uses the JSON files in `/data` as its dataset. **The `data` folder is included in the repository as sample event data so you can test and experiment with the AI assistant out of the box.**
