@@ -19,7 +19,7 @@ The assistant uses the JSON files in `/data` as its dataset. **The `data` folder
 
 | Layer | Technology |
 |-------|-----------|
-| **Framework** | Next.js 16 (App Router), React 19, TypeScript 5 (strict mode) |
+| **Framework** | Next.js 16 (App Router), React 19, TypeScript 6 (strict mode) |
 | **AI** | Vercel AI SDK (`ai`, `@ai-sdk/react`), OpenAI SDK v6 |
 | **UI** | Tailwind CSS v4, shadcn/ui (Radix UI), Lucide icons, Framer Motion |
 | **Forms** | React Hook Form + Zod validation |
