@@ -40,12 +40,9 @@ function hasConflict(item: ScheduleItem, newItem: Session): boolean {
     const newStart = timeToMinutes(newItem.startDateTime.split('T')[1].substring(0, 5));
     const newEnd = timeToMinutes(newItem.endDateTime.split('T')[1].substring(0, 5));
 
-    // Simple overlap check
-    // Logic: (StartA < EndB) and (EndA > StartB)
-    // Add 5 min gap constraint: effectively extend duration by 5 mins for check? 
-    // Or: EndA + 5 <= StartB OR EndB + 5 <= StartA is safe.
-    // So conflict if: EndA + 5 > StartB AND EndB + 5 > StartA
-    // For XyzCon 2026
+    // Conflict if sessions overlap with a mandatory 5-minute gap between them.
+    // Safe zone: EndA + 5 <= StartB OR EndB + 5 <= StartA
+    // Conflict: NOT safe zone → (EndA + 5 > StartB) AND (EndB + 5 > StartA)
     return (itemEnd + 5 > newStart) && (newEnd + 5 > itemStart);
 }
 
