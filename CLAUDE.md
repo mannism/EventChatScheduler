@@ -1,5 +1,7 @@
 # CLAUDE.md
 
+> **Scope rule:** If a session starts from this repo, work only on this project. Do not touch other repos unless the Owner explicitly says otherwise.
+
 > Global rules (TypeScript, security, git workflow, accessibility baseline) are in ~/.claude/CLAUDE.md
 
 ## Project Overview
