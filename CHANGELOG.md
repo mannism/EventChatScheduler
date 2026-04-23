@@ -1,3 +1,10 @@
+## [2.4.2](https://github.com/mannism/EventChatScheduler/compare/v2.4.1...v2.4.2) (2026-04-23)
+
+
+### Bug Fixes
+
+* standardize Node.js version to 22 LTS across all configs ([#13](https://github.com/mannism/EventChatScheduler/issues/13)) ([3c25656](https://github.com/mannism/EventChatScheduler/commit/3c256563f7ace9f89cc0e7380ea67340bf83f8af))
+
 ## [2.4.1](https://github.com/mannism/EventChatScheduler/compare/v2.4.0...v2.4.1) (2026-04-14)
 
 ### Bug Fixes
