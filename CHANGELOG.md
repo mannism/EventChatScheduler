@@ -1,3 +1,15 @@
+# [2.5.0](https://github.com/mannism/EventChatScheduler/compare/v2.4.2...v2.5.0) (2026-04-23)
+
+
+### Features
+
+* add conference landing page and restructure routing ([#14](https://github.com/mannism/EventChatScheduler/issues/14)) ([2c96e40](https://github.com/mannism/EventChatScheduler/commit/2c96e40b7f33b712a47374eae3b8875fbdf5f765))
+
+
+### Performance Improvements
+
+* optimize chat API prompt construction and model config ([#15](https://github.com/mannism/EventChatScheduler/issues/15)) ([b59ee45](https://github.com/mannism/EventChatScheduler/commit/b59ee45de04fe1e86d3382398fb18c7758fa513a))
+
 ## [2.4.2](https://github.com/mannism/EventChatScheduler/compare/v2.4.1...v2.4.2) (2026-04-23)
 
 
