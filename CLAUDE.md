@@ -14,7 +14,7 @@ AI Conference Assistant — a Next.js 16 demo built for XYZ showcasing AI-powere
 - **AI**: Vercel AI SDK (`ai`, `@ai-sdk/react`), OpenAI SDK v6
 - **UI**: Tailwind CSS v4, shadcn/ui (Radix UI), Lucide icons, Framer Motion
 - **Forms**: React Hook Form + Zod validation
-- **Deployment**: Docker (multi-stage, node:20-alpine), standalone output mode, Railway-ready (health check at `/api/health`)
+- **Deployment**: Docker (multi-stage, node:22-alpine), standalone output mode, Railway-ready (health check at `/api/health`)
 
 ## Commands
 
