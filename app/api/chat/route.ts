@@ -1,6 +1,6 @@
 /**
  * app/api/chat/route.ts
- * 
+ *
  * Main API route for the AI Chatbot functionality.
  * This file handles user messages, injects the system prompt and context,
  * and defines the custom tools (searchSessions, getExhibitors, createSchedule)
@@ -57,6 +57,61 @@ const sessionsData = JSON.parse(fs.readFileSync(sessionsPath, 'utf8')).sessions 
 
 const exhibitorsPath = path.join(process.cwd(), 'data/Scheduler_2026_exhibitors.json');
 const exhibitorsData = JSON.parse(fs.readFileSync(exhibitorsPath, 'utf8')).exhibitors as Exhibitor[];
+
+// Pre-load system prompt (never changes at runtime)
+const systemPromptText = fs.readFileSync(
+    path.join(process.cwd(), 'data/Scheduler_System_Prompt.txt'), 'utf8'
+);
+
+// Environment-configured caps (read once at module load)
+const MAX_SESSIONS = parseInt(process.env.MAX_SESSIONS_PER_DAY || "3", 10);
+const MAX_EXHIBITORS = parseInt(process.env.MAX_EXHIBITORS_PER_DAY || "3", 10);
+
+// Pre-build keynote reference with full detail so the LLM can rephrase naturally.
+// Built from pre-loaded sessionsData — identical for every user, maximises cache prefix.
+const keynoteBlock = sessionsData
+    .filter((s) => s.track === "Supercharge")
+    .sort((a, b) => a.startDateTime.localeCompare(b.startDateTime))
+    .map((s) => {
+        const startTime = s.startDateTime.substring(11, 16);
+        const endTime = s.endDateTime.substring(11, 16);
+        const date = s.startDateTime.substring(0, 10);
+        return [
+            `**${s.title}**`,
+            `Time: ${startTime} – ${endTime}, ${date} | Stage: Supercharge Stage`,
+            `Speaker: ${s.presenters?.join(", ") || "TBA"}`,
+            `Description: ${s.description || s.shortDescription || ""}`,
+        ].join('\n');
+    })
+    .join('\n\n');
+
+/**
+ * Static system prompt prefix — identical for every user and every request.
+ * OpenAI caches the longest byte-identical prefix at a 50% input token discount.
+ * All content that does not vary by user profile belongs here.
+ */
+const staticPrompt = `${systemPromptText}
+
+# KEYNOTE SESSIONS (Supercharge Track)
+These are the Day 1 main stage keynotes. ALL attendees should attend. You have full details below — answer keynote questions directly without calling a tool. Rephrase the descriptions in your own words, in plain conversational language:
+
+${keynoteBlock}
+
+# TOOL USAGE
+- **Keynotes / Supercharge**: Answer from above. Only call searchSessions with track="Supercharge" if user wants something not covered above.
+- **Session recommendations**: USE searchSessions. Max ${MAX_SESSIONS} non-clashing sessions per day.
+- **Exhibitors / Event Partners / Sponsors**: USE getExhibitors. Max ${MAX_EXHIBITORS} per day. ("Partner & Community" is a session track — use searchSessions for those.)
+- **Presenters / Speakers**: USE getPresenters. Only pass all=true if explicitly asked for ALL.
+- **Personalized schedule**: USE createSchedule.
+
+# SCHEDULE OVERRIDE
+When outputting schedule data from createSchedule, output ONLY a JSON code block — no conversational text inside:
+\`\`\`json
+{
+  "type": "schedule_download",
+  "data": { ...exact JSON from createSchedule... }
+}
+\`\`\``;
 
 
 export async function POST(req: NextRequest) {
@@ -125,9 +180,6 @@ export async function POST(req: NextRequest) {
             location: safeLocation,
         };
 
-        const promptPath = path.join(process.cwd(), 'data/Scheduler_System_Prompt.txt');
-        const systemPrompt = fs.readFileSync(promptPath, 'utf8');
-
         const validMessages = (messages as ChatMessage[]).map((msg) => {
             if (msg.role === 'user' && msg.content && !msg.parts) {
                 return { ...msg, parts: [{ type: 'text', text: msg.content }] };
@@ -156,55 +208,6 @@ export async function POST(req: NextRequest) {
             ];
         }
 
-        const maxSessions = parseInt(process.env.MAX_SESSIONS_PER_DAY || "3", 10);
-        const maxExhibitors = parseInt(process.env.MAX_EXHIBITORS_PER_DAY || "3", 10);
-
-        // Pre-build keynote reference with full detail so the LLM can rephrase naturally.
-        // Built from pre-loaded sessionsData — identical for every user, maximises cache prefix.
-        const keynotes = sessionsData
-            .filter((s) => s.track === "Supercharge")
-            .sort((a, b) => a.startDateTime.localeCompare(b.startDateTime))
-            .map((s) => {
-                const startTime = s.startDateTime.substring(11, 16);
-                const endTime = s.endDateTime.substring(11, 16);
-                const date = s.startDateTime.substring(0, 10);
-                return [
-                    `**${s.title}**`,
-                    `Time: ${startTime} – ${endTime}, ${date} | Stage: Supercharge Stage`,
-                    `Speaker: ${s.presenters?.join(", ") || "TBA"}`,
-                    `Description: ${s.description || s.shortDescription || ""}`,
-                ].join('\n');
-            })
-            .join('\n\n');
-
-        /**
-         * Static system prompt prefix — identical for every user and every request.
-         * OpenAI caches the longest byte-identical prefix at a 50% input token discount.
-         * All content that does not vary by user profile belongs here.
-         */
-        const staticPrompt = `${systemPrompt}
-
-# KEYNOTE SESSIONS (Supercharge Track)
-These are the Day 1 main stage keynotes. ALL attendees should attend. You have full details below — answer keynote questions directly without calling a tool. Rephrase the descriptions in your own words, in plain conversational language:
-
-${keynotes}
-
-# TOOL USAGE
-- **Keynotes / Supercharge**: Answer from above. Only call searchSessions with track="Supercharge" if user wants something not covered above.
-- **Session recommendations**: USE searchSessions. Max ${maxSessions} non-clashing sessions per day.
-- **Exhibitors / Event Partners / Sponsors**: USE getExhibitors. Max ${maxExhibitors} per day. ("Partner & Community" is a session track — use searchSessions for those.)
-- **Presenters / Speakers**: USE getPresenters. Only pass all=true if explicitly asked for ALL.
-- **Personalized schedule**: USE createSchedule.
-
-# SCHEDULE OVERRIDE
-When outputting schedule data from createSchedule, output ONLY a JSON code block — no conversational text inside:
-\`\`\`json
-{
-  "type": "schedule_download",
-  "data": { ...exact JSON from createSchedule... }
-}
-\`\`\``;
-
         /**
          * Dynamic system prompt suffix — appended after the static prefix.
          * Compact JSON to minimise per-request token cost. Placed last so cache prefix is maximised.
@@ -215,13 +218,15 @@ When outputting schedule data from createSchedule, output ONLY a JSON code block
             days: safeAttendanceDays,
             interests: safeInterests,
             location: safeLocation,
-            maxSessions,
-            maxExhibitors,
+            maxSessions: MAX_SESSIONS,
+            maxExhibitors: MAX_EXHIBITORS,
         });
         const dynamicPrompt = `User context: ${userContextJson}`;
 
         const result = await streamText({
             model: openai(process.env.OPENAI_MODEL || 'gpt-5.4-mini'),
+            temperature: 0.3,
+            maxOutputTokens: 1024,
             system: staticPrompt + '\n\n' + dynamicPrompt,
             messages: processMessages,
             tools: {
@@ -310,7 +315,7 @@ When outputting schedule data from createSchedule, output ONLY a JSON code block
                             let lastEndTime = 0;
 
                             for (const s of daySessions) {
-                                if (selectedForDay.length >= maxSessions) break;
+                                if (selectedForDay.length >= MAX_SESSIONS) break;
                                 const sStart = new Date(s.startDateTime).getTime();
                                 const sEnd = new Date(s.endDateTime).getTime();
 
@@ -345,9 +350,8 @@ When outputting schedule data from createSchedule, output ONLY a JSON code block
                     inputSchema: z.object({
                         name: z.string().optional().describe('Name of the exhibitor to search for.'),
                         tags: z.array(z.string()).optional().describe('Topics or services to filter by.'),
-                        date: z.string().optional().describe('Specific date to filter exhibitors by, e.g. "2026-09-03" or "Sept 3".'),
                     }),
-                    execute: async ({ name, tags }: { name?: string; tags?: string[]; date?: string }) => {
+                    execute: async ({ name, tags }: { name?: string; tags?: string[] }) => {
                         let filtered: Exhibitor[] = exhibitorsData;
                         if (name) {
                             filtered = filtered.filter((e) => e.name?.toLowerCase().includes(name.toLowerCase()));
@@ -379,7 +383,7 @@ When outputting schedule data from createSchedule, output ONLY a JSON code block
                         }).sort((a, b) => b._score - a._score);
 
                         const daysCount = Math.max(1, safeAttendanceDays.length || 1);
-                        return scoredExhibitors.slice(0, maxExhibitors * daysCount).map((e) => ({
+                        return scoredExhibitors.slice(0, MAX_EXHIBITORS * daysCount).map((e) => ({
                             name: e.name,
                             description: e.shortDescription || e.description || "",
                             tags: e.tags
@@ -498,7 +502,7 @@ When outputting schedule data from createSchedule, output ONLY a JSON code block
                                         summary: s.shortDescription || s.description || ""
                                     };
                                 }),
-                                exhibitors: dayExhibitors.slice(0, 8).map((e) => e.name)
+                                exhibitors: dayExhibitors.slice(0, MAX_EXHIBITORS).map((e) => e.name)
                             };
                         }
 
