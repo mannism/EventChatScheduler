@@ -1696,10 +1696,10 @@
       "startDateTime": "2026-09-03T14:30:00",
       "endDateTime": "2026-09-03T15:15:00",
       "presenters": [
-        "Anjanica Amin",
-        "Jenna Chamberlain (Syft)",
-        "Andy Taras/ anyone from Education",
-        "Gracie Miles"
+        "Fatou Kone",
+        "Mina Kato (Syft)",
+        "Arun Patel/ anyone from Education",
+        "Yuna Choi"
       ],
       "tags": [
         "AI",
@@ -1749,10 +1749,10 @@
       "startDateTime": "2026-09-04T14:00:00",
       "endDateTime": "2026-09-04T14:45:00",
       "presenters": [
-        "Anjanica Amin",
-        "Jenna Chamberlain (Syft)",
-        "Andy Taras/ anyone from Education",
-        "Gracie Miles"
+        "Fatou Kone",
+        "Mina Kato (Syft)",
+        "Arun Patel/ anyone from Education",
+        "Yuna Choi"
       ],
       "tags": [
         "AI",
@@ -1803,9 +1803,9 @@
       "endDateTime": "2026-09-03T17:15:00",
       "presenters": [
         "2 Presenters:",
-        "Gracie Miles",
-        "Anjanica Amin",
-        "Josh Wilson"
+        "Yuna Choi",
+        "Fatou Kone",
+        "Thiago Santos"
       ],
       "tags": [
         "NZ",
@@ -1833,11 +1833,11 @@
         "Productivity",
         "Enhanced SMB workflows",
         "Optimising XYZ for SMB as an AB",
-        "Fireside chat with Josh Wilson",
+        "Fireside chat with Thiago Santos",
         "software coach",
         "Best practices for helping SMBs digitisation",
         "Migration tools",
-        "Related sessions: Louise Southall session",
+        "Related sessions: Akira Fujimoto session",
         "Numbers to know how",
         "Agentic AI platform",
         "Making tax happen",
@@ -1855,8 +1855,8 @@
       "startDateTime": "2026-09-03T16:30:00",
       "endDateTime": "2026-09-03T17:15:00",
       "presenters": [
-        "Jennifer Glisson (presenter)",
-        "Louis Morello (demo driver)"
+        "Devi Suresh (presenter)",
+        "Leo Vasquez (demo driver)"
       ],
       "tags": [
         "XPM",
@@ -1897,8 +1897,8 @@
       "startDateTime": "2026-09-04T09:45:00",
       "endDateTime": "2026-09-04T10:30:00",
       "presenters": [
-        "Jason Robinson",
-        "Jodilee Manuel"
+        "Santiago Reyes",
+        "Leila Khoury"
       ],
       "tags": [
         "Advisory",
@@ -1920,8 +1920,8 @@
       "startDateTime": "2026-09-04T15:00:00",
       "endDateTime": "2026-09-04T15:45:00",
       "presenters": [
-        "Clinton Hazel Jr (presenter)",
-        "Fiona O'Farrell (demo driver)"
+        "Omar Youssef (presenter)",
+        "Lakshmi Iyer (demo driver)"
       ],
       "tags": [
         "XYZ product",
@@ -1959,8 +1959,8 @@
       "startDateTime": "2026-09-04T10:45:00",
       "endDateTime": "2026-09-04T11:30:00",
       "presenters": [
-        "Akankshu Dhawan",
-        "Eitan Sharon"
+        "Wei Chen",
+        "Sanjay Krishnan"
       ],
       "tags": [
         "AI",
@@ -2002,9 +2002,9 @@
       "startDateTime": "2026-09-04T11:45:00",
       "endDateTime": "2026-09-04T12:30:00",
       "presenters": [
-        "XYZ Presenter: Ananya Chopra",
-        "Thomas Bramley",
-        "Syft presenter: Mitch Piper"
+        "XYZ Presenter: Layla Farouk",
+        "Riku Yamamoto",
+        "Syft presenter: Tomoko Sato"
       ],
       "tags": [
         "Workflows",
@@ -2019,32 +2019,32 @@
     },
     {
       "id": "D260904094502",
-      "title": "External: Matt Church Thoughts about tomorrow you can talk about today",
+      "title": "External: Rohan Kapoor Thoughts about tomorrow you can talk about today",
       "track": "Discovery",
       "stageNumber": "Stage 3",
       "stage": "Discovery",
       "startDateTime": "2026-09-04T09:45:00",
       "endDateTime": "2026-09-04T10:30:00",
       "presenters": [
-        "Matt Church"
+        "Rohan Kapoor"
       ],
       "tags": [
         "External Speaker",
         "Thought leadership"
       ],
-      "description": "In this rapidly changing world, the only certainty is that what works today will not work tomorrow. Old business models won’t work, old leadership styles won’t be tolerated and slow moving industries and businesses will become extinct. The successful players will be the ones with the greatest agility, creativity and foresight. A session with Matt focused on disruption will help put in place a culture of willingness and a practical framework for being agile, creative and building foresight.",
+      "description": "In this rapidly changing world, the only certainty is that what works today will not work tomorrow. Old business models won’t work, old leadership styles won’t be tolerated and slow moving industries and businesses will become extinct. The successful players will be the ones with the greatest agility, creativity and foresight. A session with Rohan focused on disruption will help put in place a culture of willingness and a practical framework for being agile, creative and building foresight.",
       "shortDescription": "Matt's session tackles disruption: build agility, creativity & foresight to thrive as old models fail. Learn practical frameworks for future success."
     },
     {
       "id": "D260903153002",
-      "title": "External: Ashley Fell Understanding and engaging with Generation Alpha",
+      "title": "External: Saanvi Menon Understanding and engaging with Generation Alpha",
       "track": "Discovery",
       "stageNumber": "Stage 3",
       "stage": "Discovery",
       "startDateTime": "2026-09-03T15:30:00",
       "endDateTime": "2026-09-03T16:15:00",
       "presenters": [
-        "Ashley Fell"
+        "Saanvi Menon"
       ],
       "tags": [
         "External Speaker"
@@ -2054,37 +2054,37 @@
     },
     {
       "id": "D260904104501",
-      "title": "External: Dr Lucy Hone Three secrets of resilient people",
+      "title": "External: Dr Maya Lindgren Three secrets of resilient people",
       "track": "Discovery",
       "stageNumber": "Stage 3",
       "stage": "Discovery",
       "startDateTime": "2026-09-04T10:45:00",
       "endDateTime": "2026-09-04T11:30:00",
       "presenters": [
-        "Dr Lucy Hone"
+        "Dr Maya Lindgren"
       ],
       "tags": [
         "External Speaker"
       ],
       "description": "Based on Lucy’s TED Talk with over 9 million views, this keynote unpacks the three evidence-based strategies used by the world’s most resilient people—those who manage to face the worst and somehow keep going. It’s warm, moving, and deeply practical.",
-      "shortDescription": "Based on Lucy's 9M+ TED Talk, this keynote reveals 3 evidence-based strategies of the world's most resilient people. Warm, moving & practical."
+      "shortDescription": "Based on Maya's 9M+ TED Talk, this keynote reveals 3 evidence-based strategies of the world's most resilient people. Warm, moving & practical."
     },
     {
       "id": "D260904150002",
-      "title": "Jessie French - external",
+      "title": "Ines Almeida - external",
       "track": "Discovery",
       "stageNumber": "Stage 3",
       "stage": "Discovery",
       "startDateTime": "2026-09-04T15:00:00",
       "endDateTime": "2026-09-04T15:45:00",
       "presenters": [
-        "Jessie French"
+        "Ines Almeida"
       ],
       "tags": [
         "External Speaker"
       ],
-      "description": "Jessie French, founder of Other Matter, and XYZ's Tamara Somers have a fireside chat on sustainability economy and future of sustainable tech.",
-      "shortDescription": "Jessie French, founder of Other Matter, and XYZ's Tamara Somers have a fireside chat on sustainability economy and future of sustainable tech."
+      "description": "Ines Almeida, founder of Other Matter, and XYZ's Haruki Endo have a fireside chat on sustainability economy and future of sustainable tech.",
+      "shortDescription": "Ines Almeida, founder of Other Matter, and XYZ's Haruki Endo have a fireside chat on sustainability economy and future of sustainable tech."
     },
     {
       "id": "D260904094503",
@@ -2095,8 +2095,8 @@
       "startDateTime": "2026-09-04T09:45:00",
       "endDateTime": "2026-09-04T10:30:00",
       "presenters": [
-        "Nicole Acott , Tom Sautelle",
-        "Michelle Grisdale"
+        "Neha Varma , Vivaan Reddy",
+        "Kamila Novak"
       ],
       "tags": [
         "Payroll HR",
@@ -2118,9 +2118,9 @@
       "startDateTime": "2026-09-03T15:30:00",
       "endDateTime": "2026-09-03T16:15:00",
       "presenters": [
-        "Michael Magrath",
-        "Priyanka Bucktowonsing",
-        "Miguel Nasr"
+        "Bram Visser",
+        "Nalini Prasad",
+        "Sergio Vargas"
       ],
       "tags": [
         "Compliance",
@@ -2140,9 +2140,9 @@
       "startDateTime": "2026-09-03T14:30:00",
       "endDateTime": "2026-09-03T15:15:00",
       "presenters": [
-        "Toby Delamore",
-        "Sarah Toohey",
-        "Laney Graham"
+        "Thandiwe Moyo",
+        "Asha Mbeki",
+        "Imogen Walsh"
       ],
       "tags": [
         "Announcement",
@@ -2195,11 +2195,11 @@
       "startDateTime": "2026-09-03T16:30:00",
       "endDateTime": "2026-09-03T17:15:00",
       "presenters": [
-        "Che Douglas (interview format)",
-        "Olivia Christiansen - Host",
-        "Slyvia Ding Panel",
-        "Akankshu Dhawan - Panel",
-        "Demo Driver - Andy Taras"
+        "Kenji Watanabe (interview format)",
+        "Lina Bergstrom - Host",
+        "Jia-Wei Liu Panel",
+        "Wei Chen - Panel",
+        "Demo Driver - Arun Patel"
       ],
       "tags": [
         "Announcement",
@@ -2222,12 +2222,12 @@
       "startDateTime": "2026-09-04T10:45:00",
       "endDateTime": "2026-09-04T11:30:00",
       "presenters": [
-        "Areti Connell",
-        "Peter O'Malley",
-        "Bharathi Ramavarjula",
-        "Robert Preswick",
-        "Fiona O'Farrell",
-        "Becca Smith"
+        "Sunita Reddy",
+        "Emeka Okafor",
+        "Mei Huang",
+        "Arjun Rao",
+        "Lakshmi Iyer",
+        "Hana Yoshida"
       ],
       "tags": [
         "Cash flow",
@@ -2250,9 +2250,9 @@
       "startDateTime": "2026-09-03T15:30:00",
       "endDateTime": "2026-09-03T16:15:00",
       "presenters": [
-        "Lisa Huang",
-        "Soon-ee Cheah",
-        "Nicole Acott- demo driver"
+        "Mei-Lin Zhou",
+        "Jin-Soo Hwang",
+        "Neha Varma- demo driver"
       ],
       "tags": [
         "AI",
@@ -2272,9 +2272,9 @@
       "startDateTime": "2026-09-04T09:45:00",
       "endDateTime": "2026-09-04T10:30:00",
       "presenters": [
-        "Amy Cannon (co-presenter)",
-        "Duran Hamer (co-presenter)",
-        "Teegan Magnussen (demo driver)"
+        "Rosa Espinoza (co-presenter)",
+        "Joaquin Ferreira (co-presenter)",
+        "Sadia Rahman (demo driver)"
       ],
       "tags": [
         "Analytics",
@@ -2309,10 +2309,10 @@
       "startDateTime": "2026-09-04T10:45:00",
       "endDateTime": "2026-09-04T11:30:00",
       "presenters": [
-        "Caroline Waters - host",
-        "Madhu Gupta - TBC",
-        "Sarah Lawrance",
-        "Regan Ashworth"
+        "Nadia Castillo - host",
+        "Ravi Kapoor - TBC",
+        "Celine Moreau",
+        "Jimin Park"
       ],
       "tags": [
         "AI",
@@ -2344,10 +2344,10 @@
       "startDateTime": "2026-09-04T14:00:00",
       "endDateTime": "2026-09-04T14:45:00",
       "presenters": [
-        "Tam Somers",
-        "Lindsay Ellis",
-        "Hamish Purcell",
-        "Michaela Pogson"
+        "Haruki Endo",
+        "Eun-Ji Song",
+        "Vikram Mehta",
+        "Sanna Virtanen"
       ],
       "tags": [
         "Sustainability",
@@ -2381,9 +2381,9 @@
       "startDateTime": "2026-09-03T15:30:00",
       "endDateTime": "2026-09-03T16:15:00",
       "presenters": [
-        "Louise Southall - host",
-        "Jason Robinson",
-        "Susan Toft"
+        "Akira Fujimoto - host",
+        "Santiago Reyes",
+        "Chioma Eze"
       ],
       "tags": [
         "Analytics",
@@ -2394,8 +2394,8 @@
         "AU",
         "External Speaker"
       ],
-      "description": "Louise Southall, XYZ's economist breaks down the numbers, offering insights into the current business environment - but it's not all percentages, trend lines and charts - Louise will be joined by an accountant and a small business owner to discuss the current headwinds and tailwinds being faced by small businesses and their advisors. They'll offer examples and present some ideas for how all small businesses can set themselves up for success.",
-      "shortDescription": "Go beyond the figures with XYZ's economist, Louise Southall, leading a panel discussion on strategies to navigate economic shifts and achieve success."
+      "description": "Akira Fujimoto, XYZ's economist breaks down the numbers, offering insights into the current business environment - but it's not all percentages, trend lines and charts - Louise will be joined by an accountant and a small business owner to discuss the current headwinds and tailwinds being faced by small businesses and their advisors. They'll offer examples and present some ideas for how all small businesses can set themselves up for success.",
+      "shortDescription": "Go beyond the figures with XYZ's economist, Akira Fujimoto, leading a panel discussion on strategies to navigate economic shifts and achieve success."
     },
     {
       "id": "D260903143004",
@@ -2406,10 +2406,10 @@
       "startDateTime": "2026-09-03T14:30:00",
       "endDateTime": "2026-09-03T15:15:00",
       "presenters": [
-        "James Bergin - host",
-        "Soon-Ee Cheah - panelist",
-        "Will Flynt - panelist",
-        "Kayur Patel"
+        "Marcus Leung - host",
+        "Jin-Soo Hwang - panelist",
+        "Kenzo Ito - panelist",
+        "Pita Taufa"
       ],
       "tags": [
         "AI",
@@ -2420,7 +2420,7 @@
         "Thought leadership",
         "External Speaker"
       ],
-      "description": "As AI automates increasingly complex tasks, your role as an accountant is evolving – as is the very nature of human judgment and accountability in this new landscape! Who better to explore this than some experts in the field who have each evolved significantly in their own careers to this point? Join James Bergin, XYZ's EGM of Tech Research and Advocacy as he talks with three AI experts from different backgrounds: an ex-pharmacist turned AI tech visionary, a former pilot turned senior principal AI engineer, and a Fellow Chartered Accountant who helps clients onboard GenAI every day, while also teaching digital systems at university. They’ll dissect the implications of AI for your workflows and the profession more broadly. Discover how to not just adapt, but thrive, by elevating your focus on the irreplaceable human elements of trust and client relationships.",
+      "description": "As AI automates increasingly complex tasks, your role as an accountant is evolving – as is the very nature of human judgment and accountability in this new landscape! Who better to explore this than some experts in the field who have each evolved significantly in their own careers to this point? Join Marcus Leung, XYZ's EGM of Tech Research and Advocacy as he talks with three AI experts from different backgrounds: an ex-pharmacist turned AI tech visionary, a former pilot turned senior principal AI engineer, and a Fellow Chartered Accountant who helps clients onboard GenAI every day, while also teaching digital systems at university. They’ll dissect the implications of AI for your workflows and the profession more broadly. Discover how to not just adapt, but thrive, by elevating your focus on the irreplaceable human elements of trust and client relationships.",
       "shortDescription": "Human judgment in an AI world. Diverse experts share insights to help accountants navigate evolving roles and elevate accountability."
     },
     {
@@ -2432,10 +2432,10 @@
       "startDateTime": "2026-09-04T15:00:00",
       "endDateTime": "2026-09-04T15:45:00",
       "presenters": [
-        "James Bergin - host",
-        "Soon-Ee Cheah - panelist",
-        "Will Flynt - panelist",
-        "Kayur Patel"
+        "Marcus Leung - host",
+        "Jin-Soo Hwang - panelist",
+        "Kenzo Ito - panelist",
+        "Pita Taufa"
       ],
       "tags": [
         "AI",
@@ -2446,7 +2446,7 @@
         "Thought leadership",
         "External Speaker"
       ],
-      "description": "As AI automates increasingly complex tasks, your role as an accountant is evolving – as is the very nature of human judgment and accountability in this new landscape! Who better to explore this than some experts in the field who have each evolved significantly in their own careers to this point? Join James Bergin, XYZ's EGM of Tech Research and Advocacy as he talks with three AI experts from different backgrounds: an ex-pharmacist turned AI tech visionary, a former pilot turned senior principal AI engineer, and a Fellow Chartered Accountant who helps clients onboard GenAI every day, while also teaching digital systems at university. They’ll dissect the implications of AI for your workflows and the profession more broadly. Discover how to not just adapt, but thrive, by elevating your focus on the irreplaceable human elements of trust and client relationships.",
+      "description": "As AI automates increasingly complex tasks, your role as an accountant is evolving – as is the very nature of human judgment and accountability in this new landscape! Who better to explore this than some experts in the field who have each evolved significantly in their own careers to this point? Join Marcus Leung, XYZ's EGM of Tech Research and Advocacy as he talks with three AI experts from different backgrounds: an ex-pharmacist turned AI tech visionary, a former pilot turned senior principal AI engineer, and a Fellow Chartered Accountant who helps clients onboard GenAI every day, while also teaching digital systems at university. They’ll dissect the implications of AI for your workflows and the profession more broadly. Discover how to not just adapt, but thrive, by elevating your focus on the irreplaceable human elements of trust and client relationships.",
       "shortDescription": "Human judgment in an AI world. Diverse experts share insights to help accountants navigate evolving roles and elevate accountability."
     },
     {
@@ -2458,10 +2458,10 @@
       "startDateTime": "2026-09-04T11:45:00",
       "endDateTime": "2026-09-04T12:30:00",
       "presenters": [
-        "James Bergin - host",
-        "Sarah Lawrance",
-        "Beau Gaudron",
-        "Mere Teinaki"
+        "Marcus Leung - host",
+        "Celine Moreau",
+        "Carlos Rivera",
+        "Kwesi Asare"
       ],
       "tags": [
         "AI",
@@ -2483,10 +2483,10 @@
       "startDateTime": "2026-09-04T15:00:00",
       "endDateTime": "2026-09-04T15:45:00",
       "presenters": [
-        "Stuart Miller",
-        "Elissa Walker",
-        "Natalie Lennon",
-        "Matthew Addison"
+        "Mateo Guzman",
+        "Amara Diallo",
+        "Kavitha Menon",
+        "Kofi Boateng"
       ],
       "tags": [
         "XYZ Tax",
@@ -2526,14 +2526,14 @@
     },
     {
       "id": "D260903143002",
-      "title": "External: Rebecca Buchanan The bookkeeping practice of the future",
+      "title": "External: Deepa Nair The bookkeeping practice of the future",
       "track": "Discovery",
       "stageNumber": "Stage 3",
       "stage": "Discovery",
       "startDateTime": "2026-09-03T14:30:00",
       "endDateTime": "2026-09-03T15:15:00",
       "presenters": [
-        "Rebecca Buchanan"
+        "Deepa Nair"
       ],
       "tags": [
         "AI",
@@ -2553,10 +2553,10 @@
       "startDateTime": "2026-09-04T11:45:00",
       "endDateTime": "2026-09-04T12:30:00",
       "presenters": [
-        "Sabby Gill",
-        "Inbal Rodnay",
-        "Jason Croston",
-        "Kyelie Baxter"
+        "Rahul Gupta",
+        "Renata Kovacs",
+        "Hiroshi Nakamura",
+        "Ayumi Ota"
       ],
       "tags": [
         "Sponsored",
@@ -2574,9 +2574,9 @@
       "startDateTime": "2026-09-04T14:00:00",
       "endDateTime": "2026-09-04T14:45:00",
       "presenters": [
-        "Ian Boyd",
-        "Bridget Snelling",
-        "Shaun Puckrin"
+        "Tariq Hassan",
+        "Anjali Desai",
+        "Min-Jun Kim"
       ],
       "tags": [
         "Sponsored",
@@ -2587,14 +2587,14 @@
     },
     {
       "id": "D260904140003",
-      "title": "External: Chelsea Pottenger Focus in a world of distractions",
+      "title": "External: Aiko Nakamura Focus in a world of distractions",
       "track": "Discovery",
       "stageNumber": "Stage 3",
       "stage": "Discovery",
       "startDateTime": "2026-09-04T14:00:00",
       "endDateTime": "2026-09-04T14:45:00",
       "presenters": [
-        "Chelsea Pottenger"
+        "Aiko Nakamura"
       ],
       "tags": [
         "External Speaker"
@@ -2604,14 +2604,14 @@
     },
     {
       "id": "D260903163001",
-      "title": "External: Kate Christie Mastering time investment",
+      "title": "External: Preet Gill Mastering time investment",
       "track": "Discovery",
       "stageNumber": "Stage 3",
       "stage": "Discovery",
       "startDateTime": "2026-09-03T16:30:00",
       "endDateTime": "2026-09-03T17:15:00",
       "presenters": [
-        "Kate Christie"
+        "Preet Gill"
       ],
       "tags": [
         "External Speaker"
@@ -2621,14 +2621,14 @@
     },
     {
       "id": "D260904114503",
-      "title": "External: Lani Rafiti Being human in a technology obsessed world",
+      "title": "External: Khalid Oduya Being human in a technology obsessed world",
       "track": "Discovery",
       "stageNumber": "Stage 3",
       "stage": "Discovery",
       "startDateTime": "2026-09-04T11:45:00",
       "endDateTime": "2026-09-04T12:30:00",
       "presenters": [
-        "Lani Rafiti"
+        "Khalid Oduya"
       ],
       "tags": [
         "External Speaker"
@@ -2645,7 +2645,7 @@
       "startDateTime": "2026-09-03T15:30:00",
       "endDateTime": "2026-09-03T16:00:00",
       "presenters": [
-        "Clayton Wood"
+        "Elias Mbeki"
       ],
       "tags": [
         "Culture / Soft Skills",
@@ -2672,7 +2672,7 @@
       "startDateTime": "2026-09-03T15:30:00",
       "endDateTime": "2026-09-03T16:00:00",
       "presenters": [
-        "Jeannie Savage"
+        "Aditi Bhatt"
       ],
       "tags": [
         "Advisory",
@@ -2682,22 +2682,22 @@
         "workflow",
         "bookkeeping"
       ],
-      "description": "Most bookkeepers start out to create freedom and income—but without the right systems, many end up overwhelmed, underpaid, or unsure how to grow. In this hands-on workshop, Jeannie Savage—bookkeeper, author, and global strategist—guides attendees through a proven framework to build a scalable, high-value service model using productisation, automation, and advisory.",
-      "shortDescription": "Scale profit & time with Jeannie Savage’s proven framework—productisation, automation & advisory for strategic bookkeepers.",
+      "description": "Most bookkeepers start out to create freedom and income—but without the right systems, many end up overwhelmed, underpaid, or unsure how to grow. In this hands-on workshop, Aditi Bhatt—bookkeeper, author, and global strategist—guides attendees through a proven framework to build a scalable, high-value service model using productisation, automation, and advisory.",
+      "shortDescription": "Scale profit & time with Aditi Bhatt’s proven framework—productisation, automation & advisory for strategic bookkeepers.",
       "flags": {
         "externalSpeaker": true
       }
     },
     {
       "id": "P260903143002",
-      "title": "You are the boss of your future: Natalie Lennon’s personal journey from Loss and Darkness to Success and Self-Empowerment",
+      "title": "You are the boss of your future: Kavitha Menon’s personal journey from Loss and Darkness to Success and Self-Empowerment",
       "track": "Partner & Community",
       "stageNumber": "Stage 1",
       "stage": "Partner & Community",
       "startDateTime": "2026-09-03T14:30:00",
       "endDateTime": "2026-09-03T15:00:00",
       "presenters": [
-        "Natalie Lennon"
+        "Kavitha Menon"
       ],
       "tags": [
         "Bold Ideas",
@@ -2708,7 +2708,7 @@
         "succeed",
         "reslience"
       ],
-      "description": "In accounting and bookkeeping, we thrive on ticking boxes and maintaining control. But what happens when life throws a challenge you can’t “work harder” to overcome? In this inspiring session, Natalie Lennon shares her journey of resilience, from navigating heavy personal issues to leaving a secure partnership and building a thriving firm. This session challenges you to rethink success, embrace detours, and discover how life’s toughest moments can lead to the greatest growth.",
+      "description": "In accounting and bookkeeping, we thrive on ticking boxes and maintaining control. But what happens when life throws a challenge you can’t “work harder” to overcome? In this inspiring session, Kavitha Menon shares her journey of resilience, from navigating heavy personal issues to leaving a secure partnership and building a thriving firm. This session challenges you to rethink success, embrace detours, and discover how life’s toughest moments can lead to the greatest growth.",
       "shortDescription": "When life didn’t go to plan, I walked away from “safe” and built a business I love. This talk is about rewriting success on your own terms.",
       "flags": {
         "externalSpeaker": true
@@ -2723,7 +2723,7 @@
       "startDateTime": "2026-09-03T14:30:00",
       "endDateTime": "2026-09-03T15:00:00",
       "presenters": [
-        "Laurel Millar"
+        "Nneka Obi"
       ],
       "tags": [
         "Advisory",
@@ -2749,7 +2749,7 @@
       "startDateTime": "2026-09-03T13:00:00",
       "endDateTime": "2026-09-03T13:30:00",
       "presenters": [
-        "Sarah Lawrance + Panel"
+        "Celine Moreau + Panel"
       ],
       "tags": [
         "Culture / Soft Skills",
@@ -2762,8 +2762,8 @@
         "succeed",
         "practice"
       ],
-      "description": "Many talented women in accounting suffer imposter syndrome, silencing their voices. We propose a panel of Jolene Elliott, Susan Milicevic, and Lauren Thiel, with Sarah Lawrance as moderator, to share how they reframed self-doubt, built resilience, and transformed uncertainty into leadership. Join us to spark change: rethink career paths, embed flexibility, and create inclusive cultures that retain and inspire the next generation.",
-      "shortDescription": "Join Sarah Lawrance and her panel who will discusses imposter syndrome, the talent drain in accounting, and offer ways to reframe self-doubt and build resilience.",
+      "description": "Many talented women in accounting suffer imposter syndrome, silencing their voices. We propose a panel of Dania Haddad, Ingrid Holm, and Nkechi Udo, with Celine Moreau as moderator, to share how they reframed self-doubt, built resilience, and transformed uncertainty into leadership. Join us to spark change: rethink career paths, embed flexibility, and create inclusive cultures that retain and inspire the next generation.",
+      "shortDescription": "Join Celine Moreau and her panel who will discusses imposter syndrome, the talent drain in accounting, and offer ways to reframe self-doubt and build resilience.",
       "flags": {
         "externalSpeaker": true
       }
@@ -2777,7 +2777,7 @@
       "startDateTime": "2026-09-03T13:00:00",
       "endDateTime": "2026-09-03T13:30:00",
       "presenters": [
-        "Sangeeta Bajaj"
+        "Farah Nazari"
       ],
       "tags": [
         "External speaker",
@@ -2795,14 +2795,14 @@
     },
     {
       "id": "P260904094502",
-      "title": "Timothy Munro says: I want AI to take my Job! All the Tasks I’m handing over and Why",
+      "title": "Daisuke Mori says: I want AI to take my Job! All the Tasks I’m handing over and Why",
       "track": "Partner & Community",
       "stageNumber": "Stage 2",
       "stage": "Partner & Community",
       "startDateTime": "2026-09-04T09:45:00",
       "endDateTime": "2026-09-04T10:15:00",
       "presenters": [
-        "Timothy Munro"
+        "Daisuke Mori"
       ],
       "tags": [
         "AI",
@@ -2826,7 +2826,7 @@
       "startDateTime": "2026-09-04T09:45:00",
       "endDateTime": "2026-09-04T10:15:00",
       "presenters": [
-        "Kayur Patel"
+        "Pita Taufa"
       ],
       "tags": [
         "AI",
@@ -2836,7 +2836,7 @@
         "automation"
       ],
       "description": "With all the AI hype, it’s hard to know where to start. This hands-on session cuts through the noise, showing accountants and bookkeepers how to reclaim an hour a day using tools like ChatGPT and Co-Pilot. No fluff or complex set ups, just real-world applications that streamline workflows, reduce admin time, and boost productivity. and improve client communication. Follow along in real time and leave with practical techniques you can implement immediately to work smarter, not harder.",
-      "shortDescription": "Join Kayur Patel for a hands-on session on using Gen AI to boost accounting efficiency: practical tools, no tech skills needed, ready to use tomorrow.",
+      "shortDescription": "Join Pita Taufa for a hands-on session on using Gen AI to boost accounting efficiency: practical tools, no tech skills needed, ready to use tomorrow.",
       "flags": {
         "externalSpeaker": true
       }
@@ -2850,7 +2850,7 @@
       "startDateTime": "2026-09-04T11:45:00",
       "endDateTime": "2026-09-04T12:15:00",
       "presenters": [
-        "Shannon Smit"
+        "Mika Tanabe"
       ],
       "tags": [
         "AI",
@@ -2875,7 +2875,7 @@
       "startDateTime": "2026-09-04T11:45:00",
       "endDateTime": "2026-09-04T12:15:00",
       "presenters": [
-        "Michelle Kolze"
+        "Olga Petrenko"
       ],
       "tags": [
         "Advisory",
@@ -2900,7 +2900,7 @@
       "startDateTime": "2026-09-04T10:45:00",
       "endDateTime": "2026-09-04T11:15:00",
       "presenters": [
-        "Ric Thorpe"
+        "Sebastien Nzelu"
       ],
       "tags": [
         "Culture / Soft Skills",
@@ -2909,8 +2909,8 @@
         "success",
         "team"
       ],
-      "description": "What if culture isn’t just a vibe, but your most powerful brand asset? Ric Thorpe, CEO of Sidekick,XYZ’s first Platinum Partner, shares how defining and funding culture with intent creates an authentic employer brand — one that attracts talent, inspires loyalty, and drives long-term business success.",
-      "shortDescription": "What if culture isn’t just a vibe, but your most powerful brand asset? Ric Thorpe, CEO of Sidekick,XYZ’s first Platinum Partner, shares how defining and funding culture with intent creates an authentic employer brand — one that attracts talent, inspires loyalty, and drives long-term business success.",
+      "description": "What if culture isn’t just a vibe, but your most powerful brand asset? Sebastien Nzelu, CEO of Sidekick,XYZ’s first Platinum Partner, shares how defining and funding culture with intent creates an authentic employer brand — one that attracts talent, inspires loyalty, and drives long-term business success.",
+      "shortDescription": "What if culture isn’t just a vibe, but your most powerful brand asset? Sebastien Nzelu, CEO of Sidekick,XYZ’s first Platinum Partner, shares how defining and funding culture with intent creates an authentic employer brand — one that attracts talent, inspires loyalty, and drives long-term business success.",
       "flags": {
         "externalSpeaker": true
       }
@@ -2924,7 +2924,7 @@
       "startDateTime": "2026-09-04T10:45:00",
       "endDateTime": "2026-09-04T11:15:00",
       "presenters": [
-        "Tyler Caskey"
+        "Yuki Tanaka"
       ],
       "tags": [
         "Custom integration",
@@ -2949,7 +2949,7 @@
       "startDateTime": "2026-09-04T12:30:00",
       "endDateTime": "2026-09-04T13:00:00",
       "presenters": [
-        "Mark Knowles, General Manager Security Assurance"
+        "Chang-Ho Yoon, General Manager Security Assurance"
       ],
       "tags": [
         "AI",
@@ -2972,7 +2972,7 @@
       "startDateTime": "2026-09-04T14:00:00",
       "endDateTime": "2026-09-04T14:30:00",
       "presenters": [
-        "Regan Ashworth"
+        "Jimin Park"
       ],
       "tags": [
         "Cloud integrator",
@@ -2995,9 +2995,9 @@
       "startDateTime": "2026-09-04T14:00:00",
       "endDateTime": "2026-09-04T14:30:00",
       "presenters": [
-        "Sam Baldwin",
-        "Aly Garrett",
-        "Jason Croston"
+        "Kwame Asante",
+        "Priya Sharma",
+        "Hiroshi Nakamura"
       ],
       "tags": [
         "XYZ product",
@@ -3017,7 +3017,7 @@
       "startDateTime": "2026-09-03T09:20:00",
       "endDateTime": "2026-09-03T09:30:00",
       "presenters": [
-        "Sukhinder Singh Cassidy"
+        "Laila Brahimi"
       ],
       "tags": [],
       "description": "Supercharging Your Future: Embrace Innovation, Unlock Capacity, and Redefine Impact with AI Hear from XYZ’s CEO on how AI is poised to drive unprecedented change in the coming years. Join us to discover how XYZ is democratising this innovation, empowering you to embrace a \"Supercharged Future\" with reimagined experiences, personalised insights, and automated actions for greater impact.",
@@ -3035,10 +3035,10 @@
       "startDateTime": "2026-09-03T09:30:00",
       "endDateTime": "2026-09-03T10:15:00",
       "presenters": [
-        "Diya Jolly"
+        "Tomohiro Yamaguchi"
       ],
       "tags": [],
-      "description": "XYZ’s Product Strategy: The Intelligent Platform to Harness AI, Automate Your Work, and Multiply Your Impact Hear about XYZ's evolved product strategy from Diya Jolly, our CPTO. Learn how our unique agentic approach streamlines your work to empower your human expertise, freeing you to multiply your impact through a reimagined XYZ experience with automated actions and real-time insights.",
+      "description": "XYZ’s Product Strategy: The Intelligent Platform to Harness AI, Automate Your Work, and Multiply Your Impact Hear about XYZ's evolved product strategy from Tomohiro Yamaguchi, our CPTO. Learn how our unique agentic approach streamlines your work to empower your human expertise, freeing you to multiply your impact through a reimagined XYZ experience with automated actions and real-time insights.",
       "shortDescription": "This session reveals XYZ's evolved strategy, leveraging AI for automated actions, personalised insights, and reimagined experiences to multiply your impact.",
       "flags": {
         "keynote": true
@@ -3053,10 +3053,10 @@
       "startDateTime": "2026-09-03T11:30:00",
       "endDateTime": "2026-09-03T12:00:00",
       "presenters": [
-        "Angad Soin"
+        "Chidera Eze"
       ],
       "tags": [],
-      "description": "Advisors are crucial for small business success. But what does success mean to today's entrepreneurs? Join us to discover how XYZ is empowering you to become a proactive, strategic partner. Learn to define your ‘endgame’, attract ideal clients, and amplify your impact to help small businesses thrive. Speaker: Angad Soin, Managing Director ANZ and Global Chief Strategy Officer, XYZ",
+      "description": "Advisors are crucial for small business success. But what does success mean to today's entrepreneurs? Join us to discover how XYZ is empowering you to become a proactive, strategic partner. Learn to define your ‘endgame’, attract ideal clients, and amplify your impact to help small businesses thrive. Speaker: Chidera Eze, Managing Director ANZ and Global Chief Strategy Officer, XYZ",
       "shortDescription": "This session is about helping you redefine success for you, your clients, and amplify your impact to help small businesses thrive.",
       "flags": {
         "keynote": true
@@ -3064,20 +3064,20 @@
     },
     {
       "id": "S260903120001",
-      "title": "Joe Brumm | Special guest",
+      "title": "Cormac Brennan | Special guest",
       "track": "Supercharge",
       "stageNumber": "Supercharge Stage",
       "stage": "Supercharge Stage",
       "startDateTime": "2026-09-03T12:00:00",
       "endDateTime": "2026-09-03T12:45:00",
       "presenters": [
-        "Joe Brumm"
+        "Cormac Brennan"
       ],
       "tags": [
         "External speaker"
       ],
-      "description": "Hear Joe's leadership journey and principles of collaboration, innovation and inclusivity in the creation of global sensation, Bluey.",
-      "shortDescription": "Hear how Joe’s inclusive, innovative leadership helped bring global sensation Bluey to life.",
+      "description": "Hear Cormac's leadership journey and principles of collaboration, innovation and inclusivity in the creation of global sensation, Dewie.",
+      "shortDescription": "Hear how Joe’s inclusive, innovative leadership helped bring global sensation Dewie to life.",
       "flags": {
         "keynote": true
       }
