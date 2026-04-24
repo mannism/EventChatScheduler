@@ -83,8 +83,11 @@ The Docker image uses a multi-stage build with `node:20-alpine` and Next.js stan
 ## Architecture
 
 ```
-Onboarding (3-step form)  -->  Chat (AI conversation + tools)  -->  Schedule (printable view)
+Landing Page (/)  -->  AI Assistant (/assistant)  -->  Onboarding  -->  Chat  -->  Schedule
+                  -->  Exhibitors (/exhibitors)
 ```
+
+**App flow**: Landing page (`/`) with hero, keynotes, and full schedule modal. CTA links to AI Assistant (`/assistant`) for onboarding, chat, and schedule generation. Exhibitor directory at `/exhibitors`.
 
 **State management**: React hooks only -- no global store. `localStorage` persists user profile and phase across reloads. `sessionStorage` transfers large schedule payloads to the print view.
 
@@ -92,6 +95,9 @@ Onboarding (3-step form)  -->  Chat (AI conversation + tools)  -->  Schedule (pr
 
 | Module | Description |
 |--------|-------------|
+| `app/page.tsx` | Conference landing page — hero, keynotes, full schedule modal, exhibitors teaser. Server component loading session/exhibitor data. |
+| `app/assistant/page.tsx` | AI assistant flow — onboarding, chat, and schedule generation. |
+| `app/exhibitors/page.tsx` | Searchable exhibitor directory with tag filtering. |
 | `app/api/chat/route.ts` | Core API route with Zod-validated request body. Cache-optimized system prompt (static prefix + dynamic user context). Defines 4 tools, delegates schedule generation to `lib/scheduler.ts`, and streams responses via the Vercel AI SDK. |
 | `components/MainView.tsx` | Phase controller orchestrating onboarding, chat, and schedule. Persists user profile and current phase to `localStorage` so returning users skip onboarding. |
 | `components/chat/ChatInterface.tsx` | Renders the conversation UI. Intercepts Markdown payloads (JSON code blocks marked `schedule_download`) to dynamically spawn the `ViewScheduleButton`. Shows contextual tool-call progress labels. Single scroll manager with near-bottom detection. |
@@ -130,11 +136,22 @@ app/
   api/
     chat/route.ts                              # Chat API -- Zod-validated, cache-optimized prompt, tool definitions, streaming
     health/route.ts                            # Health check endpoint for Railway readiness probe
-  page.tsx                                     # Home page -- server-side session loading
+  page.tsx                                     # Conference landing page (hero, keynotes, schedule modal, exhibitors teaser)
+  assistant/
+    page.tsx                                   # AI assistant flow (onboarding -> chat -> schedule)
+  exhibitors/
+    page.tsx                                   # Searchable exhibitor directory
   schedule/page.tsx                            # Printable schedule view (reads sessionStorage)
   layout.tsx                                   # Root layout -- fonts, ambient bg, header, SEO metadata
   globals.css                                  # Tailwind theme, CSS variables, glass-morphism styles
 components/
+  landing/
+    LandingPage.tsx                            # Conference landing page root (owns modal state, Framer Motion stagger)
+    HeroSection.tsx                            # Hero -- event title, CTAs, stats chips
+    KeynotesSection.tsx                        # Keynote speaker cards (Supercharge track)
+    FullScheduleModal.tsx                      # Full program modal -- day tabs, session table, track badges
+    ExhibitorsTeaser.tsx                       # Horizontal scroll pill row + link to /exhibitors
+  ExhibitorsView.tsx                           # Searchable exhibitor grid with tag filtering
   MainView.tsx                                 # Phase controller: onboarding -> chat -> schedule
   ThemeToggle.tsx                              # Dark/light toggle -- localStorage-persisted, hydration-safe
   Footer.tsx                                   # Server component footer
@@ -148,7 +165,8 @@ components/
   ui/                                          # shadcn/ui primitives (button, card, command, dialog, form, input, label, popover, select, tabs)
 lib/
   types.ts                                     # Core TypeScript interfaces (Session, UserProfile, Schedule)
-  data.ts                                      # Server-side session data loader (reads JSON from disk)
+  data.ts                                      # Server-side data loaders (sessions, exhibitors, keynotes)
+  data/sessions.json                           # Compiled session data (runtime cache)
   scheduler.ts                                 # Schedule generation engine (conflict detection, 5-step pipeline)
   matching.ts                                  # Tag matching, session scoring, Fisher-Yates shuffle
   ics.ts                                       # iCalendar (.ics) export generator
@@ -156,7 +174,7 @@ lib/
   utils.ts                                     # cn() utility -- clsx + tailwind-merge
 data/
   seo.json                                     # SEO metadata -- title, OG, Twitter Card
-  Scheduler_2026_consolidated_sessions.json    # Event sessions dataset
+  Scheduler_2026_consolidated_sessions.json    # Event sessions dataset (source)
   Scheduler_2026_exhibitors.json               # Exhibitor/sponsor profiles
   Scheduler_System_Prompt.txt                  # AI system prompt reference
 public/                                        # Favicon variants (16/32/48/192/512px, apple-touch-icon)
@@ -232,8 +250,10 @@ Static JSON files in `/data` serve as the AI's backend -- no database required:
 |------|-------------|
 | `seo.json` | SEO metadata (title, description, keywords, OpenGraph, Twitter Card). Imported by `app/layout.tsx`. |
 | `Scheduler_System_Prompt.txt` | Core system prompt that dictates the AI's persona, instructions, and behavioral guidelines. |
-| `Scheduler_2026_consolidated_sessions.json` | Master schedule database -- sessions with `startDateTime`, `title`, `stage`, `presenters`, `track`, and `tags`. |
-| `Scheduler_2026_exhibitors.json` | Exhibitor and sponsor profiles with names, logos, and categorized tags. |
+| `Scheduler_2026_consolidated_sessions.json` | Source session database -- sessions with `startDateTime`, `title`, `stage`, `presenters`, `track`, and `tags`. Used by the chat API route. |
+| `Scheduler_2026_exhibitors.json` | Exhibitor and sponsor profiles with names and categorized tags. |
+
+The runtime session data used by `lib/data.ts` (landing page, keynotes) lives at `lib/data/sessions.json`. Both files must be kept in sync when editing session data.
 
 ## License
 
