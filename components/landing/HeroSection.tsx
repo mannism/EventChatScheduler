@@ -26,7 +26,7 @@ export function HeroSection({ onOpenSchedule, sessionCount, exhibitorCount }: He
 
       {/* Event title */}
       <h1 className="text-5xl md:text-7xl font-serif font-bold text-foreground tracking-tight mb-4">
-        [DEMO] XYZCon 2026
+        XYZ Conference 2026 [Demo]
       </h1>
 
       {/* Tagline */}
