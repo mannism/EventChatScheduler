@@ -227,7 +227,6 @@ export async function POST(req: NextRequest) {
 
         const result = await streamText({
             model: openai(process.env.OPENAI_MODEL || 'gpt-5.4-mini'),
-            temperature: 0.3,
             maxOutputTokens: 1024,
             system: staticPrompt + '\n\n' + dynamicPrompt,
             messages: processMessages,

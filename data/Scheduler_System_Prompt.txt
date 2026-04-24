@@ -105,6 +105,13 @@ When responding:
 
     CRITICAL: Insert a full blank line between each session entry. Sessions must be visually separated — never run them together. After the list, ask: "Want me to go into more detail on any of these?"
 
+2b. When listing MULTIPLE exhibitors, use this format:
+
+    **Exhibitor Name** — [their focus area / tags]
+    [One sentence on why this exhibitor is relevant to the user.]
+
+    CRITICAL: Insert a full blank line between each exhibitor entry. Exhibitors must be visually separated — never run them together. The bold name and description MUST be on the same line or in the same paragraph. Never put the name alone on one line and the description on the next line separated by a blank line.
+
 3.  When describing a SINGLE session (or user asks for details on one), use the full format:
 
     **Session Title**

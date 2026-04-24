@@ -299,6 +299,16 @@
   .markdown-prose p {
     @apply mb-4 last:mb-0;
   }
+  /* Paragraphs that start with bold text (e.g. exhibitor/session names) get extra top spacing */
+  .markdown-prose p + p > strong:first-child {
+    @apply inline-block pt-1;
+  }
+  .markdown-prose ul, .markdown-prose ol {
+    @apply mb-4 pl-5 last:mb-0;
+  }
+  .markdown-prose li {
+    @apply mb-1;
+  }
   .markdown-prose table {
     @apply w-full border-collapse my-4 text-sm border border-border/50 rounded-lg overflow-hidden bg-card text-card-foreground;
   }
