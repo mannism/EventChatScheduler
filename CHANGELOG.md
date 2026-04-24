@@ -1,3 +1,10 @@
+## [2.5.1](https://github.com/mannism/EventChatScheduler/compare/v2.5.0...v2.5.1) (2026-04-24)
+
+
+### Bug Fixes
+
+* replace real names in runtime sessions.json and update header ([#18](https://github.com/mannism/EventChatScheduler/issues/18)) ([119cc91](https://github.com/mannism/EventChatScheduler/commit/119cc91c87e8bfbbd713f43515051fa7b97297eb)), closes [#17](https://github.com/mannism/EventChatScheduler/issues/17)
+
 # [2.5.0](https://github.com/mannism/EventChatScheduler/compare/v2.4.2...v2.5.0) (2026-04-23)
 
 
