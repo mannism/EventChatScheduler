@@ -42,14 +42,25 @@ npm run lint     # ESLint
     release.yml                                # semantic-release on merge to main
 app/
   api/
-    chat/route.ts                              # Main chat API — Zod-validated, cache-optimized prompt, tool definitions, streaming
+    chat/route.ts                              # Main chat API — module-level static prompt, tool definitions, streaming
     health/route.ts                            # Health check endpoint for Railway readiness probe
-  page.tsx                                     # Home page entry
+  page.tsx                                     # Conference landing page (hero, keynotes, schedule modal, exhibitors teaser)
+  assistant/
+    page.tsx                                   # AI assistant flow (onboarding → chat → schedule)
+  exhibitors/
+    page.tsx                                   # Searchable exhibitor directory
   schedule/page.tsx                            # Printable schedule view (reads sessionStorage)
   layout.tsx                                   # Root layout with fonts, header, SEO metadata
   globals.css                                  # Tailwind theme, CSS variables, glass-morphism styles
   favicon.ico                                  # App favicon
 components/
+  landing/
+    LandingPage.tsx                            # Conference landing page root (owns modal state, Framer Motion stagger)
+    HeroSection.tsx                            # Hero — event title, CTAs, stats chips
+    KeynotesSection.tsx                        # Keynote speaker cards (Supercharge track)
+    FullScheduleModal.tsx                      # Full program modal — day tabs, 119-session table, track badges
+    ExhibitorsTeaser.tsx                       # Horizontal scroll pill row + link to /exhibitors
+  ExhibitorsView.tsx                           # Searchable exhibitor grid with tag filtering
   MainView.tsx                                 # Phase controller: onboarding → chat → schedule
   ThemeToggle.tsx                              # Dark/light theme toggle
   Footer.tsx                                   # Server component footer
@@ -63,7 +74,7 @@ components/
   ui/                                          # shadcn/ui primitives (button, card, command, dialog, form, input, label, popover, select, tabs)
 lib/
   types.ts                                     # Core TypeScript interfaces
-  data.ts                                      # Server-side session data loader (reads JSON from disk)
+  data.ts                                      # Server-side data loaders (sessions, exhibitors, keynotes)
   data/sessions.json                           # Compiled session data (generated/cached)
   scheduler.ts                                 # Schedule generation (conflict detection, 5-step pipeline)
   matching.ts                                  # Tag matching, session scoring, Fisher-Yates shuffle
@@ -80,11 +91,11 @@ public/                                        # Favicon variants (16/32/48/192/
 
 ## Architecture
 
-**App flow**: Onboarding (multi-step form) → Chat (AI conversation) → Schedule (printable view)
+**App flow**: Landing page (`/`) → CTA to AI Assistant (`/assistant`) → Onboarding → Chat → Schedule. Exhibitors directory at `/exhibitors`.
 
 **State management**: React hooks only — no global store. Cross-tab data via sessionStorage.
 
-**API route** (`app/api/chat/route.ts`): Core logic hub — Zod-validated request body, cache-optimized system prompt (static prefix + dynamic user context suffix for OpenAI automatic prompt caching), defines 4 LLM tools (`searchSessions`, `getExhibitors`, `getPresenters`, `createSchedule`), streams responses via `streamText()`. Schedule generation delegates to `lib/scheduler.ts` (single source of truth).
+**API route** (`app/api/chat/route.ts`): Core logic hub — Zod-validated request body, module-level static system prompt (built once on cold start for maximum OpenAI prefix cache hit rate), defines 4 LLM tools (`searchSessions`, `getExhibitors`, `getPresenters`, `createSchedule`), streams responses via `streamText()` with `temperature: 0.3` and `maxOutputTokens: 1024`. Schedule generation delegates to `lib/scheduler.ts` (single source of truth).
 
 **Schedule logic** (`lib/scheduler.ts`): Conflict-free session selection with mandatory keynotes, fixed networking/lunch blocks, exhibitor mixing by user interests.
 
