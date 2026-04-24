@@ -1,3 +1,10 @@
+## [2.5.4](https://github.com/mannism/EventChatScheduler/compare/v2.5.3...v2.5.4) (2026-04-24)
+
+
+### Bug Fixes
+
+* use bullet points in session/exhibitor format for proper rendering ([#22](https://github.com/mannism/EventChatScheduler/issues/22)) ([6c3d53b](https://github.com/mannism/EventChatScheduler/commit/6c3d53baa48199f06b82062c4392d5f6b2200c8d))
+
 ## [2.5.3](https://github.com/mannism/EventChatScheduler/compare/v2.5.2...v2.5.3) (2026-04-24)
 
 
