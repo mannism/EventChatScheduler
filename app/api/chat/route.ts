@@ -23,7 +23,7 @@ import { generateSchedule } from '@/lib/scheduler';
 type ScoredSession = Session & { _score: number };
 
 /** Raw message shape from the request body before conversion */
-type ChatMessage = { role: 'system' | 'user' | 'assistant'; content?: string; parts?: { type: string; text?: string }[] };
+type ChatMessage = { role: 'system' | 'user' | 'assistant' | 'tool'; content?: string | unknown[]; parts?: { type: string; text?: string }[] };
 
 /**
  * Zod schema for the /api/chat request body.
@@ -33,16 +33,18 @@ type ChatMessage = { role: 'system' | 'user' | 'assistant'; content?: string; pa
 const chatRequestSchema = z.object({
     messages: z.array(
         z.object({
-            role: z.enum(['system', 'user', 'assistant']),
-            // content and parts are both optional — the handler normalises both shapes
-            content: z.string().optional(),
+            role: z.enum(['system', 'user', 'assistant', 'tool']),
+            // content can be a string (simple messages) or an array of content parts
+            // (assistant messages with tool calls). Accept both — convertToModelMessages
+            // handles the actual shape normalisation downstream.
+            content: z.union([z.string(), z.array(z.any())]).optional(),
             parts: z.array(
                 z.object({
                     type: z.string(),
                     text: z.string().optional(),
-                })
+                }).passthrough()
             ).optional(),
-        })
+        }).passthrough()
     ),
     // passthrough() preserves the full object without constraining individual fields —
     // the handler uses safe fallbacks for every property, so we don't over-constrain here.
@@ -181,7 +183,7 @@ export async function POST(req: NextRequest) {
         };
 
         const validMessages = (messages as ChatMessage[]).map((msg) => {
-            if (msg.role === 'user' && msg.content && !msg.parts) {
+            if (msg.role === 'user' && typeof msg.content === 'string' && msg.content && !msg.parts) {
                 return { ...msg, parts: [{ type: 'text', text: msg.content }] };
             }
             return msg;
