@@ -1,3 +1,10 @@
+## [2.5.3](https://github.com/mannism/EventChatScheduler/compare/v2.5.2...v2.5.3) (2026-04-24)
+
+
+### Bug Fixes
+
+* improve exhibitor list formatting in chat ([#21](https://github.com/mannism/EventChatScheduler/issues/21)) ([7a65feb](https://github.com/mannism/EventChatScheduler/commit/7a65febb58ea0df3c9889839a140643017bde89e))
+
 ## [2.5.2](https://github.com/mannism/EventChatScheduler/compare/v2.5.1...v2.5.2) (2026-04-24)
 
 
