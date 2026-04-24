@@ -95,7 +95,7 @@ public/                                        # Favicon variants (16/32/48/192/
 
 **State management**: React hooks only — no global store. Cross-tab data via sessionStorage.
 
-**API route** (`app/api/chat/route.ts`): Core logic hub — Zod-validated request body, module-level static system prompt (built once on cold start for maximum OpenAI prefix cache hit rate), defines 4 LLM tools (`searchSessions`, `getExhibitors`, `getPresenters`, `createSchedule`), streams responses via `streamText()` with `temperature: 0.3` and `maxOutputTokens: 1024`. Schedule generation delegates to `lib/scheduler.ts` (single source of truth).
+**API route** (`app/api/chat/route.ts`): Core logic hub — Zod-validated request body, module-level static system prompt (built once on cold start for maximum OpenAI prefix cache hit rate), defines 4 LLM tools (`searchSessions`, `getExhibitors`, `getPresenters`, `createSchedule`), streams responses via `streamText()` with `maxOutputTokens: 1024`. Schedule generation delegates to `lib/scheduler.ts` (single source of truth).
 
 **Schedule logic** (`lib/scheduler.ts`): Conflict-free session selection with mandatory keynotes, fixed networking/lunch blocks, exhibitor mixing by user interests.
 
