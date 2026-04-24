@@ -11,7 +11,7 @@
   "sessions": [
     {
       "id": "A260903132002",
-      "title": "Constant Contact",
+      "title": "ReachWave",
       "track": "App Spotlight",
       "stageNumber": "Stage 1",
       "stage": "App Spotlight",
@@ -25,12 +25,12 @@
         "United States"
       ],
       "metadata": {
-        "appPartner": "Constant Contact"
+        "appPartner": "ReachWave"
       }
     },
     {
       "id": "A260903134505",
-      "title": "WorkflowMax",
+      "title": "TaskForge",
       "track": "App Spotlight",
       "stageNumber": "Stage 1",
       "stage": "App Spotlight",
@@ -56,12 +56,12 @@
         "United States"
       ],
       "metadata": {
-        "appPartner": "WorkflowMax"
+        "appPartner": "TaskForge"
       }
     },
     {
       "id": "A260903141005",
-      "title": "Translucent",
+      "title": "ClearLens",
       "track": "App Spotlight",
       "stageNumber": "Stage 1",
       "stage": "App Spotlight",
@@ -87,12 +87,12 @@
         "United States"
       ],
       "metadata": {
-        "appPartner": "Translucent"
+        "appPartner": "ClearLens"
       }
     },
     {
       "id": "A260903143001",
-      "title": "ApprovalMax",
+      "title": "GateKeep",
       "track": "App Spotlight",
       "stageNumber": "Stage 1",
       "stage": "App Spotlight",
@@ -118,12 +118,12 @@
         "United States"
       ],
       "metadata": {
-        "appPartner": "ApprovalMax"
+        "appPartner": "GateKeep"
       }
     },
     {
       "id": "A260903145505",
-      "title": "WorkGuru",
+      "title": "BuildWise",
       "track": "App Spotlight",
       "stageNumber": "Stage 1",
       "stage": "App Spotlight",
@@ -141,12 +141,12 @@
         "United Kingdom"
       ],
       "metadata": {
-        "appPartner": "WorkGuru"
+        "appPartner": "BuildWise"
       }
     },
     {
       "id": "A260903152002",
-      "title": "Constant Contact",
+      "title": "ReachWave",
       "track": "App Spotlight",
       "stageNumber": "Stage 1",
       "stage": "App Spotlight",
@@ -160,12 +160,12 @@
         "United States"
       ],
       "metadata": {
-        "appPartner": "Constant Contact"
+        "appPartner": "ReachWave"
       }
     },
     {
       "id": "A260903132003",
-      "title": "Dashboard Insights",
+      "title": "PivotView",
       "track": "App Spotlight",
       "stageNumber": "Stage 2",
       "stage": "App Spotlight",
@@ -180,12 +180,12 @@
         "New Zealand"
       ],
       "metadata": {
-        "appPartner": "Dashboard Insights"
+        "appPartner": "PivotView"
       }
     },
     {
       "id": "A260903134501",
-      "title": "ATO SmartDocs",
+      "title": "TaxDocs Pro",
       "track": "App Spotlight",
       "stageNumber": "Stage 2",
       "stage": "App Spotlight",
@@ -199,12 +199,12 @@
         "Australia"
       ],
       "metadata": {
-        "appPartner": "ATO SmartDocs"
+        "appPartner": "TaxDocs Pro"
       }
     },
     {
       "id": "A260903141001",
-      "title": "ChangeGPS",
+      "title": "PathShift",
       "track": "App Spotlight",
       "stageNumber": "Stage 2",
       "stage": "App Spotlight",
@@ -217,12 +217,12 @@
         "Australia"
       ],
       "metadata": {
-        "appPartner": "ChangeGPS"
+        "appPartner": "PathShift"
       }
     },
     {
       "id": "A260903143004",
-      "title": "Ignition",
+      "title": "LaunchPad",
       "track": "App Spotlight",
       "stageNumber": "Stage 2",
       "stage": "App Spotlight",
@@ -248,12 +248,12 @@
         "United States"
       ],
       "metadata": {
-        "appPartner": "Ignition"
+        "appPartner": "LaunchPad"
       }
     },
     {
       "id": "A260903145501",
-      "title": "ATOmate",
+      "title": "TaxFlow",
       "track": "App Spotlight",
       "stageNumber": "Stage 2",
       "stage": "App Spotlight",
@@ -267,12 +267,12 @@
         "Australia"
       ],
       "metadata": {
-        "appPartner": "ATOmate"
+        "appPartner": "TaxFlow"
       }
     },
     {
       "id": "A260903152005",
-      "title": "Xbert",
+      "title": "AuditPulse",
       "track": "App Spotlight",
       "stageNumber": "Stage 2",
       "stage": "App Spotlight",
@@ -291,12 +291,12 @@
         "United States"
       ],
       "metadata": {
-        "appPartner": "Xbert"
+        "appPartner": "AuditPulse"
       }
     },
     {
       "id": "A260903154501",
-      "title": "FYI",
+      "title": "DocVault",
       "track": "App Spotlight",
       "stageNumber": "Stage 2",
       "stage": "App Spotlight",
@@ -312,12 +312,12 @@
         "United Kingdom"
       ],
       "metadata": {
-        "appPartner": "FYI"
+        "appPartner": "DocVault"
       }
     },
     {
       "id": "A260903132004",
-      "title": "Dext",
+      "title": "Sortly",
       "track": "App Spotlight",
       "stageNumber": "Stage 3",
       "stage": "App Spotlight",
@@ -343,12 +343,12 @@
         "United States"
       ],
       "metadata": {
-        "appPartner": "Dext"
+        "appPartner": "Sortly"
       }
     },
     {
       "id": "A260903134502",
-      "title": "AccountKit",
+      "title": "KitBooks",
       "track": "App Spotlight",
       "stageNumber": "Stage 3",
       "stage": "App Spotlight",
@@ -366,12 +366,12 @@
         "United States"
       ],
       "metadata": {
-        "appPartner": "AccountKit"
+        "appPartner": "KitBooks"
       }
     },
     {
       "id": "A260903141002",
-      "title": "FuseSign",
+      "title": "SignEdge",
       "track": "App Spotlight",
       "stageNumber": "Stage 3",
       "stage": "App Spotlight",
@@ -397,12 +397,12 @@
         "United States"
       ],
       "metadata": {
-        "appPartner": "FuseSign"
+        "appPartner": "SignEdge"
       }
     },
     {
       "id": "A260903143002",
-      "title": "BGL Corporate Solutions",
+      "title": "Meridian Corp",
       "track": "App Spotlight",
       "stageNumber": "Stage 3",
       "stage": "App Spotlight",
@@ -415,12 +415,12 @@
         "Australia"
       ],
       "metadata": {
-        "appPartner": "BGL Corporate Solutions"
+        "appPartner": "Meridian Corp"
       }
     },
     {
       "id": "A260903145502",
-      "title": "Dext",
+      "title": "Sortly",
       "track": "App Spotlight",
       "stageNumber": "Stage 3",
       "stage": "App Spotlight",
@@ -446,12 +446,12 @@
         "United States"
       ],
       "metadata": {
-        "appPartner": "Dext"
+        "appPartner": "Sortly"
       }
     },
     {
       "id": "A260903152004",
-      "title": "SuiteFIles",
+      "title": "FileMesh",
       "track": "App Spotlight",
       "stageNumber": "Stage 3",
       "stage": "App Spotlight",
@@ -477,12 +477,12 @@
         "United States"
       ],
       "metadata": {
-        "appPartner": "SuiteFIles"
+        "appPartner": "FileMesh"
       }
     },
     {
       "id": "A260903154502",
-      "title": "Plus91",
+      "title": "ConnectPlus",
       "track": "App Spotlight",
       "stageNumber": "Stage 3",
       "stage": "App Spotlight",
@@ -496,12 +496,12 @@
         "New Zealand"
       ],
       "metadata": {
-        "appPartner": "Plus91"
+        "appPartner": "ConnectPlus"
       }
     },
     {
       "id": "A260903132001",
-      "title": "ANZ",
+      "title": "Pacific Bank",
       "track": "App Spotlight",
       "stageNumber": "Stage 4",
       "stage": "App Spotlight",
@@ -516,12 +516,12 @@
         "New Zealand"
       ],
       "metadata": {
-        "appPartner": "ANZ"
+        "appPartner": "Pacific Bank"
       }
     },
     {
       "id": "A260903134503",
-      "title": "Pinch Payments",
+      "title": "SnapPay",
       "track": "App Spotlight",
       "stageNumber": "Stage 4",
       "stage": "App Spotlight",
@@ -536,12 +536,12 @@
         "New Zealand"
       ],
       "metadata": {
-        "appPartner": "Pinch Payments"
+        "appPartner": "SnapPay"
       }
     },
     {
       "id": "A260903141003",
-      "title": "GoCardless",
+      "title": "DirectPay",
       "track": "App Spotlight",
       "stageNumber": "Stage 4",
       "stage": "App Spotlight",
@@ -559,12 +559,12 @@
         "United States"
       ],
       "metadata": {
-        "appPartner": "GoCardless"
+        "appPartner": "DirectPay"
       }
     },
     {
       "id": "A260903143005",
-      "title": "OFX",
+      "title": "GlobeFX",
       "track": "App Spotlight",
       "stageNumber": "Stage 4",
       "stage": "App Spotlight",
@@ -578,12 +578,12 @@
         "Australia"
       ],
       "metadata": {
-        "appPartner": "OFX"
+        "appPartner": "GlobeFX"
       }
     },
     {
       "id": "A260903145504",
-      "title": "Pinch Payments",
+      "title": "SnapPay",
       "track": "App Spotlight",
       "stageNumber": "Stage 4",
       "stage": "App Spotlight",
@@ -598,12 +598,12 @@
         "New Zealand"
       ],
       "metadata": {
-        "appPartner": "Pinch Payments"
+        "appPartner": "SnapPay"
       }
     },
     {
       "id": "A260903152001",
-      "title": "Cin7",
+      "title": "Stackflow",
       "track": "App Spotlight",
       "stageNumber": "Stage 4",
       "stage": "App Spotlight",
@@ -629,12 +629,12 @@
         "United States"
       ],
       "metadata": {
-        "appPartner": "Cin7"
+        "appPartner": "Stackflow"
       }
     },
     {
       "id": "A260903132005",
-      "title": "Fathom",
+      "title": "DepthLine",
       "track": "App Spotlight",
       "stageNumber": "Stage 5",
       "stage": "App Spotlight",
@@ -660,12 +660,12 @@
         "United States"
       ],
       "metadata": {
-        "appPartner": "Fathom"
+        "appPartner": "DepthLine"
       }
     },
     {
       "id": "A260903134504",
-      "title": "Tanda",
+      "title": "ShiftMark",
       "track": "App Spotlight",
       "stageNumber": "Stage 5",
       "stage": "App Spotlight",
@@ -682,12 +682,12 @@
         "United States"
       ],
       "metadata": {
-        "appPartner": "Tanda"
+        "appPartner": "ShiftMark"
       }
     },
     {
       "id": "A260903141004",
-      "title": "Lightyear AP",
+      "title": "SwiftLedger",
       "track": "App Spotlight",
       "stageNumber": "Stage 5",
       "stage": "App Spotlight",
@@ -712,12 +712,12 @@
         "United States"
       ],
       "metadata": {
-        "appPartner": "Lightyear AP"
+        "appPartner": "SwiftLedger"
       }
     },
     {
       "id": "A260903143003",
-      "title": "CloudPayroll | iPayroll",
+      "title": "CloudWage | PayStream",
       "track": "App Spotlight",
       "stageNumber": "Stage 5",
       "stage": "App Spotlight",
@@ -728,15 +728,15 @@
       ],
       "regions": [
         "Cloud Payroll: Australia",
-        "iPayroll: New Zealand"
+        "PayStream: New Zealand"
       ],
       "metadata": {
-        "appPartner": "CloudPayroll | iPayroll"
+        "appPartner": "CloudWage | PayStream"
       }
     },
     {
       "id": "A260903145503",
-      "title": "Fishbowl",
+      "title": "AquaTrack",
       "track": "App Spotlight",
       "stageNumber": "Stage 5",
       "stage": "App Spotlight",
@@ -761,12 +761,12 @@
         "United States"
       ],
       "metadata": {
-        "appPartner": "Fishbowl"
+        "appPartner": "AquaTrack"
       }
     },
     {
       "id": "A260903152003",
-      "title": "GoCardless",
+      "title": "DirectPay",
       "track": "App Spotlight",
       "stageNumber": "Stage 5",
       "stage": "App Spotlight",
@@ -784,12 +784,12 @@
         "United States"
       ],
       "metadata": {
-        "appPartner": "GoCardless"
+        "appPartner": "DirectPay"
       }
     },
     {
       "id": "A260904110003",
-      "title": "GoCardless",
+      "title": "DirectPay",
       "track": "App Spotlight",
       "stageNumber": "Stage 1",
       "stage": "App Spotlight",
@@ -807,12 +807,12 @@
         "United States"
       ],
       "metadata": {
-        "appPartner": "GoCardless"
+        "appPartner": "DirectPay"
       }
     },
     {
       "id": "A260904112503",
-      "title": "WorkflowMax",
+      "title": "TaskForge",
       "track": "App Spotlight",
       "stageNumber": "Stage 1",
       "stage": "App Spotlight",
@@ -838,12 +838,12 @@
         "United States"
       ],
       "metadata": {
-        "appPartner": "WorkflowMax"
+        "appPartner": "TaskForge"
       }
     },
     {
       "id": "A260904115005",
-      "title": "Weel",
+      "title": "SpendTrail",
       "track": "App Spotlight",
       "stageNumber": "Stage 1",
       "stage": "App Spotlight",
@@ -857,12 +857,12 @@
         "Australia"
       ],
       "metadata": {
-        "appPartner": "Weel"
+        "appPartner": "SpendTrail"
       }
     },
     {
       "id": "A260904121505",
-      "title": "Tanda",
+      "title": "ShiftMark",
       "track": "App Spotlight",
       "stageNumber": "Stage 1",
       "stage": "App Spotlight",
@@ -879,12 +879,12 @@
         "United States"
       ],
       "metadata": {
-        "appPartner": "Tanda"
+        "appPartner": "ShiftMark"
       }
     },
     {
       "id": "A260904125002",
-      "title": "ApprovalMax",
+      "title": "GateKeep",
       "track": "App Spotlight",
       "stageNumber": "Stage 1",
       "stage": "App Spotlight",
@@ -910,12 +910,12 @@
         "United States"
       ],
       "metadata": {
-        "appPartner": "ApprovalMax"
+        "appPartner": "GateKeep"
       }
     },
     {
       "id": "A260904131502",
-      "title": "Cin7",
+      "title": "Stackflow",
       "track": "App Spotlight",
       "stageNumber": "Stage 1",
       "stage": "App Spotlight",
@@ -941,12 +941,12 @@
         "United States"
       ],
       "metadata": {
-        "appPartner": "Cin7"
+        "appPartner": "Stackflow"
       }
     },
     {
       "id": "A260904134005",
-      "title": "WorkGuru",
+      "title": "BuildWise",
       "track": "App Spotlight",
       "stageNumber": "Stage 1",
       "stage": "App Spotlight",
@@ -964,12 +964,12 @@
         "United Kingdom"
       ],
       "metadata": {
-        "appPartner": "WorkGuru"
+        "appPartner": "BuildWise"
       }
     },
     {
       "id": "A260904140003",
-      "title": "Translucent",
+      "title": "ClearLens",
       "track": "App Spotlight",
       "stageNumber": "Stage 1",
       "stage": "App Spotlight",
@@ -995,12 +995,12 @@
         "United States"
       ],
       "metadata": {
-        "appPartner": "Translucent"
+        "appPartner": "ClearLens"
       }
     },
     {
       "id": "A260904142502",
-      "title": "WorkflowMax",
+      "title": "TaskForge",
       "track": "App Spotlight",
       "stageNumber": "Stage 1",
       "stage": "App Spotlight",
@@ -1026,12 +1026,12 @@
         "United States"
       ],
       "metadata": {
-        "appPartner": "WorkflowMax"
+        "appPartner": "TaskForge"
       }
     },
     {
       "id": "A260904110002",
-      "title": "Dashboard Insights",
+      "title": "PivotView",
       "track": "App Spotlight",
       "stageNumber": "Stage 2",
       "stage": "App Spotlight",
@@ -1046,12 +1046,12 @@
         "New Zealand"
       ],
       "metadata": {
-        "appPartner": "Dashboard Insights"
+        "appPartner": "PivotView"
       }
     },
     {
       "id": "A260904112502",
-      "title": "ChangeGPS",
+      "title": "PathShift",
       "track": "App Spotlight",
       "stageNumber": "Stage 2",
       "stage": "App Spotlight",
@@ -1064,12 +1064,12 @@
         "Australia"
       ],
       "metadata": {
-        "appPartner": "ChangeGPS"
+        "appPartner": "PathShift"
       }
     },
     {
       "id": "A260904115003",
-      "title": "Link",
+      "title": "BridgeLink",
       "track": "App Spotlight",
       "stageNumber": "Stage 2",
       "stage": "App Spotlight",
@@ -1095,12 +1095,12 @@
         "United States"
       ],
       "metadata": {
-        "appPartner": "Link"
+        "appPartner": "BridgeLink"
       }
     },
     {
       "id": "A260904121502",
-      "title": "FYI",
+      "title": "DocVault",
       "track": "App Spotlight",
       "stageNumber": "Stage 2",
       "stage": "App Spotlight",
@@ -1116,12 +1116,12 @@
         "United Kingdom"
       ],
       "metadata": {
-        "appPartner": "FYI"
+        "appPartner": "DocVault"
       }
     },
     {
       "id": "A260904125001",
-      "title": "ATOmate",
+      "title": "TaxFlow",
       "track": "App Spotlight",
       "stageNumber": "Stage 2",
       "stage": "App Spotlight",
@@ -1135,12 +1135,12 @@
         "Australia"
       ],
       "metadata": {
-        "appPartner": "ATOmate"
+        "appPartner": "TaxFlow"
       }
     },
     {
       "id": "A260904131505",
-      "title": "Xbert",
+      "title": "AuditPulse",
       "track": "App Spotlight",
       "stageNumber": "Stage 2",
       "stage": "App Spotlight",
@@ -1159,12 +1159,12 @@
         "United States"
       ],
       "metadata": {
-        "appPartner": "Xbert"
+        "appPartner": "AuditPulse"
       }
     },
     {
       "id": "A260904134002",
-      "title": "Ignition",
+      "title": "LaunchPad",
       "track": "App Spotlight",
       "stageNumber": "Stage 2",
       "stage": "App Spotlight",
@@ -1190,12 +1190,12 @@
         "United States"
       ],
       "metadata": {
-        "appPartner": "Ignition"
+        "appPartner": "LaunchPad"
       }
     },
     {
       "id": "A260904140001",
-      "title": "ATO SmartDocs",
+      "title": "TaxDocs Pro",
       "track": "App Spotlight",
       "stageNumber": "Stage 2",
       "stage": "App Spotlight",
@@ -1209,12 +1209,12 @@
         "Australia"
       ],
       "metadata": {
-        "appPartner": "ATO SmartDocs"
+        "appPartner": "TaxDocs Pro"
       }
     },
     {
       "id": "A260904110001",
-      "title": "AccountKit",
+      "title": "KitBooks",
       "track": "App Spotlight",
       "stageNumber": "Stage 3",
       "stage": "App Spotlight",
@@ -1232,12 +1232,12 @@
         "United States"
       ],
       "metadata": {
-        "appPartner": "AccountKit"
+        "appPartner": "KitBooks"
       }
     },
     {
       "id": "A260904112501",
-      "title": "BGL Corporate Solutions",
+      "title": "Meridian Corp",
       "track": "App Spotlight",
       "stageNumber": "Stage 3",
       "stage": "App Spotlight",
@@ -1250,12 +1250,12 @@
         "Australia"
       ],
       "metadata": {
-        "appPartner": "BGL Corporate Solutions"
+        "appPartner": "Meridian Corp"
       }
     },
     {
       "id": "A260904115002",
-      "title": "FuseSign",
+      "title": "SignEdge",
       "track": "App Spotlight",
       "stageNumber": "Stage 3",
       "stage": "App Spotlight",
@@ -1281,12 +1281,12 @@
         "United States"
       ],
       "metadata": {
-        "appPartner": "FuseSign"
+        "appPartner": "SignEdge"
       }
     },
     {
       "id": "A260904121503",
-      "title": "Fathom",
+      "title": "DepthLine",
       "track": "App Spotlight",
       "stageNumber": "Stage 3",
       "stage": "App Spotlight",
@@ -1312,12 +1312,12 @@
         "United States"
       ],
       "metadata": {
-        "appPartner": "Fathom"
+        "appPartner": "DepthLine"
       }
     },
     {
       "id": "A260904125005",
-      "title": "SuiteFiles",
+      "title": "FileMesh",
       "track": "App Spotlight",
       "stageNumber": "Stage 3",
       "stage": "App Spotlight",
@@ -1343,12 +1343,12 @@
         "United States"
       ],
       "metadata": {
-        "appPartner": "SuiteFiles"
+        "appPartner": "FileMesh"
       }
     },
     {
       "id": "A260904131501",
-      "title": "BGL Corporate Solutions",
+      "title": "Meridian Corp",
       "track": "App Spotlight",
       "stageNumber": "Stage 3",
       "stage": "App Spotlight",
@@ -1361,12 +1361,12 @@
         "Australia"
       ],
       "metadata": {
-        "appPartner": "BGL Corporate Solutions"
+        "appPartner": "Meridian Corp"
       }
     },
     {
       "id": "A260904134003",
-      "title": "Link",
+      "title": "BridgeLink",
       "track": "App Spotlight",
       "stageNumber": "Stage 3",
       "stage": "App Spotlight",
@@ -1392,12 +1392,12 @@
         "United States"
       ],
       "metadata": {
-        "appPartner": "Link"
+        "appPartner": "BridgeLink"
       }
     },
     {
       "id": "A260904140002",
-      "title": "Plus91",
+      "title": "ConnectPlus",
       "track": "App Spotlight",
       "stageNumber": "Stage 3",
       "stage": "App Spotlight",
@@ -1411,12 +1411,12 @@
         "New Zealand"
       ],
       "metadata": {
-        "appPartner": "Plus91"
+        "appPartner": "ConnectPlus"
       }
     },
     {
       "id": "A260904115004",
-      "title": "Translucent",
+      "title": "ClearLens",
       "track": "App Spotlight",
       "stageNumber": "Stage 4",
       "stage": "App Spotlight",
@@ -1442,12 +1442,12 @@
         "United States"
       ],
       "metadata": {
-        "appPartner": "Translucent"
+        "appPartner": "ClearLens"
       }
     },
     {
       "id": "A260904121501",
-      "title": "ANZ",
+      "title": "Pacific Bank",
       "track": "App Spotlight",
       "stageNumber": "Stage 4",
       "stage": "App Spotlight",
@@ -1462,12 +1462,12 @@
         "New Zealand"
       ],
       "metadata": {
-        "appPartner": "ANZ"
+        "appPartner": "Pacific Bank"
       }
     },
     {
       "id": "A260904125004",
-      "title": "GoCardless",
+      "title": "DirectPay",
       "track": "App Spotlight",
       "stageNumber": "Stage 4",
       "stage": "App Spotlight",
@@ -1485,12 +1485,12 @@
         "United States"
       ],
       "metadata": {
-        "appPartner": "GoCardless"
+        "appPartner": "DirectPay"
       }
     },
     {
       "id": "A260904131504",
-      "title": "Weel",
+      "title": "SpendTrail",
       "track": "App Spotlight",
       "stageNumber": "Stage 4",
       "stage": "App Spotlight",
@@ -1504,12 +1504,12 @@
         "Australia"
       ],
       "metadata": {
-        "appPartner": "Weel"
+        "appPartner": "SpendTrail"
       }
     },
     {
       "id": "A260904134004",
-      "title": "OFX",
+      "title": "GlobeFX",
       "track": "App Spotlight",
       "stageNumber": "Stage 4",
       "stage": "App Spotlight",
@@ -1523,12 +1523,12 @@
         "Australia"
       ],
       "metadata": {
-        "appPartner": "OFX"
+        "appPartner": "GlobeFX"
       }
     },
     {
       "id": "A260904142501",
-      "title": "ANZ",
+      "title": "Pacific Bank",
       "track": "App Spotlight",
       "stageNumber": "Stage 4",
       "stage": "App Spotlight",
@@ -1543,12 +1543,12 @@
         "New Zealand"
       ],
       "metadata": {
-        "appPartner": "ANZ"
+        "appPartner": "Pacific Bank"
       }
     },
     {
       "id": "A260904115001",
-      "title": "Cin7",
+      "title": "Stackflow",
       "track": "App Spotlight",
       "stageNumber": "Stage 5",
       "stage": "App Spotlight",
@@ -1574,12 +1574,12 @@
         "United States"
       ],
       "metadata": {
-        "appPartner": "Cin7"
+        "appPartner": "Stackflow"
       }
     },
     {
       "id": "A260904121504",
-      "title": "Lightyear AP",
+      "title": "SwiftLedger",
       "track": "App Spotlight",
       "stageNumber": "Stage 5",
       "stage": "App Spotlight",
@@ -1604,12 +1604,12 @@
         "United States"
       ],
       "metadata": {
-        "appPartner": "Lightyear AP"
+        "appPartner": "SwiftLedger"
       }
     },
     {
       "id": "A260904125003",
-      "title": "CloudPayroll | iPayroll",
+      "title": "CloudWage | PayStream",
       "track": "App Spotlight",
       "stageNumber": "Stage 5",
       "stage": "App Spotlight",
@@ -1620,15 +1620,15 @@
       ],
       "regions": [
         "Cloud Payroll: Australia",
-        "iPayroll: New Zealand"
+        "PayStream: New Zealand"
       ],
       "metadata": {
-        "appPartner": "CloudPayroll | iPayroll"
+        "appPartner": "CloudWage | PayStream"
       }
     },
     {
       "id": "A260904131503",
-      "title": "Fishbowl",
+      "title": "AquaTrack",
       "track": "App Spotlight",
       "stageNumber": "Stage 5",
       "stage": "App Spotlight",
@@ -1653,12 +1653,12 @@
         "United States"
       ],
       "metadata": {
-        "appPartner": "Fishbowl"
+        "appPartner": "AquaTrack"
       }
     },
     {
       "id": "A260904134001",
-      "title": "Dext",
+      "title": "Sortly",
       "track": "App Spotlight",
       "stageNumber": "Stage 5",
       "stage": "App Spotlight",
@@ -1684,7 +1684,7 @@
         "United States"
       ],
       "metadata": {
-        "appPartner": "Dext"
+        "appPartner": "Sortly"
       }
     },
     {
@@ -1697,14 +1697,14 @@
       "endDateTime": "2026-09-03T15:15:00",
       "presenters": [
         "Fatou Kone",
-        "Mina Kato (Syft)",
+        "Mina Kato (Prysm)",
         "Arun Patel/ anyone from Education",
         "Yuna Choi"
       ],
       "tags": [
         "AI",
         "JAX",
-        "Syft",
+        "Prysm",
         "Workflows",
         "Analytics",
         "How to session",
@@ -1725,7 +1725,7 @@
         "Creating quotes creating invoices",
         "Freeing up advisor time",
         "Empowering clients",
-        "Analytics powered by syft",
+        "Analytics powered by Prysm",
         "Transform data into visual stories",
         "Client insights",
         "Dashboards",
@@ -1737,7 +1737,7 @@
         "Future of advisory",
         "High value strategic advise"
       ],
-      "description": "Get ready for three bite sized sessions packed with practical takeaways you and your clients can apply immediately. In each 15 minute segment, we’ll focus across key areas to help you work smarter, not harder. Whether it's streamlining workflows in XYZ, saving time with Just Ask XYZ, or unlocking insights with Analytics powered by Syft, each segment delivers at least one quick win you can start using today. Fast. Focused. Actionable.",
+      "description": "Get ready for three bite sized sessions packed with practical takeaways you and your clients can apply immediately. In each 15 minute segment, we’ll focus across key areas to help you work smarter, not harder. Whether it's streamlining workflows in XYZ, saving time with Just Ask XYZ, or unlocking insights with Analytics powered by Prysm, each segment delivers at least one quick win you can start using today. Fast. Focused. Actionable.",
       "shortDescription": "Work smarter with 3 fast-paced sessions. Get quick wins for you and your clients using XYZ, Just Ask XYZ, and Analytics."
     },
     {
@@ -1750,14 +1750,14 @@
       "endDateTime": "2026-09-04T14:45:00",
       "presenters": [
         "Fatou Kone",
-        "Mina Kato (Syft)",
+        "Mina Kato (Prysm)",
         "Arun Patel/ anyone from Education",
         "Yuna Choi"
       ],
       "tags": [
         "AI",
         "JAX",
-        "Syft",
+        "Prysm",
         "Workflows",
         "Analytics",
         "How to session",
@@ -1778,7 +1778,7 @@
         "Creating quotes creating invoices",
         "Freeing up advisor time",
         "Empowering clients",
-        "Analytics powered by syft",
+        "Analytics powered by Prysm",
         "Transform data into visual stories",
         "Client insights",
         "Dashboards",
@@ -1790,7 +1790,7 @@
         "Future of advisory",
         "High value strategic advise"
       ],
-      "description": "Get ready for three bite sized sessions packed with practical takeaways you and your clients can apply immediately. In each 15 minute segment, we’ll focus across key areas to help you work smarter, not harder. Whether it's streamlining workflows in XYZ, saving time with Just Ask XYZ, or unlocking insights with Analytics powered by Syft, each segment delivers at least one quick win you can start using today. Fast. Focused. Actionable.",
+      "description": "Get ready for three bite sized sessions packed with practical takeaways you and your clients can apply immediately. In each 15 minute segment, we’ll focus across key areas to help you work smarter, not harder. Whether it's streamlining workflows in XYZ, saving time with Just Ask XYZ, or unlocking insights with Analytics powered by Prysm, each segment delivers at least one quick win you can start using today. Fast. Focused. Actionable.",
       "shortDescription": "Work smarter with 3 fast-paced sessions. Get quick wins for you and your clients using XYZ, Just Ask XYZ, and Analytics."
     },
     {
@@ -1903,12 +1903,12 @@
       "tags": [
         "Advisory",
         "XYZ product",
-        "Syft",
+        "Prysm",
         "Innovative tools",
         "Future of business",
         "Practice tools"
       ],
-      "description": "Learn how to design and price value-add advisory services that resonate with your clients. We’ll explore approaches for recurring accounting work, controllership, FP&A, and demonstrate how XYZ and Syft can help you deliver more with less effort.",
+      "description": "Learn how to design and price value-add advisory services that resonate with your clients. We’ll explore approaches for recurring accounting work, controllership, FP&A, and demonstrate how XYZ and Prysm can help you deliver more with less effort.",
       "shortDescription": "Explore practical strategies and XYZ tools to help you price, package, and deliver advisory services for your clients."
     },
     {
@@ -1934,7 +1934,7 @@
         "Tap to pay",
         "Stripe",
         "getting paid faster",
-        "Syft - client insights",
+        "Prysm - client insights",
         "HQ",
         "Client insights dashboard - client data",
         "Planning workloads for ABs",
@@ -1995,7 +1995,7 @@
     },
     {
       "id": "D260904114502",
-      "title": "Drive reporting excellence: XYZ Reporting and Syft Analytics",
+      "title": "Drive reporting excellence: XYZ Reporting and Prysm Analytics",
       "track": "Discovery",
       "stageNumber": "Stage 1",
       "stage": "Discovery",
@@ -2004,18 +2004,18 @@
       "presenters": [
         "XYZ Presenter: Layla Farouk",
         "Riku Yamamoto",
-        "Syft presenter: Tomoko Sato"
+        "Prysm presenter: Tomoko Sato"
       ],
       "tags": [
         "Workflows",
         "Reporting",
-        "Syft",
+        "Prysm",
         "Advisory",
         "XYZ product",
         "Compliance"
       ],
-      "description": "In this session we'll showcase workflow best practices across XYZ reporting and Syft, helping you achieve reporting excellence. Discover how to leverage powerful report templates for efficient compliance, and elevate your advisory services with Syft's advanced management and consolidation reporting. We'll include deep dives and live demos so that you can takeaway practical tips that help to transform reporting across your practice.",
-      "shortDescription": "Discover how to leverage powerful XYZ report templates for compliance and elevate services with Syft Analytics management and consolidation reporting."
+      "description": "In this session we'll showcase workflow best practices across XYZ reporting and Prysm, helping you achieve reporting excellence. Discover how to leverage powerful report templates for efficient compliance, and elevate your advisory services with Prysm's advanced management and consolidation reporting. We'll include deep dives and live demos so that you can takeaway practical tips that help to transform reporting across your practice.",
+      "shortDescription": "Discover how to leverage powerful XYZ report templates for compliance and elevate services with Prysm Analytics management and consolidation reporting."
     },
     {
       "id": "D260904094502",
@@ -2265,7 +2265,7 @@
     },
     {
       "id": "D260904094501",
-      "title": "Elevate client services: XYZ and Syft Analytics",
+      "title": "Elevate client services: XYZ and Prysm Analytics",
       "track": "Discovery",
       "stageNumber": "Stage 4",
       "stage": "Discovery",
@@ -2278,7 +2278,7 @@
       ],
       "tags": [
         "Analytics",
-        "Syft",
+        "Prysm",
         "Reporting",
         "Accountant tools",
         "XYZ product",
@@ -2289,16 +2289,16 @@
         "The power of insights",
         "Help clients make informed decisions",
         "Empowering advisors with the right tools",
-        "Who/what is syft",
-        "Features of syft",
+        "Who/what is Prysm",
+        "Features of Prysm",
         "Benchmarking",
         "AI insights",
         "Transaction level insights",
-        "Demo syft",
+        "Demo Prysm",
         "Foundations assets for advisory"
       ],
-      "description": "Discover how XYZ and Syft Analytics can elevate your client services—from streamlined reporting to generating actionable insights, faster. In this session we'll explore the tools to help you scale beyond compliance and have more strategic conversations with clients.",
-      "shortDescription": "Discover how XYZ and Syft Analytics can elevate your client services- from streamlined reporting to generating actionable insights, faster."
+      "description": "Discover how XYZ and Prysm Analytics can elevate your client services—from streamlined reporting to generating actionable insights, faster. In this session we'll explore the tools to help you scale beyond compliance and have more strategic conversations with clients.",
+      "shortDescription": "Discover how XYZ and Prysm Analytics can elevate your client services- from streamlined reporting to generating actionable insights, faster."
     },
     {
       "id": "D260904104504",
@@ -2546,7 +2546,7 @@
     },
     {
       "id": "D260904114501",
-      "title": "Dext - sponsored session AI automation: What’s hype, what’s real, and what comes next?",
+      "title": "Sortly - sponsored session AI automation: What’s hype, what’s real, and what comes next?",
       "track": "Discovery",
       "stageNumber": "Stage 4",
       "stage": "Discovery",
@@ -2567,7 +2567,7 @@
     },
     {
       "id": "D260904140004",
-      "title": "GoCardless - sponsored session FY26 cash flow insights: Protect your clients from the strain of late payments",
+      "title": "DirectPay - sponsored session FY26 cash flow insights: Protect your clients from the strain of late payments",
       "track": "Discovery",
       "stageNumber": "Stage 4",
       "stage": "Discovery",
@@ -2582,8 +2582,8 @@
         "Sponsored",
         "External Speaker"
       ],
-      "description": "Time is money. Late payments are costing Australian businesses both, according to new research from bank payments company GoCardless. In this session, accounting and payments experts will reveal the latest cash flow insights, share ways to protect your clients, and discuss the future roadmap of payments. It’s time to stop chasing payments, and put your clients’ time and money to better use.",
-      "shortDescription": "Stop chasing payments. Join GoCardless experts as they discuss new research on how late payments are costing Australian businesses time and money."
+      "description": "Time is money. Late payments are costing Australian businesses both, according to new research from bank payments company DirectPay. In this session, accounting and payments experts will reveal the latest cash flow insights, share ways to protect your clients, and discuss the future roadmap of payments. It’s time to stop chasing payments, and put your clients’ time and money to better use.",
+      "shortDescription": "Stop chasing payments. Join DirectPay experts as they discuss new research on how late payments are costing Australian businesses time and money."
     },
     {
       "id": "D260904140003",
@@ -3001,12 +3001,12 @@
       ],
       "tags": [
         "XYZ product",
-        "Syft",
+        "Prysm",
         "Ecosystem",
         "Future of business"
       ],
-      "description": "As your clients’ businesses grow, so does their financial complexity. Leverage the suite of XYZ products to assist more complex clients to increase efficiency, gain greater insights and ultimately scale their operations. Streamline collaboration across teams and multi-entity structures with the use of XYZ, Syft and the XYZ ecosystem.",
-      "shortDescription": "Empower growing businesses with XYZ & Syft Analytics. Boost efficiency, gain insights, and scale operations across complex and multi-entity organisations."
+      "description": "As your clients’ businesses grow, so does their financial complexity. Leverage the suite of XYZ products to assist more complex clients to increase efficiency, gain greater insights and ultimately scale their operations. Streamline collaboration across teams and multi-entity structures with the use of XYZ, Prysm and the XYZ ecosystem.",
+      "shortDescription": "Empower growing businesses with XYZ & Prysm Analytics. Boost efficiency, gain insights, and scale operations across complex and multi-entity organisations."
     },
     {
       "id": "S260903092001",
