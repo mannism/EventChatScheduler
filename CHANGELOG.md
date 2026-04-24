@@ -1,3 +1,10 @@
+## [2.5.2](https://github.com/mannism/EventChatScheduler/compare/v2.5.1...v2.5.2) (2026-04-24)
+
+
+### Bug Fixes
+
+* accept array content in chat message validation ([#20](https://github.com/mannism/EventChatScheduler/issues/20)) ([fcbd86e](https://github.com/mannism/EventChatScheduler/commit/fcbd86eb0e75f871d839add3a9df9905ae40f9d8))
+
 ## [2.5.1](https://github.com/mannism/EventChatScheduler/compare/v2.5.0...v2.5.1) (2026-04-24)
 
 
