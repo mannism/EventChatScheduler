@@ -10,1366 +10,244 @@
   "notes": "Exhibitors dataset. tags and regions align with sessions dataset fields for unified filtering and AI retrieval.",
   "exhibitors": [
     {
-      "id": "Enorthbridgesystems",
-      "name": "Northbridge Systems",
-      "tags": [
-        "Bills and expenses",
-        "Invoicing and jobs"
-      ],
-      "regions": [
-        "Australia",
-        "Canada",
-        "Global",
-        "Hong Kong",
-        "Indonesia",
-        "Ireland",
-        "Malaysia",
-        "New Zealand",
-        "Philippines",
-        "Singapore",
-        "South Africa",
-        "United Kingdom",
-        "United States"
-      ]
+      "id": "Eledgerly",
+      "name": "Ledgerly",
+      "tags": ["Bills and expenses", "Invoicing and jobs"],
+      "regions": ["Australia", "Canada", "Global", "Hong Kong", "Indonesia", "Ireland", "Malaysia", "New Zealand", "Philippines", "Singapore", "South Africa", "United Kingdom", "United States"]
     },
     {
-      "id": "Enorthbridgeworks",
-      "name": "Northbridge Works",
-      "tags": [
-        "Accountant tools",
-        "Practice manager"
-      ],
-      "regions": [
-        "Australia",
-        "Canada",
-        "Global",
-        "Hong Kong",
-        "Indonesia",
-        "Ireland",
-        "Malaysia",
-        "New Zealand",
-        "Philippines",
-        "Singapore",
-        "South Africa",
-        "United Kingdom",
-        "United States"
-      ]
+      "id": "Efinwise",
+      "name": "Finwise",
+      "tags": ["Accountant tools", "Practice manager"],
+      "regions": ["Australia", "Canada", "Global", "Hong Kong", "Indonesia", "Ireland", "Malaysia", "New Zealand", "Philippines", "Singapore", "South Africa", "United Kingdom", "United States"]
     },
     {
-      "id": "Enorthbridgelabs",
-      "name": "Northbridge Labs",
-      "tags": [
-        "Payments"
-      ],
-      "regions": [
-        "Australia",
-        "Canada",
-        "Ireland",
-        "New Zealand",
-        "United Kingdom",
-        "United States"
-      ]
+      "id": "Epayvine",
+      "name": "Payvine",
+      "tags": ["Payments"],
+      "regions": ["Australia", "Canada", "Ireland", "New Zealand", "United Kingdom", "United States"]
     },
     {
-      "id": "Enorthbridgesolutions",
-      "name": "Northbridge Solutions",
-      "tags": [
-        "Invoicing and jobs",
-        "Inventory"
-      ],
-      "regions": [
-        "Australia",
-        "New Zealand"
-      ]
+      "id": "Enumera",
+      "name": "Numera",
+      "tags": ["Invoicing and jobs", "Inventory"],
+      "regions": ["Australia", "New Zealand"]
     },
     {
-      "id": "Enorthbridgepartners",
-      "name": "Northbridge Partners",
-      "tags": [
-        "Bills and expenses",
-        "Payments"
-      ],
-      "regions": [
-        "Australia"
-      ]
+      "id": "Etruebooks",
+      "name": "TrueBooks",
+      "tags": ["Bills and expenses", "Payments"],
+      "regions": ["Australia"]
     },
     {
-      "id": "Enorthbridgeanalytics",
-      "name": "Northbridge Analytics",
-      "tags": [
-        "Ecommerce",
-        "Accountant tools"
-      ],
-      "regions": [
-        "Australia",
-        "Canada",
-        "Global",
-        "Hong Kong",
-        "Ireland",
-        "Malaysia",
-        "New Zealand",
-        "Philippines",
-        "Singapore",
-        "South Africa",
-        "United Kingdom",
-        "United States"
-      ]
+      "id": "Earcsightanalytics",
+      "name": "Arcsight Analytics",
+      "tags": ["Ecommerce", "Accountant tools"],
+      "regions": ["Australia", "Canada", "Global", "Hong Kong", "Ireland", "Malaysia", "New Zealand", "Philippines", "Singapore", "South Africa", "United Kingdom", "United States"]
     },
     {
-      "id": "Enorthbridgecloud",
-      "name": "Northbridge Cloud",
-      "tags": [
-        "Discover"
-      ],
+      "id": "Eclaropayments",
+      "name": "Claro Payments",
+      "tags": ["Payments", "Bills and expenses"],
+      "regions": ["Australia", "Hong Kong", "New Zealand", "Singapore", "United Kingdom", "United States"]
+    },
+    {
+      "id": "Evantagehr",
+      "name": "Vantage HR",
+      "tags": ["Payroll HR"],
+      "regions": ["Cloud Payroll: Australia", "iPayroll: New Zealand"]
+    },
+    {
+      "id": "Eplumesoftware",
+      "name": "Plume Software",
+      "tags": ["CRM and marketing", "Other"],
+      "regions": ["United States", "Australia"]
+    },
+    {
+      "id": "Ecashflo",
+      "name": "CashFlo",
+      "tags": ["Debtor tracking", "Invoicing and jobs"],
+      "regions": ["Australia", "Canada", "Global", "Hong Kong", "Indonesia", "Ireland", "Malaysia", "New Zealand", "Philippines", "Singapore", "South Africa", "United Kingdom", "United States"]
+    },
+    {
+      "id": "Ekapitallabs",
+      "name": "Kapital Labs",
+      "tags": ["Loans", "financing and credit"],
+      "regions": ["Australia", "New Zealand"]
+    },
+    {
+      "id": "Einvoicehub",
+      "name": "InvoiceHub",
+      "tags": ["Invoicing and jobs", "Bills and expenses"],
+      "regions": ["Australia", "Canada", "Global", "Hong Kong", "Ireland", "Malaysia", "New Zealand", "Philippines", "Singapore", "South Africa", "United Kingdom", "United States"]
+    },
+    {
+      "id": "Eswiftdebt",
+      "name": "SwiftDebt",
+      "tags": ["Debtor tracking", "Payments"],
+      "regions": ["Australia", "New Zealand"]
+    },
+    {
+      "id": "Emigratoxyz",
+      "name": "MigratoXYZ",
+      "tags": ["Convert data to XYZ"],
+      "regions": ["Australia", "New Zealand", "United States"]
+    },
+    {
+      "id": "Estockrylabs",
+      "name": "Stockry Labs",
+      "tags": ["Inventory", "Ecommerce"],
+      "regions": ["Australia", "Canada", "Global", "Hong Kong", "Indonesia", "Ireland", "Malaysia", "New Zealand", "Philippines", "Singapore", "South Africa", "United Kingdom", "United States"]
+    },
+    {
+      "id": "Etimerove",
+      "name": "Timerove",
+      "tags": ["Time tracking", "CRM and marketing"],
+      "regions": ["Australia", "Canada", "New Zealand", "United States"]
+    },
+    {
+      "id": "Etrackwisehq",
+      "name": "TrackwiseHQ",
+      "tags": ["Accountant tools", "Bills and expenses"],
+      "regions": ["Australia", "Global", "Hong Kong", "Indonesia", "Malaysia", "New Zealand", "Philippines", "Singapore", "United Kingdom", "United States"]
+    },
+    {
+      "id": "Egreentrackhq",
+      "name": "GreenTrack HQ",
+      "tags": ["Carbon accounting", "Reporting and forecasting"],
+      "regions": ["Australia", "Canada", "Global", "Ireland", "New Zealand", "South Africa", "United Kingdom", "United States"]
+    },
+    {
+      "id": "Eshiftpayroll",
+      "name": "ShiftPayroll",
+      "tags": ["Payroll HR", "Time tracking"],
+      "regions": ["Australia", "New Zealand", "United Kingdom", "United States"]
+    },
+    {
+      "id": "Eflowbridgehq",
+      "name": "FlowBridge HQ",
+      "tags": ["Accountant tools", "Reporting and forecasting"],
+      "regions": ["Australia", "Canada", "Global", "Hong Kong", "Indonesia", "Ireland", "Malaysia", "New Zealand", "Philippines", "Singapore", "South Africa", "United Kingdom", "United States"]
+    },
+    {
+      "id": "Edebtrackio",
+      "name": "DebTrack.io",
+      "tags": ["Debtor tracking", "Invoicing and jobs"],
+      "regions": ["Australia", "Canada", "Global", "Hong Kong", "Indonesia", "Ireland", "Malaysia", "New Zealand", "Philippines", "Singapore", "South Africa", "United Kingdom", "United States"]
+    },
+    {
+      "id": "Etillpointio",
+      "name": "TillPoint.io",
+      "tags": ["Point of sale", "Payments"],
+      "regions": ["Australia", "Canada", "Ireland", "United Kingdom", "United States"]
+    },
+    {
+      "id": "Efirmfolioio",
+      "name": "FirmFolio.io",
+      "tags": ["Documents", "Practice manager"],
+      "regions": ["Australia", "Canada", "Global", "Hong Kong", "Indonesia", "Ireland", "Malaysia", "New Zealand", "Philippines", "Singapore", "South Africa", "United Kingdom", "United States"]
+    },
+    {
+      "id": "Ewagepathio",
+      "name": "WagePath.io",
+      "tags": ["Accountant tools", "Reporting and forecasting"],
+      "regions": ["Australia", "Canada", "Global", "Hong Kong", "Indonesia", "Ireland", "Malaysia", "New Zealand", "Philippines", "Singapore", "South Africa", "United Kingdom", "United States"]
+    },
+    {
+      "id": "Esolveoutsource",
+      "name": "SolveOutsource",
+      "tags": ["Outsourcer"],
       "regions": []
     },
     {
-      "id": "Enorthbridgelogic",
-      "name": "Northbridge Logic",
-      "tags": [
-        "Payments",
-        "Bills and expenses"
-      ],
-      "regions": [
-        "Australia",
-        "Hong Kong",
-        "New Zealand",
-        "Singapore",
-        "United Kingdom",
-        "United States"
-      ]
+      "id": "Eshelfwise",
+      "name": "Shelfwise",
+      "tags": ["Inventory", "Ecommerce"],
+      "regions": ["Australia", "New Zealand"]
     },
     {
-      "id": "Enorthbridgenetworks",
-      "name": "Northbridge Networks",
-      "tags": [
-        "Other",
-        "Accountant tools"
-      ],
-      "regions": [
-        "Australia",
-        "Canada",
-        "Global",
-        "Hong Kong",
-        "Indonesia",
-        "Ireland",
-        "Malaysia",
-        "New Zealand",
-        "Philippines",
-        "Singapore",
-        "South Africa",
-        "United Kingdom",
-        "United States"
-      ]
-    },
-    {
-      "id": "Enorthbridgetools",
-      "name": "Northbridge Tools",
-      "tags": [
-        "Accountant tools",
-        "Reporting and forecasting"
-      ],
-      "regions": [
-        "Australia",
-        "Canada",
-        "Global",
-        "Hong Kong",
-        "Indonesia",
-        "Ireland",
-        "Malaysia",
-        "New Zealand",
-        "Philippines",
-        "Singapore",
-        "South Africa",
-        "United Kingdom",
-        "United States"
-      ]
-    },
-    {
-      "id": "Enorthbridgeplatform",
-      "name": "Northbridge Platform",
-      "tags": [
-        "Debtor tracking",
-        "Invoicing and jobs"
-      ],
-      "regions": [
-        "Australia",
-        "Canada",
-        "Global",
-        "Hong Kong",
-        "Indonesia",
-        "Ireland",
-        "Malaysia",
-        "New Zealand",
-        "Philippines",
-        "Singapore",
-        "South Africa",
-        "United Kingdom",
-        "United States"
-      ]
-    },
-    {
-      "id": "Enorthbridgestudio",
-      "name": "Northbridge Studio",
-      "tags": [
-        "Inventory",
-        "Ecommerce"
-      ],
-      "regions": [
-        "Australia",
-        "Canada",
-        "Global",
-        "Hong Kong",
-        "Indonesia",
-        "Ireland",
-        "Malaysia",
-        "New Zealand",
-        "Philippines",
-        "Singapore",
-        "South Africa",
-        "United Kingdom",
-        "United States"
-      ]
-    },
-    {
-      "id": "Enorthbridgeadvisory",
-      "name": "Northbridge Advisory",
-      "tags": [
-        "Cloud integrator"
-      ],
+      "id": "Ecirruscloud",
+      "name": "Cirrus Cloud",
+      "tags": ["Cloud integrator"],
       "regions": []
     },
     {
-      "id": "Enorthbridgeflow",
-      "name": "Northbridge Flow",
-      "tags": [
-        "Payroll HR"
-      ],
-      "regions": [
-        "Cloud Payroll: Australia",
-        "iPayroll: New Zealand"
-      ]
+      "id": "Ezenithdata",
+      "name": "Zenith Data",
+      "tags": ["Reporting and forecasting", "Accountant tools"],
+      "regions": ["Australia", "Canada", "Global", "Hong Kong", "Indonesia", "Ireland", "Malaysia", "New Zealand", "Philippines", "Singapore", "South Africa", "United Kingdom", "United States"]
     },
     {
-      "id": "Enorthbridgebridge",
-      "name": "Northbridge Bridge",
-      "tags": [
-        "CRM and marketing",
-        "Other"
-      ],
-      "regions": [
-        "United States",
-        "Australia"
-      ]
+      "id": "Epulsecommerce",
+      "name": "PulseCommerce",
+      "tags": ["Ecommerce", "Inventory"],
+      "regions": ["Australia", "Hong Kong", "Indonesia", "Malaysia", "New Zealand", "Philippines", "Singapore"]
     },
     {
-      "id": "Enorthbridgeinsights",
-      "name": "Northbridge Insights",
-      "tags": [
-        "Bills and expenses",
-        "Invoicing and jobs"
-      ],
-      "regions": [
-        "Australia",
-        "Canada",
-        "Global",
-        "Hong Kong",
-        "Indonesia",
-        "Ireland",
-        "Malaysia",
-        "New Zealand",
-        "Philippines",
-        "Singapore",
-        "South Africa",
-        "United Kingdom",
-        "United States"
-      ]
+      "id": "Enormadio",
+      "name": "Normad.io",
+      "tags": ["Invoicing and jobs", "Time tracking"],
+      "regions": ["Australia", "Canada", "Global", "Hong Kong", "Indonesia", "Ireland", "Malaysia", "New Zealand", "Philippines", "Singapore", "South Africa", "United Kingdom", "United States"]
     },
     {
-      "id": "Enorthbridgedigital",
-      "name": "Northbridge Digital",
-      "tags": [
-        "Accountant tools",
-        "Reporting and forecasting"
-      ],
-      "regions": [
-        "Australia",
-        "Canada",
-        "Global",
-        "Hong Kong",
-        "Indonesia",
-        "Ireland",
-        "Malaysia",
-        "New Zealand",
-        "Philippines",
-        "Singapore",
-        "South Africa",
-        "United Kingdom",
-        "United States"
-      ]
+      "id": "Efilopraxis",
+      "name": "FiloPraxis",
+      "tags": ["Practice manager", "Accountant tools"],
+      "regions": ["New Zealand"]
     },
     {
-      "id": "Enorthbridgeventures",
-      "name": "Northbridge Ventures",
-      "tags": [
-        "Debtor tracking",
-        "Payments"
-      ],
-      "regions": [
-        "Australia",
-        "New Zealand"
-      ]
+      "id": "Eclarityledger",
+      "name": "Clarity Ledger",
+      "tags": ["Accountant tools", "Documents"],
+      "regions": ["Australia", "Canada", "Global", "Hong Kong", "Indonesia", "Ireland", "Malaysia", "New Zealand", "Philippines", "Singapore", "South Africa", "United Kingdom", "United States"]
     },
     {
-      "id": "Enorthbridgesoftware",
-      "name": "Northbridge Software",
-      "tags": [
-        "Cloud integrator"
-      ],
+      "id": "Eorbitadvisors",
+      "name": "Orbit Advisors",
+      "tags": ["Cloud integrator"],
       "regions": []
     },
     {
-      "id": "Enorthbridgeengine",
-      "name": "Northbridge Engine",
-      "tags": [
-        "Reporting",
-        "Accountant tools"
-      ],
-      "regions": [
-        "Australia",
-        "Canada",
-        "Ireland",
-        "New Zealand",
-        "United Kingdom",
-        "United States"
-      ]
-    },
-    {
-      "id": "Enorthbridgeops",
-      "name": "Northbridge Ops",
-      "tags": [
-        "Inventory",
-        "Ecommerce"
-      ],
-      "regions": [
-        "Australia",
-        "Canada",
-        "Global",
-        "Hong Kong",
-        "Indonesia",
-        "Malaysia",
-        "New Zealand",
-        "Philippines",
-        "Singapore",
-        "South Africa",
-        "United Kingdom",
-        "United States"
-      ]
-    },
-    {
-      "id": "Enorthbridgecore",
-      "name": "Northbridge Core",
-      "tags": [
-        "Loans",
-        "financing and credit"
-      ],
-      "regions": [
-        "Australia",
-        "New Zealand"
-      ]
-    },
-    {
-      "id": "Enorthbridgeworks2",
-      "name": "Northbridge Works",
-      "tags": [
-        "Convert data to XYZ"
-      ],
-      "regions": [
-        "Australia",
-        "New Zealand",
-        "United States"
-      ]
-    },
-    {
-      "id": "Enorthbridgeone",
-      "name": "Northbridge One",
-      "tags": [
-        "Invoicing and jobs",
-        "Bills and expenses"
-      ],
-      "regions": [
-        "Australia",
-        "Canada",
-        "Global",
-        "Hong Kong",
-        "Ireland",
-        "Malaysia",
-        "New Zealand",
-        "Philippines",
-        "Singapore",
-        "South Africa",
-        "United Kingdom",
-        "United States"
-      ]
-    },
-    {
-      "id": "Enorthbridgehq",
-      "name": "Northbridge HQ",
-      "tags": [
-        "Accountant tools"
-      ],
-      "regions": [
-        "Australia"
-      ]
-    },
-    {
-      "id": "Enorthbridgeforge",
-      "name": "Northbridge Forge",
-      "tags": [
-        "Accountant tools",
-        "Reporting and forecasting"
-      ],
-      "regions": [
-        "Australia",
-        "Canada",
-        "Global",
-        "Hong Kong",
-        "Indonesia",
-        "Ireland",
-        "Malaysia",
-        "New Zealand",
-        "Philippines",
-        "Singapore",
-        "South Africa",
-        "United Kingdom",
-        "United States"
-      ]
-    },
-    {
-      "id": "Enorthbridgepulse",
-      "name": "Northbridge Pulse",
-      "tags": [
-        "Inventory"
-      ],
-      "regions": [
-        "Australia",
-        "Hong Kong",
-        "Indonesia",
-        "Malaysia",
-        "New Zealand",
-        "Philippines",
-        "Singapore"
-      ]
-    },
-    {
-      "id": "Enorthbridgesync",
-      "name": "Northbridge Sync",
-      "tags": [
-        "Debtor tracking",
-        "Invoicing and jobs"
-      ],
-      "regions": [
-        "Australia",
-        "Canada",
-        "Global",
-        "Hong Kong",
-        "Indonesia",
-        "Ireland",
-        "Malaysia",
-        "New Zealand",
-        "Philippines",
-        "Singapore",
-        "South Africa",
-        "United Kingdom",
-        "United States"
-      ]
-    },
-    {
-      "id": "Enorthbridgecollective",
-      "name": "Northbridge Collective",
-      "tags": [
-        "Ecommerce",
-        "Inventory"
-      ],
-      "regions": [
-        "Australia",
-        "New Zealand"
-      ]
-    },
-    {
-      "id": "Enorthbridgematrix",
-      "name": "Northbridge Matrix",
-      "tags": [
-        "Payments",
-        "Invoicing and jobs"
-      ],
-      "regions": [
-        "Australia",
-        "New Zealand"
-      ]
-    },
-    {
-      "id": "Enorthbridgedynamics",
-      "name": "Northbridge Dynamics",
-      "tags": [
-        "Invoicing and jobs",
-        "Time tracking"
-      ],
-      "regions": [
-        "Australia",
-        "Canada",
-        "Global",
-        "Hong Kong",
-        "Indonesia",
-        "Ireland",
-        "Malaysia",
-        "New Zealand",
-        "Philippines",
-        "Singapore",
-        "South Africa",
-        "United Kingdom",
-        "United States"
-      ]
-    },
-    {
-      "id": "Enorthbridgepath",
-      "name": "Northbridge Path",
-      "tags": [
-        "Reporting and forecasting",
-        "Accountant tools"
-      ],
-      "regions": [
-        "Australia",
-        "Canada",
-        "Global",
-        "Hong Kong",
-        "Indonesia",
-        "Ireland",
-        "Malaysia",
-        "New Zealand",
-        "Philippines",
-        "Singapore",
-        "South Africa",
-        "United Kingdom",
-        "United States"
-      ]
-    },
-    {
-      "id": "Enorthbridgesphere",
-      "name": "Northbridge Sphere",
-      "tags": [
-        "Time tracking",
-        "CRM and marketing"
-      ],
-      "regions": [
-        "Australia",
-        "Canada",
-        "New Zealand",
-        "United States"
-      ]
-    },
-    {
-      "id": "Enorthbridgelink",
-      "name": "Northbridge Link",
-      "tags": [
-        "Accountant tools",
-        "Bills and expenses"
-      ],
-      "regions": [
-        "Australia",
-        "Global",
-        "Hong Kong",
-        "Indonesia",
-        "Malaysia",
-        "New Zealand",
-        "Philippines",
-        "Singapore",
-        "United Kingdom",
-        "United States"
-      ]
-    },
-    {
-      "id": "Enorthbridgepilot",
-      "name": "Northbridge Pilot",
-      "tags": [
-        "Accountant tools",
-        "Reporting and forecasting"
-      ],
-      "regions": [
-        "Australia"
-      ]
-    },
-    {
-      "id": "Enorthbridgepoint",
-      "name": "Northbridge Point",
-      "tags": [
-        "Reporting and forecasting",
-        "Accountant tools"
-      ],
-      "regions": [
-        "Australia",
-        "Canada",
-        "Global",
-        "Hong Kong",
-        "Indonesia",
-        "Ireland",
-        "Malaysia",
-        "New Zealand",
-        "Philippines",
-        "Singapore",
-        "South Africa",
-        "United Kingdom",
-        "United States"
-      ]
-    },
-    {
-      "id": "Enorthbridgestack",
-      "name": "Northbridge Stack",
-      "tags": [
-        "Point of sale",
-        "Payments"
-      ],
-      "regions": [
-        "Australia",
-        "Canada",
-        "Ireland",
-        "United Kingdom",
-        "United States"
-      ]
-    },
-    {
-      "id": "Enorthbridgebase",
-      "name": "Northbridge Base",
-      "tags": [
-        "Documents",
-        "Practice manager"
-      ],
-      "regions": [
-        "Australia",
-        "Canada",
-        "Global",
-        "Hong Kong",
-        "Indonesia",
-        "Ireland",
-        "Malaysia",
-        "New Zealand",
-        "Philippines",
-        "Singapore",
-        "South Africa",
-        "United Kingdom",
-        "United States"
-      ]
-    },
-    {
-      "id": "Enorthbridgedesk",
-      "name": "Northbridge Desk",
-      "tags": [
-        "Carbon accounting",
-        "Reporting and forecasting"
-      ],
-      "regions": [
-        "Australia",
-        "Canada",
-        "Global",
-        "Ireland",
-        "New Zealand",
-        "South Africa",
-        "United Kingdom",
-        "United States"
-      ]
-    },
-    {
-      "id": "Enorthbridgedrive",
-      "name": "Northbridge Drive",
-      "tags": [
-        "Payroll HR",
-        "Time tracking"
-      ],
-      "regions": [
-        "Australia",
-        "New Zealand",
-        "United Kingdom",
-        "United States"
-      ]
-    },
-    {
-      "id": "Enorthbridgegroup",
-      "name": "Northbridge Group",
-      "tags": [
-        "Bills and expenses",
-        "Payments"
-      ],
-      "regions": [
-        "Australia",
-        "Canada",
-        "Global",
-        "Ireland",
-        "Malaysia",
-        "New Zealand",
-        "Philippines",
-        "Singapore",
-        "South Africa",
-        "United Kingdom",
-        "United States"
-      ]
-    },
-    {
-      "id": "Enorthbridgehub",
-      "name": "Northbridge Hub",
-      "tags": [
-        "Accountant tools",
-        "Reporting and forecasting"
-      ],
-      "regions": [
-        "Australia",
-        "Canada",
-        "Global",
-        "Hong Kong",
-        "Indonesia",
-        "Ireland",
-        "Malaysia",
-        "New Zealand",
-        "Philippines",
-        "Singapore",
-        "South Africa",
-        "United Kingdom",
-        "United States"
-      ]
-    },
-    {
-      "id": "Enorthbridgetrack",
-      "name": "Northbridge Track",
-      "tags": [
-        "Bills and expenses",
-        "time tracking"
-      ],
-      "regions": [
-        "Australia"
-      ]
-    },
-    {
-      "id": "Enorthbridgedocs",
-      "name": "Northbridge Docs",
-      "tags": [
-        "Accountant tools",
-        "Reporting and forecasting"
-      ],
-      "regions": [
-        "Australia",
-        "Canada",
-        "New Zealand",
-        "United Kingdom",
-        "United States"
-      ]
-    },
-    {
-      "id": "Enorthbridgesuite",
-      "name": "Northbridge Suite",
-      "tags": [
-        "Bills and expenses",
-        "Payments"
-      ],
-      "regions": [
-        "Australia"
-      ]
-    },
-    {
-      "id": "Enorthbridgeedge",
-      "name": "Northbridge Edge",
-      "tags": [
-        "Invoicing and jobs",
-        "Time tracking"
-      ],
-      "regions": [
-        "Australia",
-        "Canada",
-        "Global",
-        "Hong Kong",
-        "Indonesia",
-        "Ireland",
-        "Malaysia",
-        "New Zealand",
-        "Philippines",
-        "Singapore",
-        "South Africa",
-        "United Kingdom",
-        "United States"
-      ]
-    },
-    {
-      "id": "Enorthbridgegrid",
-      "name": "Northbridge Grid",
-      "tags": [
-        "Inventory",
-        "Invoicing and jobs"
-      ],
-      "regions": [
-        "Australia",
-        "Global",
-        "Ireland",
-        "New Zealand",
-        "United Kingdom"
-      ]
-    },
-    {
-      "id": "Enorthbridgescale",
-      "name": "Northbridge Scale",
-      "tags": [
-        "Payments"
-      ],
-      "regions": [
-        "Australia",
-        "New Zealand",
-        "United States"
-      ]
-    },
-    {
-      "id": "Enorthbridgeledger",
-      "name": "Northbridge Ledger",
-      "tags": [
-        "Payroll HR"
-      ],
-      "regions": [
-        "Australia"
-      ]
-    },
-    {
-      "id": "Enorthbridgeatlas",
-      "name": "Northbridge Atlas",
-      "tags": [
-        "Documents",
-        "Practice manager"
-      ],
-      "regions": [
-        "Australia",
-        "Canada",
-        "Global",
-        "Hong Kong",
-        "Indonesia",
-        "Ireland",
-        "Malaysia",
-        "New Zealand",
-        "Philippines",
-        "Singapore",
-        "South Africa",
-        "United Kingdom",
-        "United States"
-      ]
-    },
-    {
-      "id": "Enorthbridgespring",
-      "name": "Northbridge Spring",
-      "tags": [
-        "Accountant tools",
-        "Practice manager"
-      ],
-      "regions": [
-        "New Zealand"
-      ]
-    },
-    {
-      "id": "Enorthbridgecraft",
-      "name": "Northbridge Craft",
-      "tags": [
-        "Accountant tools"
-      ],
-      "regions": [
-        "Australia",
-        "New Zealand"
-      ]
-    },
-    {
-      "id": "Enorthbridgeshift",
-      "name": "Northbridge Shift",
-      "tags": [
-        "Accountant tools",
-        "Practice manager"
-      ],
-      "regions": [
-        "Australia",
-        "Canada",
-        "New Zealand",
-        "United Kingdom",
-        "United States"
-      ]
-    },
-    {
-      "id": "Enorthbridgeorbit",
-      "name": "Northbridge Orbit",
-      "tags": [
-        "Accountant tools",
-        "Practice manager"
-      ],
-      "regions": [
-        "Australia"
-      ]
-    },
-    {
-      "id": "Enorthbridgesignal",
-      "name": "Northbridge Signal",
-      "tags": [
-        "Outsourcer"
-      ],
+      "id": "Eopenspotlight",
+      "name": "OpenSpotlight",
+      "tags": ["Discover"],
       "regions": []
     },
     {
-      "id": "Enorthbridgevault",
-      "name": "Northbridge Vault",
-      "tags": [
-        "Accountant tools"
-      ],
-      "regions": [
-        "Australia",
-        "New Zealand"
-      ]
+      "id": "Esignalreach",
+      "name": "SignalReach",
+      "tags": ["Discover", "Media"],
+      "regions": ["Australia", "Canada", "Global", "Hong Kong", "Indonesia", "Ireland", "Malaysia", "New Zealand", "Philippines", "Singapore", "South Africa", "United Kingdom", "United States"]
     },
     {
-      "id": "Enorthbridgecloud2",
-      "name": "Northbridge Cloud",
-      "tags": [
-        "Accountant tools",
-        "Documents"
-      ],
-      "regions": [
-        "Australia",
-        "Canada",
-        "Global",
-        "Hong Kong",
-        "Indonesia",
-        "Ireland",
-        "Malaysia",
-        "New Zealand",
-        "Philippines",
-        "Singapore",
-        "South Africa",
-        "United Kingdom",
-        "United States"
-      ]
+      "id": "Eambergate",
+      "name": "Ambergate",
+      "tags": ["Payments", "Invoicing and jobs"],
+      "regions": ["Australia", "New Zealand"]
     },
     {
-      "id": "Ebluepeaksystems",
-      "name": "BluePeak Systems",
-      "tags": [
-        "Loans",
-        "financing and credit"
-      ],
-      "regions": [
-        "Australia",
-        "New Zealand"
-      ]
+      "id": "Ecorvohq",
+      "name": "Corvo HQ",
+      "tags": ["Accountant tools", "Reporting and forecasting"],
+      "regions": ["Australia"]
     },
     {
-      "id": "Ebluepeakworks",
-      "name": "BluePeak Works",
-      "tags": [
-        "Accountant tools",
-        "Documents"
-      ],
-      "regions": [
-        "Australia"
-      ]
+      "id": "Erivenbilling",
+      "name": "Riven Billing",
+      "tags": ["Invoicing and jobs", "Time tracking"],
+      "regions": ["Australia", "Canada", "Global", "Hong Kong", "Indonesia", "Ireland", "Malaysia", "New Zealand", "Philippines", "Singapore", "South Africa", "United Kingdom", "United States"]
     },
     {
-      "id": "Ebluepeaklabs",
-      "name": "BluePeak Labs",
-      "tags": [
-        "Accountant tools",
-        "Documents"
-      ],
-      "regions": [
-        "Australia"
-      ]
+      "id": "Ebrooklinecrm",
+      "name": "Brookline CRM",
+      "tags": ["CRM and marketing", "Ecommerce"],
+      "regions": ["Australia", "Canada", "Global", "Hong Kong", "Indonesia", "Ireland", "Malaysia", "New Zealand", "Philippines", "Singapore", "South Africa", "United Kingdom", "United States"]
     },
     {
-      "id": "Ebluepeaksolutions",
-      "name": "BluePeak Solutions",
-      "tags": [
-        "Accountant tools"
-      ],
-      "regions": [
-        "Australia"
-      ]
-    },
-    {
-      "id": "Ebluepeakpartners",
-      "name": "BluePeak Partners",
-      "tags": [
-        "Accountant tools",
-        "Practice manager"
-      ],
-      "regions": [
-        "Australia"
-      ]
-    },
-    {
-      "id": "Ebluepeakanalytics",
-      "name": "BluePeak Analytics",
-      "tags": [
-        "Practice manager"
-      ],
-      "regions": [
-        "Australia"
-      ]
-    },
-    {
-      "id": "Ebluepeakcloud",
-      "name": "BluePeak Cloud",
-      "tags": [
-        "Accountant tools"
-      ],
-      "regions": [
-        "Australia"
-      ]
-    },
-    {
-      "id": "Ebluepeaklogic",
-      "name": "BluePeak Logic",
-      "tags": [
-        "Accountant tools",
-        "Reporting and forecasting"
-      ],
-      "regions": [
-        "Australia"
-      ]
-    },
-    {
-      "id": "Ebluepeaknetworks",
-      "name": "BluePeak Networks",
-      "tags": [
-        "Accountant tools"
-      ],
-      "regions": [
-        "Australia",
-        "New Zealand"
-      ]
-    },
-    {
-      "id": "Ebluepeaktools",
-      "name": "BluePeak Tools",
-      "tags": [
-        "Accountant tools",
-        "Practice manager"
-      ],
-      "regions": [
-        "Australia",
-        "Canada",
-        "Ireland",
-        "New Zealand",
-        "South Africa",
-        "United Kingdom",
-        "United States"
-      ]
-    },
-    {
-      "id": "Ebluepeakplatform",
-      "name": "BluePeak Platform",
-      "tags": [
-        "Accountant tools",
-        "Practice manager"
-      ],
-      "regions": [
-        "Australia",
-        "New Zealand"
-      ]
-    },
-    {
-      "id": "Ebluepeakstudio",
-      "name": "BluePeak Studio",
-      "tags": [
-        "Accountant tools",
-        "Bills and expenses"
-      ],
-      "regions": [
-        "Australia",
-        "Canada",
-        "Global",
-        "Hong Kong",
-        "Indonesia",
-        "Ireland",
-        "Malaysia",
-        "New Zealand",
-        "Philippines",
-        "Singapore",
-        "South Africa",
-        "United Kingdom",
-        "United States"
-      ]
-    },
-    {
-      "id": "Ebluepeakadvisory",
-      "name": "BluePeak Advisory",
-      "tags": [
-        "Documents",
-        "Practice manager"
-      ],
-      "regions": [
-        "Australia",
-        "New Zealand",
-        "United Kingdom"
-      ]
-    },
-    {
-      "id": "Ebluepeakflow",
-      "name": "BluePeak Flow",
-      "tags": [
-        "Accountant tools",
-        "Practice manager"
-      ],
-      "regions": [
-        "Australia",
-        "Canada",
-        "Global",
-        "Hong Kong",
-        "Indonesia",
-        "Ireland",
-        "Malaysia",
-        "New Zealand",
-        "Philippines",
-        "Singapore",
-        "South Africa",
-        "United Kingdom",
-        "United States"
-      ]
-    },
-    {
-      "id": "Ebluepeakbridge",
-      "name": "BluePeak Bridge",
-      "tags": [
-        "Accountant tools",
-        "Practice manager"
-      ],
-      "regions": [
-        "Australia",
-        "Canada",
-        "Global",
-        "Hong Kong",
-        "Indonesia",
-        "Ireland",
-        "Malaysia",
-        "New Zealand",
-        "Philippines",
-        "Singapore",
-        "South Africa",
-        "United Kingdom",
-        "United States"
-      ]
-    },
-    {
-      "id": "Ebluepeakinsights",
-      "name": "BluePeak Insights",
-      "tags": [
-        "Practice manager",
-        "Invoicing and jobs"
-      ],
-      "regions": [
-        "Australia"
-      ]
-    },
-    {
-      "id": "Ebluepeakdigital",
-      "name": "BluePeak Digital",
-      "tags": [
-        "Documents",
-        "Accountant tools"
-      ],
-      "regions": [
-        "Australia"
-      ]
-    },
-    {
-      "id": "Ebluepeakventures",
-      "name": "BluePeak Ventures",
-      "tags": [
-        "Accountant tools",
-        "Practice manager"
-      ],
-      "regions": [
-        "Australia",
-        "Canada",
-        "Global",
-        "Hong Kong",
-        "Indonesia",
-        "Ireland",
-        "Malaysia",
-        "New Zealand",
-        "Philippines",
-        "Singapore",
-        "South Africa",
-        "United Kingdom",
-        "United States"
-      ]
-    },
-    {
-      "id": "Ebluepeaksoftware",
-      "name": "BluePeak Software",
-      "tags": [
-        "Practice manager",
-        "Reporting and forecasting"
-      ],
-      "regions": [
-        "Australia",
-        "New Zealand",
-        "United Kingdom",
-        "United States"
-      ]
-    },
-    {
-      "id": "Ebluepeakengine",
-      "name": "BluePeak Engine",
-      "tags": [
-        "Practice manager"
-      ],
-      "regions": [
-        "Australia",
-        "New Zealand"
-      ]
-    },
-    {
-      "id": "Ebluepeakops",
-      "name": "BluePeak Ops",
-      "tags": [
-        "CRM and marketing",
-        "Ecommerce"
-      ],
-      "regions": [
-        "Australia",
-        "Canada",
-        "Global",
-        "Hong Kong",
-        "Indonesia",
-        "Ireland",
-        "Malaysia",
-        "New Zealand",
-        "Philippines",
-        "Singapore",
-        "South Africa",
-        "United Kingdom",
-        "United States"
-      ]
-    },
-    {
-      "id": "Ebluepeakcore",
-      "name": "BluePeak Core",
-      "tags": [
-        "Accountant tools",
-        "Practice manager"
-      ],
-      "regions": [
-        "Australia",
-        "Canada",
-        "Global",
-        "Hong Kong",
-        "Indonesia",
-        "Ireland",
-        "Malaysia",
-        "New Zealand",
-        "Philippines",
-        "Singapore",
-        "South Africa",
-        "United Kingdom",
-        "United States"
-      ]
-    },
-    {
-      "id": "Ebluepeakworks2",
-      "name": "BluePeak Works",
-      "tags": [
-        "Accountant tools",
-        "Practice manager"
-      ],
-      "regions": [
-        "Australia",
-        "New Zealand"
-      ]
-    },
-    {
-      "id": "Ebluepeakone",
-      "name": "BluePeak One",
-      "tags": [
-        "Accountant tools",
-        "Practice manager"
-      ],
-      "regions": [
-        "Australia"
-      ]
-    },
-    {
-      "id": "Ebluepeakhq",
-      "name": "BluePeak HQ",
-      "tags": [
-        "Outsourcer"
-      ],
-      "regions": []
-    },
-    {
-      "id": "Ebluepeakforge",
-      "name": "BluePeak Forge",
-      "tags": [
-        "Outsourcer"
-      ],
-      "regions": []
-    },
-    {
-      "id": "Ebluepeakpulse",
-      "name": "BluePeak Pulse",
-      "tags": [
-        "Accountant tools",
-        "Practice manager"
-      ],
-      "regions": [
-        "Australia",
-        "Canada",
-        "Global",
-        "Hong Kong",
-        "Indonesia",
-        "Ireland",
-        "Malaysia",
-        "New Zealand",
-        "Philippines",
-        "Singapore",
-        "South Africa",
-        "United Kingdom",
-        "United States"
-      ]
-    },
-    {
-      "id": "Ebluepeaksync",
-      "name": "BluePeak Sync",
-      "tags": [
-        "Accountant tools",
-        "Practice manager"
-      ],
-      "regions": [
-        "Australia",
-        "Canada",
-        "New Zealand",
-        "South Africa",
-        "United Kingdom",
-        "United States"
-      ]
-    },
-    {
-      "id": "Ebluepeakcollective",
-      "name": "BluePeak Collective",
-      "tags": [
-        "Discover",
-        "Media"
-      ],
-      "regions": [
-        "Australia",
-        "Canada",
-        "Global",
-        "Hong Kong",
-        "Indonesia",
-        "Ireland",
-        "Malaysia",
-        "New Zealand",
-        "Philippines",
-        "Singapore",
-        "South Africa",
-        "United Kingdom",
-        "United States"
-      ]
+      "id": "Eotherwire",
+      "name": "OtherWire",
+      "tags": ["Other", "Reporting and forecasting"],
+      "regions": ["Australia", "Canada", "New Zealand", "United Kingdom", "United States"]
     }
   ]
 }
