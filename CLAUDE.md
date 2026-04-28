@@ -141,7 +141,7 @@ public/                                        # Favicon variants (16/32/48/192/
 - **Rate limiting (GAP):** No rate limiting on `/api/chat`. Must add before production use.
 
 ### OWASP Security Checklist (mandatory on every release)
-Full cross-project checklist: `Owner Inbox/research/security-audit-cross-project.md`
+Full cross-project checklist: `Owner-Inbox/research/security-audit-cross-project.md`
 
 **EventChatScheduler-specific smoke tests (Quinn runs on every release):**
 | Test | Expected |
