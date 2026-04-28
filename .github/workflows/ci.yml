@@ -3,12 +3,24 @@ name: CI
 on:
   push:
     branches: [main]
+    paths-ignore:
+      - '**/*.md'
+      - '.gitignore'
+      - 'LICENSE'
   pull_request:
     branches: [main]
+    paths-ignore:
+      - '**/*.md'
+      - '.gitignore'
+      - 'LICENSE'
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
   check:
-    name: Typecheck, Lint & Build
+    name: Typecheck, Lint, Build & Audit
     runs-on: ubuntu-latest
 
     steps:
@@ -37,22 +49,5 @@ jobs:
           # The actual key is injected at runtime via Railway environment variables.
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY || 'sk-placeholder-ci-build-only' }}
 
-  security-audit:
-    name: Security Audit
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v5
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '22'
-          cache: 'npm'
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: npm audit
+      - name: Security audit
         run: npm audit --production --audit-level=high
