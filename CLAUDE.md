@@ -123,8 +123,6 @@ public/                                        # Favicon variants (16/32/48/192/
 
 ## Developer Rules
 
-All PRs must include comprehension gate answers — see `.claude/rules/pr-review.md`
-
 ### Error Handling
 - Return a graceful fallback response when the AI service fails so the app remains usable (e.g., return a 500 with a safe message rather than an unhandled crash)
 
@@ -155,12 +153,7 @@ Full cross-project checklist: `Owner Inbox/research/security-audit-cross-project
 | `npm audit --production` | Zero high/critical |
 | View source — no OPENAI_API_KEY in client | Pass |
 
-### CI Security (mandatory — IMPLEMENTED)
-- **Dependabot** enabled (`.github/dependabot.yml`) — weekly npm updates, groups minor/patch, limit 5 open PRs
-- **npm audit** step in CI (`.github/workflows/ci.yml` `security-audit` job): `npm audit --production --audit-level=high`
-- **CI pipeline** (`.github/workflows/ci.yml`): typecheck (`tsc --noEmit`), lint, build, and security audit on every push/PR to main
-- **semantic-release** (`.github/workflows/release.yml`): automated versioning, CHANGELOG, and GitHub Releases on merge to main
-- **Quarterly review:** Sable runs OWASP ZAP against staging first Monday of each quarter
+**Quarterly review:** Sable runs OWASP ZAP against staging first Monday of each quarter.
 
 ### Testing
 - When a test framework is introduced, new features and bug fixes must include unit tests; the AI chat API route and schedule generation logic are the highest-priority paths to cover
