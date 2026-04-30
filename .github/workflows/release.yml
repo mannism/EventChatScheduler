@@ -43,3 +43,13 @@ jobs:
           GIT_AUTHOR_EMAIL: github-actions[bot]@users.noreply.github.com
           GIT_COMMITTER_NAME: github-actions[bot]
           GIT_COMMITTER_EMAIL: github-actions[bot]@users.noreply.github.com
+      - name: Verify release commit pushed to main
+        if: success()
+        run: |
+          git fetch origin main --quiet
+          MAIN_VERSION=$(git show origin/main:package.json | node -p "JSON.parse(require('fs').readFileSync('/dev/stdin','utf8')).version")
+          LATEST_TAG=$(git describe --tags --abbrev=0 origin/main 2>/dev/null | sed 's/^v//')
+          if [ -n "$LATEST_TAG" ] && [ "$MAIN_VERSION" != "$LATEST_TAG" ]; then
+            echo "::error::Release inconsistency: package.json @ main = $MAIN_VERSION, latest tag = $LATEST_TAG"
+            exit 1
+          fi
