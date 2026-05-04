@@ -1,3 +1,10 @@
+## [2.5.5](https://github.com/mannism/EventChatScheduler/compare/v2.5.4...v2.5.5) (2026-05-04)
+
+
+### Bug Fixes
+
+* **ci:** use gh api in release verify step ([#30](https://github.com/mannism/EventChatScheduler/issues/30)) ([08d0512](https://github.com/mannism/EventChatScheduler/commit/08d0512c1373301d70d5c818b102fb3d3990ee8a)), closes [#112](https://github.com/mannism/EventChatScheduler/issues/112)
+
 ## [2.5.4](https://github.com/mannism/EventChatScheduler/compare/v2.5.3...v2.5.4) (2026-04-24)
 
 
