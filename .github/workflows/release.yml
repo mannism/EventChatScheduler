@@ -45,10 +45,14 @@ jobs:
           GIT_COMMITTER_EMAIL: github-actions[bot]@users.noreply.github.com
       - name: Verify release commit pushed to main
         if: success()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          git fetch origin main --quiet
-          MAIN_VERSION=$(git show origin/main:package.json | node -p "JSON.parse(require('fs').readFileSync('/dev/stdin','utf8')).version")
-          LATEST_TAG=$(git describe --tags --abbrev=0 origin/main 2>/dev/null | sed 's/^v//')
+          # Read state via gh api — git remotes have been reconfigured by
+          # @semantic-release/git and the checkout's auth header is no longer
+          # in effect (persist-credentials: false), so plain `git fetch` fails.
+          MAIN_VERSION=$(gh api "repos/${{ github.repository }}/contents/package.json?ref=main" --jq '.content' | base64 -d | node -pe "JSON.parse(require('fs').readFileSync(0,'utf8')).version")
+          LATEST_TAG=$(gh api "repos/${{ github.repository }}/releases/latest" --jq '.tag_name' 2>/dev/null | sed 's/^v//' || echo "")
           if [ -n "$LATEST_TAG" ] && [ "$MAIN_VERSION" != "$LATEST_TAG" ]; then
             echo "::error::Release inconsistency: package.json @ main = $MAIN_VERSION, latest tag = $LATEST_TAG"
             exit 1
