@@ -6,7 +6,7 @@ For fleet-wide standards (TypeScript, security, git workflow, PR comprehension g
 
 ## Stack
 
-- **Framework:** Next.js 16 (App Router), React 19, TypeScript 5 (strict)
+- **Framework:** Next.js 16 (App Router), React 19, TypeScript 6 (strict)
 - **AI:** Vercel AI SDK (`ai`, `@ai-sdk/react`), OpenAI SDK v6
 - **UI:** Tailwind CSS v4, shadcn/ui (Radix), Lucide icons, Framer Motion
 - **Forms:** React Hook Form + Zod
