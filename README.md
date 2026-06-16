@@ -23,14 +23,14 @@ The assistant uses the JSON files in `/data` as its dataset. **The `data` folder
 | **AI** | Vercel AI SDK (`ai`, `@ai-sdk/react`), OpenAI SDK v6 |
 | **UI** | Tailwind CSS v4, shadcn/ui (Radix UI), Lucide icons, Framer Motion |
 | **Forms** | React Hook Form + Zod validation |
-| **Deployment** | Docker (multi-stage, `node:20-alpine`), standalone output mode |
+| **Deployment** | Docker (multi-stage, `node:22-alpine`), standalone output mode |
 | **CI/CD** | GitHub Actions (typecheck, lint, build, security audit), semantic-release |
 
 ## Getting Started
 
 ### Prerequisites
 
-- Node.js >= 20.0.0
+- Node.js >= 22.0.0
 - An OpenAI API key
 
 ### Installation
@@ -78,7 +78,7 @@ docker build -t eventchatscheduler .
 docker run -p 3000:3000 --env-file .env.local eventchatscheduler
 ```
 
-The Docker image uses a multi-stage build with `node:20-alpine` and Next.js standalone output for minimal image size. A non-root `nextjs` user runs the production process.
+The Docker image uses a multi-stage build with `node:22-alpine` and Next.js standalone output for minimal image size. A non-root `nextjs` user runs the production process.
 
 ## Architecture
 
