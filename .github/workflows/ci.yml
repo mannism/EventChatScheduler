@@ -50,4 +50,8 @@ jobs:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY || 'sk-placeholder-ci-build-only' }}
 
       - name: Security audit
+        # Accepted-risk: postcss (GHSA-qx2v-qp2m-jg93, moderate) is nested under
+        # next@16.2.9's own bundled postcss. No clean fix exists without downgrading to
+        # next@9.x (breaking change). Suppressed via --audit-level=high. Track upstream:
+        # https://github.com/vercel/next.js — upgrade next@16.3.0+ when available.
         run: npm audit --production --audit-level=high
