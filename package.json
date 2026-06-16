@@ -33,6 +33,12 @@
     "tailwind-merge": "^3.6.0",
     "zod": "^4.4.3"
   },
+  "overrides": {
+    "hono": ">=4.12.25",
+    "qs": ">=6.15.2",
+    "tar": ">=7.5.16",
+    "js-yaml": ">=4.2.0"
+  },
   "devDependencies": {
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/exec": "^7.1.0",
