@@ -1,3 +1,10 @@
+## [2.5.6](https://github.com/mannism/EventChatScheduler/compare/v2.5.5...v2.5.6) (2026-06-16)
+
+
+### Bug Fixes
+
+* **security:** pin transitive deps to resolve HIGH/MEDIUM CVEs ([#40](https://github.com/mannism/EventChatScheduler/issues/40)) ([cc48013](https://github.com/mannism/EventChatScheduler/commit/cc48013cb3eed5544eb29bfddb0587c1a9577e5d))
+
 ## [2.5.5](https://github.com/mannism/EventChatScheduler/compare/v2.5.4...v2.5.5) (2026-05-04)
 
 
