@@ -4,6 +4,11 @@ on:
   push:
     branches:
       - main
+    paths-ignore:
+      - '**.md'
+      - 'LICENSE'
+      - '.gitignore'
+      - '.github/ISSUE_TEMPLATE/**'
 
 concurrency:
   group: release-${{ github.ref }}
@@ -18,6 +23,9 @@ jobs:
   release:
     name: semantic-release
     runs-on: ubuntu-latest
+    # Skip when semantic-release itself pushes the version-bump commit — it already
+    # tagged the release and there are no new releasable commits to process.
+    if: "!contains(github.event.head_commit.message, '[skip ci]')"
 
     steps:
       - name: Checkout
