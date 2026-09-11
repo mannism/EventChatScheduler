@@ -113,7 +113,7 @@ Headers configured in `next.config.ts` via `async headers()` on all routes (`/(.
 
 ### Pre-release smoke tests (Tier 2)
 
-Full cross-project OWASP checklist: `/Users/mann/Documents/Claude/proj-plan/research/security-audit-cross-project.md`.
+Full cross-project OWASP checklist: `/Users/mann/Claude/proj-plan/research/security-audit-cross-project.md`.
 
 | Test | Expected |
 |---|---|
@@ -128,7 +128,7 @@ Quarterly: OWASP ZAP against staging (first Monday of each quarter).
 
 ## Testing
 
-Tier 2 — no test framework currently in place. See `/Users/mann/Documents/Claude/testing-policy.md` for the fleet's Tier 2 baseline.
+Tier 2 — no test framework currently in place. See `/Users/mann/Claude/testing-policy.md` for the fleet's Tier 2 baseline.
 
 ## Deployment
 
