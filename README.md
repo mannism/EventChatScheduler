@@ -45,7 +45,7 @@ Create a `.env.local` file in the project root:
 
 ```env
 OPENAI_API_KEY=your_openai_api_key_here
-OPENAI_MODEL="gpt-5.4-mini"    # or your preferred model
+OPENAI_MODEL="gpt-6-luna"    # or your preferred model
 MAX_SESSIONS_PER_DAY=8
 MAX_EXHIBITORS_PER_DAY=10
 ```
@@ -53,7 +53,7 @@ MAX_EXHIBITORS_PER_DAY=10
 | Variable | Required | Description |
 |----------|----------|-------------|
 | `OPENAI_API_KEY` | Yes | Authenticates with the OpenAI API |
-| `OPENAI_MODEL` | No | Model ID used by the Vercel AI SDK (default: `gpt-5.4-mini`) |
+| `OPENAI_MODEL` | No | Model ID used by the Vercel AI SDK (default: `gpt-6-luna`) |
 | `MAX_SESSIONS_PER_DAY` | No | Maximum personalized sessions to recommend per attendance day |
 | `MAX_EXHIBITORS_PER_DAY` | No | Maximum exhibitor recommendations per attendance day |
 

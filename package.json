@@ -13,7 +13,7 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "@ai-sdk/openai": "^3.0.71",
+    "@ai-sdk/openai": "^3.0.131",
     "@ai-sdk/react": "^3.0.207",
     "@hookform/resolvers": "^5.4.0",
     "ai": "^6.0.116",
