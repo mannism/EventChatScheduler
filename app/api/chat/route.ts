@@ -65,6 +65,15 @@ const systemPromptText = fs.readFileSync(
     path.join(process.cwd(), 'data/Scheduler_System_Prompt.txt'), 'utf8'
 );
 
+/**
+ * Chat model default. Overridable via OPENAI_MODEL.
+ * gpt-6-luna is a reasoning model: Chat Completions function calling only works at
+ * effort 'none', and default effort ('medium') would bill hidden reasoning tokens
+ * against the 1024-token output cap and add first-token latency to the stream.
+ */
+const DEFAULT_CHAT_MODEL = 'gpt-6-luna';
+const CHAT_REASONING_EFFORT = 'none';
+
 // Environment-configured caps (read once at module load)
 const MAX_SESSIONS = parseInt(process.env.MAX_SESSIONS_PER_DAY || "3", 10);
 const MAX_EXHIBITORS = parseInt(process.env.MAX_EXHIBITORS_PER_DAY || "3", 10);
@@ -226,7 +235,8 @@ export async function POST(req: NextRequest) {
         const dynamicPrompt = `User context: ${userContextJson}`;
 
         const result = await streamText({
-            model: openai(process.env.OPENAI_MODEL || 'gpt-5.4-mini'),
+            model: openai(process.env.OPENAI_MODEL || DEFAULT_CHAT_MODEL),
+            providerOptions: { openai: { reasoningEffort: CHAT_REASONING_EFFORT } },
             maxOutputTokens: 1024,
             system: staticPrompt + '\n\n' + dynamicPrompt,
             messages: processMessages,
